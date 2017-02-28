@@ -108,6 +108,13 @@
 			<version>2.5</version>
 		</dependency>
 
+		<!-- JANSI -->
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.14</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

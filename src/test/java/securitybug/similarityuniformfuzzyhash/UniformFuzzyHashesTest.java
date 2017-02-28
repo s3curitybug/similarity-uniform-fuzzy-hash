@@ -69,17 +69,17 @@ public class UniformFuzzyHashesTest {
     public void similaritiesBetweenFileAndDirectoryFilesTest() throws IOException {
 
         final int factor = 10;
-        final File file =
-                TestResourcesUtils.getTestResourceFile("Malware/Trojan.Win32.Pincav.cjwu/c_7c9b");
+        final File file = TestResourcesUtils.getTestResourceFile(
+                "Malware/Trojan.Win32.Pincav.cjwu/c_7c9b");
         final File directory = TestResourcesUtils.getTestResourceFile("Malware");
+        final SimilaritySortCriterias sortCriteria = SimilaritySortCriterias.HASH_TO_HASHES_DESC;
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
 
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printSimilarities(
-                file.getName(), hash, namesToHashes, SimilaritySortCriterias.HASH_TO_HASHES_DESC);
+        UniformFuzzyHashes.printSimilarities(file.getName(), hash, namesToHashes, sortCriteria);
 
     }
 
