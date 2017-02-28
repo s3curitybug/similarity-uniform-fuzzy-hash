@@ -769,6 +769,10 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("File is null");
         }
 
+        if (file.exists() && !file.isFile()) {
+            throw new IllegalArgumentException("File is not a file.");
+        }
+
         Set<String> names = namesToHashes.keySet();
         List<String> lines = new ArrayList<String>(names.size());
 
