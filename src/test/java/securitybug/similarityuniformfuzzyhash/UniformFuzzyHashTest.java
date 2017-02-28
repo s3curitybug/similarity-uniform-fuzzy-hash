@@ -29,7 +29,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 10;
-        final File file = TestResourcesUtils.getFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
@@ -50,7 +50,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 10;
-        final File file = TestResourcesUtils.getFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
@@ -64,17 +64,17 @@ public class UniformFuzzyHashTest {
     }
 
     /**
-     * Hash statistics test.
+     * Hash characteristics test.
      * Tests the statistics of a hash computed over a test resource file.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
     @Test
-    public void hashStatisticsTest()
+    public void hashCharacteristicsTest()
             throws IOException {
 
         final int factor = 10;
-        final File file = TestResourcesUtils.getFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
         final String statisticsFormat = "%s: %s";
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
@@ -101,8 +101,8 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 1000;
-        final File file1 = TestResourcesUtils.getFile("InsideDoc/Image1.png");
-        final File file2 = TestResourcesUtils.getFile("InsideDoc/Doc1.docx");
+        final File file1 = TestResourcesUtils.getTestResourceFile("InsideDoc/Image1.png");
+        final File file2 = TestResourcesUtils.getTestResourceFile("InsideDoc/Doc1.docx");
 
         UniformFuzzyHash hash1 = new UniformFuzzyHash(file1, factor);
         UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);

@@ -1,7 +1,11 @@
 package securitybug.similarityuniformfuzzyhash;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,6 +16,22 @@ import java.util.List;
  *
  */
 public final class ToStringUtils {
+
+    /**
+     * Charset for reading and writing files of Uniform Fuzzy Hashes.
+     */
+    public static final Charset UFH_FILES_ECONDING = StandardCharsets.UTF_8;
+
+    /**
+     * Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
+     * be ignored.
+     */
+    public static final String IGNORE_MARK = "#";
+
+    /**
+     * Separator between name and hash for a named Uniform Fuzzy Hash string representation.
+     */
+    public static final String NAME_SEPARATOR = " > ";
 
     /**
      * Separator between factor and blocks for a Uniform Fuzzy Hash string representation.
@@ -29,6 +49,41 @@ public final class ToStringUtils {
     public static final String BLOCK_INNER_SEPARATOR = "-";
 
     /**
+     * Tabulation.
+     */
+    public static final String TAB = "   ";
+
+    /**
+     * String which will be used when a name is null.
+     */
+    public static final String NULL_NAME = "null";
+
+    /**
+     * String which will be used when a name is empty.
+     */
+    public static final String EMPTY_NAME = "-";
+
+    /**
+     * String which will be used when a value is null.
+     */
+    public static final String NULL_VALUE = "-";
+
+    /**
+     * String which will be used when a hash name is null or empty.
+     */
+    public static final String NULL_OR_EMPTY_HASH_NAME = "Hash";
+
+    /**
+     * Hash name to hashes string.
+     */
+    public static final String HASH_TO_HASHES_STR = "%s -> Hashes";
+
+    /**
+     * Hashes to hash name string.
+     */
+    public static final String HASHES_TO_HASH_STR = "Hashes -> %s";
+
+    /**
      * String representing the format in which decimal numbers are printed.
      */
     public static final String DECIMALS_FORMAT_STR = "0.0##";
@@ -37,6 +92,11 @@ public final class ToStringUtils {
      * Format in which decimal numbers are printed.
      */
     public static final DecimalFormat DECIMALS_FORMAT = new DecimalFormat(DECIMALS_FORMAT_STR);
+
+    /**
+     * Hexadecimal base.
+     */
+    protected static final int HEX_RADIX = 16;
 
     /**
      * Maximum number of characters of an integer string representation.
@@ -49,12 +109,6 @@ public final class ToStringUtils {
      */
     protected static final int HEX_INT_MAX_CHARS =
             Integer.toHexString(Integer.MAX_VALUE).length();
-
-    /**
-     * Hexadecimal base.
-     */
-    protected static final int HEX_RADIX = 16;
-
 
     /**
      * Enum of Uniform Fuzzy Hash characteristics.
@@ -188,6 +242,13 @@ public final class ToStringUtils {
     }
 
     /**
+     * Private constructor.
+     */
+    private ToStringUtils() {
+
+    }
+
+    /**
      * @param hash A Uniform Fuzzy Hash.
      * @return The maximum length of the hash string representation.
      */
@@ -201,10 +262,130 @@ public final class ToStringUtils {
     }
 
     /**
-     * Private constructor.
+     * Checks a name.
+     * 
+     * @param name The name to check.
+     * @return NULL_NAME if the name is null, EMPTY_NAME if the name is empty after trimming it, or
+     *         the original name trimmed otherwise.
      */
-    private ToStringUtils() {
+    protected static String checkName(
+            String name) {
 
+        if (name == null) {
+            return NULL_NAME;
+        }
+
+        name = name.trim();
+
+        if (name.isEmpty()) {
+            return EMPTY_NAME;
+        }
+
+        return name;
+
+    }
+
+    /**
+     * Checks a hash name.
+     * 
+     * @param hashName The hash name to check.
+     * @return NULL_OR_EMPTY_HASH_NAME if the hash name is null or empty after trimming it, or the
+     *         original hash name trimmed otherwise.
+     */
+    protected static String checkHashName(
+            String hashName) {
+
+        if (hashName == null) {
+            hashName = NULL_OR_EMPTY_HASH_NAME;
+        }
+
+        hashName = hashName.trim();
+
+        if (hashName.isEmpty()) {
+            return NULL_OR_EMPTY_HASH_NAME;
+        }
+
+        return hashName;
+
+    }
+
+    /**
+     * @param checkNames True to check the Strings as names before computing their length.
+     * @param strings Collection of Strings.
+     * @return The length of the longest String within the introduced collection.
+     */
+    protected static int getMaxLength(
+            boolean checkNames,
+            Collection<String> strings) {
+
+        int maxLength = 0;
+
+        for (String string : strings) {
+
+            if (checkNames) {
+                string = checkName(string);
+            } else if (string == null) {
+                continue;
+            }
+
+            if (string.length() > maxLength) {
+                maxLength = string.length();
+            }
+
+        }
+
+        return maxLength;
+
+    }
+
+    /**
+     * @param checkNames True to check the Strings as names before computing their length.
+     * @param strings Varargs of Strings.
+     * @return The length of the longest String within the introduced varargs.
+     */
+    protected static int getMaxLength(
+            boolean checkNames,
+            String... strings) {
+
+        return getMaxLength(checkNames, Arrays.asList(strings));
+
+    }
+
+    /**
+     * @param string A string to be repeated.
+     * @param n Amount of repetitions.
+     * @return A string formed by the repetition of the introduced string n times.
+     */
+    protected static String repeatString(String string, int n) {
+
+        if (n < 1) {
+            return "";
+        }
+
+        StringBuilder stringBuilder = new StringBuilder(string.length() * n);
+
+        for (int i = 0; i < n; i++) {
+            stringBuilder.append(string);
+        }
+
+        return stringBuilder.toString();
+
+    }
+
+    /**
+     * @param n Amount of spaces.
+     * @return A string composed of n spaces.
+     */
+    protected static String spaces(int n) {
+        return repeatString(" ", n);
+    }
+
+    /**
+     * @param n Amount of hyphens.
+     * @return A string composed of n hyphens.
+     */
+    protected static String hyphens(int n) {
+        return repeatString("-", n);
     }
 
 }

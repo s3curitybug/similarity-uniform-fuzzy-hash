@@ -21,19 +21,29 @@ public final class TestResourcesUtils {
     public static final String TARGET_PATH = "target/";
 
     /**
+     * Private constuctror.
+     */
+    private TestResourcesUtils() {
+
+    }
+
+    /**
      * @param fileName A test resource file name.
      * @return The test resource file.
      */
-    public static File getFile(String fileName) {
+    public static File getTestResourceFile(String fileName) {
 
         return new File(TEST_RESOURCES_PATH + fileName);
 
     }
 
     /**
-     * Private constuctror.
+     * @param fileName A target file name.
+     * @return The target file.
      */
-    private TestResourcesUtils() {
+    public static File getTargetFile(String fileName) {
+
+        return new File(TARGET_PATH + fileName);
 
     }
 
