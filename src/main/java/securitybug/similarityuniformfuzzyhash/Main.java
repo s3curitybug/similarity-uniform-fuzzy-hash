@@ -79,7 +79,7 @@ public final class Main {
         // recursive.
         option = new Option(
                 "r",
-                "R",
+                "recursive",
                 false,
                 "Traverse nested directories recursively.");
         option.setRequired(false);
