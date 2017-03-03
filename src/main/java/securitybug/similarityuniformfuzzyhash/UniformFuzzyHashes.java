@@ -6,6 +6,7 @@ import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASHES_TO_HAS
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASH_TO_HASHES_STR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_TRUNCATE_LENGTH;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_VALUE;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.TAB;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.UFH_FILES_ECONDING;
@@ -779,7 +780,7 @@ public final class UniformFuzzyHashes {
         for (String name : names) {
 
             UniformFuzzyHash hash = namesToHashes.get(name);
-            name = checkName(name);
+            name = checkName(name, -1);
 
             if (hash != null) {
                 String hashString = hash.toString();
@@ -845,7 +846,7 @@ public final class UniformFuzzyHashes {
 
             // Name.
             String name = nameSplit[0].trim();
-            name = checkName(name);
+            name = checkName(name, -1);
 
             // Hash.
             String hashString = nameSplit[1].trim();
@@ -1058,15 +1059,15 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, names);
+        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
 
         // Hash characteristics names.
         List<String> characteristicsNames = HashCharacteristics.names();
-        int characteristicsNamesMaxLength = getMaxLength(true, characteristicsNames);
+        int characteristicsNamesMaxLength = getMaxLength(true, -1, characteristicsNames);
 
         // Column size.
         int firstColumnSize = namesMaxLength + TAB.length();
-        int columnSize = getMaxLength(true,
+        int columnSize = getMaxLength(true, -1,
                 Integer.toString(Integer.MAX_VALUE), DECIMALS_FORMAT_STR);
         columnSize = Math.max(columnSize, characteristicsNamesMaxLength) + TAB.length();
 
@@ -1097,7 +1098,7 @@ public final class UniformFuzzyHashes {
         for (String name : names) {
 
             UniformFuzzyHash hash = namesToHashes.get(name);
-            name = checkName(name);
+            name = checkName(name, NAME_TRUNCATE_LENGTH);
 
             printColumn(name, firstColumnSize);
             System.out.print('|' + TAB);
@@ -1154,7 +1155,7 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, names);
+        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
 
         // Column size.
         int firstColumnSize = namesMaxLength + TAB.length();
@@ -1166,7 +1167,7 @@ public final class UniformFuzzyHashes {
         printColumn("", firstColumnSize);
         System.out.print('|' + TAB);
         for (String name : names) {
-            name = checkName(name);
+            name = checkName(name, NAME_TRUNCATE_LENGTH);
             printColumn(name, columnSize);
         }
         System.out.println();
@@ -1177,7 +1178,7 @@ public final class UniformFuzzyHashes {
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1);
+            name1 = checkName(name1, NAME_TRUNCATE_LENGTH);
             printColumn(name1, firstColumnSize);
             System.out.print('|' + TAB);
 
@@ -1248,7 +1249,7 @@ public final class UniformFuzzyHashes {
             SimilaritySortCriterias similaritySortCriteria) {
 
         // Parameters check.
-        hashName = checkHashName(hashName);
+        hashName = checkHashName(hashName, NAME_TRUNCATE_LENGTH);
 
         if (hash == null) {
             throw new NullPointerException("Hash is null.");
@@ -1267,11 +1268,11 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, names);
+        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
 
         // Column size.
         int firstColumnSize = namesMaxLength + TAB.length();
-        int columnSize = getMaxLength(true,
+        int columnSize = getMaxLength(true, -1,
                 DECIMALS_FORMAT_STR, hashToHashesString, hashesToHashString)
                 + TAB.length();
 
@@ -1289,7 +1290,7 @@ public final class UniformFuzzyHashes {
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1);
+            name1 = checkName(name1, NAME_TRUNCATE_LENGTH);
 
             printColumn(name1, firstColumnSize);
             System.out.print('|' + TAB);
