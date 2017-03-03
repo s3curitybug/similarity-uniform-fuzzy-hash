@@ -56,7 +56,7 @@ public final class VisualRepresentation {
     /**
      * Format in which accumulated wrap length per line will be formatted during a string wrap.
      */
-    private static final String ACCUMULATED_WRAP_FORMAT = "%4s  %s";
+    private static final String ACCUMULATED_WRAP_FORMAT = "%5s  %s";
 
     /**
      * Format in which percent accumulated wrap length per line will be formatted during a string
@@ -378,7 +378,7 @@ public final class VisualRepresentation {
 
         Iterator<String> iterator1 = wrappedRepresentation1.iterator();
         Iterator<String> iterator2 = wrappedRepresentation2.iterator();
-        final int separation = 6;
+        final int separation = 5;
         while (iterator1.hasNext()) {
             AnsiConsole.out.println(iterator1.next() + spaces(separation) + iterator2.next());
         }
