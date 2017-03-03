@@ -1343,8 +1343,12 @@ public final class UniformFuzzyHashes {
      * @param text The string to print.
      * @param columnSize Amount of characters to print.
      */
-    private static void printColumn(String text, int columnSize) {
+    private static void printColumn(
+            String text,
+            int columnSize) {
+
         System.out.print(text + spaces(columnSize - text.length()));
+
     }
 
 }

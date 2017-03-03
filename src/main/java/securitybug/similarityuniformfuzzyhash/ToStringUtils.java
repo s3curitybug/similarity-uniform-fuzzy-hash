@@ -159,42 +159,41 @@ public final class ToStringUtils {
          * Constructor.
          * 
          * @param name The characteristic name.
-         */
-        HashCharacteristics(String name) {
-            this.name = name;
-            this.getter = null;
-        }
-
-        /**
-         * Constructor.
-         * 
-         * @param name The characteristic name.
          * @param getter The characteristic getter.
          */
-        HashCharacteristics(String name, String getter) {
+        HashCharacteristics(
+                String name,
+                String getter) {
+
             this.name = name;
             this.getter = getter;
+
         }
 
         /**
          * @return The characteristic name.
          */
         public String getName() {
+
             return name;
+
         }
 
         /**
          * @return The characteristic getter.
          */
         public String getGetter() {
+
             return getter;
+
         }
 
         /**
          * @param hash A Uniform Fuzzy Hash.
          * @return The hash invocation result of this characteristic getter.
          */
-        public String getCharaceristicValue(UniformFuzzyHash hash) {
+        public String getCharaceristicValue(
+                UniformFuzzyHash hash) {
 
             if (hash == null) {
                 throw new NullPointerException("Hash is null.");
@@ -252,7 +251,8 @@ public final class ToStringUtils {
      * @param hash A Uniform Fuzzy Hash.
      * @return The maximum length of the hash string representation.
      */
-    protected static int getHashMaxLength(UniformFuzzyHash hash) {
+    protected static int getHashMaxLength(
+            UniformFuzzyHash hash) {
 
         int factorPartMaxLength = INT_MAX_CHARS + FACTOR_SEPARATOR.length();
         int blockMaxLength = 2 * HEX_INT_MAX_CHARS + BLOCK_INNER_SEPARATOR.length();
@@ -356,7 +356,9 @@ public final class ToStringUtils {
      * @param n Amount of repetitions.
      * @return A string formed by the repetition of the introduced string n times.
      */
-    protected static String repeatString(String string, int n) {
+    protected static String repeatString(
+            String string,
+            int n) {
 
         if (n < 1) {
             return "";
@@ -376,16 +378,22 @@ public final class ToStringUtils {
      * @param n Amount of spaces.
      * @return A string composed of n spaces.
      */
-    protected static String spaces(int n) {
+    protected static String spaces(
+            int n) {
+
         return repeatString(" ", n);
+
     }
 
     /**
      * @param n Amount of hyphens.
      * @return A string composed of n hyphens.
      */
-    protected static String hyphens(int n) {
+    protected static String hyphens(
+            int n) {
+
         return repeatString("-", n);
+
     }
 
 }

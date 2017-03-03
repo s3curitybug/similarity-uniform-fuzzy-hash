@@ -49,7 +49,7 @@ public class UniformFuzzyHashesTest {
             throws IOException {
 
         final int factor = 10;
-        final File directory = TestResourcesUtils.getTestResourceFile("Malware");
+        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
 
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
@@ -66,12 +66,12 @@ public class UniformFuzzyHashesTest {
      * @throws IOException In case an exception occurs reading a test resource file.
      */
     @Test
-    public void similaritiesBetweenFileAndDirectoryFilesTest() throws IOException {
+    public void similaritiesBetweenFileAndDirectoryFilesTest()
+            throws IOException {
 
         final int factor = 10;
-        final File file = TestResourcesUtils.getTestResourceFile(
-                "Malware/Trojan.Win32.Pincav.cjwu/c_7c9b");
-        final File directory = TestResourcesUtils.getTestResourceFile("Malware");
+        final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
+        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
         final SimilaritySortCriterias sortCriteria = SimilaritySortCriterias.HASH_TO_HASHES_DESC;
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);

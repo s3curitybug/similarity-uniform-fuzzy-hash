@@ -41,7 +41,8 @@ public final class Main {
      * 
      * @param args Run arguments.
      */
-    public static void main(String[] args) {
+    public static void main(
+            String[] args) {
 
         Options options = new Options();
         Option option = null;
@@ -467,7 +468,8 @@ public final class Main {
      * @param factorArg The factor argument to check.
      * @return The parsed factor.
      */
-    private static int checkFactorArg(String factorArg) {
+    private static int checkFactorArg(
+            String factorArg) {
 
         if (StringUtils.isEmpty(factorArg)) {
             throw new IllegalArgumentException("Please, introduce a factor.");

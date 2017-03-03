@@ -101,8 +101,8 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 1000;
-        final File file1 = TestResourcesUtils.getTestResourceFile("InsideDoc/Image1.png");
-        final File file2 = TestResourcesUtils.getTestResourceFile("InsideDoc/Doc1.docx");
+        final File file1 = TestResourcesUtils.getTestResourceFile("Images/Image1.bmp");
+        final File file2 = TestResourcesUtils.getTestResourceFile("Images/Image2.bmp");
 
         UniformFuzzyHash hash1 = new UniformFuzzyHash(file1, factor);
         UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);
