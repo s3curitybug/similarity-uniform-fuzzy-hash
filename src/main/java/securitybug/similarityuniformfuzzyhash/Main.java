@@ -205,13 +205,18 @@ public final class Main {
 
         // Parse arguments.
         CommandLine cmd = null;
+        HelpFormatter helpFormatter = new HelpFormatter();
         try {
             cmd = new DefaultParser().parse(options, args);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            new HelpFormatter().printHelp(APP_NAME, options);
+            helpFormatter.printHelp(APP_NAME, options);
             System.exit(1);
             return;
+        }
+
+        if (cmd.getOptions().length == 0) {
+            helpFormatter.printHelp(APP_NAME, options);
         }
 
         // Obtain values.
@@ -539,6 +544,7 @@ public final class Main {
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
             System.exit(1);
+            return;
         }
 
     }
