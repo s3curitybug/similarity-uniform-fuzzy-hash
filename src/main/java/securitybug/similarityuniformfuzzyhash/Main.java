@@ -231,7 +231,7 @@ public final class Main {
                 cmd.getOptionValue("computeDirectoryHashes");
 
         boolean recursiveArg =
-                cmd.hasOption("R");
+                cmd.hasOption("recursive");
 
         String saveToFileOverwritingArg =
                 cmd.getOptionValue("saveToFileOverwriting");
