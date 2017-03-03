@@ -217,6 +217,7 @@ public final class Main {
 
         if (cmd.getOptions().length == 0) {
             helpFormatter.printHelp(APP_NAME, options);
+            return;
         }
 
         // Obtain values.
