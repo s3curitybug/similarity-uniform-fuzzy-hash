@@ -1,5 +1,7 @@
 package securitybug.similarityuniformfuzzyhash;
 
+import static org.apache.commons.lang.StringUtils.isBlank;
+import static org.apache.commons.lang.StringUtils.isNotBlank;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR;
 
 import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilaritySortCriterias;
@@ -10,7 +12,6 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 import java.util.LinkedHashMap;
@@ -267,191 +268,232 @@ public final class Main {
         String compareDirectoryFilesNestedArg =
                 cmd.getOptionValue("compareDirectoryFilesNested");
 
+        // Execute commands.
         try {
 
-            Map<String, UniformFuzzyHash> namesToHashes =
+            // Logic checks.
+            boolean computeArg = isNotBlank(computeFileHashArg)
+                    || isNotBlank(computeDirectoryFilesHashesArg)
+                    || isNotBlank(computeDirectoryFilesHashesNestedArg);
+
+            boolean saveArg = isNotBlank(saveToFileOverwritingArg)
+                    || isNotBlank(saveToFileAppendingArg);
+
+            boolean compareFromArg = isNotBlank(compareFileArg);
+
+            boolean compareToArg = isNotBlank(toFileArg)
+                    || isNotBlank(toFileVisuallyArg)
+                    || isNotBlank(toSavedHashesArg)
+                    || isNotBlank(toDirectoryFilesArg)
+                    || isNotBlank(toDirectoryFilesNestedArg);
+
+            boolean factorRequired = computeArg
+                    || isNotBlank(representFileVisuallyArg)
+                    || isNotBlank(compareFileArg)
+                    || isNotBlank(compareDirectoryFilesArg)
+                    || isNotBlank(compareDirectoryFilesNestedArg);
+
+            if (saveArg && !computeArg) {
+                throw new IllegalStateException(
+                        "Please, introduce a file or a directory to compute its hash or hashes.");
+            }
+
+            if (compareFromArg && !compareToArg) {
+                throw new IllegalStateException("Please, introduce a file, directory,"
+                        + " or file of saved hashes to compare to.");
+            }
+
+            if (compareToArg && !compareFromArg) {
+                throw new IllegalStateException("Please, introduce a file to compare.");
+            }
+
+            int factor = 0;
+            File file = null;
+            File directory = null;
+            UniformFuzzyHash hash = null;
+            Map<String, UniformFuzzyHash> hashes = null;
+
+            Map<String, UniformFuzzyHash> computedHashes =
                     new LinkedHashMap<String, UniformFuzzyHash>();
+            File compareFile = null;
+            UniformFuzzyHash compareHash = null;
 
-            // Compute hashes.
-            if (!StringUtils.isEmpty(computeFileHashArg)) {
+            if (factorRequired) {
+                if (isBlank(factorArg)) {
+                    throw new IllegalStateException("Please, introduce a factor.");
+                }
+                try {
+                    factor = Integer.parseInt(factorArg);
+                } catch (NumberFormatException numberFormatException) {
+                    throw new IllegalArgumentException("Factor must be a number.");
+                }
+            }
 
-                int factor = checkFactorArg(factorArg);
-                File file = new File(computeFileHashArg);
-                UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
-                namesToHashes.put(file.getName(), hash);
+            // Compute file hash.
+            if (isNotBlank(computeFileHashArg)) {
 
-                if (StringUtils.isEmpty(saveToFileOverwritingArg)
-                        && StringUtils.isEmpty(saveToFileAppendingArg)) {
+                file = new File(computeFileHashArg);
+                hash = new UniformFuzzyHash(file, factor);
+                computedHashes.put(file.getName(), hash);
+
+                if (!saveArg) {
                     System.out.println(file.getName() + NAME_SEPARATOR + hash);
                 }
 
             }
 
-            if (!StringUtils.isEmpty(computeDirectoryFilesHashesArg)) {
+            // Compute directory files hashes.
+            if (isNotBlank(computeDirectoryFilesHashesArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File directory = new File(computeDirectoryFilesHashesArg);
-                Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                        .computeNamedHashesFromDirectoryFiles(directory, factor, false);
-                namesToHashes.putAll(namesToHashes1);
+                directory = new File(computeDirectoryFilesHashesArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, false);
+                computedHashes.putAll(hashes);
 
-                if (StringUtils.isEmpty(saveToFileOverwritingArg)
-                        && StringUtils.isEmpty(saveToFileAppendingArg)) {
-                    for (String name : namesToHashes1.keySet()) {
-                        System.out.println(name + NAME_SEPARATOR + namesToHashes1.get(name));
+                if (!saveArg) {
+                    for (String name : hashes.keySet()) {
+                        System.out.println(name + NAME_SEPARATOR + hashes.get(name));
                     }
                 }
 
             }
 
-            if (!StringUtils.isEmpty(computeDirectoryFilesHashesNestedArg)) {
+            // Compute directory files hashes nested.
+            if (isNotBlank(computeDirectoryFilesHashesNestedArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File directory = new File(computeDirectoryFilesHashesNestedArg);
-                Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                        .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-                namesToHashes.putAll(namesToHashes1);
+                directory = new File(computeDirectoryFilesHashesNestedArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, true);
+                computedHashes.putAll(hashes);
 
-                if (StringUtils.isEmpty(saveToFileOverwritingArg)
-                        && StringUtils.isEmpty(saveToFileAppendingArg)) {
-                    for (String name : namesToHashes1.keySet()) {
-                        System.out.println(name + NAME_SEPARATOR + namesToHashes1.get(name));
+                if (!saveArg) {
+                    for (String name : hashes.keySet()) {
+                        System.out.println(name + NAME_SEPARATOR + hashes.get(name));
                     }
                 }
 
             }
 
-            // Save to file.
-            if (!StringUtils.isEmpty(saveToFileOverwritingArg)) {
+            // Save to file overwriting.
+            if (isNotBlank(saveToFileOverwritingArg)) {
 
-                File storageFile = new File(saveToFileOverwritingArg);
-                UniformFuzzyHashes.saveToFile(namesToHashes, storageFile, false);
-
-            }
-
-            if (!StringUtils.isEmpty(saveToFileAppendingArg)) {
-
-                File storageFile = new File(saveToFileAppendingArg);
-                UniformFuzzyHashes.saveToFile(namesToHashes, storageFile, true);
+                file = new File(saveToFileOverwritingArg);
+                UniformFuzzyHashes.saveToFile(computedHashes, file, false);
 
             }
 
-            // Represent file visually
-            if (!StringUtils.isEmpty(representFileVisuallyArg)) {
+            // Save to file appending.
+            if (isNotBlank(saveToFileAppendingArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File file = new File(representFileVisuallyArg);
-                UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
+                file = new File(saveToFileAppendingArg);
+                UniformFuzzyHashes.saveToFile(computedHashes, file, true);
+
+            }
+
+            // Represent file visually.
+            if (isNotBlank(representFileVisuallyArg)) {
+
+                file = new File(representFileVisuallyArg);
+                hash = new UniformFuzzyHash(file, factor);
 
                 VisualRepresentation.print(hash);
 
             }
 
             // Compare file.
-            if (!StringUtils.isEmpty(compareFileArg)) {
+            if (isNotBlank(compareFileArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File file1 = new File(compareFileArg);
-                UniformFuzzyHash hash1 = new UniformFuzzyHash(file1, factor);
+                compareFile = new File(compareFileArg);
+                compareHash = new UniformFuzzyHash(compareFile, factor);
 
-                // To file.
-                if (!StringUtils.isEmpty(toFileArg)) {
+            }
 
-                    File file2 = new File(toFileArg);
-                    UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);
+            // To file.
+            if (isNotBlank(toFileArg)) {
 
-                    System.out.println(hash1.similarity(hash2));
+                file = new File(toFileArg);
+                hash = new UniformFuzzyHash(file, factor);
 
-                }
+                System.out.println(compareHash.similarity(hash));
 
-                // To file visually.
-                if (!StringUtils.isEmpty(toFileVisuallyArg)) {
+            }
 
-                    File file2 = new File(toFileVisuallyArg);
-                    UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);
+            // To file visually.
+            if (isNotBlank(toFileVisuallyArg)) {
 
-                    VisualRepresentation.printCompared(hash1, hash2);
+                file = new File(toFileVisuallyArg);
+                hash = new UniformFuzzyHash(file, factor);
 
-                    System.out.println(hash1.similarity(hash2));
+                VisualRepresentation.printCompared(compareHash, hash);
 
-                }
+                System.out.println(compareHash.similarity(hash));
 
-                // To saved hashes.
-                if (!StringUtils.isEmpty(toSavedHashesArg)) {
+            }
 
-                    File storageFile = new File(toSavedHashesArg);
-                    Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                            .loadFromFile(storageFile);
+            // To saved hashes.
+            if (isNotBlank(toSavedHashesArg)) {
 
-                    UniformFuzzyHashes.printSimilarities(file1.getName(), hash1, namesToHashes1,
-                            StringUtils.isEmpty(sortingArg)
-                                    ? null
-                                    : SimilaritySortCriterias.valueOf(sortingArg));
+                file = new File(toSavedHashesArg);
+                hashes = UniformFuzzyHashes.loadFromFile(file);
 
-                }
+                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
+                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
 
-                // To directory files.
-                if (!StringUtils.isEmpty(toDirectoryFilesArg)) {
+            }
 
-                    File directory = new File(toDirectoryFilesArg);
-                    Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                            .computeNamedHashesFromDirectoryFiles(directory, factor, false);
+            // To directory files.
+            if (isNotBlank(toDirectoryFilesArg)) {
 
-                    UniformFuzzyHashes.printSimilarities(file1.getName(), hash1, namesToHashes1,
-                            StringUtils.isEmpty(sortingArg)
-                                    ? null
-                                    : SimilaritySortCriterias.valueOf(sortingArg));
+                directory = new File(toDirectoryFilesArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, false);
 
-                }
+                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
+                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
 
-                // To directory files nested.
-                if (!StringUtils.isEmpty(toDirectoryFilesNestedArg)) {
+            }
 
-                    File directory = new File(toDirectoryFilesNestedArg);
-                    Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                            .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+            // To directory files nested.
+            if (isNotBlank(toDirectoryFilesNestedArg)) {
 
-                    UniformFuzzyHashes.printSimilarities(file1.getName(), hash1, namesToHashes1,
-                            StringUtils.isEmpty(sortingArg)
-                                    ? null
-                                    : SimilaritySortCriterias.valueOf(sortingArg));
+                directory = new File(toDirectoryFilesNestedArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, true);
 
-                }
+                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
+                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
 
             }
 
             // Compare saved hashes.
-            if (!StringUtils.isEmpty(compareSavedHashesArg)) {
+            if (isNotBlank(compareSavedHashesArg)) {
 
-                File storageFile = new File(compareSavedHashesArg);
-                Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                        .loadFromFile(storageFile);
+                file = new File(compareSavedHashesArg);
+                hashes = UniformFuzzyHashes.loadFromFile(file);
 
-                UniformFuzzyHashes.printSimilarityTable(namesToHashes1);
+                UniformFuzzyHashes.printSimilarityTable(hashes);
 
             }
 
             // Compare directory files.
-            if (!StringUtils.isEmpty(compareDirectoryFilesArg)) {
+            if (isNotBlank(compareDirectoryFilesArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File directory = new File(compareDirectoryFilesArg);
-                Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                        .computeNamedHashesFromDirectoryFiles(directory, factor, false);
+                directory = new File(compareDirectoryFilesArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, false);
 
-                UniformFuzzyHashes.printSimilarityTable(namesToHashes1);
+                UniformFuzzyHashes.printSimilarityTable(hashes);
 
             }
 
             // Compare directory files nested.
-            if (!StringUtils.isEmpty(compareDirectoryFilesNestedArg)) {
+            if (isNotBlank(compareDirectoryFilesNestedArg)) {
 
-                int factor = checkFactorArg(factorArg);
-                File directory = new File(compareDirectoryFilesNestedArg);
-                Map<String, UniformFuzzyHash> namesToHashes1 = UniformFuzzyHashes
-                        .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+                directory = new File(compareDirectoryFilesNestedArg);
+                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                        directory, factor, true);
 
-                UniformFuzzyHashes.printSimilarityTable(namesToHashes1);
+                UniformFuzzyHashes.printSimilarityTable(hashes);
 
             }
 
@@ -459,31 +501,6 @@ public final class Main {
             System.out.println(exception.getMessage());
             System.exit(1);
         }
-
-    }
-
-    /**
-     * Checks the factor argument.
-     * 
-     * @param factorArg The factor argument to check.
-     * @return The parsed factor.
-     */
-    private static int checkFactorArg(
-            String factorArg) {
-
-        if (StringUtils.isEmpty(factorArg)) {
-            throw new IllegalArgumentException("Please, introduce a factor.");
-        }
-
-        int factor = 0;
-
-        try {
-            factor = Integer.parseInt(factorArg);
-        } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException("Factor must be a number.");
-        }
-
-        return factor;
 
     }
 

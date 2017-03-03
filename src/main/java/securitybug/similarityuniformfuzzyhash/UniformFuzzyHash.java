@@ -323,12 +323,12 @@ public class UniformFuzzyHash {
         }
 
         // Split factor from blocks.
-        String[] factorSplit = hashString.split(FACTOR_SEPARATOR);
+        String[] factorSplit = hashString.split(FACTOR_SEPARATOR.trim());
 
         if (factorSplit.length != 1 && factorSplit.length != 2) {
             throw new IllegalArgumentException(String.format(
                     "Hash string does not fit the format factor %s blocks.",
-                    FACTOR_SEPARATOR));
+                    FACTOR_SEPARATOR.trim()));
         }
 
         // Factor.

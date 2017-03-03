@@ -834,13 +834,13 @@ public final class UniformFuzzyHashes {
             }
 
             // Split name from hash.
-            String[] nameSplit = line.split(NAME_SEPARATOR);
+            String[] nameSplit = line.split(NAME_SEPARATOR.trim());
 
             if (nameSplit.length != 2) {
                 throw new IllegalArgumentException(String.format(
                         "Line %d does not fit the format hashName %s hash.",
                         i,
-                        NAME_SEPARATOR));
+                        NAME_SEPARATOR.trim()));
             }
 
             // Name.
