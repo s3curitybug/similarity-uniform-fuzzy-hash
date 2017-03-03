@@ -54,12 +54,6 @@ public final class ToStringUtils {
     public static final String TAB = "   ";
 
     /**
-     * Length at which names will be truncated in table prints.
-     * If this number is lower than 1, no truncation is performed.
-     */
-    public static final int NAME_TRUNCATE_LENGTH = 8;
-
-    /**
      * String which will be used when a name is null.
      */
     public static final String NULL_NAME = "null";
@@ -271,14 +265,14 @@ public final class ToStringUtils {
      * Checks a name.
      * 
      * @param name The name to check.
-     * @param truncateLength Maximum length of the returned name.
+     * @param truncateNameLength Maximum length of the returned name.
      *        If this parameter is lower than 1, no truncation is performed.
      * @return NULL_NAME if the name is null, EMPTY_NAME if the name is empty after trimming it, or
-     *         the original name trimmed and truncated to truncateLength otherwise.
+     *         the original name trimmed and truncated to truncateNameLength otherwise.
      */
     protected static String checkName(
             String name,
-            int truncateLength) {
+            int truncateNameLength) {
 
         if (name == null) {
             return NULL_NAME;
@@ -290,8 +284,8 @@ public final class ToStringUtils {
             return EMPTY_NAME;
         }
 
-        if (truncateLength > 0 && name.length() > truncateLength) {
-            name = name.substring(0, truncateLength);
+        if (truncateNameLength > 0 && name.length() > truncateNameLength) {
+            name = name.substring(0, truncateNameLength);
         }
 
         return name;
@@ -302,14 +296,14 @@ public final class ToStringUtils {
      * Checks a hash name.
      * 
      * @param hashName The hash name to check.
-     * @param truncateLength Maximum length of the returned name.
+     * @param truncateNameLength Maximum length of the returned name.
      *        If this parameter is lower than 1, no truncation is performed.
      * @return NULL_OR_EMPTY_HASH_NAME if the hash name is null or empty after trimming it, or the
-     *         original hash name trimmed otherwise.
+     *         original hash name trimmed and truncated to truncateNameLength otherwise.
      */
     protected static String checkHashName(
             String hashName,
-            int truncateLength) {
+            int truncateNameLength) {
 
         if (hashName == null) {
             hashName = NULL_OR_EMPTY_HASH_NAME;
@@ -321,8 +315,8 @@ public final class ToStringUtils {
             return NULL_OR_EMPTY_HASH_NAME;
         }
 
-        if (truncateLength > 0 && hashName.length() > truncateLength) {
-            hashName = hashName.substring(0, truncateLength);
+        if (truncateNameLength > 0 && hashName.length() > truncateNameLength) {
+            hashName = hashName.substring(0, truncateNameLength);
         }
 
         return hashName;
@@ -331,14 +325,14 @@ public final class ToStringUtils {
 
     /**
      * @param checkNames True to check the Strings as names before computing their length.
-     * @param truncateLength Introduce a number larger than 0 to truncate the Strings to a maximum
-     *        length.
+     * @param truncateNameLength In case Strings are checked as names, introduce a number larger
+     *        than 0 to truncate the Strings to a maximum length.
      * @param strings Collection of Strings.
      * @return The length of the longest String within the introduced collection.
      */
     protected static int getMaxLength(
             boolean checkNames,
-            int truncateLength,
+            int truncateNameLength,
             Collection<String> strings) {
 
         int maxLength = 0;
@@ -346,7 +340,7 @@ public final class ToStringUtils {
         for (String string : strings) {
 
             if (checkNames) {
-                string = checkName(string, truncateLength);
+                string = checkName(string, truncateNameLength);
             } else if (string == null) {
                 continue;
             }
@@ -363,17 +357,17 @@ public final class ToStringUtils {
 
     /**
      * @param checkNames True to check the Strings as names before computing their length.
-     * @param truncateLength Introduce a number larger than 0 to truncate the Strings to a maximum
-     *        length.
+     * @param truncateNameLength In case Strings are checked as names, introduce a number larger
+     *        than 0 to truncate the Strings to a maximum length.
      * @param strings Varargs of Strings.
      * @return The length of the longest String within the introduced varargs.
      */
     protected static int getMaxLength(
             boolean checkNames,
-            int truncateLength,
+            int truncateNameLength,
             String... strings) {
 
-        return getMaxLength(checkNames, truncateLength, Arrays.asList(strings));
+        return getMaxLength(checkNames, truncateNameLength, Arrays.asList(strings));
 
     }
 

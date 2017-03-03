@@ -14,6 +14,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -59,34 +60,34 @@ public final class Main {
 
         // computeFileHash.
         option = new Option(
-                "cf",
+                "cfh",
                 "computeFileHash",
                 true,
-                "Compute hash over a file.");
+                "Compute file hash.");
         option.setRequired(false);
         options.addOption(option);
 
-        // computeDirectoryFilesHashes.
+        // computeDirectoryHashes.
         option = new Option(
-                "cd",
-                "computeDirectoryFilesHashes",
+                "cdh",
+                "computeDirectoryHashes",
                 true,
-                "Compute hashes over the files of a directory.");
+                "Compute directory hashes.");
         option.setRequired(false);
         options.addOption(option);
 
-        // computeDirectoryFilesHashesNested.
+        // recursive.
         option = new Option(
-                "cdn",
-                "computeDirectoryFilesHashesNested",
-                true,
-                "Compute hashes over the files of a nested directory.");
+                "r",
+                "R",
+                false,
+                "Traverse nested directories recursively.");
         option.setRequired(false);
         options.addOption(option);
 
         // saveToFileOverwriting.
         option = new Option(
-                "so",
+                "sfo",
                 "saveToFileOverwriting",
                 true,
                 "Save computed hashes to file overwriting its content.");
@@ -95,19 +96,28 @@ public final class Main {
 
         // saveToFileAppending.
         option = new Option(
-                "sa",
+                "sfa",
                 "saveToFileAppending",
                 true,
                 "Save computed hashes to file appending them to its content.");
         option.setRequired(false);
         options.addOption(option);
 
-        // representFileVisually
+        // representFileVisually.
         option = new Option(
-                "fv",
+                "rfv",
                 "representFileVisually",
                 true,
                 "Represent file visually.");
+        option.setRequired(false);
+        options.addOption(option);
+
+        // lineWrap.
+        option = new Option(
+                "wrap",
+                "lineWrap",
+                true,
+                "Line wrap length for visual representations.");
         option.setRequired(false);
         options.addOption(option);
 
@@ -140,28 +150,19 @@ public final class Main {
 
         // toSavedHashes.
         option = new Option(
-                "ys",
+                "ysh",
                 "toSavedHashes",
                 true,
                 "...to saved hashes.");
         option.setRequired(false);
         options.addOption(option);
 
-        // toDirectoryFiles.
+        // toDirectory.
         option = new Option(
                 "yd",
-                "toDirectoryFiles",
+                "toDirectory",
                 true,
-                "...to directory files.");
-        option.setRequired(false);
-        options.addOption(option);
-
-        // toDirectoryFilesNested.
-        option = new Option(
-                "ydn",
-                "toDirectoryFilesNested",
-                true,
-                "...to nested directory files.");
+                "...to directory.");
         option.setRequired(false);
         options.addOption(option);
 
@@ -170,38 +171,35 @@ public final class Main {
                 "sort",
                 "sorting",
                 true,
-                "Sorting criteria for comparisons. "
-                        + "HASH_TO_HASHES_ASC "
-                        + "HASH_TO_HASHES_DESC "
-                        + "HASHES_TO_HASH_ASC "
-                        + "HASHES_TO_HASH_DESC ");
+                "Sorting criteria for comparisons. Possible values: "
+                        + Arrays.asList(SimilaritySortCriterias.values()));
         option.setRequired(false);
         options.addOption(option);
 
         // compareSavedHashes.
         option = new Option(
-                "xs",
+                "xsh",
                 "compareSavedHashes",
                 true,
                 "Compare saved hashes between themselves.");
         option.setRequired(false);
         options.addOption(option);
 
-        // compareDirectoryFiles.
+        // compareDirectory.
         option = new Option(
                 "xd",
-                "compareDirectoryFiles",
+                "compareDirectory",
                 true,
                 "Compare directory files between themselves.");
         option.setRequired(false);
         options.addOption(option);
 
-        // compareDirectoryFilesNested.
+        // truncateNamesLength.
         option = new Option(
-                "xdn",
-                "compareDirectoryFilesNested",
+                "trunc",
+                "truncateNamesLength",
                 true,
-                "Compare nested directory files between themselves.");
+                "Truncate names length.");
         option.setRequired(false);
         options.addOption(option);
 
@@ -223,11 +221,11 @@ public final class Main {
         String computeFileHashArg =
                 cmd.getOptionValue("computeFileHash");
 
-        String computeDirectoryFilesHashesArg =
-                cmd.getOptionValue("computeDirectoryFilesHashes");
+        String computeDirectoryHashesArg =
+                cmd.getOptionValue("computeDirectoryHashes");
 
-        String computeDirectoryFilesHashesNestedArg =
-                cmd.getOptionValue("computeDirectoryFilesHashesNested");
+        boolean recursiveArg =
+                cmd.hasOption("R");
 
         String saveToFileOverwritingArg =
                 cmd.getOptionValue("saveToFileOverwriting");
@@ -237,6 +235,9 @@ public final class Main {
 
         String representFileVisuallyArg =
                 cmd.getOptionValue("representFileVisually");
+
+        String lineWrapArg =
+                cmd.getOptionValue("lineWrap");
 
         String compareFileArg =
                 cmd.getOptionValue("compareFile");
@@ -250,11 +251,8 @@ public final class Main {
         String toSavedHashesArg =
                 cmd.getOptionValue("toSavedHashes");
 
-        String toDirectoryFilesArg =
-                cmd.getOptionValue("toDirectoryFiles");
-
-        String toDirectoryFilesNestedArg =
-                cmd.getOptionValue("toDirectoryFilesNested");
+        String toDirectoryArg =
+                cmd.getOptionValue("toDirectory");
 
         String sortingArg =
                 cmd.getOptionValue("sorting");
@@ -262,19 +260,18 @@ public final class Main {
         String compareSavedHashesArg =
                 cmd.getOptionValue("compareSavedHashes");
 
-        String compareDirectoryFilesArg =
-                cmd.getOptionValue("compareDirectoryFiles");
+        String compareDirectoryArg =
+                cmd.getOptionValue("compareDirectory");
 
-        String compareDirectoryFilesNestedArg =
-                cmd.getOptionValue("compareDirectoryFilesNested");
+        String truncateNamesLengthArg =
+                cmd.getOptionValue("truncateNamesLength");
 
         // Execute commands.
         try {
 
             // Logic checks.
             boolean computeArg = isNotBlank(computeFileHashArg)
-                    || isNotBlank(computeDirectoryFilesHashesArg)
-                    || isNotBlank(computeDirectoryFilesHashesNestedArg);
+                    || isNotBlank(computeDirectoryHashesArg);
 
             boolean saveArg = isNotBlank(saveToFileOverwritingArg)
                     || isNotBlank(saveToFileAppendingArg);
@@ -284,18 +281,31 @@ public final class Main {
             boolean compareToArg = isNotBlank(toFileArg)
                     || isNotBlank(toFileVisuallyArg)
                     || isNotBlank(toSavedHashesArg)
-                    || isNotBlank(toDirectoryFilesArg)
-                    || isNotBlank(toDirectoryFilesNestedArg);
+                    || isNotBlank(toDirectoryArg);
 
             boolean factorRequired = computeArg
                     || isNotBlank(representFileVisuallyArg)
                     || isNotBlank(compareFileArg)
-                    || isNotBlank(compareDirectoryFilesArg)
-                    || isNotBlank(compareDirectoryFilesNestedArg);
+                    || isNotBlank(compareDirectoryArg);
+
+            boolean possibleRecursive = isNotBlank(computeDirectoryHashesArg)
+                    || isNotBlank(toDirectoryArg)
+                    || isNotBlank(compareDirectoryArg);
+
+            boolean possibleTrunc = isNotBlank(toSavedHashesArg)
+                    || isNotBlank(toDirectoryArg)
+                    || isNotBlank(compareSavedHashesArg)
+                    || isNotBlank(compareDirectoryArg);
+
+            boolean possibleSort = isNotBlank(toSavedHashesArg)
+                    || isNotBlank(toDirectoryArg);
+
+            boolean possibleWrap = isNotBlank(representFileVisuallyArg)
+                    || isNotBlank(toFileVisuallyArg);
 
             if (saveArg && !computeArg) {
-                throw new IllegalStateException(
-                        "Please, introduce a file or a directory to compute its hash or hashes.");
+                throw new IllegalStateException("Please, introduce a file or a directory"
+                        + " to compute its hash or hashes before saving them.");
             }
 
             if (compareFromArg && !compareToArg) {
@@ -308,16 +318,6 @@ public final class Main {
             }
 
             int factor = 0;
-            File file = null;
-            File directory = null;
-            UniformFuzzyHash hash = null;
-            Map<String, UniformFuzzyHash> hashes = null;
-
-            Map<String, UniformFuzzyHash> computedHashes =
-                    new LinkedHashMap<String, UniformFuzzyHash>();
-            File compareFile = null;
-            UniformFuzzyHash compareHash = null;
-
             if (factorRequired) {
                 if (isBlank(factorArg)) {
                     throw new IllegalStateException("Please, introduce a factor.");
@@ -328,6 +328,65 @@ public final class Main {
                     throw new IllegalArgumentException("Factor must be a number.");
                 }
             }
+
+            boolean recursive = false;
+            if (recursiveArg) {
+                if (!possibleRecursive) {
+                    throw new IllegalStateException("Recursive option "
+                            + "is only valid for directory commands.");
+                }
+                recursive = true;
+            }
+
+            int truncateNamesLength = 0;
+            if (isNotBlank(truncateNamesLengthArg)) {
+                if (!possibleTrunc) {
+                    throw new IllegalStateException("Truncate names length option "
+                            + "is only valid for table printing commands.");
+                }
+                try {
+                    truncateNamesLength = Integer.parseInt(truncateNamesLengthArg);
+                } catch (NumberFormatException numberFormatException) {
+                    throw new IllegalArgumentException("Truncate names length must be a number.");
+                }
+            }
+
+            SimilaritySortCriterias sortCriteria = null;
+            if (isNotBlank(sortingArg)) {
+                if (!possibleSort) {
+                    throw new IllegalStateException("Sorting option "
+                            + "is only valid for file to files or hashes comparison.");
+                }
+                try {
+                    sortCriteria = SimilaritySortCriterias.valueOf(sortingArg);
+                } catch (IllegalArgumentException illegalArgumentException) {
+                    throw new IllegalArgumentException("Invalid sorting value. Possible values: "
+                            + Arrays.asList(SimilaritySortCriterias.values()));
+                }
+            }
+
+            int lineWrap = VisualRepresentation.DEFAULT_LINE_WRAP;
+            if (isNotBlank(lineWrapArg)) {
+                if (!possibleWrap) {
+                    throw new IllegalStateException("Line wrap option "
+                            + "is only valid for visual representations and comparisons.");
+                }
+                try {
+                    lineWrap = Integer.parseInt(lineWrapArg);
+                } catch (NumberFormatException numberFormatException) {
+                    throw new IllegalArgumentException("Line wrap length must be a number.");
+                }
+            }
+
+            File file = null;
+            File directory = null;
+            UniformFuzzyHash hash = null;
+            Map<String, UniformFuzzyHash> hashes = null;
+
+            Map<String, UniformFuzzyHash> computedHashes =
+                    new LinkedHashMap<String, UniformFuzzyHash>();
+            File compareFile = null;
+            UniformFuzzyHash compareHash = null;
 
             // Compute file hash.
             if (isNotBlank(computeFileHashArg)) {
@@ -343,27 +402,11 @@ public final class Main {
             }
 
             // Compute directory files hashes.
-            if (isNotBlank(computeDirectoryFilesHashesArg)) {
+            if (isNotBlank(computeDirectoryHashesArg)) {
 
-                directory = new File(computeDirectoryFilesHashesArg);
+                directory = new File(computeDirectoryHashesArg);
                 hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, false);
-                computedHashes.putAll(hashes);
-
-                if (!saveArg) {
-                    for (String name : hashes.keySet()) {
-                        System.out.println(name + NAME_SEPARATOR + hashes.get(name));
-                    }
-                }
-
-            }
-
-            // Compute directory files hashes nested.
-            if (isNotBlank(computeDirectoryFilesHashesNestedArg)) {
-
-                directory = new File(computeDirectoryFilesHashesNestedArg);
-                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, true);
+                        directory, factor, recursive);
                 computedHashes.putAll(hashes);
 
                 if (!saveArg) {
@@ -396,7 +439,12 @@ public final class Main {
                 file = new File(representFileVisuallyArg);
                 hash = new UniformFuzzyHash(file, factor);
 
-                VisualRepresentation.print(hash);
+                VisualRepresentation.print(
+                        hash,
+                        VisualRepresentation.DEFAULT_BASE,
+                        VisualRepresentation.DEFAULT_FACTOR_DIVISOR,
+                        lineWrap,
+                        true);
 
             }
 
@@ -424,7 +472,13 @@ public final class Main {
                 file = new File(toFileVisuallyArg);
                 hash = new UniformFuzzyHash(file, factor);
 
-                VisualRepresentation.printCompared(compareHash, hash);
+                VisualRepresentation.printCompared(
+                        compareHash,
+                        hash,
+                        VisualRepresentation.DEFAULT_BASE,
+                        VisualRepresentation.DEFAULT_FACTOR_DIVISOR,
+                        lineWrap,
+                        true);
 
                 System.out.println(compareHash.similarity(hash));
 
@@ -436,32 +490,28 @@ public final class Main {
                 file = new File(toSavedHashesArg);
                 hashes = UniformFuzzyHashes.loadFromFile(file);
 
-                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
-                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
+                UniformFuzzyHashes.printSimilarities(
+                        compareFile.getName(),
+                        compareHash,
+                        hashes,
+                        sortCriteria,
+                        truncateNamesLength);
 
             }
 
             // To directory files.
-            if (isNotBlank(toDirectoryFilesArg)) {
+            if (isNotBlank(toDirectoryArg)) {
 
-                directory = new File(toDirectoryFilesArg);
+                directory = new File(toDirectoryArg);
                 hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, false);
+                        directory, factor, recursive);
 
-                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
-                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
-
-            }
-
-            // To directory files nested.
-            if (isNotBlank(toDirectoryFilesNestedArg)) {
-
-                directory = new File(toDirectoryFilesNestedArg);
-                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, true);
-
-                UniformFuzzyHashes.printSimilarities(compareFile.getName(), compareHash, hashes,
-                        isBlank(sortingArg) ? null : SimilaritySortCriterias.valueOf(sortingArg));
+                UniformFuzzyHashes.printSimilarities(
+                        compareFile.getName(),
+                        compareHash,
+                        hashes,
+                        sortCriteria,
+                        truncateNamesLength);
 
             }
 
@@ -471,29 +521,18 @@ public final class Main {
                 file = new File(compareSavedHashesArg);
                 hashes = UniformFuzzyHashes.loadFromFile(file);
 
-                UniformFuzzyHashes.printSimilarityTable(hashes);
+                UniformFuzzyHashes.printSimilarityTable(hashes, truncateNamesLength);
 
             }
 
             // Compare directory files.
-            if (isNotBlank(compareDirectoryFilesArg)) {
+            if (isNotBlank(compareDirectoryArg)) {
 
-                directory = new File(compareDirectoryFilesArg);
+                directory = new File(compareDirectoryArg);
                 hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, false);
+                        directory, factor, recursive);
 
-                UniformFuzzyHashes.printSimilarityTable(hashes);
-
-            }
-
-            // Compare directory files nested.
-            if (isNotBlank(compareDirectoryFilesNestedArg)) {
-
-                directory = new File(compareDirectoryFilesNestedArg);
-                hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
-                        directory, factor, true);
-
-                UniformFuzzyHashes.printSimilarityTable(hashes);
+                UniformFuzzyHashes.printSimilarityTable(hashes, truncateNamesLength);
 
             }
 

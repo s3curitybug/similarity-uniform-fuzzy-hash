@@ -6,7 +6,6 @@ import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASHES_TO_HAS
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASH_TO_HASHES_STR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_TRUNCATE_LENGTH;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_VALUE;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.TAB;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.UFH_FILES_ECONDING;
@@ -1036,7 +1035,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printHashesTable(namesToHashes, printStatistics, printHashes);
+        printHashesTable(namesToHashes, printStatistics, printHashes, -1);
 
     }
 
@@ -1046,11 +1045,14 @@ public final class UniformFuzzyHashes {
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param printStatistics Indicates whether hashes statistics must be printed or not.
      * @param printHashes Indicates whether hashes must be printed or not.
+     * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
+     *        maximum length.
      */
     public static void printHashesTable(
             Map<String, UniformFuzzyHash> namesToHashes,
             boolean printStatistics,
-            boolean printHashes) {
+            boolean printHashes,
+            int truncateNamesLength) {
 
         // Parameters check.
         if (namesToHashes == null) {
@@ -1059,7 +1061,7 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
+        int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
 
         // Hash characteristics names.
         List<String> characteristicsNames = HashCharacteristics.names();
@@ -1098,7 +1100,7 @@ public final class UniformFuzzyHashes {
         for (String name : names) {
 
             UniformFuzzyHash hash = namesToHashes.get(name);
-            name = checkName(name, NAME_TRUNCATE_LENGTH);
+            name = checkName(name, truncateNamesLength);
 
             printColumn(name, firstColumnSize);
             System.out.print('|' + TAB);
@@ -1136,7 +1138,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarityTable(namesToHashes);
+        printSimilarityTable(namesToHashes, -1);
 
     }
 
@@ -1144,9 +1146,12 @@ public final class UniformFuzzyHashes {
      * Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.
      * 
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
+     *        maximum length.
      */
     public static void printSimilarityTable(
-            Map<String, UniformFuzzyHash> namesToHashes) {
+            Map<String, UniformFuzzyHash> namesToHashes,
+            int truncateNamesLength) {
 
         // Parameters check.
         if (namesToHashes == null) {
@@ -1155,7 +1160,7 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
+        int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
 
         // Column size.
         int firstColumnSize = namesMaxLength + TAB.length();
@@ -1167,7 +1172,7 @@ public final class UniformFuzzyHashes {
         printColumn("", firstColumnSize);
         System.out.print('|' + TAB);
         for (String name : names) {
-            name = checkName(name, NAME_TRUNCATE_LENGTH);
+            name = checkName(name, truncateNamesLength);
             printColumn(name, columnSize);
         }
         System.out.println();
@@ -1178,7 +1183,7 @@ public final class UniformFuzzyHashes {
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1, NAME_TRUNCATE_LENGTH);
+            name1 = checkName(name1, truncateNamesLength);
             printColumn(name1, firstColumnSize);
             System.out.print('|' + TAB);
 
@@ -1228,7 +1233,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarities(null, hash, namesToHashes, similaritySortCriteria);
+        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, -1);
 
     }
 
@@ -1241,15 +1246,18 @@ public final class UniformFuzzyHashes {
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
      *        sort it.
+     * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
+     *        maximum length.
      */
     public static void printSimilarities(
             String hashName,
             UniformFuzzyHash hash,
             Map<String, UniformFuzzyHash> namesToHashes,
-            SimilaritySortCriterias similaritySortCriteria) {
+            SimilaritySortCriterias similaritySortCriteria,
+            int truncateNamesLength) {
 
         // Parameters check.
-        hashName = checkHashName(hashName, NAME_TRUNCATE_LENGTH);
+        hashName = checkHashName(hashName, truncateNamesLength);
 
         if (hash == null) {
             throw new NullPointerException("Hash is null.");
@@ -1268,7 +1276,7 @@ public final class UniformFuzzyHashes {
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, NAME_TRUNCATE_LENGTH, names);
+        int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
 
         // Column size.
         int firstColumnSize = namesMaxLength + TAB.length();
@@ -1290,7 +1298,7 @@ public final class UniformFuzzyHashes {
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1, NAME_TRUNCATE_LENGTH);
+            name1 = checkName(name1, truncateNamesLength);
 
             printColumn(name1, firstColumnSize);
             System.out.print('|' + TAB);
