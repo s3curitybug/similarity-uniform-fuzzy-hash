@@ -29,7 +29,7 @@ public final class Main {
     /**
      * Application name.
      */
-    private static final String APP_NAME = "similarity-uniform-fuzzy-hash.jar";
+    private static final String APP_NAME = "similarity-uniform-fuzzy-hash";
 
     /**
      * Private constructor.
