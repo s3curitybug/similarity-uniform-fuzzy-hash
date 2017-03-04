@@ -29,6 +29,28 @@
 	</properties>
 
 
+	<!-- Profiles -->
+	<profiles>
+
+		<!--Profile: libsOutside -->
+		<profile>
+			<id>libsOutside</id>
+			<properties>
+				<shadePhase>none</shadePhase>
+			</properties>
+		</profile>
+
+		<!-- Profile: libsInside -->
+		<profile>
+			<id>libsInside</id>
+			<properties>
+				<shadePhase>package</shadePhase>
+			</properties>
+		</profile>
+
+	</profiles>
+
+
 	<!-- Build -->
 	<build>
 
@@ -80,6 +102,29 @@
 						<configuration>
 							<includeScope>compile</includeScope>
 							<outputDirectory>${project.build.directory}/${dependenciesFolder}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Shade Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>${shadePhase}</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>${mainClass}</mainClass>
+								</transformer>
+							</transformers>
 						</configuration>
 					</execution>
 				</executions>
