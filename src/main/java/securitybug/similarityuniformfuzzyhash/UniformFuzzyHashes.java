@@ -1033,6 +1033,10 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of hashes is null.");
         }
 
+        if (hashes.isEmpty()) {
+            return;
+        }
+
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
         printHashesTable(namesToHashes, printStatistics, printHashes, -1);
@@ -1057,6 +1061,10 @@ public final class UniformFuzzyHashes {
         // Parameters check.
         if (namesToHashes == null) {
             throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
         }
 
         // Hash names.
@@ -1136,6 +1144,10 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of hashes is null.");
         }
 
+        if (hashes.isEmpty()) {
+            return;
+        }
+
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
         printSimilarityTable(namesToHashes, -1);
@@ -1156,6 +1168,17 @@ public final class UniformFuzzyHashes {
         // Parameters check.
         if (namesToHashes == null) {
             throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        // Similarities computation and caching.
+        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            for (UniformFuzzyHash hash2 : namesToHashes.values()) {
+                hash1.similarity(hash2);
+            }
         }
 
         // Hash names.
@@ -1231,6 +1254,10 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of hashes is null.");
         }
 
+        if (hashes.isEmpty()) {
+            return;
+        }
+
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
         printSimilarities(null, hash, namesToHashes, similaritySortCriteria, -1);
@@ -1265,6 +1292,16 @@ public final class UniformFuzzyHashes {
 
         if (namesToHashes == null) {
             throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        // Similarities computation and caching.
+        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            hash.similarity(hash1);
+            hash1.similarity(hash1);
         }
 
         // Constants.
