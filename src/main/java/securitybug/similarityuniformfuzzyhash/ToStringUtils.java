@@ -213,7 +213,7 @@ public final class ToStringUtils {
                     return value.toString();
                 }
 
-            } catch (Exception e) {
+            } catch (Exception exception) {
                 throw new RuntimeException(String.format(
                         "Error invoking method %s",
                         getter));
