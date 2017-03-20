@@ -735,10 +735,6 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Hash is null.");
         }
 
-        if (file == null) {
-            throw new NullPointerException("File is null");
-        }
-
         Map<String, UniformFuzzyHash> namesToHashes =
                 new LinkedHashMap<String, UniformFuzzyHash>(1);
         namesToHashes.put(hashName, hash);
@@ -766,7 +762,7 @@ public final class UniformFuzzyHashes {
         }
 
         if (file == null) {
-            throw new NullPointerException("File is null");
+            throw new NullPointerException("File is null.");
         }
 
         if (file.exists() && !file.isFile()) {
@@ -807,7 +803,7 @@ public final class UniformFuzzyHashes {
 
         // Parameters check.
         if (file == null) {
-            throw new NullPointerException("File is null");
+            throw new NullPointerException("File is null.");
         }
 
         if (!file.exists()) {
@@ -902,7 +898,9 @@ public final class UniformFuzzyHashes {
             Collections.sort(sortedHashes, new Comparator<UniformFuzzyHash>() {
 
                 @Override
-                public int compare(UniformFuzzyHash hash1, UniformFuzzyHash hash2) {
+                public int compare(
+                        UniformFuzzyHash hash1,
+                        UniformFuzzyHash hash2) {
 
                     if (hash1 == null && hash2 == null) {
                         return 0;
@@ -970,7 +968,8 @@ public final class UniformFuzzyHashes {
             Collections.sort(entries, new Comparator<Entry<String, UniformFuzzyHash>>() {
 
                 @Override
-                public int compare(Entry<String, UniformFuzzyHash> entry1,
+                public int compare(
+                        Entry<String, UniformFuzzyHash> entry1,
                         Entry<String, UniformFuzzyHash> entry2) {
 
                     UniformFuzzyHash hash1 = entry1.getValue();

@@ -200,6 +200,14 @@ public class UniformFuzzyHash {
             throw new NullPointerException("Data is null.");
         }
 
+        if (!data.exists()) {
+            throw new IllegalArgumentException("File does not exist.");
+        }
+
+        if (!data.isFile()) {
+            throw new IllegalArgumentException("File is not a file.");
+        }
+
         byte[] byteArray = IOUtils.toByteArray(new FileInputStream(data));
 
         this.factor = factor;
