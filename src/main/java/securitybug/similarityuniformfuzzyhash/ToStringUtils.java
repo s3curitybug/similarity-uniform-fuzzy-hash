@@ -3,10 +3,12 @@ package securitybug.similarityuniformfuzzyhash;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * This class provides utility methods and constants to build string representations of Uniform
@@ -91,7 +93,8 @@ public final class ToStringUtils {
     /**
      * Format in which decimal numbers are printed.
      */
-    public static final DecimalFormat DECIMALS_FORMAT = new DecimalFormat(DECIMALS_FORMAT_STR);
+    public static final DecimalFormat DECIMALS_FORMAT = new DecimalFormat(DECIMALS_FORMAT_STR,
+            DecimalFormatSymbols.getInstance(Locale.ROOT));
 
     /**
      * Hexadecimal base.
