@@ -9,9 +9,11 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -62,7 +64,8 @@ public final class VisualRepresentation {
      * Format in which percent accumulated wrap length per line will be formatted during a string
      * wrap.
      */
-    private static final DecimalFormat ACCUMULATED_WRAP_DECIMAL_FORMAT = new DecimalFormat("0.0");
+    private static final DecimalFormat ACCUMULATED_WRAP_DECIMAL_FORMAT = new DecimalFormat("0.0",
+            DecimalFormatSymbols.getInstance(Locale.ROOT));
 
     /**
      * Unicode control character.
