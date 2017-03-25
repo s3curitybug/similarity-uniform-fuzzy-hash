@@ -849,8 +849,8 @@ public final class UniformFuzzyHashes {
 
             line = line.trim();
 
-            // Check ignore mark.
-            if (line.startsWith(IGNORE_MARK)) {
+            // Check empty line and ignore mark.
+            if (line.isEmpty() || line.startsWith(IGNORE_MARK)) {
                 continue;
             }
 
