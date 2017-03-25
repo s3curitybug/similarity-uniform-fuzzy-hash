@@ -58,7 +58,25 @@ public final class UniformFuzzyHashes {
         HASHES_TO_HASH_ASC,
 
         /** Sort by descending hashes similarity to the hash. */
-        HASHES_TO_HASH_DESC
+        HASHES_TO_HASH_DESC;
+
+        /**
+         * @return The comma separated values of this enum.
+         */
+        public static String valuesCsv() {
+
+            StringBuilder str = new StringBuilder();
+
+            for (SimilaritySortCriterias value : values()) {
+                if (str.length() != 0) {
+                    str.append(", ");
+                }
+                str.append(value.toString());
+            }
+
+            return str.toString();
+
+        }
 
     }
 
