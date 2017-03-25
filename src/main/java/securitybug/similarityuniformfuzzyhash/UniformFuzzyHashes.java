@@ -1041,6 +1041,68 @@ public final class UniformFuzzyHashes {
     }
 
     /**
+     * Prints Uniform Fuzzy Hashes.
+     * 
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     */
+    public static void printHashes(
+            Collection<UniformFuzzyHash> hashes) {
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        if (hashes.isEmpty()) {
+            return;
+        }
+
+        Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
+
+        printHashes(namesToHashes, false);
+
+    }
+
+    /**
+     * Prints Uniform Fuzzy Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param printNames Indicates whether names must be printed or not.
+     */
+    public static void printHashes(
+            Map<String, UniformFuzzyHash> namesToHashes,
+            boolean printNames) {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        Set<String> names = namesToHashes.keySet();
+
+        for (String name : names) {
+
+            UniformFuzzyHash hash = namesToHashes.get(name);
+            name = checkName(name, -1);
+
+            if (hash != null) {
+                System.out.println();
+                if (printNames) {
+                    System.out.println(name + NAME_SEPARATOR + hash.toString());
+                } else {
+                    System.out.println(hash.toString());
+                }
+            }
+
+        }
+
+        System.out.println();
+
+    }
+
+    /**
      * Prints a table of Uniform Fuzzy Hashes.
      * 
      * @param hashes Collection of Uniform Fuzzy Hashes.
