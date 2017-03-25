@@ -71,9 +71,9 @@ public class UniformFuzzyHash {
 
         this.factor = 0;
         this.dataSize = 0;
-        this.blocks = new LinkedList<UniformFuzzyHashBlock>();
+        this.blocks = new LinkedList<>();
         this.blocksSet = null;
-        this.similaritiesCache = new HashMap<UniformFuzzyHash, Double>();
+        this.similaritiesCache = new HashMap<>();
 
     }
 
@@ -307,7 +307,7 @@ public class UniformFuzzyHash {
     private void finishBuild() {
 
         // Blocks set computation.
-        blocksSet = new HashSet<UniformFuzzyHashBlock>(blocks);
+        blocksSet = new HashSet<>(blocks);
 
         // Make blocks list and set unmodifiable.
         blocks = Collections.unmodifiableList(blocks);

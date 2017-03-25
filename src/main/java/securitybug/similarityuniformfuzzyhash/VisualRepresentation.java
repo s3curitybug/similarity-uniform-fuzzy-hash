@@ -442,7 +442,7 @@ public final class VisualRepresentation {
             throw new NullPointerException("String is null.");
         }
 
-        List<String> wrappedString = new LinkedList<String>();
+        List<String> wrappedString = new LinkedList<>();
         double relativeWrapLength = (double) wrapLength / string.length();
         double accumulatedWrapLength = 0;
 
@@ -503,7 +503,7 @@ public final class VisualRepresentation {
             throw new NullPointerException("String is null.");
         }
 
-        List<String> wrappedString = new LinkedList<String>();
+        List<String> wrappedString = new LinkedList<>();
         double relativeWrapLength =
                 (double) wrapLength / string.replaceAll(U_CTRL + ".+?" + ANSI_END, "").length();
         double accumulatedWrapLength = 0;

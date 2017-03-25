@@ -86,8 +86,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of byte arrays is null.");
         }
 
-        List<UniformFuzzyHash> hashes =
-                new ArrayList<UniformFuzzyHash>(byteArrays.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(byteArrays.size());
 
         for (byte[] byteArray : byteArrays) {
 
@@ -122,8 +121,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToByteArrays.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -159,8 +157,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of strings is null.");
         }
 
-        List<UniformFuzzyHash> hashes =
-                new ArrayList<UniformFuzzyHash>(strings.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(strings.size());
 
         for (String string : strings) {
 
@@ -195,8 +192,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToStrings.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -234,8 +230,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of input streams is null.");
         }
 
-        List<UniformFuzzyHash> hashes =
-                new ArrayList<UniformFuzzyHash>(inputStreams.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(inputStreams.size());
 
         for (InputStream inputStream : inputStreams) {
 
@@ -272,8 +267,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToInputStreams.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -309,8 +303,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of byte array output streams is null.");
         }
 
-        List<UniformFuzzyHash> hashes =
-                new ArrayList<UniformFuzzyHash>(byteArrayOutputStreams.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(byteArrayOutputStreams.size());
 
         for (ByteArrayOutputStream byteArrayOutputStream : byteArrayOutputStreams) {
 
@@ -345,8 +338,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToByteArrayOutputStreams.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -386,7 +378,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of files is null.");
         }
 
-        List<UniformFuzzyHash> hashes = new ArrayList<UniformFuzzyHash>(files.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(files.size());
 
         for (File file : files) {
 
@@ -428,8 +420,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToFiles.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -469,8 +460,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of files is null.");
         }
 
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(files.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(files.size());
 
         for (File file : files) {
 
@@ -569,7 +559,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of hash strings is null.");
         }
 
-        List<UniformFuzzyHash> hashes = new ArrayList<UniformFuzzyHash>(hashStrings.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(hashStrings.size());
 
         int i = 0;
         for (String hashString : hashStrings) {
@@ -618,8 +608,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToHashStrings.keySet();
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(names.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -665,7 +654,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Collection of hashes is null.");
         }
 
-        List<String> hashStrings = new ArrayList<String>(hashes.size());
+        List<String> hashStrings = new ArrayList<>(hashes.size());
 
         for (UniformFuzzyHash hash : hashes) {
 
@@ -696,7 +685,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToHashes.keySet();
-        Map<String, String> namesToHashStrings = new LinkedHashMap<String, String>(names.size());
+        Map<String, String> namesToHashStrings = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
@@ -735,8 +724,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Hash is null.");
         }
 
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(1);
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(1);
         namesToHashes.put(hashName, hash);
 
         saveToFile(namesToHashes, file, append);
@@ -770,7 +758,7 @@ public final class UniformFuzzyHashes {
         }
 
         Set<String> names = namesToHashes.keySet();
-        List<String> lines = new ArrayList<String>(names.size());
+        List<String> lines = new ArrayList<>(names.size());
 
         for (String name : names) {
 
@@ -816,8 +804,7 @@ public final class UniformFuzzyHashes {
 
         // Read file by lines.
         List<String> lines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(lines.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(lines.size());
 
         int i = 1;
         for (String line : lines) {
@@ -891,7 +878,7 @@ public final class UniformFuzzyHashes {
             throw new NullPointerException("Hash is null.");
         }
 
-        List<UniformFuzzyHash> sortedHashes = new ArrayList<UniformFuzzyHash>(hashes);
+        List<UniformFuzzyHash> sortedHashes = new ArrayList<>(hashes);
 
         if (criteria != null) {
 
@@ -963,7 +950,7 @@ public final class UniformFuzzyHashes {
         if (criteria != null) {
 
             List<Entry<String, UniformFuzzyHash>> entries =
-                    new ArrayList<Entry<String, UniformFuzzyHash>>(namesToHashes.entrySet());
+                    new ArrayList<>(namesToHashes.entrySet());
 
             Collections.sort(entries, new Comparator<Entry<String, UniformFuzzyHash>>() {
 
@@ -1000,7 +987,7 @@ public final class UniformFuzzyHashes {
 
             });
 
-            sortedNamesToHashes = new LinkedHashMap<String, UniformFuzzyHash>(namesToHashes.size());
+            sortedNamesToHashes = new LinkedHashMap<>(namesToHashes.size());
 
             for (Entry<String, UniformFuzzyHash> entry : entries) {
                 sortedNamesToHashes.put(entry.getKey(), entry.getValue());
@@ -1008,7 +995,7 @@ public final class UniformFuzzyHashes {
 
         } else {
 
-            sortedNamesToHashes = new LinkedHashMap<String, UniformFuzzyHash>(namesToHashes);
+            sortedNamesToHashes = new LinkedHashMap<>(namesToHashes);
 
         }
 
@@ -1369,8 +1356,7 @@ public final class UniformFuzzyHashes {
     private static Map<String, UniformFuzzyHash> nameHashesCollectionByIndex(
             Collection<UniformFuzzyHash> hashes) {
 
-        Map<String, UniformFuzzyHash> namesToHashes =
-                new LinkedHashMap<String, UniformFuzzyHash>(hashes.size());
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(hashes.size());
 
         int i = 0;
         for (UniformFuzzyHash hash : hashes) {

@@ -230,8 +230,7 @@ public final class ToStringUtils {
         public static List<String> names() {
 
             HashCharacteristics[] hashCharacteristics = HashCharacteristics.values();
-            List<String> hashCharacteristicsNames =
-                    new ArrayList<String>(hashCharacteristics.length);
+            List<String> hashCharacteristicsNames = new ArrayList<>(hashCharacteristics.length);
 
             for (HashCharacteristics hashCharaceristic : hashCharacteristics) {
                 hashCharacteristicsNames.add(hashCharaceristic.getName());
