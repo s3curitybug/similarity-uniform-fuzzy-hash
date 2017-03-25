@@ -520,11 +520,15 @@ public final class UniformFuzzyHashes {
         }
 
         if (!directory.exists()) {
-            throw new IllegalArgumentException("Directory does not exist.");
+            throw new IllegalArgumentException(String.format(
+                    "Directory %s does not exist.",
+                    directory.getName()));
         }
 
         if (!directory.isDirectory()) {
-            throw new IllegalArgumentException("Directory is not a directory.");
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a directory.",
+                    directory.getName()));
         }
 
         return computeHashesFromFiles(Arrays.asList(directory.listFiles()), factor, nested);
@@ -553,11 +557,15 @@ public final class UniformFuzzyHashes {
         }
 
         if (!directory.exists()) {
-            throw new IllegalArgumentException("Directory does not exist.");
+            throw new IllegalArgumentException(String.format(
+                    "Directory %s does not exist.",
+                    directory.getName()));
         }
 
         if (!directory.isDirectory()) {
-            throw new IllegalArgumentException("Directory is not a directory.");
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a directory.",
+                    directory.getName()));
         }
 
         return computeNamedHashesFromFiles(Arrays.asList(directory.listFiles()), factor, nested);
@@ -772,7 +780,9 @@ public final class UniformFuzzyHashes {
         }
 
         if (file.exists() && !file.isFile()) {
-            throw new IllegalArgumentException("File is not a file.");
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    file.getName()));
         }
 
         Set<String> names = namesToHashes.keySet();
@@ -813,11 +823,15 @@ public final class UniformFuzzyHashes {
         }
 
         if (!file.exists()) {
-            throw new IllegalArgumentException("File does not exist.");
+            throw new IllegalArgumentException(String.format(
+                    "File %s does not exist.",
+                    file.getName()));
         }
 
         if (!file.isFile()) {
-            throw new IllegalArgumentException("File is not a file.");
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    file.getName()));
         }
 
         // Read file by lines.

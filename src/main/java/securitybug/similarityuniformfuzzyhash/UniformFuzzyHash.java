@@ -201,11 +201,15 @@ public class UniformFuzzyHash {
         }
 
         if (!data.exists()) {
-            throw new IllegalArgumentException("File does not exist.");
+            throw new IllegalArgumentException(String.format(
+                    "File %s does not exist.",
+                    data.getName()));
         }
 
         if (!data.isFile()) {
-            throw new IllegalArgumentException("File is not a file.");
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    data.getName()));
         }
 
         byte[] byteArray = IOUtils.toByteArray(new FileInputStream(data));
