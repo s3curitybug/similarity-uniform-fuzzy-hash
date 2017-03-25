@@ -1002,15 +1002,20 @@ public final class UniformFuzzyHashes {
                         return -1;
                     }
 
+                    Double similarityToHash1 = hash.similarity(hash1);
+                    Double similarityToHash2 = hash.similarity(hash2);
+                    Double similarityFromHash1 = hash1.similarity(hash);
+                    Double similarityFromHash2 = hash2.similarity(hash);
+
                     switch (criteria) {
-                        case HASH_TO_HASHES_ASC:
-                            return Double.compare(hash.similarity(hash1), hash.similarity(hash2));
                         case HASH_TO_HASHES_DESC:
-                            return Double.compare(hash.similarity(hash2), hash.similarity(hash1));
-                        case HASHES_TO_HASH_ASC:
-                            return Double.compare(hash1.similarity(hash), hash2.similarity(hash));
+                            return similarityToHash2.compareTo(similarityToHash1);
+                        case HASH_TO_HASHES_ASC:
+                            return similarityToHash1.compareTo(similarityToHash2);
                         case HASHES_TO_HASH_DESC:
-                            return Double.compare(hash2.similarity(hash), hash1.similarity(hash));
+                            return similarityFromHash2.compareTo(similarityFromHash1);
+                        case HASHES_TO_HASH_ASC:
+                            return similarityFromHash1.compareTo(similarityFromHash2);
                         default:
                             return 0;
                     }
