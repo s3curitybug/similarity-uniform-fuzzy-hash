@@ -48,17 +48,17 @@ public final class UniformFuzzyHashes {
      */
     public enum SimilaritySortCriterias {
 
-        /** Sort by ascending hash similarity to the hashes. */
-        HASH_TO_HASHES_ASC,
-
         /** Sort by descending hash similarity to the hashes. */
         HASH_TO_HASHES_DESC,
 
-        /** Sort by ascending hashes similarity to the hash. */
-        HASHES_TO_HASH_ASC,
+        /** Sort by ascending hash similarity to the hashes. */
+        HASH_TO_HASHES_ASC,
 
         /** Sort by descending hashes similarity to the hash. */
-        HASHES_TO_HASH_DESC;
+        HASHES_TO_HASH_DESC,
+
+        /** Sort by ascending hashes similarity to the hash. */
+        HASHES_TO_HASH_ASC;
 
         /**
          * @return The comma separated values of this enum.
