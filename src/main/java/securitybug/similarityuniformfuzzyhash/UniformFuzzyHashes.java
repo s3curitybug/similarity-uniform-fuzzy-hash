@@ -43,6 +43,12 @@ import java.util.Set;
 public final class UniformFuzzyHashes {
 
     /**
+     * Default similarity sort criteria.
+     */
+    public static final SimilaritySortCriterias DEFAULT_SIMILARITY_SORT_CRITERIA =
+            SimilaritySortCriterias.HASH_TO_HASHES_DESC;
+
+    /**
      * Enum of criterias to sort Uniform Fuzzy Hashes by their similarity to another Uniform Fuzzy
      * Hash.
      */
