@@ -75,7 +75,7 @@ public class UniformFuzzyHashesTest {
         final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
         final SimilaritySortCriterias sortCriteria = SimilaritySortCriterias.HASH_TO_HASHES_DESC;
-        final int limit = -1;
+        final int rowsLimit = -1;
         final int truncateNamesLength = 8;
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
@@ -84,7 +84,7 @@ public class UniformFuzzyHashesTest {
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
         UniformFuzzyHashes.printSimilarities(
-                file.getName(), hash, namesToHashes, sortCriteria, limit, truncateNamesLength);
+                file.getName(), hash, namesToHashes, sortCriteria, rowsLimit, truncateNamesLength);
 
     }
 

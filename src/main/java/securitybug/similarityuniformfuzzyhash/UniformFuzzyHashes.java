@@ -1331,13 +1331,13 @@ public final class UniformFuzzyHashes {
      * @param hashes Collection of Uniform Fuzzy Hashes.
      * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
      *        sort it.
-     * @param limit Introduce a number larger than 0 to limit the number of printed rows.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
      */
     public static void printSimilarities(
             UniformFuzzyHash hash,
             Collection<UniformFuzzyHash> hashes,
             SimilaritySortCriterias similaritySortCriteria,
-            int limit) {
+            int rowsLimit) {
 
         if (hash == null) {
             throw new NullPointerException("Hash is null.");
@@ -1353,7 +1353,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, limit, -1);
+        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, rowsLimit, -1);
 
     }
 
@@ -1366,7 +1366,7 @@ public final class UniformFuzzyHashes {
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
      *        sort it.
-     * @param limit Introduce a number larger than 0 to limit the number of printed rows.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      */
@@ -1375,7 +1375,7 @@ public final class UniformFuzzyHashes {
             UniformFuzzyHash hash,
             Map<String, UniformFuzzyHash> namesToHashes,
             SimilaritySortCriterias similaritySortCriteria,
-            int limit,
+            int rowsLimit,
             int truncateNamesLength) {
 
         // Parameters check.
@@ -1450,7 +1450,7 @@ public final class UniformFuzzyHashes {
 
             System.out.println();
 
-            if (row++ == limit) {
+            if (row++ == rowsLimit) {
                 break;
             }
 
