@@ -1331,11 +1331,13 @@ public final class UniformFuzzyHashes {
      * @param hashes Collection of Uniform Fuzzy Hashes.
      * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
      *        sort it.
+     * @param limit Introduce a number larger than 0 to limit the number of printed rows.
      */
     public static void printSimilarities(
             UniformFuzzyHash hash,
             Collection<UniformFuzzyHash> hashes,
-            SimilaritySortCriterias similaritySortCriteria) {
+            SimilaritySortCriterias similaritySortCriteria,
+            int limit) {
 
         if (hash == null) {
             throw new NullPointerException("Hash is null.");
@@ -1351,7 +1353,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, -1);
+        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, limit, -1);
 
     }
 
@@ -1364,6 +1366,7 @@ public final class UniformFuzzyHashes {
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
      *        sort it.
+     * @param limit Introduce a number larger than 0 to limit the number of printed rows.
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      */
@@ -1372,6 +1375,7 @@ public final class UniformFuzzyHashes {
             UniformFuzzyHash hash,
             Map<String, UniformFuzzyHash> namesToHashes,
             SimilaritySortCriterias similaritySortCriteria,
+            int limit,
             int truncateNamesLength) {
 
         // Parameters check.
@@ -1423,6 +1427,7 @@ public final class UniformFuzzyHashes {
 
         System.out.println(hyphens(firstColumnSize) + '+' + hyphens(TAB.length() + 2 * columnSize));
 
+        int row = 1;
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
@@ -1444,6 +1449,10 @@ public final class UniformFuzzyHashes {
             printColumn(similarityString1, columnSize);
 
             System.out.println();
+
+            if (row++ == limit) {
+                break;
+            }
 
         }
 
