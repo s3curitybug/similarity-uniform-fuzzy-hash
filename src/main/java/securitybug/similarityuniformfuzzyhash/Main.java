@@ -72,7 +72,7 @@ public final class Main {
          * Help.
          */
         HELP(
-                "help", "help", "",
+                "h", "help", "",
                 "Display help.",
                 false, 0, -1),
 
