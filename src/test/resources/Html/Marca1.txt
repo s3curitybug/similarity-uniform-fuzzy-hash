@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html><html lang="es"><head><link rel="stylesheet" type="text/css" href="http://e00-marca.uecdn.es/assets/v5/css/core-marca-desktop.css"><!--[if IE]><link rel="stylesheet" type="text/css" href="http://e00-marca.uecdn.es/assets/v5/css/core-ie.css"><![endif]--><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15"/><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"/><title data-ue-c="innerHTML" data-ue-u="title">MARCA - Diario online líder en información deportiva</title><script type='text/javascript'>var _sf_async_config=_sf_async_config||{};_sf_async_config.uid=52682;_sf_async_config.domain='marca.com';_sf_async_config.flickerControl=false;_sf_async_config.useCanonical=true;var _sf_startpt=(new Date()).getTime();</script><script src='//static.chartbeat.com/js/chartbeat_mab.js'></script><meta name="keywords" content/><meta name="news_keywords" content/><!-- ##IBEXCLU --><link data-ue-c="href" data-ue-u="canonical" rel="canonical" Href="http://www.marca.com"/><link rel="publisher" Href="https://plus.google.com/u/0/+marca"/><link rel="alternate" Href="http://www.marca.com/claro-mx/" hreflang="es-MX"/><link rel="alternate" Href="http://www.marca.com" hreflang="es"/><link rel="alternate" Href="http://www.marca.com/en/" hreflang="en"/><!-- ##FBEXCLU --><meta name="robots" content="index,follow"/><meta name="organization" content="Unidad Editorial Información Deportiva S.L."/><meta name="date" content="2017-03-30T10:25:02+02:00"/><meta name="DC.date.issued" content="2015-12-13"><meta property="article:published_time" content="2015-12-13"/><meta property="article:modified_time" content="2017-03-30T10:25:02+02:00"/><meta property="article:section" content="Portada"/><meta property="article:tag" content/><meta name="twitter:site" content="@marca"/><meta name="twitter:creator" content="@marca"/><meta data-ue-u="twitter:title" name="twitter:title" content="MARCA - Diario online líder en información deportiva"/><meta data-ue-u="twitter:description" name="twitter:description" content="La mejor información deportiva en castellano actualizada minuto a minuto en noticias, vídeos, fotos, retransmisiones y resultados en directo."/><meta data-ue-u="description" name="description" content="La mejor información deportiva en castellano actualizada minuto a minuto en noticias, vídeos, fotos, retransmisiones y resultados en directo."/><meta data-ue-u="og:title" property="og:title" content="MARCA - Diario online líder en información deportiva - Marca.com"/><meta data-ue-u="og:description" property="og:description" content="La mejor información deportiva en castellano actualizada minuto a minuto en noticias, vídeos, fotos, retransmisiones y resultados en directo."/><meta property="og:url" content="http://www.marca.com/index.html"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Marca.com"/><meta property="fb:app_id" content="160427764002568"/><meta name="twitter:card" content="summary"/><meta data-ue-u="twitter:image" name="twitter:image" content="http://e00-marca.uecdn.es/assets/v5/img/twitter-imagen-marca.png"/><meta data-ue-u="og:image" property="og:image" content="http://e00-marca.uecdn.es/assets/v5/img/logo-marca.png"/><link href="http://e00-marca.uecdn.es/rss/portada.xml" rel="alternate" type="application/rss+xml" title="RSS Portada - Marca.com"/><link href="http://e00-marca.uecdn.es/favicon.ico" type="image/ico" rel="icon"/><link href="http://e00-marca.uecdn.es/favicon.ico" type="image/ico" rel="shortcut icon"/><link rel="apple-touch-icon-precomposed" href="http://e00-marca.uecdn.es/apple-touch-icon-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://e00-marca.uecdn.es/apple-touch-icon-72x72-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://e00-marca.uecdn.es/apple-touch-icon-76x76-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://e00-marca.uecdn.es/apple-touch-icon-114x114-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://e00-marca.uecdn.es/apple-touch-icon-120x120-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://e00-marca.uecdn.es/apple-touch-icon-144x144-precomposed.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://e00-marca.uecdn.es/apple-touch-icon-152x152-precomposed.png"><script type="text/javascript" src="http://e00-marca.uecdn.es/assets/v5/js/jquery.2.2.1.js"></script><script type="text/javascript" src="http://e00-marca.uecdn.es/assets/v5/js/ue-utils.js"></script><!--[if IE 8]><script type="text/javascript" src="http://e00-marca.uecdn.es/assets/v5/js/html5.js"></script><script type="text/javascript" src="http://e00-marca.uecdn.es/assets/v5/js/jquery.ie8.js"></script><![endif]--><script>var event_youtube_player=new Event('YouTubeIframeAPIReady');</script><script class="kxct" data-id="qu0qz3ohn" data-timing="async" data-version="1.9" type="text/javascript">window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);(function(){var k=document.createElement('script');k.type='text/javascript';k.async=true;var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);k.src=/^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src)?src:src==="disable"?"":(location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=qu0qz3ohn";var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);}());</script>
+</head><body class><script type='text/javascript'>var crtg_nid='1080';var crtg_cookiename='crtg_rta_ue';var crtg_varname='crtg_content';function crtg_getCookie(c_name){var i,x,y,ARRCookies=document.cookie.split(";");for(i=0;i<ARRCookies.length;i++){x=ARRCookies[i].substr(0,ARRCookies[i].indexOf("="));y=ARRCookies[i].substr(ARRCookies[i].indexOf("=")+1);x=x.replace(/^\s+|\s+$/g,"");if(x==c_name){return unescape(y);} }return'';};var crtg_content=crtg_getCookie(crtg_cookiename);var crtg_rnd=Math.floor(Math.random()*99999999999);(function(){var crtg_url=location.protocol+'//rtax.criteo.com/delivery/rta/rta.js?netId='+escape(crtg_nid);crtg_url +='&cookieName='+escape(crtg_cookiename);crtg_url +='&rnd='+crtg_rnd;crtg_url +='&varName='+escape(crtg_varname);var crtg_script=document.createElement('script');crtg_script.type='text/javascript';crtg_script.src=crtg_url;crtg_script.async=true;if(document.getElementsByTagName("head").length>0)document.getElementsByTagName("head")[0].appendChild(crtg_script);else if(document.getElementsByTagName("body").length>0)document.getElementsByTagName("body")[0].appendChild(crtg_script);})();</script>
+<script>(function(){var cb=new Date().getTime();var asiPqTag=false;var e=document.createElement("script");var src="http://pq-direct.revsci.net/pql?placementIdList=YLbLgY,hTTEBW&cb="+cb;var s=document.getElementsByTagName("script")[0];e.async=true;e.onload=function(){for(var p in asiPlacements){window["ASPQ_" + p]="";for(var key in asiPlacements[p].data){window["ASPQ_"+p]+="PQ_"+p+"_"+key;}};};e.src=src;s.parentNode.insertBefore(e,s);})();</script>
+<script>var gptadslots=[],googletag=googletag||{};googletag.cmd=googletag.cmd||[]</script>
+<script src="http://active.cache.el-mundo.net/js/fma1475575200.js"></script>
+<div id="pixelcontabilizacionmarca" class="pixelcontabilizacion" style="position:absolute;top:0px;left:0px;width:1px;height:1px;z-Index:1"><img src="http://pixelcounter.marca.com/pixelcontabilizacion/pixelcontabilizacion.gifctl?r=http%3A%2F%2Fwww%2Emarca%2Ecom%2F%2Findex%2Ehtml&amp;s=marca&amp;d=WNzBQcCoFaoAAHGLV1g" width="1" height="1" alt="" /><script type="text/javascript">function DM_prepClient(csid,client){var cat=document.location.href.split('/');url_section=cat[6];client.DM_addEncToLoc("as_section",url_section);}</script></div>
+<script type="text/javascript" language="javascript" src="http://estaticos.cookies.unidadeditorial.es/js/policy.js" async></script>
+<div class="lightbox_shadow no-visible" id="js-popup"></div><script>var nav_continua_active=true;</script>
+<script type="text/javascript">
+        !function(t){var e;"undefined"!=typeof window?e=window:"undefined"!=typeof self&&(e=self),e.lazyload=t()}(function(){return function t(e,n,r){function o(u,c){if(!n[u]){if(!e[u]){var f="function"==typeof require&&require;if(!c&&f)return f(u,!0);if(i)return i(u,!0);var a=new Error("Cannot find module '"+u+"'");throw a.code="MODULE_NOT_FOUND",a}var l=n[u]={exports:{}};e[u][0].call(l.exports,function(t){var n=e[u][1][t];return o(n?n:t)},l,l.exports,t,e,n,r)}return n[u].exports}for(var i="function"==typeof require&&require,u=0;u<r.length;u++)o(r[u]);return o}({1:[function(t,e,n){(function(n){function r(t){-1===c.call(a,t)&&a.push(t)}function o(t){function e(t){var e=n(t);e&&(t.src=e),t.setAttribute("data-lzled",!0),i[c.call(i,t)]=null}function n(e){return"function"==typeof t.src?t.src(e):e.getAttribute(t.src)}function o(n){d&&n.classList.add(t.deprecated),n.onload=null,n.removeAttribute("onload"),n.onerror=null,n.removeAttribute("onerror"),-1===c.call(i,n)&&f(n,t,e)}t=u({offset:1048,src:"data-src",container:!1,deprecated:"force-size"},t||{}),"string"==typeof t.src&&r(t.src);var i=[];return o}function i(t){var e="HTML"+t+"Element";if(e in n!=!1){var r=n[e].prototype.getAttribute;n[e].prototype.getAttribute=function(t){if("src"===t){for(var e,n=0,o=a.length;o>n&&!(e=r.call(this,a[n]));n++);return e||r.call(this,t)}return r.call(this,t)}}}function u(t,e){for(var n in t)void 0===e[n]&&(e[n]=t[n]);return e}function c(t){for(var e=this.length;e--&&this[e]!==t;);return e}e.exports=o;var f=t("in-viewport"),a=["data-src"],l=function(){var t=navigator.userAgent,e=/like android/i.test(t),n=function(e){var n=t.match(e);return n&&n.length>1&&n[1]||""},r={};return r.device=/tablet/i.test(t)||/[^-]mobi/i.test(t),r.chrome=/CrOS|chrome|crios|crmo/i.test(t),r.android=!e&&/android/i.test(t),r.osVersion=r.android&&n(/android[ \/-](\d+(\.\d+)*)/i),r.version=n(/version\/(\d+(\.\d+)?)/i),r.device&&!r.chrome&&r.android&&parseFloat(r.osVersion)<4.4&&parseInt(r.version)<=4},d=l();n.lzld=o(),i("Image"),i("IFrame")}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{"in-viewport":2}],2:[function(t,e,n){(function(t){function n(e,n,r){var o={container:t.document.body,offset:0};(void 0===n||"function"==typeof n)&&(r=n,n={});for(var u=o.container=n.container||o.container,c=o.offset=n.offset||o.offset,a=0;a<f.length;a++)if(f[a].container===u)return f[a].isInViewport(e,c,r);return f[f.push(i(u))-1].isInViewport(e,c,r)}function r(t,e,n){t.attachEvent?t.attachEvent("on"+e,n):t.addEventListener(e,n,!1)}function o(t,e,n){var r;return function(){function o(){r=null,n||t.apply(i,u)}var i=this,u=arguments,c=n&&!r;clearTimeout(r),r=setTimeout(o,e),c&&t.apply(i,u)}}function i(e){function n(t,e,n){if(!n)return d(t,e);var r=i(t,e,n);return r.watch(),r}function i(t,e,n){function r(){s.add(t,e,n)}function o(){s.remove(t)}return{watch:r,dispose:o}}function f(t,e,n){d(t,e)&&(s.remove(t),n(t))}function d(n,r){if(!l(t.document.documentElement,n)||!l(t.document.documentElement,e))return!1;if(!n.offsetWidth||!n.offsetHeight)return!1;var o=n.getBoundingClientRect(),i={};if(e===t.document.body)i={top:-r,left:-r,right:t.document.documentElement.clientWidth+r,bottom:t.document.documentElement.clientHeight+r};else{var u=e.getBoundingClientRect();i={top:u.top-r,left:u.left-r,right:u.right+r,bottom:u.bottom+r}}var c=o.right>=i.left&&o.left<=i.right&&o.bottom>=i.top&&o.top<=i.bottom;return c}var s=u(),p=e===t.document.body?t:e,v=o(s.checkAll(f),15);return r(p,"scroll",v),p===t&&r(t,"resize",v),a&&c(s,e,v),setInterval(v,150),{container:e,isInViewport:n}}function u(){function t(t,e,n){r(t)||i.push([t,e,n])}function e(t){var e=n(t);-1!==e&&i.splice(e,1)}function n(t){for(var e=i.length-1;e>=0;e--)if(i[e][0]===t)return e;return-1}function r(t){return-1!==n(t)}function o(t){return function(){for(var e=i.length-1;e>=0;e--)t.apply(this,i[e])}}var i=[];return{add:t,remove:e,isWatched:r,checkAll:o}}function c(t,e,n){function r(t){t.some(o)===!0&&setTimeout(n,0)}function o(e){var n=c.call([],Array.prototype.slice.call(e.addedNodes),e.target);return u.call(n,t.isWatched).length>0}var i=new MutationObserver(r),u=Array.prototype.filter,c=Array.prototype.concat;i.observe(e,{childList:!0,subtree:!0,attributes:!0})}e.exports=n;var f=[],a="function"==typeof t.MutationObserver,l=t.document.documentElement.compareDocumentPosition?function(t,e){return!!(16&t.compareDocumentPosition(e))}:t.document.documentElement.contains?function(t,e){return t!==e&&(t.contains?t.contains(e):!1)}:function(t,e){for(;e=e.parentNode;)if(e===t)return!0;return!1}}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{}]},{},[1])(1)});
+
+    </script><script>lazyload({offset:1048,'deprecated':'force-size'});</script><script language="javaScript" type="text/javascript">function autoRefresh()
+{window.location=location.href;}
+setTimeout('autoRefresh()',eval(900*1000));</script><noscript><meta http-equiv="Refresh" content="900"/></noscript><script type="text/javascript">var cookieList=document.cookie.split(";");for(index in cookieList){if(typeof cookieList[index]=="string"&&cookieList[index].indexOf("REGMARCA")!=-1){var ifr=document.createElement("iframe");ifr.src="https://5214106.fls.doubleclick.net/activityi;src=5214106;type=corp;cat=regis00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord="+Math.random()*1000000000000+"?";ifr.width="1";ifr.height="1";ifr.style.display="none";ifr.setAttribute("frameborder","0");var node=document.body.getElementsByTagName("script")[0];node.parentNode.insertBefore(ifr,node);break;}}</script><noscript><iframe src="https://5214106.fls.doubleclick.net/activityi;src=5214106;type=corp;cat=regis00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe></noscript><script type="text/javascript">var sectionMainMenuActive='portada';var uniqueCtId='566a968a268e3ece348b4585';var activeUeNavigation=true;</script><script type="text/javascript">var uePages=[{"url":"http://www.marca.com/futbol.html","titulo":"Fútbol"},{"url":"http://www.marca.com/futbol/futbol-internacional.html","titulo":"Fútbol Internacional"},{"url":"http://www.marca.com/motor.html","titulo":"Motor"},{"url":"http://www.marca.com/baloncesto.html","titulo":"Baloncesto"},{"url":"http://www.marca.com/polideportivo.html","titulo":"Polideportivo"},{"url":"http://www.marca.com/tiramillas.html","titulo":"Tiramillas"}];</script>
+<script type="text/javascript">
+
+var gptIsDisableInitialLoad = true;
+
+    googletag.cmd.push(function () {
+        var data = {"networkId":"99071977","divId":"div-gpt-ad-portada","customTargeting":{},"adSlots":[{"adUnit":"mc2/portada","customTargeting":{"p":["f"]}},{"adUnit":"mc2/portada","sizes":[[728,90],[728,250],[970,90],[970,250],[980,90],[980,180],[980,250],[980,220],[980,305],[990,90],[990,250],[962,250],[1,1]],"customTargeting":{"p":["m"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,250],[300,300],[300,600],[1,1]],"customTargeting":{"p":["r"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,250],[300,300],[1,1]],"customTargeting":{"p":["rb"]}},{"adUnit":"mc2/portada","sizes":[[160,600],[120,1000],[160,1000],[450,1000],[1,1]],"customTargeting":{"p":["si"]}},{"adUnit":"mc2/portada","sizes":[[160,601],[120,1001],[160,1001],[450,1001],[1,1]],"customTargeting":{"p":["sd"]}},{"adUnit":"mc2/portada","sizes":[[300,250],[300,300],[1,1]],"customTargeting":{"p":["nata"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,250],[300,300],[1,1]],"customTargeting":{"p":["rd"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,120],[1,1]],"customTargeting":{"p":["b300x100d"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,250],[300,300],[300,600],[1,1]],"customTargeting":{"p":["rc"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,120],[1,1]],"customTargeting":{"p":["b300x100c"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,120],[1,1]],"customTargeting":{"p":["b300x100b"]}},{"adUnit":"mc2/portada","sizes":[[300,100],[300,120],[1,1]],"customTargeting":{"p":["b300x100"]}},{"adUnit":"mc2/portada","customTargeting":{"p":["fp"]}},{"adUnit":"p_mc2/portada","sizes":[[300,100],[300,250],[300,300],[1,1]],"customTargeting":{"p":["ri"]}},{"adUnit":"p_mc2/portada","sizes":[[980,50],[980,70],[980,250],[980,90],[990,71],[1,1]],"customTargeting":{"p":["c990x50_320x53c"]}}]};
+data.customTargeting.t = ['portada'];
+data.customTargeting.tag = [''];
+data.customTargeting.ueseg = [''];
+data.customTargeting.ueid = ['2C6E219A0531708E-4000012160064D0D'];
+
+window["ueDFPData"] = data;
+function kruxretrieve(n) {
+    var m, k='kxunidad_'+n;
+    if (window.localStorage) {
+        return window.localStorage[k] || '';
+    } else if (navigator.cookieEnabled) {
+        m = document.cookie.match(k+'=([^;]*)');
+        return (m && unescape(m[1])) || '';
+    } else {
+        return '';
+    }
+}
+data.customTargeting.kuid = 'NoDefinido';
+data.customTargeting.ksegs = 'NoDefinido';
+var kuser = kruxretrieve('user');
+if (kuser) {
+    data.customTargeting.kuid = kuser;
+}
+var ksegments = kruxretrieve('segs');
+if (ksegments) {
+    data.customTargeting.ksegs = ksegments.split(',');
+}
+function addASCustomTargeting(data, n, p) {
+    if (window[n]) {
+        data.adSlots.some(function (adSlot, i) {
+            if (-1 != adSlot.customTargeting.p.indexOf(p)) {
+                adSlot.customTargeting['gwd'] = [window[n]];
+                return true
+            }
+            return false
+        });
+    }
+}
+
+addASCustomTargeting(data, 'ASPQ_YLbLgY', 'm');
+addASCustomTargeting(data, 'ASPQ_hTTEBW', 'r');
+
+if (typeof(crtg_content) !== 'undefined') {
+	var crt_keysvalues = crtg_content.split(';');
+
+	for (var i = 0; i < crt_keysvalues.length - 1; i++) {
+		var crt_keyvalue = crt_keysvalues[i].split('=');
+        data.customTargeting['' + crt_keyvalue[0] + ''] = ['' + crt_keyvalue[1] + ''];
+	}
+}
+
+data.adSlots.forEach(function (adSlot, i) {
+    var slotIndex = i + 1;
+    var adUnit = adSlot.adUnit ? adSlot.adUnit : data.adUnit;
+    adUnit = '/' + data.networkId + '/' + adUnit;
+    var divId = data.divId + '_' + adSlot.customTargeting.p.join('_');
+
+divId += '_' + '566a968a268e3ece348b4585'
+
+    if (adSlot.sizes) {
+        gptadslots[slotIndex] = googletag.defineSlot(adUnit, adSlot.sizes, divId);
+    } else {
+        gptadslots[slotIndex] = googletag.defineOutOfPageSlot(adUnit, divId);
+    }
+
+    for (var key in adSlot.customTargeting) {
+        if (adSlot.customTargeting.hasOwnProperty(key)) {
+            gptadslots[slotIndex].setTargeting(key, adSlot.customTargeting[key]);
+        }
+    }
+    gptadslots[slotIndex].addService(googletag.pubads());
+});
+
+if ((typeof DisableenableSingleRequest === 'undefined') || !DisableenableSingleRequest) {
+    googletag.pubads().enableSingleRequest();
+}
+
+for (var key in data.customTargeting) {
+    if (data.customTargeting.hasOwnProperty(key)) {
+        googletag.pubads().setTargeting(key, data.customTargeting[key]);
+    }
+}
+
+googletag.pubads().addEventListener('slotRenderEnded',function(event){
+    var count = 0;
+    var interval = setInterval(function() {
+        count++;
+        if(event&&event.slot){
+            jQuery(window).trigger('slotRendered',{"slotId":event.slot.getSlotElementId(), "intervalId": interval});
+            var container=jQuery("#"+event.slot.getSlotElementId());
+            container.attr("style","height:"+container.height()+"px;");
+        }
+        if (count > 9) {
+            clearInterval(interval);
+        }
+    }, 500);
+});
+
+googletag.pubads().enableAsyncRendering();
+if ((typeof gptIsDisableInitialLoad !== 'undefined') && gptIsDisableInitialLoad) {
+    googletag.pubads().disableInitialLoad();
+}
+
+googletag.enableServices();
+    });
+</script>
+<script>function innerRemoteHtml(container,url){var xhttp=new XMLHttpRequest();xhttp.onreadystatechange=function(){if(xhttp.readyState==4&&xhttp.status==200){var remoteHTML=xhttp.responseText;container.innerHTML+=remoteHTML;prepareSupermenuAttributes();}};xhttp.open("GET",url,true);xhttp.send();}
+function prepareSupermenuAttributes(){var supermenuContainer=document.getElementsByClassName("super-menu").item(0);var supermenuCloseButton=supermenuContainer.getElementsByClassName("icon-close");supermenuContainer.classList.add("js-selected");supermenuCloseButton[0].onclick=function(){menuClose()};}
+function menuDeploy(){var superMenuOpenButton=document.getElementsByClassName('icon-menu');var superMenuCloseButton=document.getElementsByClassName('icon-close');var superMenuDiv=document.getElementsByClassName('super-menu');if(superMenuDiv.length>0){superMenuDiv.item(0).classList.remove('no-visible');}else{var menuUrl="http://www.marca.com/assets/externos/v5/menu/supermenu.html";menuContainer=document.getElementsByClassName('js-contenedor-menu').item(0);innerRemoteHtml(menuContainer,menuUrl);}}
+function menuClose(){var superMenuOpenButton=document.getElementsByClassName('icon-menu');var superMenuCloseButton=document.getElementsByClassName('icon-close');var superMenuDiv=document.getElementsByClassName('super-menu');if(superMenuDiv.length>0){superMenuDiv.item(0).parentNode.removeChild(superMenuDiv.item(0));}
+superMenuOpenButton.item(0).classList.remove('no-visible');superMenuCloseButton.item(0).classList.add('no-visible');}</script><header class="main-header                                         site-header-cover
+                                                                                                                js-cnav-header
+                                                                            portada
+                                    " data-ue-model="portada"><div class="main-top-header-container"><div class="main-header-container"><div class="main-site-logo"><h1 class="logo"><a href="http://www.marca.com/" title="Marca" class="iconsvg iconsvg-logo-marca"><span class="hidden-content">Marca</span></a></h1></div><div class="main-site-highlights"><ul><li class="highlight-cover">
+<a href="http://www.marca.com/multimedia/primeras/17/03/0330.html" title="El Barça le ríe las gracias a Piqué">
+<img src="//e01-marca.uecdn.es/imagenes/2017/03/30/portada/marca_papel/1490853268_extras_primera_papel_0.jpg" alt="El Barça le ríe las gracias a Piqué">
+<strong>La portada de hoy</strong><p>El Barça le ríe las gracias a Piqué</p>
+</a>
+</li><li class="main-highlight-radio"><a href="http://www.marca.com/radio.html" title><i class="iconsvg iconsvg-logo-radio-marca"></i><strong class="radio-heading">Radio MARCA</strong></a></li></ul></div><aside class="tools-header"><div class="main-edition-dropdown"><input class="edition-check" id="show-edition" type="checkbox" role="button"><label for="show-edition" class="show-edition-active"><i class="iconsvg iconsvg-flag-es-a"></i>ES <i class="iconsvg iconsvg-down-a"></i></label><span class="edition-dropdown-title">Ediciones:</span><ul class="list-edition"><li class="list-option list-option-spain"><a onclick="ueHeader.changeEdition('n');return false;" href="http://www.marca.com/"><i class="iconsvg iconsvg-flag-es-a"></i> ES (España) </a></li><li class="list-option list-option-english"><a href="http://www.marca.com/en"><i class="iconsvg iconsvg-flag-en-a"></i> EN (English) </a></li><li class="list-option list-option-mexico"><a onclick="ueHeader.changeEdition('mx');return false;" href="http://www.marca.com/claro-mx"><i class="iconsvg iconsvg-flag-mx-a"></i> MX (México) </a></li></ul></div><ul class="tools-header-corporative"><li class="tools-corporative-subscription"><a href="https://clk.tradedoubler.com/click?p=271574&a=2407712&g=23242688" title="Suscripciones Marca" class="tools-corporative-link">Suscr&iacute;bete</a></li><li class="tools-corporative-login toolbar-login nav-login">
+<div id="pixelcontabilizacionseg" class="pixelcontabilizacion" style="position:absolute;top:0px;left:0px;width:1px;height:1px;z-index:1"><img sRc="//s.el-mundo.net/e.gif?p=marca.com&t=1490862401&s_fid=1E90A662D191D09D-0D149C6452E8FD07&f=05ca4e449ee053b7a42e3806c97e85c4" width="1" height="1" alt/></div> <a href='#' title='Login' class='tools-corporative-link js-loginClick js-loginButton'><span>Iniciar sesi&oacute;n</span><i class="icon-login"></i></a></li></ul></aside></div></div><div class="main-nav-container"><div class="main-header-container"><nav class="js-navTab js-desdefixed js-hastafixed" data-jsue-navtab="true" role="navigation"><ul class="main-nav-tabs main-second-menu"><li class="main-tab main-tab-futbol">
+<a href="http://www.marca.com/futbol.html?cid=MENUDES3601&amp;s_kw=futbol" data-menu-section-path="#submenuFutbol" data-menu-active="futbol" title="F&uacute;tbol" class="highlight">
+F&uacute;tbol<i class="iconsvg iconsvg-down-b"></i>
+</a>
+</li>
+<li class="main-tab main-tab-baloncesto">
+<a href="http://www.marca.com/baloncesto.html?cid=MENUDES3601&amp;s_kw=baloncesto" data-menu-section-path="#submenuBaloncesto" data-menu-active="baloncesto" title="Baloncesto" class="highlight">
+Baloncesto<i class="iconsvg iconsvg-down-b"></i>
+</a>
+</li>
+<li class="main-tab main-tab-motor">
+<a href="http://www.marca.com/motor.html?cid=MENUDES3601&amp;s_kw=motor" data-menu-section-path="#submenuMotor" data-menu-active="motor" title="Motor" class="highlight">
+Motor<i class="iconsvg iconsvg-down-b"></i>
+</a>
+</li>
+<li class="main-tab main-tab-default">
+<a href="http://www.marca.com/polideportivo.html?cid=MENUDES3601&amp;s_kw=polideportivo" data-menu-section-path="#submenuMasDeportes" data-menu-active="default" title="Polideportivo" class="highlight">
+Polideportivo<i class="iconsvg iconsvg-down-b"></i>
+</a>
+</li>
+<li class="main-tab main-tab-highlight">
+<i class="iconsvg iconsvg-highlight-a"></i>
+<ul class="highlight-list">
+<li class="highlight-list-item">
+<a href="http://www.marca.com/tiramillas.html?cid=MENUDES3601&amp;s_kw=tiramillas" title="Tiramillas">Tiramillas</a>
+</li>
+<li class="highlight-list-item">
+<a href="http://videos.marca.com/?cid=MARCATV001&amp;s_kw=mas" title="V&iacute;deos">V&iacute;deos</a>
+</li>
+<li class="highlight-list-item">
+<a href="http://www.marca.com/estadisticas/futbol/primera/?cid=MENUDES3601&amp;s_kw=resultados" title="Resultados">Resultados</a>
+</li>
+</ul>
+</li>
+<li class="js-desplegable-menu more-menu-tab" data-insertar data-menu-section-path-click="http://www.marca.com/assets/externos/v5/menu/supermenu.html"><span class="show-more-menu" data-click-role="cambiarIconos">Más<i class="iconsvg iconsvg-more-b"></i></span><span class="show-more-menu-on no-visible" data-click-role="cambiarIconos">Cerrar<i class="iconsvg iconsvg-close-b"></i></span><div class="more-menu js-contenedor-menu"><time class="main-header-time" datetime="1490862302"><span class="date-home">30 de marzo
+de 2017</span> Actualizado a las 10:25 h.</time></div></li></ul></nav><div class="main-header-search"><form action="http://cgi.marca.com/buscador/archivo_marca.html" method="get" class="js-search-portada"><input type="search" name="q" placeholder="Buscar en marca.com"></form><div class="search-btn js-searchClick-portada"><a href title="Buscador Marca"><span><i class="iconsvg iconsvg-search-a"></i><strong>Buscar</strong></span></a></div><span class="close-btn js-close-btn-portada"><i class="iconsvg iconsvg-close-b"></i></span></div></div></div><div class="breadcrumbs js-desdefixed js-hastafixed"><div class="container-breadcrumb js-submenu-toggle"><div class="js-contenido-toggle content-breadcrumb"><div class="clearfix  no-visible"><ul class="tab-breadcrumb js-containerbreadcrumb"><li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope class="home" itemref="bread-1" id="bread-0"><a itemprop="url" title="MARCA.com" href="http://www.marca.com?cid=MENUMIGA35903&s_kw=home"><span itemprop="title">Inicio</span></a><span class="arrow"></span></li></ul><ul class="tab-breadcrumb tab-breadcrumb-list js-breadcrumb-submenu"><li><a data-section="Fútbol" href="http://www.marca.com/futbol.html?cid=MENUMIGA35903&s_kw=futbol" title="Fútbol">Fútbol</a></li><li><a data-section="Fútbol Internacional" href="http://www.marca.com/futbol/futbol-internacional.html?cid=MENUMIGA35903&s_kw=futbol-internacional" title="Fútbol Internacional">Fútbol Internacional</a></li><li><a data-section="Motor" href="http://www.marca.com/motor.html?cid=MENUMIGA35903&s_kw=motor" title="Motor">Motor</a></li><li><a data-section="Baloncesto" href="http://www.marca.com/baloncesto.html?cid=MENUMIGA35903&s_kw=baloncesto" title="Baloncesto">Baloncesto</a></li><li><a data-section="Polideportivo" href="http://www.marca.com/polideportivo.html?cid=MENUMIGA35903&s_kw=polideportivo" title="Polideportivo">Polideportivo</a></li><li><a data-section="Tiramillas" href="http://www.marca.com/tiramillas.html?cid=MENUMIGA35903&s_kw=tiramillas" title="Tiramillas">Tiramillas</a></li></ul></div><input type="checkbox" id="show-more-breadcrumb" role="button" class="check-more-breadcrumb"><label for="show-more-breadcrumb" class=" dropdown-submenu dropdown-more-breadcrumb js-botonera-more"><span class="show-more-breadcrumb-open">Más<i class="iconsvg iconsvg-more-b"></i></span><span class="show-more-breadcrumb-close">Cerrar<i class="iconsvg iconsvg-close-b"></i></span></label><div class="dropdown-container" data-items><ul class="dropdown-content"></ul></div></div><div class="tab-title"><div class="container-header"><p class="tab-title-text js-tituloseccion">Portada</p></div></div></div></div><div class="percentage-bar" id="js_progressBar"></div><div class="content-list-teams">
+<div class="container-header">
+<ul class="icon-teams horizontal">
+<li><a title="Alav&eacute;s" href="http://www.marca.com/futbol/alaves.html" class="teams-alaves">Alav&eacute;s</a></li>
+<li><a title="Athletic de Bilbao" href="http://www.marca.com/futbol/athletic.html" class="teams-athletic">Athletic de Bilbao</a></li>
+<li><a title="Atl&eacute;tico de Madrid" href="http://www.marca.com/futbol/atletico.html" class="teams-atletico">Atl&eacute;tico de Madrid</a></li>
+<li><a title="Barcelona" href="http://www.marca.com/futbol/barcelona.html" class="teams-barcelona">Barcelona</a></li>
+<li><a title="Betis" href="http://www.marca.com/futbol/betis.html" class="teams-betis">Betis</a></li>
+<li><a title="Celta" href="http://www.marca.com/futbol/celta.html" class="teams-celta">Celta</a></li>
+<li><a title="Deportivo de La Coru&ntilde;a" href="http://www.marca.com/futbol/deportivo.html" class="teams-deportivo">Deportivo</a></li>
+<li><a title="Eibar" href="http://www.marca.com/futbol/eibar.html" class="teams-eibar">Eibar</a></li>
+<li><a title="Espanyol" href="http://www.marca.com/futbol/espanyol.html" class="teams-espanyol">Espanyol</a></li>
+<li><a title="Granada" href="http://www.marca.com/futbol/granada.html" class="teams-granada">Granada</a></li>
+<li><a title="Las Palmas" href="http://www.marca.com/futbol/las-palmas.html" class="teams-las-palmas">Las Palmas</a></li>
+<li><a title="Legan&eacute;s" href="http://www.marca.com/futbol/leganes.html" class="teams-leganes">Legan&eacute;s</a></li>
+<li><a title="M&aacute;laga" href="http://www.marca.com/futbol/malaga.html" class="teams-malaga">M&aacute;laga</a></li>
+<li><a title="Osasuna" href="http://www.marca.com/futbol/osasuna.html" class="teams-osasuna">Osasuna</a></li>
+<li><a title="Real Madrid" href="http://www.marca.com/futbol/real-madrid.html" class="teams-real-madrid">Real Madrid</a></li>
+<li><a title="Real Sociedad" href="http://www.marca.com/futbol/real-sociedad.html" class="teams-real-sociedad">Real Sociedad</a></li>
+<li><a title="Sevilla" href="http://www.marca.com/futbol/sevilla.html" class="teams-sevilla">Sevilla</a></li>
+<li><a title="Sporting" href="http://www.marca.com/futbol/sporting.html" class="teams-sporting">Sporting</a></li>
+<li><a title="Valencia" href="http://www.marca.com/futbol/valencia.html" class="teams-valencia">Valencia</a></li>
+<li><a title="Villarreal" href="http://www.marca.com/futbol/villarreal.html" class="teams-villarreal">Villarreal</a></li>
+</ul>
+<a href="http://online.nethive.com/promoRedirect?member=MARCAcom&campaign=DEFAULT&channel=logocabecera&zone=56305085&lp=56245531" title="Marca apuestas" class="desktop-marca-apuestas"><img src="http://e00-marca.uecdn.es/assets/v5/img/logo-marca-apuestas.png"></a> </div>
+</div></header><div class="main-tab-container no-visible" id="submenuMasDeportes">
+<ul class="tab-content">
+<li class="tab-column">
+<h3 class="main-tab-header">Destacados</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/atletismo.html" title="Atletismo" class="tab-list-header">Atletismo</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/golf.html" title="Golf" class="tab-list-header">Golf</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/balonmano.html" title="Balonmano" class="tab-list-header">Balonmano</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/deportes-invierno.html" title="Deportes de Invierno" class="tab-list-header">Deportes Invierno</a>
+</li>
+</ul>
+</li>
+<li class="tab-column margin-column">
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/ciclismo.html" title="Ciclismo" class="tab-list-header">Ciclismo</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/natacion.html" title="Nataci&oacute;n" class="tab-list-header">Nataci&oacute;n</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/tenis.html" title="Tenis" class="tab-list-header">Tenis</a>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/otros-deportes.html" title="Otros deportes" class="tab-list-header">Otros deportes</a>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header">Otros</h3>
+<ul>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/ajedrez.html" title="Ajedrez" class="tab-list-header">Ajedrez</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/boxeo.html" title="Boxeo" class="tab-list-header">Boxeo</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/combates-ufc.html" title="Combates UFC" class="tab-list-header">Combates UFC</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deportes-aventura.html" title="Deportes Aventura" class="tab-list-header">Deportes Aventura</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/esports.html" title="eSports" class="tab-list-header">eSports</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/juegos-olimpicos.html" title="Juegos Ol&iacute;mpicos" class="tab-list-header">Juegos Ol&iacute;mpicos</a>
+</li>
+</ul>
+</li>
+<li class="tab-column margin-column">
+<ul>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/olimpismo.html" title="Olimpismo" class="tab-list-header">Olimpismo</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/padel.html" title="P&aacute;del" class="tab-list-header">P&aacute;del</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/paralimpicos.html" title="Paral&iacute;mpicos" class="tab-list-header">Paral&iacute;mpicos</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/rugby.html" title="Rugby" class="tab-list-header">Rugby</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/toros.html" title="Toros" class="tab-list-header">Toros</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/turf.html" title="Turf" class="tab-list-header">Turf</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<main role="main" class="main portada js_navContinua" data-ue-contenido id="js_566a968a268e3ece348b4585"><aside class="content-ad"><div class="ad-item-f"><div id='div-gpt-ad-portada_f_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_f_566a968a268e3ece348b4585');});</script></div></div></aside><div class="tab-title no-visible"><div class="container-header"><i class="iconsvg iconsvg-logo-marca-min-b"></i><h2 class="tab-title-text js_seccionPortadilla">Portada</h2><ul class="tab-breadcrumb js-containerbreadcrumb"><li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope class="home" itemref="bread-1" id="bread-0"><a itemprop="url" title="MARCA.com" href="http://www.marca.com?cid=MENUMIGA35903&s_kw=home"><span itemprop="title">Inicio</span></a><span class="arrow"></span></li></ul><ul class="tab-breadcrumb tab-breadcrumb-list js-breadcrumb-submenu"><li><a data-section="Fútbol" href="http://www.marca.com/futbol.html?cid=MENUMIGA35903&s_kw=futbol" title="Fútbol">Fútbol</a></li><li><a data-section="Fútbol Internacional" href="http://www.marca.com/futbol/futbol-internacional.html?cid=MENUMIGA35903&s_kw=futbol-internacional" title="Fútbol Internacional">Fútbol Internacional</a></li><li><a data-section="Motor" href="http://www.marca.com/motor.html?cid=MENUMIGA35903&s_kw=motor" title="Motor">Motor</a></li><li><a data-section="Baloncesto" href="http://www.marca.com/baloncesto.html?cid=MENUMIGA35903&s_kw=baloncesto" title="Baloncesto">Baloncesto</a></li><li><a data-section="Polideportivo" href="http://www.marca.com/polideportivo.html?cid=MENUMIGA35903&s_kw=polideportivo" title="Polideportivo">Polideportivo</a></li><li><a data-section="Tiramillas" href="http://www.marca.com/tiramillas.html?cid=MENUMIGA35903&s_kw=tiramillas" title="Tiramillas">Tiramillas</a></li></ul></div></div><div class="container"><aside class="content-ad"><div class="ad-item-si js-sky  autocover "><div id='div-gpt-ad-portada_si_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_si_566a968a268e3ece348b4585');});</script></div></div></aside><aside class="content-ad"><div class="ad-item-sd js-sky  autocover "><div id='div-gpt-ad-portada_sd_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_sd_566a968a268e3ece348b4585');});</script></div></div></aside></div><aside class="content-ad"><div class="ad-item-990"><div id='div-gpt-ad-portada_m_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_m_566a968a268e3ece348b4585');});</script></div></div></aside><script>if(typeof optimizelyActive!=='undefined'){window.optimizely=window.optimizely||[];window.optimizely.push(["activate",optimizelyActive]);}</script><script>var ueDataPage={rootSection:"portada",sectionPrettyName:"Portada",portal:"marca",ct:"p",model:"portada",contentId:'566a968a268e3ece348b4585',breadcrumb:'<ul class="tab-breadcrumb js-containerbreadcrumb"><li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home" itemref="bread-1" id="bread-0"><a itemprop="url" title="MARCA.com" href="http://www.marca.com?cid=MENUMIGA35903&s_kw=home"><span itemprop="title">Inicio</span></a><span class="arrow"></span></li></ul>',children:'<ul class="tab-breadcrumb tab-breadcrumb-list js-breadcrumb-submenu"><li><a data-section="Fútbol" href="http://www.marca.com/futbol.html?cid=MENUMIGA35903&s_kw=futbol" title="Fútbol">Fútbol</a></li><li><a data-section="Fútbol Internacional" href="http://www.marca.com/futbol/futbol-internacional.html?cid=MENUMIGA35903&s_kw=futbol-internacional" title="Fútbol Internacional">Fútbol Internacional</a></li><li><a data-section="Motor" href="http://www.marca.com/motor.html?cid=MENUMIGA35903&s_kw=motor" title="Motor">Motor</a></li><li><a data-section="Baloncesto" href="http://www.marca.com/baloncesto.html?cid=MENUMIGA35903&s_kw=baloncesto" title="Baloncesto">Baloncesto</a></li><li><a data-section="Polideportivo" href="http://www.marca.com/polideportivo.html?cid=MENUMIGA35903&s_kw=polideportivo" title="Polideportivo">Polideportivo</a></li><li><a data-section="Tiramillas" href="http://www.marca.com/tiramillas.html?cid=MENUMIGA35903&s_kw=tiramillas" title="Tiramillas">Tiramillas</a></li></ul>',numComments:''}</script><section class="container-ticker clearfix js-toggle-widget">
+<span class="container-live">
+<h2 class="h2-live">En directo</h2>
+<div class="view-live js-botonera-toggle">
+<span class="link-live">Ver todos los directos</span>
+<i class="icon-arrow-down-secondary" data-click-role="icon-open"></i>
+<i class="icon-arrow-up-secondary no-visible" data-click-role="icon-close"></i>
+</div>
+</span>
+<div>
+<ol class="gallery-item-live">
+<li>
+<article>
+<p class="left">
+<span class="title">Lo mejor del día</span>
+</p>
+<span class="right">
+Agenda deportiva
+<h4 class="live-title">
+<a href="http://www.marca.com/deporte/guia-tv.html" title="Seguir el evento en directo">
+<span>Jueves 30</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+<li>
+<article>
+<p class="left">
+<span class="title">Señal de TV</span>
+<time>12:00</time>
+</p>
+<span class="right">
+Medio Maratón Madrid
+<h4 class="live-title">
+<a href title="Seguir el evento en directo">
+<span>Presentación</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+<li>
+<article>
+<p class="left">
+<span class="title">Pregunta</span>
+<time>13:00</time>
+</p>
+<span class="right">
+Chat
+<h4 class="live-title">
+<a href="http://www.marca.com/encuentros/emilio-contreras/2017/03/29/index.html" title="Seguir el evento en directo">
+<span>Emilio Contreras</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+<li>
+<article>
+<p class="left">
+<span class="title">Señal de TV</span>
+<time>13:30</time>
+</p>
+<span class="right">
+Real Madrid
+<h4 class="live-title">
+<a href title="Seguir el evento en directo">
+<span>Presentación patrocinio Telefónica</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+</ol>
+</div>
+<div class="content-ticker js-contenido-toggle">
+<ol class="gallery-item-live">
+<li>
+<article>
+<p class="left">
+<span class="title">Señal de TV</span>
+<time>17:00</time>
+</p>
+<span class="right">
+E-Sports
+<h4 class="live-title">
+<a href title="Seguir el evento en directo">
+<span>LCS europea</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+<li>
+<article>
+<p class="left">
+<span class="title">Señal de TV</span>
+<time>19:00</time>
+</p>
+<span class="right">
+Fútbol
+<h4 class="live-title">
+<a href title="Seguir el evento en directo">
+<span>LaLiga Fantasy</span>
+</a>
+</h4>
+</span>
+</article>
+</li>
+</ol>
+</div>
+</section><script>function getElementBySelector(selector)
+{element=document.querySelectorAll(selector).item(0);return element;}
+var toogleButton=getElementBySelector('#js_566a968a268e3ece348b4585 .js-toggle-widget .js-botonera-toggle');var inicialElement=getElementBySelector('#js_566a968a268e3ece348b4585 .js-toggle-widget');if(toogleButton!=null&&inicialElement!=null){var offsetHeight=inicialElement.scrollHeight;var maxHiddenHeight=0;var counter=0;while(inicialElement.children.item(counter)){if(inicialElement.children.item(counter).clientHeight==0){maxHiddenHeight=maxHiddenHeight+inicialElement.children.item(counter).scrollHeight;inicialElement.children.item(counter).style.height=inicialElement.children.item(counter).scrollHeight+"px";}
+counter++;}
+inicialElement.style.height=offsetHeight+"px";var maxHeight=maxHiddenHeight+offsetHeight;var toogleActive=false;var toogleState="closed";var timeoutHandle=null;function slowToogle()
+{var pixelsJump=3;if(toogleState=="opening"){var height;if((maxHeight-inicialElement.clientHeight)>pixelsJump){height=inicialElement.clientHeight+pixelsJump;}else{height=maxHeight;}
+inicialElement.style.height=height+'px';if(inicialElement.clientHeight>=maxHeight){clearInterval(timeoutHandle);toogleState="opened";}}else if(toogleState=="closing"){var height;if(inicialElement.clientHeight>pixelsJump){height=inicialElement.clientHeight-pixelsJump;}else{height=offsetHeight;}
+inicialElement.style.height=height+'px';if(inicialElement.clientHeight<=offsetHeight){clearInterval(timeoutHandle);toogleState="closed";}}}
+function toogleElement()
+{if(timeoutHandle!=null){clearInterval(timeoutHandle);timeoutHandle=null;}
+if(toogleState=="closed"||toogleState=="closing"){toogleState="opening";}else{toogleState="closing";}
+timeoutHandle=setInterval(slowToogle,15);}
+toogleButton.onclick=function(){toogleElement();};}</script><aside class="content-ad"><div class="ad-item-990"><div id='div-gpt-ad-portada_c990x50_320x53c_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_c990x50_320x53c_566a968a268e3ece348b4585');});</script></div></div></aside><div id="portada" class="contenido"><section class="row-layout"><div class="container"><ul class="content-items flex-a"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcbcc9468aeba91f8b460f.html" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908612864754.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BARCELONA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">&quot;Ficharlo es como romper una caja fuerte&quot;, asegura Mou</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcbcc9468aeba91f8b460f.html" title="El fichaje imposible de Ney" itemprop="url">
+El fichaje imposible de Ney
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcbcc9468aeba91f8b460f.html#js-comentar-58dcbcc9468aeba91f8b460f-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">8</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58dbf87de2704e0a7e8b45f0.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908588084301.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>BARCELONA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Podría ser el último regreso de un canterano</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58dbf87de2704e0a7e8b45f0.html" title="Deulofeu y las segundas oportunidades en el Barça" itemprop="url">
+Deulofeu y las segundas oportunidades en el Barça
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Jaime Rincón</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58dbf87de2704e0a7e8b45f0.html#js-comentar-58dbf87de2704e0a7e8b45f0-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">21</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcb08d46163f505d8b4581.html" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908613410871.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BARCELONA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">En la directiva hay sectores que no comulgan con su actitud</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcb08d46163f505d8b4581.html" title="Piqué, un respaldo a la fuerza" itemprop="url">
+Piqué, un respaldo a la fuerza
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Luis F. Rojo</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dcb08d46163f505d8b4581.html#js-comentar-58dcb08d46163f505d8b4581-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">44</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="flex-h flex--4 js_fixed_container"><li class="flex__item flex__item--4-1 "><article class="flex-article  mod-futbol
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/blogs/tribuna-y-tribuneros/2017/03/30/las-sombras-del-lider.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908599396196.jpg" itemprop="contentUrl"/></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>BLOG</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">La opinión de Carlos Carpio</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/blogs/tribuna-y-tribuneros/2017/03/30/las-sombras-del-lider.html" class="flex-article__heading-link">"Las sombras del líder"</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 09:45:09"></time><ul class="mod-comments"></ul></footer></div></article></li><li class="flex__item flex__item--4-2 "><article class="flex-article album mod-futbol
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/album/2017/03/30/58dc9fc6ca474139728b45fc.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908614601012.jpg" itemprop="contentUrl"/><span class="view-photogallery"><i class="icon-galeria"></i></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>REVISTA DE PRENSA</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Así vienen las portadas del jueves 30</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/futbol/album/2017/03/30/58dc9fc6ca474139728b45fc.html" class="flex-article__heading-link">"El Barça le ríe las gracias", "Piqué pica", "Piqué incendia Madrid"...</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 08:03:59"></time><ul class="mod-comments"></ul></footer></div></article></li><li class="flex__item flex__item--4-3 "><article class="flex-article  mod-default
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/tenis/2017/03/30/58dc963aca474181708b45da.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908514492885.jpg" itemprop="contentUrl"/></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>TENIS</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Pasa a &#039;semis&#039; en Miami tras ganar a Sock</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/tenis/2017/03/30/58dc963aca474181708b45da.html" class="flex-article__heading-link">Nadal, una tormenta perfecta</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 07:23:11"></time><ul class="mod-comments"><li><a href="http://www.marca.com/tenis/2017/03/30/58dc963aca474181708b45da.html#js-comentar-58dc963aca474181708b45da-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">14</span></a></li></ul></footer></div></article></li><li class="flex__item flex__item--4-4 "><article class="flex-article  mod-baloncesto
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc98f146163fc6058b45ec.html" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908540574453.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>SPURS 98-110 GSW</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Los de Oakland remontaron...¡22 puntos!</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc98f146163fc6058b45ec.html" class="flex-article__heading-link">Pau Gasol padece la ira de Curry en la remontada de los Warriors</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 07:34:49"></time><ul class="mod-comments"><li><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc98f146163fc6058b45ec.html#js-comentar-58dc98f146163fc6058b45ec-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">6</span></a></li></ul></footer></div></article></li><li class="flex__publi"><aside class="ad-item js_fixed"><div id='div-gpt-ad-portada_r_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_r_566a968a268e3ece348b4585');});</script></div></aside></li></ul></div></section><section class="js_slider_container seo-links-container">
+<div class="container js_slider_viewport slider-viewport">
+<ul class="list-seo-links horizontal">
+<li><span>Es noticia: </span></li>
+<li>
+<a href="http://www.marca.com/motor.html" title="Life F1">Life F1</a>
+</li>
+<li>
+<a href="http://www.marca.com/motor/motogp/gp-argentina.html" title="Próxima carrera Moto GP">Próxima carrera Moto GP</a>
+</li>
+<li>
+<a href="http://www.marca.com/eventos/marcador/futbol/2016_17/amistosos_seleccion/3/fra_spa/asilovivimos.html" title="Resultados Francia España">Resultados Francia España</a>
+</li>
+<li>
+<a href="http://1x2.marca.com" title="La Quiniela">La Quiniela</a>
+</li>
+<li>
+<a href="http://www.marca.com/otros-deportes/2016/12/26/585acc8722601d2b328b4590.html" title="Calendario deportivo 2017">Calendario deportivo 2017</a>
+</li>
+<li>
+<a href="http://www.marca.com/claro-mx/otros-deportes/futbol-americano.html" title="Fútbol Americano">Fútbol Americano</a>
+</li>
+</ul>
+<span class="gradient-right"></span>
+<span class="gradient-left"></span>
+</div>
+</section><section class="row-layout"><div class="container"><ul class="content-items flex-b b3AdButtom"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc188146163fa3058b45ca.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908249710992.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>REAL MADRID</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Se puso nervioso en la tanda</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc188146163fa3058b45ca.html" title="Los secretos de Lucas: el penalti de Milán, cómo pidió matrimonio..." itemprop="url">
+Los secretos de Lucas: el penalti de Milán, cómo pidió matrimonio...
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc188146163fa3058b45ca.html#js-comentar-58dc188146163fa3058b45ca-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">7</span></a></li></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_b300x100_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_b300x100_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://buzz.marca.com/las-reacciones-mas-top-del-busto-de-cristiano-ronaldo-en-madeira/4724/" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908555592999.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>MARCA BUZZ</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://buzz.marca.com/las-reacciones-mas-top-del-busto-de-cristiano-ronaldo-en-madeira/4724/" title="Las reacciones más TOP del busto de Cristiano" itemprop="url">
+Las reacciones más TOP del busto de Cristiano
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_ejx94j4c-espn-brasil-se-hace-eco-sobre-el-serial-de-las-viudas-del-chapecoense" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908528850969.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BRASIL</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Los jugadores colaboran con sus camisetas firmadas con una web que subasta estas elásticas</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/resto-america/2017/03/30/58dc43b1ca4741c2798b45e2.html" title="El fútbol no olvida al Chapecoense" itemprop="url">
+El fútbol no olvida al Chapecoense
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Fabián Torres</span></li><li>Madrid</li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/resto-america/2017/03/30/58dc43b1ca4741c2798b45e2.html#js-comentar-58dc43b1ca4741c2798b45e2-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">3</span></a></li></ul></footer></article></li><li class="content-item "><article class="album mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/resto-america/album/2017/03/30/58dc5289ca4741540e8b45c7.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908529390425.jpg" itemprop="contentUrl"/><span class="view-photogallery"><i class="icon-galeria"></i></span></a></figure><div class="ribbon"><span>CHAPECOENSE</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/resto-america/album/2017/03/30/58dc5289ca4741540e8b45c7.html" title="Los mensajes de Torres, De Gea, Kaká, Filipe Luis, Diego Costa... a las viudas del Chapecoense" itemprop="url">
+Los mensajes de Torres, De Gea, Kaká, Filipe Luis, Diego Costa... a las viudas del Chapecoense
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Fabián Torres</span></li><li>Madrid</li></ul></address><ul class="mod-comments"></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_nata_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_nata_566a968a268e3ece348b4585');});</script></div></aside></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b b3AdButtom"><li class="content-item "><article class="opinion mod-item spc-signature mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/argentina/opinion/2017/03/29/58dbebc4e5fdea5e0d8b4615.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908529811289.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>OPINIÓN</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/argentina/opinion/2017/03/29/58dbebc4e5fdea5e0d8b4615.html" title="&quot;Leo Messi ya ha triunfado con Argentina&quot;" itemprop="url">
+"Leo Messi ya ha triunfado con Argentina"
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Manuel Malagón</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/argentina/opinion/2017/03/29/58dbebc4e5fdea5e0d8b4615.html#js-comentar-58dbebc4e5fdea5e0d8b4615-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">132</span></a></li></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_b300x100b_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_b300x100b_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_1849z56c-las-injurias-de-messi-al-linier-tomatela-la-concha-de-tu-madre" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908539345768.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>ARGENTINA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El barcelonista responde tras su dura sanción</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/argentina/2017/03/29/58dc03eaca474139728b45ca.html" title="La defensa de Messi ante la FIFA: &quot;Insulté al aire&quot;" itemprop="url">
+La defensa de Messi ante la FIFA: "Insulté al aire"
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/argentina/2017/03/29/58dc03eaca474139728b45ca.html#js-comentar-58dc03eaca474139728b45ca-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">286</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-a"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dc9896ca4741b4798b45d4.html" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908525195900.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BARCELONA</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dc9896ca4741b4798b45d4.html" title="¿Unzue o Valverde? Cuestión de resultados en el Barça" itemprop="url">
+¿Unzue o Valverde? Cuestión de resultados en el Barça
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Luis F. Rojo y Xavi Hernández</span></li><li>Barcelona</li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/30/58dc9896ca4741b4798b45d4.html#js-comentar-58dc9896ca4741b4798b45d4-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">19</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc1d2646163f755b8b46a9.html" title="Alan (10) celebra un gol conseguido ante Chile en el Sudamericano Sub..." class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908614879980.jpg" itemprop="contentUrl" alt="Alan (10) celebra un gol conseguido ante Chile en el Sudamericano Sub..."/></a></figure><div class="ribbon"><span>REAL MADRID</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Centrocampista de 17 años del Palmeiras</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc1d2646163f755b8b46a9.html" title="Reunión en el Bernabéu por la última joya brasileña: Alan" itemprop="url">
+Reunión en el Bernabéu por la última joya brasileña: Alan
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">José Félix Díaz</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dc1d2646163f755b8b46a9.html#js-comentar-58dc1d2646163f755b8b46a9-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">25</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/seleccion/2017/03/29/58dc19f8ca4741c2798b45d0.html" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908599687005.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>SELECCIÓN</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Cruzó fronteras inviolables con la selección</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/seleccion/2017/03/29/58dc19f8ca4741c2798b45d0.html" title="La Federación piensa que Piqué se pasó de la raya" itemprop="url">
+La Federación piensa que Piqué se pasó de la raya
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Miguel Ángel Lara</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/seleccion/2017/03/29/58dc19f8ca4741c2798b45d0.html#js-comentar-58dc19f8ca4741c2798b45d0-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">141</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout layout-header belt grey fix-belt-bt"><div class="container"><div class="content-items fix-belt" itemscope itemtype="http://schema.org/ItemList"><ul><li class="content-item"><div class="js-bt"></div></li><li class="content-item"><div class="js-bt"></div></li><li class="content-item">
+<article class="mod-item bt bt-tiramillas" itemscope itemtype="http://schema.org/NewsArticle">
+<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="multimedia-item">
+<a href="http://www.marca.com/tiramillas/bellezas/album/2017/03/28/58da84b4e5fdea406b8b4668.html">
+<img itemprop="contentUrl" class="foto" src="http://e00-marca.uecdn.es/imagenes/bt/2017/03/30/kell_10.jpg" title="Kelly Gale sorprende más sensual que nunca " alt="Kelly Gale sorprende más sensual que nunca ">
+</a>
+</figure>
+<header class="mod-header">
+<h3 itemprop="headline" class="mod-title"><a href="http://www.marca.com/tiramillas/bellezas/album/2017/03/28/58da84b4e5fdea406b8b4668.html" itemprop="url">Kelly Gale sorprende más sensual que nunca </a></h3>
+</header>
+<div class="ribbon">
+<span><a href="http://www.tiramillas.net/" rel="nofollow" title="Tiramillas.net">Tiramillas</a></span>
+</div>
+</article>
+</li></ul></div></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/atletico/2017/03/30/58dc198eca4741cd798b45bb.html" title class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908561412929.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>ATLÉTICO</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">La tercera plaza pasa por las 10 últimas citas</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/atletico/2017/03/30/58dc198eca4741cd798b45bb.html" title="Simeone, en el nombre de Luis" itemprop="url">
+Simeone, en el nombre de Luis
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Isaac Suárez y Luis Alberto Díaz</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/atletico/2017/03/30/58dc198eca4741cd798b45bb.html#js-comentar-58dc198eca4741cd798b45bb-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">1</span></a></li></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_rb_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_rb_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/valencia/2017/03/30/58dbdfcc22601d5d738b4642.html" title="Fumagalli da explicaciones a Prandelli en una conferencia de prensa." class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908622837486.jpg" itemprop="contentUrl" alt="Fumagalli da explicaciones a Prandelli en una conferencia de prensa."/></a></figure><div class="ribbon"><span>VALENCIA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Fumagalli se mantiene como asistente técnico en la web del club, pero no aparece por Valencia</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/valencia/2017/03/30/58dbdfcc22601d5d738b4642.html" title="¿Dónde está el último ayudante de Prandelli?" itemprop="url">
+¿Dónde está el último ayudante de Prandelli?
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Darío Puig</span></li><li>Valencia</li></ul></address><ul class="mod-comments"></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_qqhmyfew-griezmann-ante-la-enesima-pregunta-sobre-mbappe-joder-que-pesados-no" title class="image-item enlace-video"><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908528515961.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>ATLÉTICO</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/atletico/2017/03/29/58dbd3dae5fdea052c8b45f9.html" title="Griezmann, tras ser preguntado por Mbappé: &quot;Joder, qué pesados&quot;" itemprop="url">
+Griezmann, tras ser preguntado por Mbappé: "Joder, qué pesados"
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/atletico/2017/03/29/58dbd3dae5fdea052c8b45f9.html#js-comentar-58dbd3dae5fdea052c8b45f9-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">39</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/argentina/2017/03/29/58dc1a18ca474190688b45c4.html" title="Daniel Angelici, vicepresidente de la AFA, y Jorge Sampaoli." class="image-item "><img src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908559024415.jpg" itemprop="contentUrl" alt="Daniel Angelici, vicepresidente de la AFA, y Jorge Sampaoli."/></a></figure><div class="ribbon"><span>ARGENTINA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Así lo afirmó el presidente de Boca y vicepresidente de la AFA, Daniel Angelici</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/argentina/2017/03/29/58dc1a18ca474190688b45c4.html" title="Argentina niega haber contactado con Sampaoli" itemprop="url">
+Argentina niega haber contactado con Sampaoli
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/primera-division/2017/03/29/58db9979268e3ec7208b461b.html" title class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/29/14908235120987.jpg" itemprop="contentUrl"/><span class="view-poll"></span></a></figure><div class="ribbon"><span>LALIGA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Desde una santa a un viejo molino, cualquier motivo es bueno</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/primera-division/2017/03/29/58db9979268e3ec7208b461b.html" title="¿Por qué se llaman así los 20 estadios de Primera?" itemprop="url">
+¿Por qué se llaman así los 20 estadios de Primera?
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/primera-division/2017/03/29/58db9979268e3ec7208b461b.html#js-comentar-58db9979268e3ec7208b461b-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">28</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_bqgnalvl-pjaca-se-deja-el-ligamento-cruzado-y-lo-que-queda-de-temporada-en-un-amistoso-con-croacia" title="Las asistencias atienden a Marko Pjaca tras caer lesionado" class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/29/14907916563431.jpg" itemprop="contentUrl" alt="Las asistencias atienden a Marko Pjaca tras caer lesionado"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BARCELONA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El mediocentro se lesionó en el partido de selecciones entre Croacia y Estonia</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58dbac94e2704e02278b4632.html" title="Marko Pjaca se perderá los cuartos de Champions frente al Barça" itemprop="url">
+Marko Pjaca se perderá los cuartos de Champions frente al Barça
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58dbac94e2704e02278b4632.html#js-comentar-58dbac94e2704e02278b4632-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">10</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b b3AdButtom"><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_b300x100c_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_b300x100c_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item "><article class=" mod-item  mod-default
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.laligafantasymarca.com/noticias/noticia/consulta-los-onces-probables-de-la-29a-jornada-de-laliga" title class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/28/14906980253254.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>LALIGA FANTASY MARCA</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.laligafantasymarca.com/noticias/noticia/consulta-los-onces-probables-de-la-29a-jornada-de-laliga" title="Echa un vistazo a todos los onces probables de la jornada 29" itemprop="url">
+Echa un vistazo a todos los onces probables de la jornada 29
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_b300x100d_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_b300x100d_566a968a268e3ece348b4585');});</script></div></aside></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-a"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/betis/2017/03/30/58dc49a1e5fdea7e208b4659.html" title="Infografía del aspecto del Benito Villamarín la próxima temporada" class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908564251231.jpg" itemprop="contentUrl" alt="Infografía del aspecto del Benito Villamarín la próxima temporada"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BETIS</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El Betis pide un partido de España para inaugurar la remodelación</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/betis/2017/03/30/58dc49a1e5fdea7e208b4659.html" title="El Villamarín llama a La Roja" itemprop="url">
+El Villamarín llama a La Roja
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Miguel Á. Morán</span></li><li>Sevilla</li></ul></address><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Miguel Á. Lara</span></li><li>Madrid</li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/betis/2017/03/30/58dc49a1e5fdea7e208b4659.html#js-comentar-58dc49a1e5fdea7e208b4659-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">3</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/futbol/2017/03/29/58db532d46163f5c678b4617.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908564350052.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>FÚTBOL</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/2017/03/29/58db532d46163f5c678b4617.html" title="El nuevo fútbol ya está aquí: VAR y videosanciones" itemprop="url">
+El nuevo fútbol ya está aquí: VAR y videosanciones
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">José Félix Díaz</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/2017/03/29/58db532d46163f5c678b4617.html#js-comentar-58db532d46163f5c678b4617-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">97</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_fxttf6wu-cr7-comparte-como-escucha-su-nombre-en-el-aeropuerto-cristiano-ronaldo" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908564495895.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>REAL MADRID</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dbc090468aeba81f8b45b2.html" title="&quot;Aeropuerto Cristiano Ronaldo&quot;... &quot;¡Siuuuuuuuuu!&quot;" itemprop="url">
+"Aeropuerto Cristiano Ronaldo"... "¡Siuuuuuuuuu!"
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/real-madrid/2017/03/29/58dbc090468aeba81f8b45b2.html#js-comentar-58dbc090468aeba81f8b45b2-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">57</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="flex flex--4 js_fixed_container"><li class="flex__item flex__item--4-1 "><article class="flex-article  mod-baloncesto
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc946646163fff7a8b4626.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908541414300.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>KNICKS 88-105 HEAT</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Fuera de &#039;playoffs&#039; por cuarto año seguido</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc946646163fff7a8b4626.html" class="flex-article__heading-link">Los dobles dígitos de Willy no salvan a los Knicks de su maldición</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 07:16:21"></time><ul class="mod-comments"></ul></footer></div></article></li><li class="flex__item flex__item--4-2 "><article class="flex-article  mod-baloncesto
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc90b046163f03078b45fe.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908526380295.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>MAGIC 106-114 OKC</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">57 puntos, 13 rebotes 11 asistencias</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc90b046163f03078b45fe.html" class="flex-article__heading-link">'Splash' Abrines comparte el triple-doble más bestia de Westbrook</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 07:00:47"></time><ul class="mod-comments"><li><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc90b046163f03078b45fe.html#js-comentar-58dc90b046163f03078b45fe-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">4</span></a></li></ul></footer></div></article></li><li class="flex__item flex__item--4-3 "><article class="flex-article  mod-baloncesto
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc8bee46163fc1748b4620.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908541821800.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>SIXERS 92-99 HAWKS</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Atlanta se afianza en el quinto puesto del Este</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc8bee46163fc1748b4620.html" class="flex-article__heading-link">Calderón remonta el vuelo a costa de unos Sixers sin Sergio Rodríguez</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 06:39:24"></time><ul class="mod-comments"><li><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc8bee46163fc1748b4620.html#js-comentar-58dc8bee46163fc1748b4620-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">1</span></a></li></ul></footer></div></article></li><li class="flex__item flex__item--4-4 "><article class="flex-article  mod-baloncesto
+ " itemscope itemtype="http://schema.org/NewsArticle"><figure class="flex-article__multimedia" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc3260e2704e8b0f8b45bc.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908552695624.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="flex-article__container"><div class="flex-article__headband"><span>NBA</span></div><header class="flex-article__header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Habla sobre la tragedia de Las Vegas</span></p><h3 class="flex-article__heading"><a href="http://www.marca.com/baloncesto/nba/2017/03/30/58dc3260e2704e8b0f8b45bc.html" class="flex-article__heading-link">Odom: "Ojalá hubiera guardado mi pene dentro de los pantalones"</a></h3></header><footer class="mod-footer"><meta itemprop="datePublished" content="2017-03-30"><time class="mod-date n-visible" itemprop="dateModified" datetime="2017-03-30 06:42:37"></time><ul class="mod-comments"></ul></footer></div></article></li><li class="flex__publi"><aside class="ad-item js_fixed"><div id='div-gpt-ad-portada_rc_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_rc_566a968a268e3ece348b4585');});</script></div></aside></li></ul></div></section><section class="row-layout belt row-marca-tv"><h2><span></span></h2><div class="header-videos"><img src="http://e00-marca.uecdn.es/assets/v5/img/logo-marca-tv.png" alt="MARCA  TV"><span class="view-more-videos"><a href="http://videos.marca.com/?cid=MARCATV001&s_kw=mas" title="MARCA  TV">Ver m&aacute;s &gt;</a></span></div><div class="container"><ul class="content-items flex-b flex-b-marcatv"><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_72gdfzvg-mundoleo-contraargumenta-la-sancion-a-messi-que-hizo-la-fifa-nada?cid=MARCATV001&amp;s_kw=video" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/29/14908075888462.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>SELECCIÓN ARGENTINA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Vídeo con otras jugadas que quedaron impunes</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58db7b5522601d566a8b4600.html?cid=MARCATV001&amp;s_kw=titular" title="MundoLeo contraargumenta la sanción a Messi: &quot;¿Qué hizo la FIFA? ¡Nada!&quot;" itemprop="url">
+MundoLeo contraargumenta la sanción a Messi: "¿Qué hizo la FIFA? ¡Nada!"
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/barcelona/2017/03/29/58db7b5522601d566a8b4600.html#js-comentar-58db7b5522601d566a8b4600-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">6</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-futbol
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_taf85ty4-gol-de-marcelo-3-0-en-el-brasil-3-0-paraguay?cid=MARCATV001&amp;s_kw=video" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/29/14907952789167.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>BRASIL</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El lateral culminó un jugadón de Brasil</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/futbol/america/2017/03/29/58db21b4468aebbe388b4637.html?cid=MARCATV001&amp;s_kw=titular" title="Jogo bonito brasileño: tiki-taka, taconazo y vaselina de Marcelo" itemprop="url">
+Jogo bonito brasileño: tiki-taka, taconazo y vaselina de Marcelo
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/futbol/america/2017/03/29/58db21b4468aebbe388b4637.html#js-comentar-58db21b4468aebbe388b4637-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">9</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-tiramillas
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_p4bd6ghf-el-descuido-de-una-presentadora-italiana-mientras-hablaba-de-cristiano?cid=MARCATV001&amp;s_kw=video" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/28/14906895091055.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>ACTUALIDAD</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Tiramillas</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/tiramillas/actualidad/2017/03/28/58da18fae2704ea40b8b457e.html?cid=MARCATV001&amp;s_kw=titular" title="El descuido de una presentadora italiana mientras hablaba de Cristiano" itemprop="url">
+El descuido de una presentadora italiana mientras hablaba de Cristiano
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/tiramillas/actualidad/2017/03/28/58da18fae2704ea40b8b457e.html#js-comentar-58da18fae2704ea40b8b457e-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">10</span></a></li></ul></footer></article></li></ul><span class="marca-tv-bottom"></span></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-baloncesto
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/2017/03/29/58dc1833468aebb81f8b462d.html" title class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908276650618.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>IBEROSTAR 71-61 ASVEL</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Gana al equipo francés y optará al título de la FIBA Champions</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/baloncesto/2017/03/29/58dc1833468aebb81f8b462d.html" title="El Iberostar sigue viviendo un sueño y se mete en la Final Four" itemprop="url">
+El Iberostar sigue viviendo un sueño y se mete en la Final Four
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/baloncesto/2017/03/29/58dc1833468aebb81f8b462d.html#js-comentar-58dc1833468aebb81f8b462d-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">5</span></a></li></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_rd_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_rd_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item "><article class=" mod-item  mod-default
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/combates-ufc/2017/03/29/58dbd4ed468aebaa278b45c6.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908249650494.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>MUAY THAI</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El escocés Jordan Coe falleció a los 20 años</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/combates-ufc/2017/03/29/58dbd4ed468aebaa278b45c6.html" title="Muere un luchador al intentar perder peso a la desesperada" itemprop="url">
+Muere un luchador al intentar perder peso a la desesperada
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/combates-ufc/2017/03/29/58dbd4ed468aebaa278b45c6.html#js-comentar-58dbd4ed468aebaa278b45c6-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">16</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-baloncesto
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/baloncesto/nba/2017/03/29/58dbe50e22601d8c778b4669.html" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908553475951.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>NBA</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Ante la Universidad de Georgetown</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/baloncesto/nba/2017/03/29/58dbe50e22601d8c778b4669.html" title="35 años del primer &#039;The Shot&#039; de Jordan" itemprop="url">
+35 años del primer 'The Shot' de Jordan
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/baloncesto/nba/2017/03/29/58dbe50e22601d8c778b4669.html#js-comentar-58dbe50e22601d8c778b4669-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">4</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-default
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://bit.ly/2npYxnN" title class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908620307862.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>MARCA PLUS</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://bit.ly/2npYxnN" title="Dos Santos: &quot;El Barça es el mejor del mundo&quot;" itemprop="url">
+Dos Santos: "El Barça es el mejor del mundo"
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-motor
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://www.marca.com/motor/formula1/2017/03/29/58db9958ca474194488b45f7.html" title="Alonso saluda al público en el circuito de Albert Park antes del GP..." class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908514705849.jpg" itemprop="contentUrl" alt="Alonso saluda al público en el circuito de Albert Park antes del GP..."/></a></figure><div class="ribbon"><span>FÓRMULA 1</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">El español hace caso omiso a los rumores</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/motor/formula1/2017/03/29/58db9958ca474194488b45f7.html" title="¿Por qué debe Alonso seguir en McLaren?" itemprop="url">
+¿Por qué debe Alonso seguir en McLaren?
+</a></h3></header><footer class="mod-footer"><address><ul class="mod-author" itemprop="author" itemtype="http://schema.org/Person"><li><span itemprop="name">Daniel G. Lifona</span></li></ul></address><ul class="mod-comments"><li><a href="http://www.marca.com/motor/formula1/2017/03/29/58db9958ca474194488b45f7.html#js-comentar-58db9958ca474194488b45f7-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">182</span></a></li></ul></footer></article></li><li class="content-item "><article class=" mod-item  mod-default
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://videos.marca.com/v/0_euuqly8c-tremendo-agujero-en-la-cabeza-a-un-luchador-de-la-wwe" title class="image-item enlace-video"><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/29/14908118227619.jpg" itemprop="contentUrl"/><span class="view-video"></span></a></figure><div class="ribbon"><span>WWE</span></div><header class="mod-header"><p><span class="mod-subtitle" itemprop="alternativeHeadline">Recibió 16 puntos de sutura tras ser golpeado con una escalera</span></p><h3 class="mod-title" itemprop="headline"><a href="http://www.marca.com/combates-ufc/2017/03/29/58dbb8c2468aeb361f8b45aa.html" title="Destrozan la frente de Sheamus con un &#039;escalerazo&#039; en el WWE Raw" itemprop="url">
+Destrozan la frente de Sheamus con un 'escalerazo' en el WWE Raw
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"><li><a href="http://www.marca.com/combates-ufc/2017/03/29/58dbb8c2468aeb361f8b45aa.html#js-comentar-58dbb8c2468aeb361f8b45aa-div" itemprop="url"><span class="num-comments"></span><span class="number-comments">7</span></a></li></ul></footer></article></li></ul></div></section><section class="row-layout"><div class="container"><ul class="content-items flex-b"><li class="content-item "><article class=" mod-item  mod-motor
+" itemscope itemtype="http://schema.org/NewsArticle"><figure class="multimedia-item" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><a href="http://buzz.marca.com/rita-ora-la-persona-que-mejor-puede-ayudar-fernando-alonso-contra-hamilton/4723/" title class="image-item "><img src="//e03-marca.uecdn.es/iconos/v1.x/v1.0/imgP.gif" onload="lzld(this)" data-src="http://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/03/30/14908551379366.jpg" itemprop="contentUrl"/></a></figure><div class="ribbon"><span>MARCA BUZZ</span></div><header class="mod-header"><h3 class="mod-title" itemprop="headline"><a href="http://buzz.marca.com/rita-ora-la-persona-que-mejor-puede-ayudar-fernando-alonso-contra-hamilton/4723/" title="Rita Ora, el arma secreta de Alonso contra Hamilton" itemprop="url">
+Rita Ora, el arma secreta de Alonso contra Hamilton
+</a></h3></header><footer class="mod-footer"><ul class="mod-comments"></ul></footer></article></li><li class="content-item"><aside class="mod-item"><div id='div-gpt-ad-portada_ri_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_ri_566a968a268e3ece348b4585');});</script></div></aside></li><li class="content-item"><aside class="branded-content mod-item noticia mod-default" itemprop="itemListElement" itemscope itemtype="http://schema.org/NewsArticle">
+<div class="ribbon">
+<span><span>VIVIR MÁS Y MEJOR</span></span>
+</div>
+<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="multimedia-item">
+<a href="http://www.vivirmasymejor.marca.com/sonrie/por-que-los-futbolistas-tienen-mas-problemas-bucales-que-tu" title>
+<img itemprop="contentUrl" src="//e04-marca.uecdn.es/imagenes/2017/03/29/bloques/gsk_uedit/1462981589_0.jpg" title="Por qué los futbolistas tienen más problemas bucales que tú" alt="Por qué los futbolistas tienen más problemas bucales que tú"/>
+</a>
+</figure>
+<header class="mod-header">
+<p><a href="http://www.vivirmasymejor.marca.com/sonrie/por-que-los-futbolistas-tienen-mas-problemas-bucales-que-tu" class="mod-subtitle" title="Deporte saludable"><span itemprop="alternativeHeadline">Deporte saludable</span></a></p>
+<h3 itemprop="headline" class="mod-title"><a href="http://www.vivirmasymejor.marca.com/sonrie/por-que-los-futbolistas-tienen-mas-problemas-bucales-que-tu" title itemprop="url">Por qué los futbolistas tienen más problemas bucales que tú</a></h3>
+</header>
+</aside></li></ul></div></section></div><script>
+        jQuery(function() {
+            if (typeof jQuery.fn.Tab === 'function') {
+                jQuery('#js_566a968a268e3ece348b4585').find('.js-tabs').Tab();
+            }
+            if (typeof jQuery.fn.RedesSocialesPortadilla === 'function') {
+                jQuery('#js_566a968a268e3ece348b4585').find('.js-redes-sociales').RedesSocialesPortadilla();
+            }
+            if (typeof jQuery.fn.ElementoFijo==='function'){
+                jQuery('#js_566a968a268e3ece348b4585').find('.js_fixed').ElementoFijo({
+                    elementosAnteriores:['.main-header'],
+                    elementoDesdeFixed:'.js_fixed_container',
+                    minWidthFijo:768
+                });
+            }
+            if (jQuery('.YT-player').length > 0 && jQuery('script[src*="https://www.youtube.com/iframe_api"]').length === 0) {
+                try{
+                    var s = document.createElement('script');
+                    s.async='true';
+                    s.type = 'text/javascript';
+                    s.src = 'https://www.youtube.com/iframe_api';
+                    var node = document.getElementsByTagName('script')[0];
+                    node.parentNode.insertBefore(s, node);
+                } catch (e) {
+                    console.error(e);
+                };
+            } else{
+                if(jQuery('script[src*="https://www.youtube.com/iframe_api"]').length > 0){
+                    document.dispatchEvent(event_youtube_player);
+                }
+            }
+        });
+    </script><aside class="content-ad"><div class="ad-item-fp"><div id='div-gpt-ad-portada_fp_566a968a268e3ece348b4585' class="ad-item"><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-portada_fp_566a968a268e3ece348b4585');});</script></div></div></aside></main><aside class="container loading-module no-visible"><img class="loading-icon" src="http://e00-marca.uecdn.es/assets/v5/img/loading-icon.gif"><div class="loading-next"><span>Cargando siguiente contenido</span><span class="js_navTitulo"></span></div></aside><ul class="redesSociales js-rs-module redes-module no-visible"><li><i title="Facebook" class="icon-facebook-small js-icon-facebook"></i></li><li><i title="Twitter" class="icon-twitter-small js-icon-twitter"></i></li><li><i title="Google Plus" class="icon-google-small js-icon-google"></i></li></ul>
+<footer class="site-footer horizontal" itemtype="http://schema.org/Organization">
+<div class="container-list-footer js-toggle-footer">
+<div class="js-botonera-toggle arrow-toggle">
+<span>
+Otras webs de Unidad Editorial
+<i data-click-role="icon-close" class="icon-arrow-up no-visible"></i>
+<i data-click-role="icon-open" class="icon-arrow-down"></i>
+</span>
+</div>
+<div class="js-contenido-toggle container-toggle">
+<div class="clearfix">
+<ul class="list-footer">
+<li class="highlight"><span>Marca</span> </li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.marca.com/mundo-marca/2017/01/18/587f574fe2704e47368b45ff.html" title="App Marca" target="_blank" itemprop="url"><span itemprop="name">App Marca</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://online.nethive.com/promoRedirect?member=MARCAcom&campaign=DEFAULT&channel=footermarca&zone=56305085&lp=56245531" title="Apuestas Deportivas" target="_blank" itemprop="url"><span itemprop="name">Apuestas Deportivas</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.marca.com/futbol/primera/clasificacion.html" title="Clasificaci&oacute;n LaLiga" target="_blank" itemprop="url"><span itemprop="name">Clasificaci&oacute;n LaLiga</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.marca.com/futbol/primera/calendario.html" title="Calendario LaLiga" target="_blank" itemprop="url"><span itemprop="name">Calendario LaLiga</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.marca.com/hemeroteca/" title="Hemeroteca Marca" target="_blank" itemprop="url"><span itemprop="name">Hemeroteca Marca</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://app.marca.com/Estadisticas/JuegosMunicipales/Controlador" title="Marca Madrid" target="_blank" itemprop="url"><span itemprop="name">Marca Madrid</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="https://clk.tradedoubler.com/click?p=271538&a=2407712&g=23657338" title="Marca en Orbyt" target="_blank" itemprop="url"><span itemprop="name">Marca en Orbyt</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://suscripcion.marca.com/" title="Suscripci&oacute;n Marca" target="_blank" itemprop="url"><span itemprop="name">Suscripci&oacute;n Marca</span></a></li>
+</ul>
+<div id="pixelcontabilizacionNLalerta" class="pixelcontabilizacion" style="position:absolute;top:0px;left:0px;width:1px;height:1px;z-index:1">
+<img src="https://impes.tradedoubler.com/imp?type(inv)g(23657338)a(2407712)" width="1" height="1" alt/>
+</div>
+<ul class="list-footer">
+<li class="highlight"><span>Moda y Ocio</span> </li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.marca.com/tiramillas.html" title="Tiramillas" target="_blank" itemprop="url"><span itemprop="name">Tiramillas</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.telva.com/" title="Moda - Telva" target="_blank" itemprop="url"><span itemprop="name">Moda - Telva</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.buhomag.com/" title="BUHO Magazine" target="_blank" itemprop="url"><span itemprop="name">BUHO Magazine</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.elmundo.es/traductor/" title="Traductor" target="_blank" itemprop="url"><span itemprop="name">Traductor</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.elmundo.es/television/programacion-tv/" title="Programaci&oacute;n TV" target="_blank" itemprop="url"><span itemprop="name">Programaci&oacute;n TV</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="https://www.marcaentradas.com/" title="Marca Entradas" target="_blank" itemprop="url"><span itemprop="name">Marca Entradas</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.mibebeyyo.com/" title="Mi beb&eacute; y yo" target="_blank" itemprop="url"><span itemprop="name">Mi beb&eacute; y yo</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://descuentos.elmundo.es/" title="C&oacute;digos de descuento" target="_blank" itemprop="url"><span itemprop="name">C&oacute;digos de descuento</span></a></li>
+</ul>
+<ul class="list-footer">
+<li class="highlight"><span>Salud</span> </li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.correofarmaceutico.com/" title="Farmacia - Correo Farmac&eacute;utico" target="_blank" itemprop="url"><span itemprop="name">Farmacia - Correo Farmac&eacute;utico</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.cuidateplus.com/" title="Cu&iacute;date Plus" target="_blank" itemprop="url"><span itemprop="name">Cu&iacute;date Plus</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.diariomedico.com/" title="Medicina - Diario M&eacute;dico" target="_blank" itemprop="url"><span itemprop="name">Medicina - Diario M&eacute;dico</span></a></li>
+</ul>
+<ul class="list-footer">
+<li class="highlight"><span>Empleo</span> </li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.escuelaunidadeditorial.es/medios/marca/" title="Masters - Escuela Unidad Editorial" target="_blank" itemprop="url"><span itemprop="name">Masters - Escuela Unidad Editorial</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.unidadeditorial.es/" title="Unidad Editorial" target="_blank" itemprop="url"><span itemprop="name">Unidad Editorial</span></a></li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.expansionyempleo.com/" title="Trabajo - Expansi&oacute;n y Empleo" target="_blank" itemprop="url"><span itemprop="name">Trabajo - Expansi&oacute;n y Empleo</span></a>
+</li>
+<li itemprop="member" itemtype="http://schema.org/Organization"><a href="http://www.expansion.com/" title="Econom&iacute;a - Expansi&oacute;n" target="_blank" itemprop="url"><span itemprop="name">Econom&iacute;a - Expansi&oacute;n</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container-about-footer">
+<ul class="about-list">
+<li class="copyright">
+<p>&copy; Marzo
+2017
+<span itemprop="name"> Unidad Editorial Informaci&oacute;n Deportiva, S.L.U. Todos los derechos reservados.</span></p>
+</li>
+<li><a href="http://www.marca.com/corporativo/aviso-legal.html" target="_blank" title="T&eacute;rminos y condiciones de uso">T&eacute;rminos y condiciones de uso</a></li>
+<li><a href="http://www.marca.com/corporativo/proteccion-datos.html" target="_blank" title="Pol&iacute;tica de privacidad">Pol&iacute;tica de privacidad</a></li>
+<li><a href="http://cookies.unidadeditorial.es/" target="_blank" title="Pol&iacute;tica de cookies">Pol&iacute;tica de cookies</a></li>
+<li><a href="http://www.ojd.es/" target="_blank" title="Certificado por OJD">Certificado por OJD</a></li>
+<li><a href="http://www.marca.com/corporativo/contacto.html" target="_blank" title="Contacto">Contacto</a></li>
+<li><a href="http://www.unidadeditorial.com/publicidad" target="_blank" title="Publicidad">Publicidad</a></li>
+<li><a href="http://www.marca.com/corporativo/ayuda.html" target="_blank" title="Ayuda">Ayuda</a></li>
+<li><a href="http://www.marca.com/corporativo/el_equipo.html" target="_blank" title="Nuestro equipo">Nuestro equipo</a></li>
+<li><a href="https://www.uesyndication.com/" target="_blank" title="Venta de contenidos">Venta de contenidos</a></li>
+</ul>
+<aside class="follow-us">
+<p>S&iacute;guenos en</p>
+<ul class="social-networks">
+<li title="Facebook"><a class="icon-facebook" href="https://www.facebook.com/MARCA" target="_blank" itemprop="sameAs"><span>Facebook</span></a></li>
+<li title="Twitter"><a class="icon-twitter" href="https://twitter.com/marca" target="_blank" itemprop="sameAs"><span>Twitter</span></a></li>
+<li title="Google Plus"><a class="icon-google" href="https://plus.google.com/+DiarioMARCA/posts" target="_blank" itemprop="sameAs"><span>Google Plus</span></a></a>
+</li>
+<li title="RSS"><a class="icon-rss" href="http://www.marca.com/deporte/rss/" target="_blank" itemprop="sameAs"><span>RSS</span></a></li>
+</ul>
+</aside>
+</div>
+</footer>
+<div class="main-tab-container no-visible" id="submenuFutbol">
+<ul class="tab-content">
+<li class="tab-column tab-column-main">
+<h3 class="main-tab-header">Espa&ntilde;a</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/primera-division.html" title="La Liga Santander" class="tab-list-header">La Liga Santander</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/eventos/marcador/futbol/2016_17/primera/" title="Resultados">Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/primera/calendario.html" title="Calendario"> Calendario </a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/primera/clasificacion.html" title="Clasificaci&oacute;n"> Clasificaci&oacute;n </a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/segunda-division.html" title="La Liga 1|2|3" class="tab-list-header">LaLiga 1|2|3</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/eventos/marcador/futbol/2016_17/segunda/" title="Resultados">Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/segunda/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/segunda/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/mas-futbol.html" title="M&aacute;s f&uacute;tbol" class="tab-list-header">M&aacute;s f&uacute;tbol</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/estadisticas/futbol/segundab/2016_17/grupo_1/" title="Segunda B">Segunda B</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/estadisticas/futbol/tercera/grupo_1/" title="Tercera">Tercera</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/copa-rey.html" title="Copa del Rey" class="tab-list-header">Copa del Rey</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/estadisticas/futbol/copa_rey/" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/futbol-femenino.html" title="F&uacute;tbol Femenino" class="tab-list-header">F&uacute;tbol Femenino</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/primera-division-femenina/2016-2017/" title="Primera Divisi&oacute;n">Primera Divisi&oacute;n</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/primera-division-femenina/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/seleccion.html" title="Selecci&oacute;n Espa&ntilde;ola" class="tab-list-header">Selecci&oacute;n Espa&ntilde;ola</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/mundial.html" title="Mundial 2018">Mundial 2018</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/futbol-sala.html" title="F&uacute;tbol Sala" class="tab-list-header">F&uacute;tbol Sala</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/futbol_sala/liga_marca/2016-2017/" title="Primera Divisi&oacute;n">Primera Divisi&oacute;n</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header"><a href="http://www.marca.com/futbol/futbol-internacional.html" title="Internacional">Internacional<i class="iconsvg iconsvg-right-b"></i></a></h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/champions-league.html" title="Champions League" class="tab-list-header">Champions League</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/estadisticas/futbol/champions/" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/europa-league.html" title="Europa League" class="tab-list-header">Europa League</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/estadisticas/futbol/europa_league/" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/premier-league.html" title="Premier League" class="tab-list-header">Premier League</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/premier-league/2016-2017/calendario.html" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/premier-league/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/bundesliga.html" title="Bundesliga" class="tab-list-header">Bundesliga</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/bundesliga/2016-2017/calendario.html" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/bundesliga/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/liga-italiana.html" title="Calcio" class="tab-list-header">Calcio</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/calcio/2016-2017/calendario.html" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/calcio/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/liga-francesa.html" title="Ligue 1" class="tab-list-header">Ligue 1</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-francesa/2016-2017/calendario.html" title="Calendario y Resultados">Calendario y Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-francesa/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="#" title="Otras ligas" class="tab-list-header">Otras ligas</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/liga-portuguesa.html" title="Portugal">Portugal</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-holandesa/2015-2016/" title="Holanda">Holanda</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-rusa/2015/" title="Rusia">Rusia</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/copa-africa.html" title="Copa &Aacute;frica" class="tab-list-header">Copa &Aacute;frica</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/futbol/copa-africa/2017/calendario.html" title="Calendario y resultados">Calendario y resultados</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header"><a href="http://www.marca.com/futbol/america.html" title="Am&eacute;rica">Am&eacute;rica<i class="iconsvg iconsvg-right-b"></i></a></h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/argentina.html" title="Argentina" class="tab-list-header">Argentina</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-argentina/2016/calendario.html" title="Calendario y resultados"> Calendario y resultados </a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-argentina/2016/clasificacion.html" title="Clasificaci&oacute;n"> Clasificaci&oacute;n </a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/chile.html" title="Chile" class="tab-list-header">Chile</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-chilena/clausura/2016/" title="Resultados"> Resultados </a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-chilena/clausura/2016/calendario.html" title="Calendario"> Calendario </a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-chilena/clausura/2016/clasificacion.html" title="Clasificaci&oacute;n"> Clasificaci&oacute;n </a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/colombia.html" title="Colombia" class="tab-list-header">Colombia</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-colombiana/clausura/2016/calendario.html" title="Calendario y resultados">Calendario y resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-colombiana/clausura/2016/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/estados-unidos.html" title="Estados Unidos" class="tab-list-header">Estados Unidos</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/mls/2016/clasificacion.html" title="Fase previa MLS">Fase previa MLS</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/mexico.html" title="M&eacute;xico" class="tab-list-header">M&eacute;xico</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-mexicana/clausura/2016/" title="Resultados">Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-mexicana/apertura/2016/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-mexicana/clausura/2016/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/venezuela.html" title="Venezuela" class="tab-list-header">Venezuela</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-venezolana/clausura/2016/calendario.html" title="Calendario y resultados">Calendario y resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/futbol/liga-venezolana/apertura/2016/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/futbol/resto-america.html" title="M&acute;s Am&eacute;rica" class="tab-list-header">M&aacute;s Am&eacute;rica</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/copa-libertadores.html" title="Copa Libertadores">Copa Libertadores</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/futbol/copa-america.html" title="Copa Am&eacute;rica">Copa Am&eacute;rica</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="main-tab-container no-visible" id="submenuMotor">
+<ul class="tab-content">
+<li class="tab-column">
+<h3 class="main-tab-header">Coches</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/motor/formula1.html" title="F&oacute;rmula 1" class="tab-list-header">F&oacute;rmula 1</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/formula1/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/motor/formula1/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/formula1/escuderias/" title="Pilotos">Pilotos</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/motor/rallies.html" title="Rally/Raids" class="tab-list-header">Rally/Raids</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/rallies/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/rallies/clasificacion-pilotos.html" title="Clasificaci&oacute;n pilotos">Clasificaci&oacute;n pilotos</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/rallies/clasificacion-equipos.html" title="Clasificaci&oacute;n equipos">Clasificaci&oacute;n equipos</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/motor/dakar.html" title="Rally Dakar" class="tab-list-header">Rally Dakar</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/dakar/clasificacion-coches.html" title="Clasificaciones">Clasificaciones</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/dakar/recorrido.html" title="Recorrido">Recorrido</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/dakar/participantes.html" title="Participantes">Participantes</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header">Motos</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/motor/motogp.html" title="Moto GP" class="tab-list-header">Moto GP</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/motociclismo/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/motor/motociclismo/clasificacion-motogp.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/motor/motociclismo/pilotos-motogp.html" title="Equipos y pilotos">Equipos y pilotos</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/motor/motociclismo/clasificacion-moto2.html" title="Moto2">Moto2</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/motor/motociclismo/clasificacion-moto3.html" title="Moto3">Moto3</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header">Modelos de coches</h3>
+<ul>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/motor/modelos-coches.html" title="Modelos" class="tab-list-header">Modelos</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/motor/pruebas-coches/" title="Pruebas de coches" class="tab-list-header">Pruebas de coches</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/motor/ocio.html" title="Ocio" class="tab-list-header">Ocio</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://videos.marca.com/motor/" title="V&iacute;deos" class="tab-list-header">V&iacute;deos</a>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header"><a href="http://www.marca.com/motor/mas-motor.html" title="M&aacute;s motor">M&aacute;s motor<i class="iconsvg iconsvg-right-b"></i></a></h3>
+<ul>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/mas-motor/dtm-aleman/2016/" title="DTM" class="tab-list-header">DTM</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/mas-motor/f3-euroseries/2016/" title="F&oacute;rmula E" class="tab-list-header">F&oacute;rmula E</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/mas-motor/gp2/2016/" title="GP2" class="tab-list-header">GP2</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/superbikes/2016/" title="Superbikes" class="tab-list-header">Superbikes</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/mas-motor/nascar/2016/" title="Nascar" class="tab-list-header">Nascar</a>
+</li>
+<li class="tab-list vertical">
+<a href="http://www.marca.com/deporte/motor/mas-motor/indycar/2016/" title="Indycar" class="tab-list-header">Indycar</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="main-tab-container no-visible" id="submenuBaloncesto">
+<ul class="tab-content">
+<li class="tab-column">
+<h3 class="main-tab-header">Espa&ntilde;a</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/acb.html" title="Liga Endesa" class="tab-list-header">Liga Endesa</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/acb/" title="Resultados">Resultados</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/acb/calendario.html" title="Calendario">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/acb/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/basketfeb.html" title="Basket FEB" class="tab-list-header">Basket FEB</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/basketfeb/leb-oro/resultados/" title="LEB Oro">LEB Oro</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/basketfeb/leb-plata/resultados/" title="LEB Plata">LEB Plata</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/basketfeb/liga-femenina/resultados/" title="Liga Femenina">Liga Femenina</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/copa-rey.html" title="Copa del Rey" class="tab-list-header">Copa del Rey</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/acb/copadelrey/cuadro.html" title="Cuadro y resultados">Cuadro y resultados</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/seleccion.html" title="Selecci&oacute;n" class="tab-list-header">Selecci&oacute;n</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/baloncesto/eurobasket.html" title="Campeones de Europa">Campeones de Europa</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header">Europa</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/euroliga.html" title="Euroliga" class="tab-list-header">Euroliga</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/euroliga/2016-2017/clasificacion.html" title="Clasificaci&oacute;n">Clasificaci&oacute;n</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/euroliga/2016-2017/calendario.html" title="Calendario">Calendario</a>
+</li>
+</ul>
+</li>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/eurocup.html" title="Eurocup" class="tab-list-header">Eurocup</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/central-de-datos/baloncesto/eurocup/2016-2017/grupo-a.html" title="Resultados y Clasificaci&oacute;n">Resultados y Clasificaci&oacute;n</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="tab-column">
+<h3 class="main-tab-header">Internacional</h3>
+<ul>
+<li class="tab-list">
+<a href="http://www.marca.com/baloncesto/nba.html" title="NBA" class="tab-list-header">NBA</a>
+<ul>
+<li class="tab-list-link">
+<a href="http://www.marca.com/baloncesto/nba/partidos-en-directo.html" title="Partidos en directo">Partidos en directo</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/nba/2015-2016/clasificaciones/jornada.html" title="Jornada">Jornada</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/nba/calendario/" title="Calendario NBA">Calendario</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/nba/clasificaciones/" title="Clasificaciones">Clasificaciones</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/nba/equipos/" title="Equipos">Equipos</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/baloncesto/nba/playoffs.html" title="Playoffs">Playoffs</a>
+</li>
+<li class="tab-list-link">
+<a href="http://www.marca.com/deporte/baloncesto/nba/playoffs/cuadro.html/" title="Cuadro final">Cuadro final</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<script language="JavaScript" type="text/javascript" data-ue-omniture><!--
+var s={};var pageName="http://www.marca.com/index.html";s.pageType="";s.pageName="http://www.marca.com/index.html";s.channel="portada";s.prop1="portada";s.prop2="portada";s.prop3="";s.prop4="";s.prop5="";s.prop6="Portada-566a968a268e3ece348b4585";s.prop7="marca.com";s.prop11="";s.hier1="marca.com|portada|portada";s.prop27="web";s.prop28="0|0";s.prop29="";s.list2="";s.prop30="";s.prop52=navigator.platform;s.prop53="";s.prop31="portada";s.prop32="home";s.prop33="portada";s.prop34="&lt;?php if ($is_mobile) echo &#039;movil&#039;; else echo &#039;pc&#039;;?&gt;";s.prop35="origen";s.prop36="";s.prop39="nuevo-03-30";s.prop55="";s.prop75="";/*Conversion Variables*/s.eVar1=s.channel;s.eVar2=s.prop1;s.eVar3=s.prop2;s.eVar4=s.prop3;s.eVar5=s.prop5;s.eVar11=s.prop11;s.eVar35=s.prop4;s.eVar31=s.prop6;s.eVar36=s.prop7;s.eVar27=s.prop27;s.eVar28=s.prop28;s.eVar29=s.prop29;s.eVar30=s.prop30;s.eVar45=s.prop32;s.eVar33=s.prop33;s.eVar34=s.prop34;s.eVar39=s.prop39;s.eVar52=s.prop52;s.eVar75=s.prop75;s.eVar80=s.prop53;s.eVar84=s.prop35;s.eVar85=s.prop36;var s_omniture=s;/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! *///--></script><script type="text/javascript">function DM_prepClient(csid,client){client.DM_cat("portada > portada > autocover");}</script><script>if(typeof gptIsDisableInitialLoad!=='undefined'&&gptIsDisableInitialLoad===true){googletag.cmd.push(function(){googletag.pubads().refresh();});}</script>
+<script type="text/javascript" src="http://e00-marca.uecdn.es/assets/v5/js/desktop.min.js"></script><script type="text/javascript" src="http://e00-marca.uecdn.es/assets/navcontinua/v1/navegacioncontinua.min.js"></script><script type="text/javascript">jQuery(function(){if(typeof NavegacionContinua==='function'&&typeof nav_continua_active!=='undefined'&&typeof uePages!=='undefined'&&typeof ueDataPage!=='undefined'&&typeof activeUeNavigation!=='undefined'){var navegacion=new NavegacionContinua(jQuery,uePages,ueDataPage,nav_continua_active,activeUeNavigation);navegacion.init();}else{var historyFix=new historyAPIFix(jQuery);historyFix.lanzaListenerPopstate();};});</script><script type="text/javascript">jQuery(function(){jQuery(".icon-menu").removeAttr("onclick");jQuery(".icon-close").first().removeAttr("onclick");});</script><script type="text/javascript">function onYouTubeIframeAPIReady(){document.dispatchEvent(event_youtube_player);};</script><script type="text/javascript">!function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function r(e,t){0==t.nIndex?o():u.set({prop71:""})}function o(){try{var e=i.getModules();u.set({prop71:c.omniture.tag_origen+"_"+e[0].site+","+c.omniture.tag_origen+"_"+e[1].site}),s.getHtmlfor(e[0],e[1],function(t,n){if(!t){var r=JSON.parse(n),o="div.js-bt";r.length>0&&a.inject(o,r,e)}})}catch(e){}}var i=n(1),s=n(4),a=n(5),c=n(2),u=n(6);try{o(),jQuery(document).on("contentLoaded",r)}catch(e){}},function(e,t,n){"use strict";var r=n(2),o=n(3),i=function(){function e(e,t){var n=0,r=0,i=[];for(r=0;r<t.length;++r)o.isVisited(t[r].site)==e&&(i.push({site:t[r].site,p:t[r].p}),n+=t[r].p);for(r=0;r<i.length;++r)i[r].p/=n;return i}function t(e){for(var t=Math.random(),n=0,r=0;r<e.length-1;++r){if(t>=n&&t<e[r].p+n)return e[r];n+=e[r].p}return e[r]}function n(t){var n=!0;return e(n,t)}function i(t){var n=!1;return e(n,t)}function s(){var e="",o="",s=r.modules,a=n(s),c=i(s);if(0==c.length)for(e=t(s),o=t(s);e==o;)o=t(s);else if(a.length>0&&c.length>1)for(e=t(c),o=t(c);e==o;)o=t(c);else if(1==c.length)e=c.pop(),o=t(a);else for(e=t(s),o=t(s);e==o;)o=t(s);return[e,o]}return{getModules:s,getVisited:n,getNoVisited:i}}();e.exports=i},function(e,t){e.exports={url:"http://estaticos.marca.com/json/bt/v1/",omniture:{tag_origen:"marca"},cookie_uepref:"ue_pref",sites_codes:{elmundo:"q9od42az2",expansion:"q9od7p0un",marca:"q9oecdx9a",dmedicina:"q9odwb5re",buho:"q9od2rlz4",tiramillas:"q9oei6n3w",telva:"q9oegasjt",fueradeserie:"q9oeajp20",yodona:"q9oek79z7"},modules:[{site:"expansion",p:.41666666666666663},{site:"elmundo",p:.41666666666666663},{site:"fueradeserie",p:.08333333333333333},{site:"dmedicina",p:.08333333333333333}]}},function(e,t,n){"use strict";var r=n(2),o=function(){function e(){var e=r.sites_codes,t=[],n=localStorage.getItem("kxunidad_segs");if(n&&null!==n)for(var o in e)n.indexOf(e[o])!=-1&&t.push(o);return t}function t(t){var n=e();return t=t.toLowerCase(),n.indexOf(t)!=-1}return{getVisitedPortals:e,isVisited:t}}();e.exports=o},function(e,t,n){"use strict";var r=n(2),o=function(){function e(e,t,n){try{var r=new XMLHttpRequest;r.onreadystatechange=function(){4===r.readyState&&(parseInt(r.status)>=200&&parseInt(r.status)<300?n(!1,r.responseText):n("Request error"))},r.open("GET",e,!0),r.send(t)}catch(e){n(e)}}function t(e,t,n){var r,i=e.site+"_"+t.site;"m"===this.getDevice()&&(i+="_m"),i+=".json",r=o+i,this.fetch(r,{method:"GET",headers:{Accept:"application/json","Content-Type":"application/json"}},n)}function n(){var e="default";if(navigator.cookieEnabled)try{var t=decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)"+r.cookie_uepref+"\\s*\\=\\s*([^;]*).*$)|^.*$","i"),"$1"));t&&(e=JSON.parse(t).d)}catch(t){e=null}return e}var o=r.url;return{getHtmlfor:t,fetch:e,getDevice:n}}();e.exports=o},function(e,t,n){"use strict";var r=n(2),o=function(){function e(e){var t=document.createElement("div");return t.innerHTML=e.replace(/^\s*/,""),t}function t(e){return function(t){try{t.ctrlKey||t.shiftKey||t.metaKey||t.button&&1==t.button?envioBTSC(e):window.addEventListener("beforeunload",function(){"function"==typeof envioBTSC&&envioBTSC(e)})}catch(e){}}}function n(n,o,i){var s=r.omniture.tag_origen;[].slice.call(document.querySelectorAll(n)).map(function(n,r){if(o&&o[r]){var a,c=e(o[r]),u=c.getElementsByTagName("a");for(a=0;a<u.length;++a)u[a].onclick=t(s+"_"+i[r].site);n.parentNode.replaceChild(c.firstChild,n)}})}return{inject:n,createElement:e}}();e.exports=o},function(e,t){"use strict";var n=function(e){if("object"==typeof window.s)for(var t in e)void 0!==e[t]&&(window.s[t]=0===e[t]?"0":e[t])};e.exports.set=n}]);</script><script>jQuery.noConflict();</script><img src="//amplifypixel.outbrain.com/pixel?mid=0025e676e1e85b1dcdde3bb0b1e620cc71"><!-- SiteCatalyst code version: H.21.  Copyright 1996-2010 Adobe, Inc. All Rights Reserved More info available at /web/20151202224104/http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://active.cache.el-mundo.net/js/advertisement.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://active.cache.el-mundo.net/js/s_code.js"></script>
+<script type="text/javascript">window.optimizely=window.optimizely||[];window.optimizely.push("activateSiteCatalyst");</script>
+<script language="JavaScript" type="text/javascript"><!--
+if (window['s_omniture']) { for ( var i in s_omniture ) { s[i] = s_omniture[i]; } }
+try {omniture_fill_vars_reg_user('REGMARCA',s);} catch (omniture_fill_vars_reg_user_exception) {}
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'!-'+'-')
+//--></script><noscript><img src="http://metrics.el-mundo.net/b/ss/uevistatest/1/H.21--NS/0"
+height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.21. -->
+<!-- cXense script begin -->
+<div id="cX-root" style="display:none"></div>
+<script type="text/javascript">
+  var cX = cX || {}; cX.callQueue = cX.callQueue || [];
+  cX.callQueue.push(['setAccountId', '9222274424412905874']);
+  cX.callQueue.push(['setSiteId', '9222274424412905877']);
+  cX.callQueue.push(['sendPageViewEvent']);
+</script>
+<script type="text/javascript">
+  (function() { try { var scriptEl = document.createElement('script'); scriptEl.type = 'text/javascript'; scriptEl.async = 'async';
+  scriptEl.src = ('https:' == document.location.protocol) ? 'https://scdn.cxense.com/cx.js' : 'http://active.cache.el-mundo.net/banners/cxense/cx.js';
+  var targetEl = document.getElementsByTagName('script')[0]; targetEl.parentNode.insertBefore(scriptEl, targetEl); } catch (e) {};} ());
+</script>
+<!-- cXense script end -->
+<script type='text/javascript'>var _sf_async_config={};_sf_async_config.uid=52682;_sf_async_config.domain=s?(s.prop7?s.prop7:"marca.com"):"marca.com";_sf_async_config.useCanonical=true;_sf_async_config.sections=s?(s.channel?s.channel:"no definido"):"no definido";_sf_async_config.authors=s?(s.prop75?s.prop75:"no definido"):"no definido";_sf_async_config.type=s?(s.prop32?s.prop32:"no definido"):"no definido";(function(){function loadChartbeat(){window._sf_endpt=(new Date()).getTime();var e=document.createElement('script');e.setAttribute('language','javascript');e.setAttribute('type','text/javascript');e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');document.body.appendChild(e);}var oldonload=window.onload;window.onload=(typeof window.onload!='function')?loadChartbeat:function(){oldonload();loadChartbeat();};})();</script> 
+</body></html>
