@@ -1,21 +1,16 @@
 package securitybug.similarityuniformfuzzyhash;
 
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT_STR;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASHES_TO_HASH_STR;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HASH_TO_HASHES_STR;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMAL_MAX_CHARS;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_VALUE;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.TAB;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.UFH_FILES_ECONDING;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.checkHashName;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.ZERO_TO_ONE_DECIMAL_MAX_CHARS;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.checkName;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.getMaxLength;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.hyphens;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.spaces;
-
-import securitybug.similarityuniformfuzzyhash.ToStringUtils.HashCharacteristics;
 
 import org.apache.commons.io.FileUtils;
 
@@ -23,6 +18,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,44 +41,293 @@ import java.util.Set;
 public final class UniformFuzzyHashes {
 
     /**
-     * Default similarity sort criteria.
+     * Charset for reading and writing files of Uniform Fuzzy Hashes.
      */
-    public static final SimilaritySortCriterias DEFAULT_SIMILARITY_SORT_CRITERIA =
-            SimilaritySortCriterias.HASH_TO_HASHES_DESC;
+    public static final Charset UFH_FILES_ECONDING = StandardCharsets.UTF_8;
 
     /**
-     * Enum of criterias to sort Uniform Fuzzy Hashes by their similarity to another Uniform Fuzzy
-     * Hash.
+     * Default similarity sort criteria.
      */
-    public enum SimilaritySortCriterias {
+    public static final SimilarityTypes DEFAULT_SIMILARITY_SORT_CRITERIA =
+            SimilarityTypes.SIMILARITY;
 
-        /** Sort by descending hash similarity to the hashes. */
-        HASH_TO_HASHES_DESC,
-
-        /** Sort by ascending hash similarity to the hashes. */
-        HASH_TO_HASHES_ASC,
-
-        /** Sort by descending hashes similarity to the hash. */
-        HASHES_TO_HASH_DESC,
-
-        /** Sort by ascending hashes similarity to the hash. */
-        HASHES_TO_HASH_ASC;
+    /**
+     * Enum of Uniform Fuzzy Hash characteristics.
+     */
+    public enum HashCharacteristics {
 
         /**
-         * @return The comma separated values of this enum.
+         * Factor.
          */
-        public static String valuesCsv() {
+        FACTOR("Factor", "getFactor"),
 
-            StringBuilder str = new StringBuilder();
+        /**
+         * Data size.
+         */
+        DATA_SIZE("Data Size", "getDataSize"),
 
-            for (SimilaritySortCriterias value : values()) {
-                if (str.length() != 0) {
-                    str.append(", ");
-                }
-                str.append(value.toString());
+        /**
+         * Amount of blocks.
+         */
+        AMOUNT_OF_BLOCKS("N Blocks", "getAmountOfBlocks"),
+
+        /**
+         * Block size mean.
+         */
+        BLOCK_SIZE_MEAN("BlockSize Mean", "getBlockSizeMean"),
+
+        /**
+         * Block size standard deviation.
+         */
+        BLOCK_SIZE_ST_DEV("BlockSize SD", "getBlockSizeStDev"),
+
+        /**
+         * Hash.
+         */
+        HASH("Hash", "toString");
+
+        /**
+         * Characteristic name.
+         */
+        private String name;
+
+        /**
+         * Characteristic getter.
+         */
+        private String getter;
+
+        /**
+         * Characteristic getter Java method.
+         */
+        private Method getterJavaMethod;
+
+        /**
+         * Constructor.
+         * 
+         * @param name The characteristic name.
+         * @param getter The characteristic getter.
+         */
+        HashCharacteristics(
+                String name,
+                String getter) {
+
+            this.name = name;
+            this.getter = getter;
+
+            try {
+                this.getterJavaMethod = UniformFuzzyHash.class.getMethod(getter);
+                this.getterJavaMethod.setAccessible(true);
+            } catch (Exception exception) {
+                throw new RuntimeException(exception);
             }
 
-            return str.toString();
+        }
+
+        /**
+         * @return The characteristic name.
+         */
+        public String getName() {
+
+            return name;
+
+        }
+
+        /**
+         * @return The characteristic getter.
+         */
+        public String getGetter() {
+
+            return getter;
+
+        }
+
+        /**
+         * @param hash A Uniform Fuzzy Hash.
+         * @return The result of the invocation of this characteristic getter over the hash.
+         */
+        public String getCharaceristicValue(
+                UniformFuzzyHash hash) {
+
+            if (hash == null) {
+                return NULL_VALUE;
+            }
+
+            try {
+
+                Object value = getterJavaMethod.invoke(hash);
+
+                if (value instanceof Double || value instanceof Float) {
+                    return DECIMALS_FORMAT.format(value);
+                } else {
+                    return value.toString();
+                }
+
+            } catch (Exception exception) {
+                throw new RuntimeException(exception);
+            }
+
+        }
+
+        /**
+         * @return A list with all the characteristics names.
+         */
+        public static List<String> names() {
+
+            HashCharacteristics[] hashCharacteristics = HashCharacteristics.values();
+            List<String> hashCharacteristicsNames = new ArrayList<>(hashCharacteristics.length);
+
+            for (HashCharacteristics hashCharaceristic : hashCharacteristics) {
+                hashCharacteristicsNames.add(hashCharaceristic.name);
+            }
+
+            return hashCharacteristicsNames;
+
+        }
+
+    }
+
+    /**
+     * Enum of types of similarities between Uniform Fuzzy Hashes.
+     */
+    public enum SimilarityTypes {
+
+        /**
+         * Similarity of a hash to other hashes.
+         */
+        SIMILARITY("Similarity", "similarity"),
+
+        /**
+         * Similarity of other hashes to a hash.
+         */
+        REVERSE_SIMILARITY("Reverse", "reverseSimilarity"),
+
+        /**
+         * Maximum similarity.
+         */
+        MAXIMUM("Maximum", "maxSimilarity"),
+
+        /**
+         * Minimum similarity.
+         */
+        MINIMUM("Minimum", "minSimilarity"),
+
+        /**
+         * Arithmetic mean of the similarities.
+         */
+        ARITHMETIC_MEAN("ArithMean", "arithmeticMeanSimilarity"),
+
+        /**
+         * Geometric mean of the similarities, sqrt(similarity1 * similarity2).
+         */
+        GEOMETRIC_MEAN("GeomMean", "geometricMeanSimilarity");
+
+        /**
+         * Similarity type name.
+         */
+        private String name;
+
+        /**
+         * Similarity type method.
+         */
+        private String method;
+
+        /**
+         * Similarity type Java method.
+         */
+        private Method javaMethod;
+
+        /**
+         * Constructor.
+         * 
+         * @param name Similarity type name.
+         * @param method Similarity type method.
+         */
+        SimilarityTypes(
+                String name,
+                String method) {
+
+            this.name = name;
+            this.method = method;
+
+            try {
+                this.javaMethod = UniformFuzzyHash.class.getMethod(method, UniformFuzzyHash.class);
+                this.javaMethod.setAccessible(true);
+            } catch (Exception exception) {
+                throw new RuntimeException(exception);
+            }
+
+        }
+
+        /**
+         * @return The similarity type name.
+         */
+        public String getName() {
+            return name;
+        }
+
+        /**
+         * @return The similarity type method.
+         */
+        public String getMethod() {
+            return method;
+        }
+
+        /**
+         * @param hash1 A Uniform Fuzzy Hash.
+         * @param hash2 Another Uniform Fuzzy Hash.
+         * @return The result of the invocation of this similarity type method over the hashes.
+         */
+        public double getSimilarityValue(
+                UniformFuzzyHash hash1,
+                UniformFuzzyHash hash2) {
+
+            if (hash1 == null || hash2 == null) {
+                return -1;
+            }
+
+            try {
+
+                return (double) javaMethod.invoke(hash1, hash2);
+
+            } catch (Exception exception) {
+                throw new RuntimeException(exception);
+            }
+
+        }
+
+        /**
+         * @param hash1 A Uniform Fuzzy Hash.
+         * @param hash2 Another Uniform Fuzzy Hash.
+         * @return The result of the invocation of this similarity type method over the hashes,
+         *         parsed to string.
+         */
+        public String getSimilarityFormattedValue(
+                UniformFuzzyHash hash1,
+                UniformFuzzyHash hash2) {
+
+            double similarity = getSimilarityValue(hash1, hash2);
+
+            if (similarity < 0) {
+                return NULL_VALUE;
+            }
+
+            return DECIMALS_FORMAT.format(similarity);
+
+        }
+
+        /**
+         * @return A list with all the similarity types names.
+         */
+        public static List<String> names() {
+
+            SimilarityTypes[] similarityTypes = SimilarityTypes.values();
+            List<String> similarityTypesNames = new ArrayList<>(similarityTypes.length);
+
+            for (SimilarityTypes similarityType : similarityTypes) {
+                similarityTypesNames.add(similarityType.name);
+            }
+
+            return similarityTypesNames;
 
         }
 
@@ -893,20 +1140,23 @@ public final class UniformFuzzyHashes {
 
     /**
      * Sorts a collection of Uniform Fuzzy Hashes by their similarity to another Uniform Fuzzy Hash,
-     * according to a sorting criteria, and returns it as a new list of Uniform Fuzzy Hashes. The
-     * introduced collection is not modified. If the criteria is null, no sorting operation is
+     * according to a similarity type, and returns it as a new list of Uniform Fuzzy Hashes. The
+     * introduced collection is not modified. If the similarity type is null, no sorting operation
+     * is
      * performed.
      * 
      * @param hashes Collection of Uniform Fuzzy Hashes.
      * @param hash Uniform Fuzzy Hash to compute the similarities.
-     * @param criteria Sorting criteria.
+     * @param similarityType Similarity type.
+     * @param ascending True to sort ascending, false to sort descending.
      * @return New list of Uniform Fuzzy Hashes representing the introduced collection, sorted
      *         according to the introduced criteria.
      */
     public static List<UniformFuzzyHash> sortBySimilarity(
             Collection<UniformFuzzyHash> hashes,
             final UniformFuzzyHash hash,
-            final SimilaritySortCriterias criteria) {
+            final SimilarityTypes similarityType,
+            final boolean ascending) {
 
         if (hashes == null) {
             throw new NullPointerException("Collection of hashes is null.");
@@ -918,7 +1168,7 @@ public final class UniformFuzzyHashes {
 
         List<UniformFuzzyHash> sortedHashes = new ArrayList<>(hashes);
 
-        if (criteria != null) {
+        if (similarityType != null) {
 
             Collections.sort(sortedHashes, new Comparator<UniformFuzzyHash>() {
 
@@ -935,17 +1185,14 @@ public final class UniformFuzzyHashes {
                         return -1;
                     }
 
-                    switch (criteria) {
-                        case HASH_TO_HASHES_ASC:
-                            return Double.compare(hash.similarity(hash1), hash.similarity(hash2));
-                        case HASH_TO_HASHES_DESC:
-                            return Double.compare(hash.similarity(hash2), hash.similarity(hash1));
-                        case HASHES_TO_HASH_ASC:
-                            return Double.compare(hash1.similarity(hash), hash2.similarity(hash));
-                        case HASHES_TO_HASH_DESC:
-                            return Double.compare(hash2.similarity(hash), hash1.similarity(hash));
-                        default:
-                            return 0;
+                    if (ascending) {
+                        return Double.compare(
+                                similarityType.getSimilarityValue(hash, hash1),
+                                similarityType.getSimilarityValue(hash, hash2));
+                    } else {
+                        return Double.compare(
+                                similarityType.getSimilarityValue(hash, hash2),
+                                similarityType.getSimilarityValue(hash, hash1));
                     }
 
                 }
@@ -960,20 +1207,22 @@ public final class UniformFuzzyHashes {
 
     /**
      * Sorts a map from names to Uniform Fuzzy Hashes by their similarity to another Uniform Fuzzy
-     * Hash, according to a sorting criteria, and returns it as a new map from names to Uniform
-     * Fuzzy Hashes. The introduced map is not modified. If the criteria is null, no sorting
+     * Hash, according to a similarity type, and returns it as a new map from names to Uniform
+     * Fuzzy Hashes. The introduced map is not modified. If the similarity type is null, no sorting
      * operation is performed.
      * 
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param hash Uniform Fuzzy Hash to compute the similarities.
-     * @param criteria Sorting criteria.
+     * @param similarityType Similarity type.
+     * @param ascending True to sort ascending, false to sort descending.
      * @return New map from names to Uniform Fuzzy Hashes representing the introduced map, sorted
      *         according to the introduced criteria.
      */
     public static Map<String, UniformFuzzyHash> sortBySimilarity(
             Map<String, UniformFuzzyHash> namesToHashes,
             final UniformFuzzyHash hash,
-            final SimilaritySortCriterias criteria) {
+            final SimilarityTypes similarityType,
+            final boolean ascending) {
 
         if (namesToHashes == null) {
             throw new NullPointerException("Map of hashes is null.");
@@ -985,7 +1234,7 @@ public final class UniformFuzzyHashes {
 
         LinkedHashMap<String, UniformFuzzyHash> sortedNamesToHashes = null;
 
-        if (criteria != null) {
+        if (similarityType != null) {
 
             List<Entry<String, UniformFuzzyHash>> entries =
                     new ArrayList<>(namesToHashes.entrySet());
@@ -1008,22 +1257,14 @@ public final class UniformFuzzyHashes {
                         return -1;
                     }
 
-                    Double similarityToHash1 = hash.similarity(hash1);
-                    Double similarityToHash2 = hash.similarity(hash2);
-                    Double similarityFromHash1 = hash1.similarity(hash);
-                    Double similarityFromHash2 = hash2.similarity(hash);
-
-                    switch (criteria) {
-                        case HASH_TO_HASHES_DESC:
-                            return similarityToHash2.compareTo(similarityToHash1);
-                        case HASH_TO_HASHES_ASC:
-                            return similarityToHash1.compareTo(similarityToHash2);
-                        case HASHES_TO_HASH_DESC:
-                            return similarityFromHash2.compareTo(similarityFromHash1);
-                        case HASHES_TO_HASH_ASC:
-                            return similarityFromHash1.compareTo(similarityFromHash2);
-                        default:
-                            return 0;
+                    if (ascending) {
+                        return Double.compare(
+                                similarityType.getSimilarityValue(hash, hash1),
+                                similarityType.getSimilarityValue(hash, hash2));
+                    } else {
+                        return Double.compare(
+                                similarityType.getSimilarityValue(hash, hash2),
+                                similarityType.getSimilarityValue(hash, hash1));
                     }
 
                 }
@@ -1050,9 +1291,12 @@ public final class UniformFuzzyHashes {
      * Prints Uniform Fuzzy Hashes.
      * 
      * @param hashes Collection of Uniform Fuzzy Hashes.
+     * @param doubleLine Indicates whether two carriage returns must be printed between each hash or
+     *        just one.
      */
     public static void printHashes(
-            Collection<UniformFuzzyHash> hashes) {
+            Collection<UniformFuzzyHash> hashes,
+            boolean doubleLine) {
 
         if (hashes == null) {
             throw new NullPointerException("Collection of hashes is null.");
@@ -1064,7 +1308,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printHashes(namesToHashes, false);
+        printHashes(namesToHashes, false, doubleLine);
 
     }
 
@@ -1073,10 +1317,13 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param printNames Indicates whether names must be printed or not.
+     * @param doubleLine Indicates whether two carriage returns must be printed between each hash or
+     *        just one.
      */
     public static void printHashes(
             Map<String, UniformFuzzyHash> namesToHashes,
-            boolean printNames) {
+            boolean printNames,
+            boolean doubleLine) {
 
         if (namesToHashes == null) {
             throw new NullPointerException("Map of hashes is null.");
@@ -1094,7 +1341,9 @@ public final class UniformFuzzyHashes {
             name = checkName(name, -1);
 
             if (hash != null) {
-                System.out.println();
+                if (doubleLine) {
+                    System.out.println();
+                }
                 if (printNames) {
                     System.out.println(name + NAME_SEPARATOR + hash.toString());
                 } else {
@@ -1164,22 +1413,19 @@ public final class UniformFuzzyHashes {
 
         // Hash characteristics names.
         List<String> characteristicsNames = HashCharacteristics.names();
-        int characteristicsNamesMaxLength = getMaxLength(true, -1, characteristicsNames);
+        int characteristicsNamesMaxLength = getMaxLength(false, -1, characteristicsNames);
 
         // Column size.
-        int firstColumnSize = namesMaxLength + TAB.length();
-        int columnSize = getMaxLength(true, -1,
-                Integer.toString(Integer.MAX_VALUE), DECIMALS_FORMAT_STR);
-        columnSize = Math.max(columnSize, characteristicsNamesMaxLength) + TAB.length();
+        int firstColumnSize = getColumnSize(namesMaxLength);
+        int columnSize = getColumnSize(DECIMAL_MAX_CHARS, characteristicsNamesMaxLength);
 
         // Table print.
         System.out.println();
 
-        printColumn("", firstColumnSize);
-        System.out.print('|' + TAB);
+        printFirstColumn("", firstColumnSize);
         int numCharacteristics = 0;
         for (String hashCharacteristicName : characteristicsNames) {
-            if (hashCharacteristicName.equals(HashCharacteristics.HASH.getName())) {
+            if (hashCharacteristicName.equals(HashCharacteristics.HASH)) {
                 if (printHashes) {
                     printColumn(hashCharacteristicName, columnSize);
                     numCharacteristics++;
@@ -1193,16 +1439,14 @@ public final class UniformFuzzyHashes {
         }
         System.out.println();
 
-        System.out.println(hyphens(firstColumnSize) + '+'
-                + hyphens(TAB.length() + columnSize * numCharacteristics));
+        printFirstRowSeparator(firstColumnSize, columnSize, numCharacteristics);
 
         for (String name : names) {
 
             UniformFuzzyHash hash = namesToHashes.get(name);
             name = checkName(name, truncateNamesLength);
 
-            printColumn(name, firstColumnSize);
-            System.out.print('|' + TAB);
+            printFirstColumn(name, firstColumnSize);
             for (HashCharacteristics hashCharacteristic : HashCharacteristics.values()) {
                 if (hashCharacteristic.equals(HashCharacteristics.HASH)) {
                     if (printHashes) {
@@ -1214,7 +1458,6 @@ public final class UniformFuzzyHashes {
                     }
                 }
             }
-
             System.out.println();
 
         }
@@ -1272,49 +1515,39 @@ public final class UniformFuzzyHashes {
             }
         }
 
+        // Similarity type.
+        final SimilarityTypes similarityType = SimilarityTypes.SIMILARITY;
+
         // Hash names.
         Set<String> names = namesToHashes.keySet();
         int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
 
         // Column size.
-        int firstColumnSize = namesMaxLength + TAB.length();
-        int columnSize = Math.max(DECIMALS_FORMAT_STR.length(), namesMaxLength) + TAB.length();
+        int firstColumnSize = getColumnSize(namesMaxLength);
+        int columnSize = getColumnSize(ZERO_TO_ONE_DECIMAL_MAX_CHARS, namesMaxLength);
 
         // Table print.
         System.out.println();
 
-        printColumn("", firstColumnSize);
-        System.out.print('|' + TAB);
+        printFirstColumn("", firstColumnSize);
         for (String name : names) {
             name = checkName(name, truncateNamesLength);
             printColumn(name, columnSize);
         }
         System.out.println();
 
-        System.out.println(hyphens(firstColumnSize) + '+'
-                + hyphens(TAB.length() + columnSize * names.size()));
+        printFirstRowSeparator(firstColumnSize, columnSize, names.size());
 
         for (String name1 : names) {
 
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
             name1 = checkName(name1, truncateNamesLength);
-            printColumn(name1, firstColumnSize);
-            System.out.print('|' + TAB);
 
+            printFirstColumn(name1, firstColumnSize);
             for (String name2 : names) {
-
                 UniformFuzzyHash hash2 = namesToHashes.get(name2);
-
-                String similarityString = null;
-                if (hash1 == null || hash2 == null) {
-                    similarityString = NULL_VALUE;
-                } else {
-                    similarityString = DECIMALS_FORMAT.format(hash1.similarity(hash2));
-                }
-                printColumn(similarityString, columnSize);
-
+                printColumn(similarityType.getSimilarityFormattedValue(hash1, hash2), columnSize);
             }
-
             System.out.println();
 
         }
@@ -1329,14 +1562,16 @@ public final class UniformFuzzyHashes {
      * 
      * @param hash The Uniform Fuzzy Hash.
      * @param hashes Collection of Uniform Fuzzy Hashes.
-     * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
-     *        sort it.
+     * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
+     * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
+     *        false to sort descending.
      * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
      */
     public static void printSimilarities(
             UniformFuzzyHash hash,
             Collection<UniformFuzzyHash> hashes,
-            SimilaritySortCriterias similaritySortCriteria,
+            SimilarityTypes similaritySortCriteria,
+            boolean sortAscending,
             int rowsLimit) {
 
         if (hash == null) {
@@ -1353,7 +1588,8 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarities(null, hash, namesToHashes, similaritySortCriteria, rowsLimit, -1);
+        printSimilarities(
+                hash, namesToHashes, similaritySortCriteria, sortAscending, rowsLimit, -1);
 
     }
 
@@ -1361,26 +1597,24 @@ public final class UniformFuzzyHashes {
      * Prints a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
      * Fuzzy Hashes.
      * 
-     * @param hashName The Uniform Fuzzy Hash name.
      * @param hash The Uniform Fuzzy Hash.
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
-     * @param similaritySortCriteria Sorting criteria to sort the table by similarity. Null not to
-     *        sort it.
+     * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
+     * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
+     *        false to sort descending.
      * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      */
     public static void printSimilarities(
-            String hashName,
             UniformFuzzyHash hash,
             Map<String, UniformFuzzyHash> namesToHashes,
-            SimilaritySortCriterias similaritySortCriteria,
+            SimilarityTypes similaritySortCriteria,
+            boolean sortAscending,
             int rowsLimit,
             int truncateNamesLength) {
 
         // Parameters check.
-        hashName = checkHashName(hashName, truncateNamesLength);
-
         if (hash == null) {
             throw new NullPointerException("Hash is null.");
         }
@@ -1396,36 +1630,35 @@ public final class UniformFuzzyHashes {
         // Similarities computation and caching.
         for (UniformFuzzyHash hash1 : namesToHashes.values()) {
             hash.similarity(hash1);
-            hash1.similarity(hash1);
+            hash1.similarity(hash);
         }
 
-        // Constants.
-        final String hashToHashesString = String.format(HASH_TO_HASHES_STR, hashName);
-        final String hashesToHashString = String.format(HASHES_TO_HASH_STR, hashName);
-
         // Sort.
-        namesToHashes = sortBySimilarity(namesToHashes, hash, similaritySortCriteria);
+        namesToHashes = sortBySimilarity(
+                namesToHashes, hash, similaritySortCriteria, sortAscending);
 
         // Hash names.
         Set<String> names = namesToHashes.keySet();
         int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
 
+        // Similarity types names.
+        List<String> similarityTypesNames = SimilarityTypes.names();
+        int simiarityTypesNamesMaxLength = getMaxLength(false, -1, similarityTypesNames);
+
         // Column size.
-        int firstColumnSize = namesMaxLength + TAB.length();
-        int columnSize = getMaxLength(true, -1,
-                DECIMALS_FORMAT_STR, hashToHashesString, hashesToHashString)
-                + TAB.length();
+        int firstColumnSize = getColumnSize(namesMaxLength);
+        int columnSize = getColumnSize(ZERO_TO_ONE_DECIMAL_MAX_CHARS, simiarityTypesNamesMaxLength);
 
         // Table print.
         System.out.println();
 
-        printColumn("", firstColumnSize);
-        System.out.print('|' + TAB);
-        printColumn(hashToHashesString, columnSize);
-        printColumn(hashesToHashString, columnSize);
+        printFirstColumn("", firstColumnSize);
+        for (String similarityTypeName : similarityTypesNames) {
+            printColumn(similarityTypeName, columnSize);
+        }
         System.out.println();
 
-        System.out.println(hyphens(firstColumnSize) + '+' + hyphens(TAB.length() + 2 * columnSize));
+        printFirstRowSeparator(firstColumnSize, columnSize, similarityTypesNames.size());
 
         int row = 1;
         for (String name1 : names) {
@@ -1433,21 +1666,10 @@ public final class UniformFuzzyHashes {
             UniformFuzzyHash hash1 = namesToHashes.get(name1);
             name1 = checkName(name1, truncateNamesLength);
 
-            printColumn(name1, firstColumnSize);
-            System.out.print('|' + TAB);
-
-            String similarityString = null;
-            String similarityString1 = null;
-            if (hash1 == null) {
-                similarityString = NULL_VALUE;
-                similarityString1 = NULL_VALUE;
-            } else {
-                similarityString = DECIMALS_FORMAT.format(hash.similarity(hash1));
-                similarityString1 = DECIMALS_FORMAT.format(hash1.similarity(hash));
+            printFirstColumn(name1, firstColumnSize);
+            for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+                printColumn(similarityType.getSimilarityFormattedValue(hash, hash1), columnSize);
             }
-            printColumn(similarityString, columnSize);
-            printColumn(similarityString1, columnSize);
-
             System.out.println();
 
             if (row++ == rowsLimit) {
@@ -1483,6 +1705,25 @@ public final class UniformFuzzyHashes {
     }
 
     /**
+     * @param sizes Varargs of lengths of the strings which will be printed in the column.
+     * @return The column size.
+     */
+    private static int getColumnSize(
+            int... sizes) {
+
+        int maxSize = 0;
+
+        for (int size : sizes) {
+            if (size > maxSize) {
+                maxSize = size;
+            }
+        }
+
+        return maxSize + TAB.length();
+
+    }
+
+    /**
      * Prints a string followed by an amount of spaces such that columnSize characters are printed.
      * 
      * @param text The string to print.
@@ -1493,6 +1734,38 @@ public final class UniformFuzzyHashes {
             int columnSize) {
 
         System.out.print(text + spaces(columnSize - text.length()));
+
+    }
+
+    /**
+     * Prints a string in a column and then the first column separator.
+     * 
+     * @param text The string to print.
+     * @param columnSize Column size.
+     */
+    private static void printFirstColumn(
+            String text,
+            int columnSize) {
+
+        printColumn(text, columnSize);
+        System.out.print('|' + TAB);
+
+    }
+
+    /**
+     * Prints the first row separator.
+     * 
+     * @param firstColumnSize First column size.
+     * @param columnSize Other columns size.
+     * @param nColumns Number of columns
+     */
+    private static void printFirstRowSeparator(
+            int firstColumnSize,
+            int columnSize,
+            int nColumns) {
+
+        System.out.println(hyphens(firstColumnSize) + '+'
+                + hyphens(TAB.length() + columnSize * nColumns));
 
     }
 

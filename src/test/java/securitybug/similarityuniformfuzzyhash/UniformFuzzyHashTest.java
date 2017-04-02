@@ -2,7 +2,7 @@ package securitybug.similarityuniformfuzzyhash;
 
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
 
-import securitybug.similarityuniformfuzzyhash.ToStringUtils.HashCharacteristics;
+import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.HashCharacteristics;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -100,21 +100,32 @@ public class UniformFuzzyHashTest {
     public void similarityTest()
             throws IOException {
 
-        final int factor = 1000;
-        final File file1 = TestResourcesUtils.getTestResourceFile("Images/Image1.bmp");
-        final File file2 = TestResourcesUtils.getTestResourceFile("Images/Image2.bmp");
+        final int factor = 50000;
+        final File file1 = TestResourcesUtils.getTestResourceFile("InsideDoc/Lenna.png");
+        final File file2 = TestResourcesUtils.getTestResourceFile("InsideDoc/Doc_Lenna.docx");
+        final boolean printHashes = true;
 
         UniformFuzzyHash hash1 = new UniformFuzzyHash(file1, factor);
         UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);
 
         double similarity1 = hash1.similarity(hash2);
-        double similarity2 = hash2.similarity(hash1);
+        double similarity2 = hash1.reverseSimilarity(hash2);
+        double maxSimilarity = hash1.maxSimilarity(hash2);
+        double minSimilarity = hash1.minSimilarity(hash2);
+        double arithmeticMean = hash1.arithmeticMeanSimilarity(hash2);
+        double geometricMean = hash1.geometricMeanSimilarity(hash2);
 
-        System.out.println(hash1);
-        System.out.println(hash2);
+        if (printHashes) {
+            System.out.println(hash1);
+            System.out.println(hash2);
+        }
 
         System.out.println("File 1 to File 2 similarity: " + DECIMALS_FORMAT.format(similarity1));
         System.out.println("File 2 to File 1 similarity: " + DECIMALS_FORMAT.format(similarity2));
+        System.out.println("Maximum similarity: " + DECIMALS_FORMAT.format(maxSimilarity));
+        System.out.println("Minimum similarity: " + DECIMALS_FORMAT.format(minSimilarity));
+        System.out.println("Arithmetic mean: " + DECIMALS_FORMAT.format(arithmeticMean));
+        System.out.println("Geometric mean: " + DECIMALS_FORMAT.format(geometricMean));
 
     }
 

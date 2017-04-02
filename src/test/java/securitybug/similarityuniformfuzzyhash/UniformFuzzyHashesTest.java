@@ -1,6 +1,6 @@
 package securitybug.similarityuniformfuzzyhash;
 
-import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilaritySortCriterias;
+import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -74,7 +74,8 @@ public class UniformFuzzyHashesTest {
         final int factor = 10;
         final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final SimilaritySortCriterias sortCriteria = SimilaritySortCriterias.HASH_TO_HASHES_DESC;
+        final SimilarityTypes sortCriteria = SimilarityTypes.SIMILARITY;
+        final boolean sortAscending = false;
         final int rowsLimit = -1;
         final int truncateNamesLength = 8;
 
@@ -84,7 +85,7 @@ public class UniformFuzzyHashesTest {
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
         UniformFuzzyHashes.printSimilarities(
-                file.getName(), hash, namesToHashes, sortCriteria, rowsLimit, truncateNamesLength);
+                hash, namesToHashes, sortCriteria, sortAscending, rowsLimit, truncateNamesLength);
 
     }
 

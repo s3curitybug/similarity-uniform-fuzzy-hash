@@ -1,13 +1,8 @@
 package securitybug.similarityuniformfuzzyhash;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -18,11 +13,6 @@ import java.util.Locale;
  *
  */
 public final class ToStringUtils {
-
-    /**
-     * Charset for reading and writing files of Uniform Fuzzy Hashes.
-     */
-    public static final Charset UFH_FILES_ECONDING = StandardCharsets.UTF_8;
 
     /**
      * Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
@@ -61,40 +51,21 @@ public final class ToStringUtils {
     public static final String NULL_NAME = "null";
 
     /**
-     * String which will be used when a name is empty.
-     */
-    public static final String EMPTY_NAME = "-";
-
-    /**
      * String which will be used when a value is null.
      */
     public static final String NULL_VALUE = "-";
 
     /**
-     * String which will be used when a hash name is null or empty.
+     * Symbols for decimal numbers format.
      */
-    public static final String NULL_OR_EMPTY_HASH_NAME = "Hash";
-
-    /**
-     * Hash name to hashes string.
-     */
-    public static final String HASH_TO_HASHES_STR = "%s -> Hashes";
-
-    /**
-     * Hashes to hash name string.
-     */
-    public static final String HASHES_TO_HASH_STR = "Hashes -> %s";
-
-    /**
-     * String representing the format in which decimal numbers are printed.
-     */
-    public static final String DECIMALS_FORMAT_STR = "0.0##";
+    public static final DecimalFormatSymbols DECIMALS_FORMAT_SYMBOLS =
+            DecimalFormatSymbols.getInstance(Locale.ROOT);
 
     /**
      * Format in which decimal numbers are printed.
      */
-    public static final DecimalFormat DECIMALS_FORMAT = new DecimalFormat(DECIMALS_FORMAT_STR,
-            DecimalFormatSymbols.getInstance(Locale.ROOT));
+    public static final DecimalFormat DECIMALS_FORMAT =
+            new DecimalFormat("0.0##", DECIMALS_FORMAT_SYMBOLS);
 
     /**
      * Hexadecimal base.
@@ -114,133 +85,18 @@ public final class ToStringUtils {
             Integer.toHexString(Integer.MAX_VALUE).length();
 
     /**
-     * Enum of Uniform Fuzzy Hash characteristics.
+     * Maximum number of characters of a decimal number string representation.
      */
-    public enum HashCharacteristics {
+    protected static final int DECIMAL_MAX_CHARS = 1
+            + INT_MAX_CHARS
+            + DECIMALS_FORMAT.getMaximumFractionDigits();
 
-        /**
-         * Factor.
-         */
-        FACTOR("Factor", "getFactor"),
-
-        /**
-         * Data size.
-         */
-        DATA_SIZE("Data Size", "getDataSize"),
-
-        /**
-         * Amount of blocks.
-         */
-        AMOUNT_OF_BLOCKS("Blocks", "getAmountOfBlocks"),
-
-        /**
-         * Block size mean.
-         */
-        BLOCK_SIZE_MEAN("BS Mean", "getBlockSizeMean"),
-
-        /**
-         * Block size standard deviation.
-         */
-        BLOCK_SIZE_ST_DEV("BS StDev", "getBlockSizeStDev"),
-
-        /**
-         * Hash.
-         */
-        HASH("Hash", "toString");
-
-        /**
-         * Characteristic name.
-         */
-        private String name;
-
-        /**
-         * Characteristic getter.
-         */
-        private String getter;
-
-        /**
-         * Constructor.
-         * 
-         * @param name The characteristic name.
-         * @param getter The characteristic getter.
-         */
-        HashCharacteristics(
-                String name,
-                String getter) {
-
-            this.name = name;
-            this.getter = getter;
-
-        }
-
-        /**
-         * @return The characteristic name.
-         */
-        public String getName() {
-
-            return name;
-
-        }
-
-        /**
-         * @return The characteristic getter.
-         */
-        public String getGetter() {
-
-            return getter;
-
-        }
-
-        /**
-         * @param hash A Uniform Fuzzy Hash.
-         * @return The hash invocation result of this characteristic getter.
-         */
-        public String getCharaceristicValue(
-                UniformFuzzyHash hash) {
-
-            if (hash == null) {
-                throw new NullPointerException("Hash is null.");
-            }
-
-            if (getter == null) {
-                throw new IllegalArgumentException("This characteristic has no getter.");
-            }
-
-            try {
-
-                Object value = hash.getClass().getMethod(getter).invoke(hash);
-
-                if (value instanceof Double || value instanceof Float) {
-                    return DECIMALS_FORMAT.format(value);
-                } else {
-                    return value.toString();
-                }
-
-            } catch (Exception exception) {
-                throw new RuntimeException(String.format(
-                        "Error invoking method %s",
-                        getter));
-            }
-
-        }
-
-        /**
-         * @return A list with all the characteristics names.
-         */
-        public static List<String> names() {
-
-            HashCharacteristics[] hashCharacteristics = HashCharacteristics.values();
-            List<String> hashCharacteristicsNames = new ArrayList<>(hashCharacteristics.length);
-
-            for (HashCharacteristics hashCharaceristic : hashCharacteristics) {
-                hashCharacteristicsNames.add(hashCharaceristic.getName());
-            }
-
-            return hashCharacteristicsNames;
-
-        }
-
-    }
+    /**
+     * Maximum number of characters of a 0-1 decimal number string representation.
+     */
+    protected static final int ZERO_TO_ONE_DECIMAL_MAX_CHARS = 1
+            + DECIMALS_FORMAT.getMinimumIntegerDigits()
+            + DECIMALS_FORMAT.getMaximumFractionDigits();
 
     /**
      * Private constructor.
@@ -277,51 +133,16 @@ public final class ToStringUtils {
             int truncateNameLength) {
 
         if (name == null) {
-            return NULL_NAME;
+            name = NULL_NAME;
         }
 
         name = name.trim();
-
-        if (name.isEmpty()) {
-            return EMPTY_NAME;
-        }
 
         if (truncateNameLength > 0 && name.length() > truncateNameLength) {
             name = name.substring(0, truncateNameLength);
         }
 
         return name;
-
-    }
-
-    /**
-     * Checks a hash name.
-     * 
-     * @param hashName The hash name to check.
-     * @param truncateNameLength Maximum length of the returned name.
-     *        If this parameter is lower than 1, no truncation is performed.
-     * @return NULL_OR_EMPTY_HASH_NAME if the hash name is null or empty after trimming it, or the
-     *         original hash name trimmed and truncated to truncateNameLength otherwise.
-     */
-    protected static String checkHashName(
-            String hashName,
-            int truncateNameLength) {
-
-        if (hashName == null) {
-            hashName = NULL_OR_EMPTY_HASH_NAME;
-        }
-
-        hashName = hashName.trim();
-
-        if (hashName.isEmpty()) {
-            return NULL_OR_EMPTY_HASH_NAME;
-        }
-
-        if (truncateNameLength > 0 && hashName.length() > truncateNameLength) {
-            hashName = hashName.substring(0, truncateNameLength);
-        }
-
-        return hashName;
 
     }
 
@@ -354,22 +175,6 @@ public final class ToStringUtils {
         }
 
         return maxLength;
-
-    }
-
-    /**
-     * @param checkNames True to check the Strings as names before computing their length.
-     * @param truncateNameLength In case Strings are checked as names, introduce a number larger
-     *        than 0 to truncate the Strings to a maximum length.
-     * @param strings Varargs of Strings.
-     * @return The length of the longest String within the introduced varargs.
-     */
-    protected static int getMaxLength(
-            boolean checkNames,
-            int truncateNameLength,
-            String... strings) {
-
-        return getMaxLength(checkNames, truncateNameLength, Arrays.asList(strings));
 
     }
 

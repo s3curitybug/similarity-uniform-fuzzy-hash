@@ -445,7 +445,7 @@ public class UniformFuzzyHash {
 
         // Parameters check.
         if (other == null) {
-            throw new NullPointerException("The introduced Uniform Fuzzy Hash is null.");
+            throw new NullPointerException("The Uniform Fuzzy Hash is null.");
         }
 
         if (other == this) {
@@ -490,6 +490,96 @@ public class UniformFuzzyHash {
         similaritiesCache.put(other, similarity);
 
         return similarity;
+
+    }
+
+    /**
+     * Computes the similarity of another Uniform Fuzzy Hash to this one.
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return A number between 0 and 1 representing the similarity of the introduced Uniform Fuzzy
+     *         Hash to this one.
+     */
+    public double reverseSimilarity(
+            UniformFuzzyHash other) {
+
+        if (other == null) {
+            throw new NullPointerException("The Uniform Fuzzy Hash is null.");
+        }
+
+        return other.similarity(this);
+
+    }
+
+    /**
+     * Computes the similarity of this hash to another one, and the similarity from the other
+     * hash to this one, and returns the largest one.
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return A number between 0 and 1 representing the largest similarity between this hash
+     *         similarity to the introduced one and the introduced hash similarity to this one.
+     */
+    public double maxSimilarity(
+            UniformFuzzyHash other) {
+
+        double similarity1 = this.similarity(other);
+        double similarity2 = this.reverseSimilarity(other);
+
+        return Math.max(similarity1, similarity2);
+
+    }
+
+    /**
+     * Computes the similarity of this hash to another one, and the similarity from the other
+     * hash to this one, and returns the smallest one.
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return A number between 0 and 1 representing the smallest similarity between this hash
+     *         similarity to the introduced one and the introduced hash similarity to this one.
+     */
+    public double minSimilarity(
+            UniformFuzzyHash other) {
+
+        double similarity1 = this.similarity(other);
+        double similarity2 = this.reverseSimilarity(other);
+
+        return Math.min(similarity1, similarity2);
+
+    }
+
+    /**
+     * Computes the similarity of this hash to another one, and the similarity from the other
+     * hash to this one, and returns the arithmetic mean.
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return A number between 0 and 1 representing the arithmetic mean between this hash
+     *         similarity to the introduced one and the introduced hash similarity to this one.
+     */
+    public double arithmeticMeanSimilarity(
+            UniformFuzzyHash other) {
+
+        double similarity1 = this.similarity(other);
+        double similarity2 = this.reverseSimilarity(other);
+
+        return (similarity1 + similarity2) / 2;
+
+    }
+
+    /**
+     * Computes the similarity of this hash to another one, and the similarity from the other
+     * hash to this one, and returns the geometric mean, sqrt(similarity1 * similarity2).
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return A number between 0 and 1 representing the geometric mean between this hash
+     *         similarity to the introduced one and the introduced hash similarity to this one.
+     */
+    public double geometricMeanSimilarity(
+            UniformFuzzyHash other) {
+
+        double similarity1 = this.similarity(other);
+        double similarity2 = this.reverseSimilarity(other);
+
+        return Math.sqrt(similarity1 * similarity2);
 
     }
 

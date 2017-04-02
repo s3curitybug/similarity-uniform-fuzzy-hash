@@ -7,7 +7,7 @@ import static securitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAUL
 import static securitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_FACTOR_DIVISOR;
 import static securitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_LINE_WRAP;
 
-import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilaritySortCriterias;
+import securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
@@ -199,7 +199,7 @@ public final class Main {
                         "Sorting criteria for hash to all hashes comparisons.\r\n"
                                 + "Possible values: %s.\r\n"
                                 + "Default value: %s.",
-                        SimilaritySortCriterias.valuesCsv(),
+                        sortingCriteriasCsv(),
                         DEFAULT_SIMILARITY_SORT_CRITERIA),
                 false, 0, 1),
 
@@ -378,20 +378,33 @@ public final class Main {
             boolean recursive = rArgs != null;
             boolean overwrite = oArgs != null;
 
-            SimilaritySortCriterias sortCriteria = null;
+            SimilarityTypes sortCriteria = null;
+            boolean sortAscending = false;
             String sortArg = getOptionFirstArg(sortArgs);
             if (sortArg != null) {
+                sortArg = sortArg.toUpperCase().replace("_", "");
+                if (sortArg.endsWith("DESC")) {
+                    sortAscending = false;
+                    sortArg = sortArg.replaceAll("DESC$", "");
+                } else if (sortArg.endsWith("ASC")) {
+                    sortAscending = true;
+                    sortArg = sortArg.replaceAll("ASC$", "");
+                }
                 if (sortArg.isEmpty()) {
                     sortCriteria = DEFAULT_SIMILARITY_SORT_CRITERIA;
                 } else {
-                    try {
-                        sortCriteria = SimilaritySortCriterias.valueOf(
-                                sortArg.toUpperCase());
-                    } catch (IllegalArgumentException illegalArgumentException) {
+                    for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+                        if (sortArg.equalsIgnoreCase(similarityType.name().replace("_", ""))
+                                || sortArg.equalsIgnoreCase(similarityType.getName())) {
+                            sortCriteria = similarityType;
+                            break;
+                        }
+                    }
+                    if (sortCriteria == null) {
                         throw new IllegalArgumentException(String.format(
                                 "Invalid sorting criteria for option %s. Possible values: %s.",
                                 ArgsOptions.SORTING_BY.display(),
-                                SimilaritySortCriterias.valuesCsv()));
+                                sortingCriteriasCsv()));
                     }
                 }
             }
@@ -617,13 +630,13 @@ public final class Main {
                 if (!computedHashes.isEmpty() && !loadedHashes.isEmpty()) {
                     System.out.println();
                     System.out.println(IGNORE_MARK + " Computed Hashes:");
-                    UniformFuzzyHashes.printHashes(computedHashes, true);
+                    UniformFuzzyHashes.printHashes(computedHashes, true, true);
                     System.out.println(IGNORE_MARK + " Loaded Hashes:");
-                    UniformFuzzyHashes.printHashes(loadedHashes, true);
+                    UniformFuzzyHashes.printHashes(loadedHashes, true, true);
                 } else if (!computedHashes.isEmpty()) {
-                    UniformFuzzyHashes.printHashes(computedHashes, true);
+                    UniformFuzzyHashes.printHashes(computedHashes, true, true);
                 } else if (!loadedHashes.isEmpty()) {
-                    UniformFuzzyHashes.printHashes(loadedHashes, true);
+                    UniformFuzzyHashes.printHashes(loadedHashes, true, true);
                 }
             }
 
@@ -683,7 +696,8 @@ public final class Main {
                             computedAndLoadedHashes, xvArgs[1]);
                     compareHash2 = computedAndLoadedHashes.get(compareHashName2);
                 }
-                VisualRepresentation.printCompared(compareHash1, compareHash2,
+                VisualRepresentation.printCompared(
+                        compareHash1, compareHash2,
                         DEFAULT_BASE, DEFAULT_FACTOR_DIVISOR, lineWrap, true);
                 System.out.println(" Similarity: "
                         + DECIMALS_FORMAT.format(compareHash1.similarity(compareHash2)));
@@ -699,8 +713,9 @@ public final class Main {
                             computedAndLoadedHashes, xyaArg);
                     hash = computedAndLoadedHashes.get(name);
                 }
-                UniformFuzzyHashes.printSimilarities(name, hash, computedAndLoadedHashes,
-                        sortCriteria, rowsLimit, truncateNames);
+                UniformFuzzyHashes.printSimilarities(
+                        hash, computedAndLoadedHashes,
+                        sortCriteria, sortAscending, rowsLimit, truncateNames);
             }
 
             if (xaArgs != null) {
@@ -715,7 +730,8 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
-                UniformFuzzyHashes.printSimilarityTable(hashes,
+                UniformFuzzyHashes.printSimilarityTable(
+                        hashes,
                         truncateNames);
             }
 
@@ -963,6 +979,26 @@ public final class Main {
         } catch (Exception exception) {
             return DEFAULT_JAR_NAME;
         }
+
+    }
+
+    /**
+     * @return The comma separated values of possible sorting criterias.
+     */
+    private static String sortingCriteriasCsv() {
+
+        StringBuilder str = new StringBuilder();
+
+        str.append("Asc");
+
+        for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+            str.append(", ");
+            str.append(similarityType.getName());
+            str.append(", ");
+            str.append(similarityType.getName() + "Asc");
+        }
+
+        return str.toString();
 
     }
 
