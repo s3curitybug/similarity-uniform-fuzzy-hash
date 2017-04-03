@@ -40,13 +40,13 @@ public class UniformFuzzyHashesTest {
     }
 
     /**
-     * Similarities between directory files test.
-     * Tests the similarities between the files of a test resources directory.
+     * Similarities between all directory files test.
+     * Tests the similarities between all the files of a test resources directory.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
     @Test
-    public void similaritiesBetweenDirectoryFilesTest()
+    public void similaritiesBetweenAllDirectoryFilesTest()
             throws IOException {
 
         final int factor = 10;
@@ -56,7 +56,7 @@ public class UniformFuzzyHashesTest {
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printSimilarityTable(namesToHashes, truncateNamesLength);
+        UniformFuzzyHashes.printAllHashesSimilaritiesTable(namesToHashes, truncateNamesLength);
 
     }
 
@@ -84,7 +84,7 @@ public class UniformFuzzyHashesTest {
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printSimilarities(
+        UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
                 hash, namesToHashes, sortCriteria, sortAscending, rowsLimit, truncateNamesLength);
 
     }

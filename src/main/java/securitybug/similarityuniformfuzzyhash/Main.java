@@ -713,7 +713,7 @@ public final class Main {
                             computedAndLoadedHashes, xyaArg);
                     hash = computedAndLoadedHashes.get(name);
                 }
-                UniformFuzzyHashes.printSimilarities(
+                UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
                         hash, computedAndLoadedHashes,
                         sortCriteria, sortAscending, rowsLimit, truncateNames);
             }
@@ -730,7 +730,7 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
-                UniformFuzzyHashes.printSimilarityTable(
+                UniformFuzzyHashes.printAllHashesSimilaritiesTable(
                         hashes,
                         truncateNames);
             }

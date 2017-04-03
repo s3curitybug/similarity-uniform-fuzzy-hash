@@ -1471,7 +1471,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param hashes Collection of Uniform Fuzzy Hashes.
      */
-    public static void printSimilarityTable(
+    public static void printAllHashesSimilaritiesTable(
             Collection<UniformFuzzyHash> hashes) {
 
         if (hashes == null) {
@@ -1484,7 +1484,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarityTable(namesToHashes, -1);
+        printAllHashesSimilaritiesTable(namesToHashes, -1);
 
     }
 
@@ -1495,7 +1495,7 @@ public final class UniformFuzzyHashes {
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      */
-    public static void printSimilarityTable(
+    public static void printAllHashesSimilaritiesTable(
             Map<String, UniformFuzzyHash> namesToHashes,
             int truncateNamesLength) {
 
@@ -1567,7 +1567,7 @@ public final class UniformFuzzyHashes {
      *        false to sort descending.
      * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
      */
-    public static void printSimilarities(
+    public static void printHashToHashesSimilaritiesTable(
             UniformFuzzyHash hash,
             Collection<UniformFuzzyHash> hashes,
             SimilarityTypes similaritySortCriteria,
@@ -1588,7 +1588,7 @@ public final class UniformFuzzyHashes {
 
         Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
 
-        printSimilarities(
+        printHashToHashesSimilaritiesTable(
                 hash, namesToHashes, similaritySortCriteria, sortAscending, rowsLimit, -1);
 
     }
@@ -1606,7 +1606,7 @@ public final class UniformFuzzyHashes {
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      */
-    public static void printSimilarities(
+    public static void printHashToHashesSimilaritiesTable(
             UniformFuzzyHash hash,
             Map<String, UniformFuzzyHash> namesToHashes,
             SimilarityTypes similaritySortCriteria,
