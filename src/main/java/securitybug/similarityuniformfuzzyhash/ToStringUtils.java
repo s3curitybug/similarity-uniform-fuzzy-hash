@@ -56,6 +56,11 @@ public final class ToStringUtils {
     public static final String NULL_VALUE = "-";
 
     /**
+     * Separator for comma separated values.
+     */
+    public static final String CSV_SEPARATOR = ", ";
+
+    /**
      * Symbols for decimal numbers format.
      */
     public static final DecimalFormatSymbols DECIMALS_FORMAT_SYMBOLS =

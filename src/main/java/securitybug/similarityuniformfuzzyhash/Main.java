@@ -1,5 +1,6 @@
 package securitybug.similarityuniformfuzzyhash;
 
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.CSV_SEPARATOR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.DEFAULT_SIMILARITY_SORT_CRITERIA;
@@ -198,9 +199,9 @@ public final class Main {
                 String.format(
                         "Sorting criteria for hash to all hashes comparisons.\r\n"
                                 + "Possible values: %s.\r\n"
-                                + "Default value: %s.",
+                                + "Default value if no argument is introduced: %s.",
                         sortingCriteriasCsv(),
-                        DEFAULT_SIMILARITY_SORT_CRITERIA),
+                        DEFAULT_SIMILARITY_SORT_CRITERIA.getName()),
                 false, 0, 1),
 
         /**
@@ -308,12 +309,52 @@ public final class Main {
 
             for (ArgsOptions argsOption : argsOptions) {
                 if (str.length() != 0) {
-                    str.append(", ");
+                    str.append(CSV_SEPARATOR);
                 }
                 str.append(argsOption.display());
             }
 
             return str.toString();
+
+        }
+
+    }
+
+    /**
+     * Enum of sort directions.
+     */
+    private enum SortDirections {
+
+        /**
+         * Descending.
+         */
+        DESCENDING("Desc"),
+
+        /**
+         * Ascending.
+         */
+        ASCENDING("Asc");
+
+        /**
+         * Sort direction name.
+         */
+        private String name;
+
+        /**
+         * Sort direction upper case name.
+         */
+        private String nameUpperCase;
+
+        /**
+         * Constructor.
+         * 
+         * @param name Sort direction name.
+         */
+        SortDirections(
+                String name) {
+
+            this.name = name;
+            this.nameUpperCase = name.toUpperCase();
 
         }
 
@@ -383,12 +424,12 @@ public final class Main {
             String sortArg = getOptionFirstArg(sortArgs);
             if (sortArg != null) {
                 sortArg = sortArg.toUpperCase().replace("_", "");
-                if (sortArg.endsWith("DESC")) {
+                if (sortArg.endsWith(SortDirections.DESCENDING.nameUpperCase)) {
                     sortAscending = false;
-                    sortArg = sortArg.replaceAll("DESC$", "");
-                } else if (sortArg.endsWith("ASC")) {
+                    sortArg = sortArg.replaceAll(SortDirections.DESCENDING.nameUpperCase + "$", "");
+                } else if (sortArg.endsWith(SortDirections.ASCENDING.nameUpperCase)) {
                     sortAscending = true;
-                    sortArg = sortArg.replaceAll("ASC$", "");
+                    sortArg = sortArg.replaceAll(SortDirections.ASCENDING.nameUpperCase + "$", "");
                 }
                 if (sortArg.isEmpty()) {
                     sortCriteria = DEFAULT_SIMILARITY_SORT_CRITERIA;
@@ -989,13 +1030,18 @@ public final class Main {
 
         StringBuilder str = new StringBuilder();
 
-        str.append("Asc");
+        for (SortDirections sortDirection : SortDirections.values()) {
+            if (str.length() != 0) {
+                str.append(CSV_SEPARATOR);
+            }
+            str.append(sortDirection.name);
+        }
 
         for (SimilarityTypes similarityType : SimilarityTypes.values()) {
-            str.append(", ");
+            str.append(CSV_SEPARATOR);
             str.append(similarityType.getName());
-            str.append(", ");
-            str.append(similarityType.getName() + "Asc");
+            str.append(CSV_SEPARATOR);
+            str.append(similarityType.getName() + SortDirections.ASCENDING.name);
         }
 
         return str.toString();
