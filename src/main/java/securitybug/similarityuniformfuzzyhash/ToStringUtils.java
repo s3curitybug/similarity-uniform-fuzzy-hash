@@ -46,6 +46,11 @@ public final class ToStringUtils {
     public static final String TAB = "   ";
 
     /**
+     * New line.
+     */
+    public static final String NEW_LINE = System.getProperty("line.separator");
+
+    /**
      * String which will be used when a name is null.
      */
     public static final String NULL_NAME = "null";

@@ -3,6 +3,7 @@ package securitybug.similarityuniformfuzzyhash;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.CSV_SEPARATOR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.NEW_LINE;
 import static securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.DEFAULT_SIMILARITY_SORT_CRITERIA;
 import static securitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_BASE;
 import static securitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_FACTOR_DIVISOR;
@@ -29,11 +30,6 @@ import java.util.Map;
  *
  */
 public final class Main {
-
-    /**
-     * Default jar name.
-     */
-    private static final String DEFAULT_JAR_NAME = "similarity-uniform-fuzzy-hash.jar";
 
     /**
      * Compute options.
@@ -81,23 +77,23 @@ public final class Main {
          * Compute file hash.
          */
         COMPUTE_FILE_HASH(
-                "cfh", "computeFileHash", "file",
-                "Compute file hash.",
+                "cfh", "computeFileHash", "<file> [<file>] ...",
+                "Compute file hash (one file per argument).",
                 false, 1, -1),
 
         /**
          * Compute directory hashes.
          */
         COMPUTE_DIRECTORY_HASHES(
-                "cdh", "computeDirectoryHashes", "directory",
-                "Compute directory hashes.",
+                "cdh", "computeDirectoryHashes", "<directory> [<directory>] ...",
+                "Compute directory hashes (one directory per argument).",
                 false, 1, -1),
 
         /**
          * Factor.
          */
         FACTOR(
-                "f", "factor", "number",
+                "f", "factor", "<number>",
                 "Factor for hashes computation.",
                 false, 1, 1),
 
@@ -105,66 +101,79 @@ public final class Main {
          * Save to file.
          */
         SAVE_TO_FILE(
-                "sf", "saveToFile", "file",
-                "Save all computed hashes to file, appending them to its content.",
+                "sf", "saveToFile", "<file> [<file>] ...",
+                "Save all computed hashes to file (one file per argument), "
+                        + "appending them to its content.",
                 false, 1, -1),
 
         /**
          * Load from file.
          */
         LOAD_FROM_FILE(
-                "lf", "loadFromFile", "file",
-                "Load saved hashes from file.",
+                "lf", "loadFromFile", "<file> [<file>] ...",
+                "Load saved hashes from file (one file per argument).",
                 false, 1, -1),
 
         /**
          * Represent visually.
          */
         REPRESENT_VISUALLY(
-                "rv", "representVisually", "name",
-                "Represent visually a hash denoted by its name, "
-                        + "or the computed file hash in case no argument is introduced.",
+                "rv", "representVisually", "[<name>]",
+                "-With no arguments: "
+                        + "Represent visually the computed file hash."
+                        + NEW_LINE + "-With one argument: "
+                        + "Represent visually a hash denoted by its name.",
                 false, 0, 1),
 
         /**
          * Compare.
          */
         COMPARE(
-                "x", "compare", "name",
-                "Compare two hashes denoted by their names, "
-                        + "or the computed file hash to a hash denoted by its name "
-                        + "in case one argument is introduced, "
-                        + "or the two computed file hashes in case no argument is introduced.",
+                "x", "compare", "[<name>] [<name>]",
+                "-With no arguments: "
+                        + "Compare the two computed file hashes."
+                        + NEW_LINE + "-With one argument: "
+                        + "Compare the computed file hash to a hash denoted by its name."
+                        + NEW_LINE + "-With two arguments: "
+                        + "Compare two hashes denoted by their names.",
                 false, 0, 2),
 
         /**
          * Compare visually.
          */
         COMPARE_VISUALLY(
-                "xv", "compareVisually", "name",
-                "Compare viually two hashes denoted by their names, "
-                        + "or the computed file hash to a hash denoted by its name "
-                        + "in case one argument is introduced, "
-                        + "or the two computed file hashes in case no argument is introduced.",
+                "xv", "compareVisually", "[<name>] [<name>]",
+                "-With no arguments: "
+                        + "Compare visually the two computed file hashes."
+                        + NEW_LINE + "-With one argument: "
+                        + "Compare visually the computed file hash to a hash denoted by its name."
+                        + NEW_LINE + "-With two arguments: "
+                        + "Compare visually two hashes denoted by their names.",
                 false, 0, 2),
 
         /**
          * To all.
          */
         COMPARE_TO_ALL(
-                "xya", "compareToAll", "name",
-                "Compare a hash denoted by its name, "
-                        + "or the computed file hash in case no argument is introduced, "
-                        + "to all computed and loaded hashes.",
-                false, 0, 1),
+                "xya", "compareToAll", "[<name>] ...",
+                "-With no arguments: "
+                        + "Compare the computed file hash to all computed and loaded hashes."
+                        + NEW_LINE + "-With one argument: "
+                        + "Compare a hash denoted by its name to all computed and loaded hashes."
+                        + NEW_LINE + "-With multiple arguments: "
+                        + "Compare a hash denoted by its name (first argument) "
+                        + "to all introduced hashes denoted by their names.",
+                false, 0, -1),
 
         /**
          * Compare all.
          */
         COMPARE_ALL(
-                "xa", "compareAll", "",
-                "Compare all hashes denoted by their names, "
-                        + "or all computed and loaded hashes in case no argument is introduced.",
+                "xa", "compareAll", "[<name>] ...",
+                "-With no arguments: "
+                        + "Compare all computed and loaded hashes."
+                        + NEW_LINE + "-With multiple arguments: "
+                        + "Compare all introduced hashes denoted by their name.",
                 false, 0, -1),
 
         /**
@@ -180,14 +189,14 @@ public final class Main {
          */
         OVERWRITE(
                 "o", "overwrite", "",
-                "Overwrite file contents when saving hashes to file instead of appending.",
+                "Overwrite file contents when saving hashes to file instead of appending them.",
                 false, 0, 0),
 
         /**
          * Line wrap.
          */
         LINE_WRAP(
-                "wrap", "lineWrap", "number",
+                "wrap", "lineWrap", "<number>",
                 "Line wrap length for visual representations.",
                 false, 1, 1),
 
@@ -195,11 +204,11 @@ public final class Main {
          * Sorting by.
          */
         SORTING_BY(
-                "sort", "sortingBy", "criteria",
+                "sort", "sortingBy", "[<criteria>]",
                 String.format(
-                        "Sorting criteria for hash to all hashes comparisons.\r\n"
-                                + "Possible values: %s.\r\n"
-                                + "Default value if no argument is introduced: %s.",
+                        "Sorting criteria for hash to all hashes comparisons."
+                                + NEW_LINE + "-Possible values: %s."
+                                + NEW_LINE + "-Default value if no argument is introduced: %s.",
                         sortingCriteriasCsv(),
                         DEFAULT_SIMILARITY_SORT_CRITERIA.getName()),
                 false, 0, 1),
@@ -208,7 +217,7 @@ public final class Main {
          * Rows limit.
          */
         ROWS_LIMIT(
-                "limit", "rowsLimit", "number",
+                "limit", "rowsLimit", "<number>",
                 "Rows limit for hash to all hashes comparisons.",
                 false, 1, 1),
 
@@ -216,8 +225,8 @@ public final class Main {
          * Truncate names.
          */
         TRUNCATE_NAMES(
-                "trunc", "truncateNames", "number",
-                "Names maximum length for table prints.",
+                "trunc", "truncateNames", "<number>",
+                "Names maximum length for tables.",
                 false, 1, 1);
 
         /**
@@ -397,6 +406,7 @@ public final class Main {
             String[] sfArgs = parsedOptions.get(ArgsOptions.SAVE_TO_FILE);
             String[] lfArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_FILE);
             String[] rvArgs = parsedOptions.get(ArgsOptions.REPRESENT_VISUALLY);
+            String rvArg = getOptionFirstArg(rvArgs);
             String[] xArgs = parsedOptions.get(ArgsOptions.COMPARE);
             String[] xvArgs = parsedOptions.get(ArgsOptions.COMPARE_VISUALLY);
             String[] xyaArgs = parsedOptions.get(ArgsOptions.COMPARE_TO_ALL);
@@ -405,11 +415,9 @@ public final class Main {
             String[] oArgs = parsedOptions.get(ArgsOptions.OVERWRITE);
             String[] wrapArgs = parsedOptions.get(ArgsOptions.LINE_WRAP);
             String[] sortArgs = parsedOptions.get(ArgsOptions.SORTING_BY);
+            String sortArg = getOptionFirstArg(sortArgs);
             String[] limitArgs = parsedOptions.get(ArgsOptions.ROWS_LIMIT);
             String[] truncArgs = parsedOptions.get(ArgsOptions.TRUNCATE_NAMES);
-
-            String rvArg = getOptionFirstArg(rvArgs);
-            String xyaArg = getOptionFirstArg(xyaArgs);
 
             int factor = getOptionFirstArgInt(fArgs, 0, ArgsOptions.FACTOR);
             int lineWrap = getOptionFirstArgInt(wrapArgs, DEFAULT_LINE_WRAP, ArgsOptions.LINE_WRAP);
@@ -421,7 +429,6 @@ public final class Main {
 
             SimilarityTypes sortCriteria = null;
             boolean sortAscending = false;
-            String sortArg = getOptionFirstArg(sortArgs);
             if (sortArg != null) {
                 sortArg = sortArg.toUpperCase().replace("_", "");
                 if (sortArg.endsWith(SortDirections.DESCENDING.nameUpperCase)) {
@@ -497,8 +504,8 @@ public final class Main {
                 }
             }
 
-            if (rvArg != null) {
-                if (rvArg.isEmpty() && !checkNArgs(cfhArgs, 1)) {
+            if (rvArgs != null) {
+                if (rvArgs.length == 0 && !checkNArgs(cfhArgs, 1)) {
                     throw new IllegalStateException(String.format(
                             "Please, introduce an argument for the option %s, "
                                     + "or the option %s with one argument.",
@@ -533,12 +540,12 @@ public final class Main {
                 }
             }
 
-            if (xyaArg != null) {
-                if (xyaArg.isEmpty() && !checkNArgs(cfhArgs, 1)) {
+            if (xyaArgs != null) {
+                if (xyaArgs.length == 0 && !checkNArgs(cfhArgs, 1)) {
                     throw new IllegalStateException(String.format(
-                            "Please, introduce an argument for the option %s, "
+                            "Please, introduce al least one argument for the option %s, "
                                     + "or the option %s with one argument.",
-                            ArgsOptions.COMPARE_ALL.display(),
+                            ArgsOptions.COMPARE_TO_ALL.display(),
                             ArgsOptions.COMPUTE_FILE_HASH.display()));
                 }
             }
@@ -546,7 +553,8 @@ public final class Main {
             if (rArgs != null) {
                 if (cdhArgs == null) {
                     throw new IllegalStateException(String.format(
-                            "The option %s is only valid if the option %s is introduced.",
+                            "The option %s is only valid if "
+                                    + "the option %s is introduced.",
                             ArgsOptions.RECURSIVE.display(),
                             ArgsOptions.COMPUTE_DIRECTORY_HASHES.display()));
                 }
@@ -555,14 +563,15 @@ public final class Main {
             if (oArgs != null) {
                 if (sfArgs == null) {
                     throw new IllegalStateException(String.format(
-                            "The option %s is only valid if the option %s is introduced.",
+                            "The option %s is only valid if "
+                                    + "the option %s is introduced.",
                             ArgsOptions.OVERWRITE.display(),
                             ArgsOptions.SAVE_TO_FILE.display()));
                 }
             }
 
             if (wrapArgs != null) {
-                if (rvArg == null && xvArgs == null) {
+                if (rvArgs == null && xvArgs == null) {
                     throw new IllegalStateException(String.format(
                             "The option %s is only valid if "
                                     + "at least one of these options is introduced: %s.",
@@ -574,25 +583,27 @@ public final class Main {
             }
 
             if (sortArg != null) {
-                if (xyaArg == null) {
+                if (xyaArgs == null) {
                     throw new IllegalStateException(String.format(
-                            "The option %s is only valid if the option %s is introduced.",
+                            "The option %s is only valid if "
+                                    + "the option %s is introduced.",
                             ArgsOptions.SORTING_BY.display(),
                             ArgsOptions.COMPARE_TO_ALL.display()));
                 }
             }
 
             if (limitArgs != null) {
-                if (xyaArg == null) {
+                if (xyaArgs == null) {
                     throw new IllegalStateException(String.format(
-                            "The option %s is only valid if the option %s is introduced.",
+                            "The option %s is only valid if "
+                                    + "the option %s is introduced.",
                             ArgsOptions.ROWS_LIMIT.display(),
                             ArgsOptions.COMPARE_TO_ALL.display()));
                 }
             }
 
             if (truncArgs != null) {
-                if (xyaArg == null && xaArgs == null) {
+                if (xyaArgs == null && xaArgs == null) {
                     throw new IllegalStateException(String.format(
                             "The option %s is only valid if "
                                     + "at least one of these options is introduced: %s.",
@@ -745,17 +756,28 @@ public final class Main {
                 System.out.println();
             }
 
-            if (xyaArg != null) {
-                if (xyaArg.isEmpty()) {
-                    name = computedFileHashName1;
-                    hash = computedFileHash1;
+            if (xyaArgs != null) {
+                if (xyaArgs.length == 0) {
+                    compareHashName1 = computedFileHashName1;
+                    compareHash1 = computedFileHash1;
                 } else {
-                    name = getComputedOrLoadedHashName(
-                            computedAndLoadedHashes, xyaArg);
-                    hash = computedAndLoadedHashes.get(name);
+                    compareHashName1 = getComputedOrLoadedHashName(
+                            computedAndLoadedHashes, xyaArgs[0]);
+                    compareHash1 = computedAndLoadedHashes.get(compareHashName1);
+                }
+                if (xyaArgs.length <= 1) {
+                    hashes = computedAndLoadedHashes;
+                } else {
+                    hashes = new LinkedHashMap<>();
+                    for (String xyaArg : xyaArgs) {
+                        name = getComputedOrLoadedHashName(
+                                computedAndLoadedHashes, xyaArg);
+                        hash = computedAndLoadedHashes.get(name);
+                        hashes.put(name, hash);
+                    }
                 }
                 UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
-                        hash, computedAndLoadedHashes,
+                        compareHash1, hashes,
                         sortCriteria, sortAscending, rowsLimit, truncateNames);
             }
 
@@ -1014,11 +1036,25 @@ public final class Main {
      */
     private static String getJarName() {
 
+        // Default jar name.
+        final String defaultJarName = "similarity-uniform-fuzzy-hash.jar";
+
+        // Jar extension.
+        final String jarExtension = ".jar";
+
         try {
+
             String path = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-            return new File(path).getName();
+            String name = new File(path).getName();
+
+            if (name.endsWith(jarExtension)) {
+                return name;
+            } else {
+                return defaultJarName;
+            }
+
         } catch (Exception exception) {
-            return DEFAULT_JAR_NAME;
+            return defaultJarName;
         }
 
     }
