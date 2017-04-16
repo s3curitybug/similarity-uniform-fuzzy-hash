@@ -82,6 +82,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Byte array of data.
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      */
     public UniformFuzzyHash(
             byte[] data,
@@ -107,6 +108,7 @@ public class UniformFuzzyHash {
      * 
      * @param data String of data.
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      */
     public UniformFuzzyHash(
             String data,
@@ -133,6 +135,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Input stream of data.
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      * @throws IOException If an IOException occurs reading the input stream of data.
      */
     public UniformFuzzyHash(
@@ -161,6 +164,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Byte array output stream of data.
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      */
     public UniformFuzzyHash(
             ByteArrayOutputStream data,
@@ -187,6 +191,7 @@ public class UniformFuzzyHash {
      * 
      * @param data File of data.
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      * @throws IOException If an IOException occurs reading the file of data.
      */
     public UniformFuzzyHash(
@@ -739,6 +744,7 @@ public class UniformFuzzyHash {
      * IllegalArgumentException with a descriptive message is thrown.
      * 
      * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must not be a power of 2.
      */
     public static void checkFactor(
             int factor) {

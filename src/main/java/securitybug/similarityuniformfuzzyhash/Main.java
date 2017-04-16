@@ -94,7 +94,9 @@ public final class Main {
          */
         FACTOR(
                 "f", "factor", "<number>",
-                "Factor for hashes computation.",
+                "Factor for hashes computation. "
+                        + "Relation between data length and the hash mean number of blocks. "
+                        + "Must be greater than 2 and must not be a power of 2.",
                 false, 1, 1),
 
         /**

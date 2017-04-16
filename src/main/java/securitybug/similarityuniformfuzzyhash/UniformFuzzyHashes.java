@@ -346,7 +346,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param byteArrays Collection of byte arrays of data.
      * @param factor Relation between data length and the hash mean number of blocks for each byte
-     *        array of data.
+     *        array of data. Must be greater than 2 and must not be a power of 2.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromByteArrays(
@@ -380,7 +380,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToByteArrays Map from names to byte arrays of data.
      * @param factor Relation between data length and the hash mean number of blocks for each byte
-     *        array of data.
+     *        array of data. Must be greater than 2 and must not be a power of 2.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedByteArrays(
@@ -417,7 +417,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param strings Collection of strings of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromStrings(
@@ -451,7 +451,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToStrings Map from names to strings of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedStrings(
@@ -488,7 +488,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param inputStreams Collection of input streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data.
+     *        stream of data. Must be greater than 2 and must not be a power of 2.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the input streams of data.
      */
@@ -524,7 +524,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToInputStreams Map from names to input streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data.
+     *        stream of data. Must be greater than 2 and must not be a power of 2.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the input streams of data.
      */
@@ -563,7 +563,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param byteArrayOutputStreams Collection of byte array output streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromByteArrayOutputStreams(
@@ -597,7 +597,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToByteArrayOutputStreams Map from names to byte array output streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data.
+     *        stream of data. Must be greater than 2 and must not be a power of 2.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedByteArrayOutputStreams(
@@ -634,7 +634,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param files Collection of files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -677,7 +677,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToFiles Map from names to files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
      */
@@ -716,7 +716,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param files Collection of files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -757,7 +757,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param directory Directory of files.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -794,7 +794,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param directory Directory of files.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data.
+     *        of data. Must be greater than 2 and must not be a power of 2.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
