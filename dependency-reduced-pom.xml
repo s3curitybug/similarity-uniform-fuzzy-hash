@@ -4,7 +4,7 @@
   <groupId>s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
   <name>similarity-uniform-fuzzy-hash</name>
-  <version>1.3</version>
+  <version>1.4</version>
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
