@@ -2,7 +2,9 @@ package securitybug.similarityuniformfuzzyhash;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -109,23 +111,83 @@ public final class ToStringUtils {
             + DECIMALS_FORMAT.getMaximumFractionDigits();
 
     /**
+     * Maximum number of characters of a factor string representation with separator.
+     */
+    protected static final int FACTOR_WITH_SEP_MAX_CHARS =
+            INT_MAX_CHARS + FACTOR_SEPARATOR.length();
+
+    /**
+     * Maximum number of characters of a block hexadecimal string representation.
+     */
+    protected static final int HEX_BLOCK_MAX_CHARS =
+            2 * HEX_INT_MAX_CHARS + BLOCK_INNER_SEPARATOR.length();
+
+    /**
+     * Maximum number of characters of a block hexadecimal string representation with separator.
+     */
+    protected static final int HEX_BLOCK_WITH_SEP_MAX_CHARS =
+            HEX_BLOCK_MAX_CHARS + BLOCKS_SEPARATOR.length();
+
+    /**
+     * Number of bits of an ascii character.
+     */
+    protected static final int ASCII_CHAR_BITS = 7;
+
+    /**
+     * Maximum number of characters of an integer ascii string representation, including escapes and
+     * number of characters.
+     */
+    protected static final int ASCII_INT_MAX_CHARS =
+            2 * ((Integer.SIZE / ASCII_CHAR_BITS) + 2);
+
+    /**
+     * Maximum number of characters of a block ascii string representation.
+     */
+    protected static final int ACII_BLOCK_MAX_CHARS =
+            2 * ASCII_INT_MAX_CHARS;
+
+    /**
+     * Character encoder for ascii string representations.
+     */
+    protected static final int ASCII_CHAR_ENCODER =
+            (1 << ASCII_CHAR_BITS) - 1; // 0b01111111
+
+    /**
+     * Number of bits needed to store the maximum number of characters of an integer ascii string
+     * representation, including escapes and number of characters.
+     */
+    protected static final int ASCII_INT_MAX_CHARS_BITS =
+            Integer.SIZE - Integer.numberOfLeadingZeros(ASCII_INT_MAX_CHARS); // 4
+
+    /**
+     * Number of bits to shift the number of characters of an integer ascii string representation.
+     */
+    protected static final int ASCII_INT_CHARS_SHIFT_BITS =
+            ASCII_CHAR_BITS - ASCII_INT_MAX_CHARS_BITS; // 3
+
+    /**
+     * Number of characters of an integer ascii string representation encoder.
+     */
+    protected static final int ASCII_INT_CHARS_ENCODER =
+            (1 << ASCII_INT_CHARS_SHIFT_BITS) - 1; // 0b00000111
+
+    /**
+     * Escapable characters for ascii string representations.
+     */
+    protected static final List<Character> ASCII_ESCAPABLE_CHARS = Arrays.asList(
+            '\\', '\0', '\r', '\n',
+            NAME_SEPARATOR.trim().charAt(0),
+            FACTOR_SEPARATOR.trim().charAt(0));
+
+    /**
+     * Escape character for ascii string representations.
+     */
+    protected static final char ASCII_ESCAPE_CHAR = '\\';
+
+    /**
      * Private constructor.
      */
     private ToStringUtils() {
-
-    }
-
-    /**
-     * @param hash A Uniform Fuzzy Hash.
-     * @return The maximum length of the hash string representation.
-     */
-    protected static int getHashMaxLength(
-            UniformFuzzyHash hash) {
-
-        int factorPartMaxLength = INT_MAX_CHARS + FACTOR_SEPARATOR.length();
-        int blockMaxLength = 2 * HEX_INT_MAX_CHARS + BLOCK_INNER_SEPARATOR.length();
-
-        return factorPartMaxLength + hash.getAmountOfBlocks() * blockMaxLength;
 
     }
 
@@ -135,8 +197,8 @@ public final class ToStringUtils {
      * @param name The name to check.
      * @param truncateNameLength Maximum length of the returned name.
      *        If this parameter is lower than 1, no truncation is performed.
-     * @return NULL_NAME if the name is null, EMPTY_NAME if the name is empty after trimming it, or
-     *         the original name trimmed and truncated to truncateNameLength otherwise.
+     * @return NULL_NAME if the name is null, or the original name trimmed and truncated to
+     *         truncateNameLength otherwise.
      */
     protected static String checkName(
             String name,
@@ -201,13 +263,13 @@ public final class ToStringUtils {
             return "";
         }
 
-        StringBuilder stringBuilder = new StringBuilder(string.length() * n);
+        StringBuilder strB = new StringBuilder(string.length() * n);
 
         for (int i = 0; i < n; i++) {
-            stringBuilder.append(string);
+            strB.append(string);
         }
 
-        return stringBuilder.toString();
+        return strB.toString();
 
     }
 

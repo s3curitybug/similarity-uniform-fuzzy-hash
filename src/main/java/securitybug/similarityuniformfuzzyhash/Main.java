@@ -42,13 +42,15 @@ public final class Main {
      * Save options.
      */
     private static final ArgsOptions[] SAVE_OPTIONS = {
-            ArgsOptions.SAVE_TO_FILE};
+            ArgsOptions.SAVE_TO_TEXT_FILE,
+            ArgsOptions.SAVE_TO_ASCII_FILE};
 
     /**
      * Load options.
      */
     private static final ArgsOptions[] LOAD_OPTIONS = {
-            ArgsOptions.LOAD_FROM_FILE};
+            ArgsOptions.LOAD_FROM_ASCII_FILE,
+            ArgsOptions.LOAD_FROM_TEXT_FILE};
 
     /**
      * Functional options.
@@ -96,25 +98,60 @@ public final class Main {
                 "f", "factor", "<number>",
                 "Factor for hashes computation. "
                         + "Relation between data length and the hash mean number of blocks. "
-                        + "Must be greater than 2 and must not be a power of 2.",
+                        + "Must be greater than 2 and must be odd.",
                 false, 1, 1),
 
         /**
-         * Save to file.
+         * Save to text file.
          */
-        SAVE_TO_FILE(
-                "sf", "saveToFile", "<file> [<file>] ...",
-                "Save all computed hashes to file (one file per argument), "
+        SAVE_TO_TEXT_FILE(
+                "stf", "saveToTextFile", "<file> [<file>] ...",
+                "Save all computed hashes to text file (one file per argument), "
                         + "appending them to its content.",
                 false, 1, -1),
 
         /**
-         * Load from file.
+         * Save to ascii file.
          */
-        LOAD_FROM_FILE(
-                "lf", "loadFromFile", "<file> [<file>] ...",
-                "Load saved hashes from file (one file per argument).",
+        SAVE_TO_ASCII_FILE(
+                "saf", "saveToAsciiFile", "<file> [<file>] ...",
+                "Save all computed hashes to ascii file (one file per argument), "
+                        + "appending them to its content.",
                 false, 1, -1),
+
+        /**
+         * Load from text file.
+         */
+        LOAD_FROM_TEXT_FILE(
+                "ltf", "loadFromTextFile", "<file> [<file>] ...",
+                "Load saved hashes from text file (one file per argument).",
+                false, 1, -1),
+
+        /**
+         * Load from ascii file.
+         */
+        LOAD_FROM_ASCII_FILE(
+                "laf", "loadFromAsciiFile", "<file> [<file>] ...",
+                "Load saved hashes from ascii file (one file per argument).",
+                false, 1, -1),
+
+        /**
+         * Export to text file.
+         */
+        EXPORT_TO_TEXT_FILE(
+                "etf", "exportToTextFile", "<file> <file>",
+                "Export saved hashes from ascii file (first argument) "
+                        + "to text file (second argument), appending them to its content.",
+                false, 2, 2),
+
+        /**
+         * Export to ascii file.
+         */
+        EXPORT_TO_ASCII_FILE(
+                "eaf", "exportToAsciiFile", "<file> <file>",
+                "Export saved hashes from text file (first argument) "
+                        + "to ascii file (second argument), appending them to its content.",
+                false, 2, 2),
 
         /**
          * Represent visually.
@@ -191,7 +228,8 @@ public final class Main {
          */
         OVERWRITE(
                 "o", "overwrite", "",
-                "Overwrite file contents when saving hashes to file instead of appending them.",
+                "Overwrite file contents when saving or exporting hashes to file "
+                        + "instead of appending them to its content.",
                 false, 0, 0),
 
         /**
@@ -316,16 +354,16 @@ public final class Main {
         private static String toDisplayCsv(
                 ArgsOptions... argsOptions) {
 
-            StringBuilder str = new StringBuilder();
+            StringBuilder strB = new StringBuilder();
 
             for (ArgsOptions argsOption : argsOptions) {
-                if (str.length() != 0) {
-                    str.append(CSV_SEPARATOR);
+                if (strB.length() != 0) {
+                    strB.append(CSV_SEPARATOR);
                 }
-                str.append(argsOption.display());
+                strB.append(argsOption.display());
             }
 
-            return str.toString();
+            return strB.toString();
 
         }
 
@@ -405,8 +443,12 @@ public final class Main {
             String[] cfhArgs = parsedOptions.get(ArgsOptions.COMPUTE_FILE_HASH);
             String[] cdhArgs = parsedOptions.get(ArgsOptions.COMPUTE_DIRECTORY_HASHES);
             String[] fArgs = parsedOptions.get(ArgsOptions.FACTOR);
-            String[] sfArgs = parsedOptions.get(ArgsOptions.SAVE_TO_FILE);
-            String[] lfArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_FILE);
+            String[] stfArgs = parsedOptions.get(ArgsOptions.SAVE_TO_TEXT_FILE);
+            String[] safArgs = parsedOptions.get(ArgsOptions.SAVE_TO_ASCII_FILE);
+            String[] ltfArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_TEXT_FILE);
+            String[] lafArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_ASCII_FILE);
+            String[] etfArgs = parsedOptions.get(ArgsOptions.EXPORT_TO_TEXT_FILE);
+            String[] eafArgs = parsedOptions.get(ArgsOptions.EXPORT_TO_ASCII_FILE);
             String[] rvArgs = parsedOptions.get(ArgsOptions.REPRESENT_VISUALLY);
             String rvArg = getOptionFirstArg(rvArgs);
             String[] xArgs = parsedOptions.get(ArgsOptions.COMPARE);
@@ -475,7 +517,7 @@ public final class Main {
 
             if (nSaveOptions > 0 && nComputeOptions == 0) {
                 throw new IllegalStateException(String.format(
-                        "In order to use the option %s, "
+                        "In order to use any of these options: %s, "
                                 + "at least one of these options must be introduced: %s.",
                         ArgsOptions.toDisplayCsv(SAVE_OPTIONS),
                         ArgsOptions.toDisplayCsv(COMPUTE_OPTIONS)));
@@ -500,10 +542,11 @@ public final class Main {
                 if (nComputeOptions == 0) {
                     throw new IllegalStateException(String.format(
                             "The option %s is only valid if "
-                                    + "at least one  of these options is introduced: %s.",
+                                    + "at least one of these options is introduced: %s.",
                             ArgsOptions.FACTOR.display(),
                             ArgsOptions.toDisplayCsv(COMPUTE_OPTIONS)));
                 }
+                UniformFuzzyHash.checkFactor(factor);
             }
 
             if (rvArgs != null) {
@@ -563,12 +606,15 @@ public final class Main {
             }
 
             if (oArgs != null) {
-                if (sfArgs == null) {
+                if (stfArgs == null && safArgs == null && etfArgs == null && eafArgs == null) {
                     throw new IllegalStateException(String.format(
                             "The option %s is only valid if "
-                                    + "the option %s is introduced.",
+                                    + "at least one of these options is introduced: %s, %s.",
                             ArgsOptions.OVERWRITE.display(),
-                            ArgsOptions.SAVE_TO_FILE.display()));
+                            ArgsOptions.toDisplayCsv(SAVE_OPTIONS),
+                            ArgsOptions.toDisplayCsv(
+                                    ArgsOptions.EXPORT_TO_TEXT_FILE,
+                                    ArgsOptions.EXPORT_TO_ASCII_FILE)));
                 }
             }
 
@@ -638,8 +684,8 @@ public final class Main {
             UniformFuzzyHash compareHash2 = null;
 
             if (cfhArgs != null) {
-                for (String computeFileHashArg : cfhArgs) {
-                    file = new File(computeFileHashArg);
+                for (String cfhArg : cfhArgs) {
+                    file = new File(cfhArg);
                     name = file.getName();
                     hash = new UniformFuzzyHash(file, factor);
                     if (computedFileHash1 == null) {
@@ -655,8 +701,8 @@ public final class Main {
             }
 
             if (cdhArgs != null) {
-                for (String computeDirectoryHashesArg : cdhArgs) {
-                    directory = new File(computeDirectoryHashesArg);
+                for (String cdhArg : cdhArgs) {
+                    directory = new File(cdhArg);
                     hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
                             directory, factor, recursive);
                     computedHashes.putAll(hashes);
@@ -664,20 +710,46 @@ public final class Main {
                 }
             }
 
-            if (sfArgs != null) {
-                for (String saveToFileArg : sfArgs) {
-                    file = new File(saveToFileArg);
-                    UniformFuzzyHashes.saveToFile(computedHashes, file, !overwrite);
+            if (stfArgs != null) {
+                for (String stfArg : stfArgs) {
+                    file = new File(stfArg);
+                    UniformFuzzyHashes.saveToTextFile(computedHashes, file, !overwrite);
                 }
             }
 
-            if (lfArgs != null) {
-                for (String loadFromFileArg : lfArgs) {
-                    file = new File(loadFromFileArg);
-                    hashes = UniformFuzzyHashes.loadFromFile(file);
+            if (safArgs != null) {
+                for (String safArg : safArgs) {
+                    file = new File(safArg);
+                    UniformFuzzyHashes.saveToAsciiFile(computedHashes, file, !overwrite);
+                }
+            }
+
+            if (ltfArgs != null) {
+                for (String ltfArg : ltfArgs) {
+                    file = new File(ltfArg);
+                    hashes = UniformFuzzyHashes.loadFromTextFile(file);
                     loadedHashes.putAll(hashes);
                     computedAndLoadedHashes.putAll(hashes);
                 }
+            }
+
+            if (lafArgs != null) {
+                for (String lafArg : lafArgs) {
+                    file = new File(lafArg);
+                    hashes = UniformFuzzyHashes.loadFromAsciiFile(file);
+                    loadedHashes.putAll(hashes);
+                    computedAndLoadedHashes.putAll(hashes);
+                }
+            }
+
+            if (etfArgs != null) {
+                hashes = UniformFuzzyHashes.loadFromAsciiFile(new File(etfArgs[0]));
+                UniformFuzzyHashes.saveToTextFile(hashes, new File(etfArgs[1]), !overwrite);
+            }
+
+            if (eafArgs != null) {
+                hashes = UniformFuzzyHashes.loadFromTextFile(new File(eafArgs[0]));
+                UniformFuzzyHashes.saveToAsciiFile(hashes, new File(eafArgs[1]), !overwrite);
             }
 
             if (nSaveOptions == 0 && nFunctionalOptions == 0) {
@@ -803,8 +875,9 @@ public final class Main {
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
             System.out.println(String.format(
-                    "Run with the argument %s or with no arguments to display help.",
-                    ArgsOptions.HELP.display()));
+                    "Run with the argument -%s or --%s or with no arguments to display help.",
+                    ArgsOptions.HELP.shortOption,
+                    ArgsOptions.HELP.longOption));
             System.exit(1);
         }
 
@@ -1066,23 +1139,23 @@ public final class Main {
      */
     private static String sortingCriteriasCsv() {
 
-        StringBuilder str = new StringBuilder();
+        StringBuilder strB = new StringBuilder();
 
         for (SortDirections sortDirection : SortDirections.values()) {
-            if (str.length() != 0) {
-                str.append(CSV_SEPARATOR);
+            if (strB.length() != 0) {
+                strB.append(CSV_SEPARATOR);
             }
-            str.append(sortDirection.name);
+            strB.append(sortDirection.name);
         }
 
         for (SimilarityTypes similarityType : SimilarityTypes.values()) {
-            str.append(CSV_SEPARATOR);
-            str.append(similarityType.getName());
-            str.append(CSV_SEPARATOR);
-            str.append(similarityType.getName() + SortDirections.ASCENDING.name);
+            strB.append(CSV_SEPARATOR);
+            strB.append(similarityType.getName());
+            strB.append(CSV_SEPARATOR);
+            strB.append(similarityType.getName() + SortDirections.ASCENDING.name);
         }
 
-        return str.toString();
+        return strB.toString();
 
     }
 

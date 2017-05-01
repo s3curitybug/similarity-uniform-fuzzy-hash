@@ -20,7 +20,8 @@ public class UniformFuzzyHashTest {
 
     /**
      * Algorithm computation test.
-     * Tests the algorithm computation over a test resource file and the hash toString method.
+     * Tests the algorithm computation over a test resource file and the hash toString and
+     * toAsciiString methods.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
@@ -28,13 +29,15 @@ public class UniformFuzzyHashTest {
     public void algorithmComputationTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
+        String hashAsciiString = hash.toAsciiString();
 
         System.out.println(hashString);
+        System.out.println(hashAsciiString);
 
     }
 
@@ -49,17 +52,42 @@ public class UniformFuzzyHashTest {
     public void hashRebuildTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
 
-        UniformFuzzyHash rebuiltHash = new UniformFuzzyHash(hashString);
+        UniformFuzzyHash rebuiltHash = UniformFuzzyHash.rebuildFromString(hashString);
         String rebuiltHashString = rebuiltHash.toString();
 
         Assert.assertTrue(hash.equals(rebuiltHash));
         Assert.assertTrue(hashString.equals(rebuiltHashString));
+
+    }
+
+    /**
+     * Hash ascii rebuild test.
+     * Tests the hash rebuild from an ascii string representation of a hash computed over a test
+     * resource file, and the hash equals method.
+     * 
+     * @throws IOException In case an exception occurs reading a test resource file.
+     */
+    @Test
+    public void hashAsciiRebuildTest()
+            throws IOException {
+
+        final int factor = 11;
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
+
+        UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
+        String hashAsciiString = hash.toAsciiString();
+
+        UniformFuzzyHash rebuiltHash = UniformFuzzyHash.rebuildFromAsciiString(hashAsciiString);
+        String rebuiltHashAsciiString = rebuiltHash.toAsciiString();
+
+        Assert.assertTrue(hash.equals(rebuiltHash));
+        Assert.assertTrue(hashAsciiString.equals(rebuiltHashAsciiString));
 
     }
 
@@ -73,7 +101,7 @@ public class UniformFuzzyHashTest {
     public void hashCharacteristicsTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
         final String statisticsFormat = "%s: %s";
 
@@ -100,7 +128,7 @@ public class UniformFuzzyHashTest {
     public void similarityTest()
             throws IOException {
 
-        final int factor = 50000;
+        final int factor = 50001;
         final File file1 = TestResourcesUtils.getTestResourceFile("InsideDoc/Lenna.png");
         final File file2 = TestResourcesUtils.getTestResourceFile("InsideDoc/Doc_Lenna.docx");
         final boolean printHashes = true;

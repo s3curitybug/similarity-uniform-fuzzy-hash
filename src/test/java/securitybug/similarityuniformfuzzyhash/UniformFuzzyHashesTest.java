@@ -28,35 +28,17 @@ public class UniformFuzzyHashesTest {
     public void hashesFromDirectoryFilesTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final int truncateNamesLength = 8;
+        final boolean printStatistics = true;
+        final boolean printHashes = true;
+        final int truncateNamesLength = 14;
 
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printHashesTable(namesToHashes, true, true, truncateNamesLength);
-
-    }
-
-    /**
-     * Similarities between all directory files test.
-     * Tests the similarities between all the files of a test resources directory.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file.
-     */
-    @Test
-    public void similaritiesBetweenAllDirectoryFilesTest()
-            throws IOException {
-
-        final int factor = 10;
-        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
-        final int truncateNamesLength = 8;
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.printAllHashesSimilaritiesTable(namesToHashes, truncateNamesLength);
+        UniformFuzzyHashes.printHashesTable(
+                namesToHashes, printStatistics, printHashes, truncateNamesLength);
 
     }
 
@@ -71,13 +53,13 @@ public class UniformFuzzyHashesTest {
     public void similaritiesBetweenFileAndDirectoryFilesTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
         final SimilarityTypes sortCriteria = SimilarityTypes.SIMILARITY;
         final boolean sortAscending = false;
         final int rowsLimit = -1;
-        final int truncateNamesLength = 8;
+        final int truncateNamesLength = 14;
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
 
@@ -90,28 +72,77 @@ public class UniformFuzzyHashesTest {
     }
 
     /**
-     * Save and load hashes test.
-     * Tests the hashes saving to and loading from a file.
+     * Similarities between all directory files test.
+     * Tests the similarities between all the files of a test resources directory.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
     @Test
-    public void saveAndLoadHashesTest()
+    public void similaritiesBetweenAllDirectoryFilesTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
+        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
+        final int truncateNamesLength = 14;
+
+        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
+                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+
+        UniformFuzzyHashes.printAllHashesSimilaritiesTable(namesToHashes, truncateNamesLength);
+
+    }
+
+    /**
+     * Save and load hashes as text test.
+     * Tests the hashes saving to and loading from a text file.
+     * 
+     * @throws IOException In case an exception occurs reading a test resource file.
+     */
+    @Test
+    public void saveAndLoadHashesAsTextTest()
+            throws IOException {
+
+        final int factor = 11;
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
         final File storageFile = TestResourcesUtils.getTargetFile(directory.getName() + ".sufh");
 
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.saveToFile(namesToHashes, storageFile, false);
+        UniformFuzzyHashes.saveToTextFile(namesToHashes, storageFile, false);
 
         Assert.assertTrue(storageFile.exists());
 
         Map<String, UniformFuzzyHash> loadedNamesToHashes = UniformFuzzyHashes
-                .loadFromFile(storageFile);
+                .loadFromTextFile(storageFile);
+
+        Assert.assertTrue(namesToHashes.equals(loadedNamesToHashes));
+
+    }
+
+    /**
+     * Save and load hashes as ascii test.
+     * Tests the hashes saving to and loading from an ascii file.
+     * 
+     * @throws IOException In case an exception occurs reading a test resource file.
+     */
+    @Test
+    public void saveAndLoadHashesAsAsciiTest()
+            throws IOException {
+
+        final int factor = 11;
+        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
+        final File storageFile = TestResourcesUtils.getTargetFile(directory.getName() + ".asufh");
+
+        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
+                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+
+        UniformFuzzyHashes.saveToAsciiFile(namesToHashes, storageFile, false);
+
+        Assert.assertTrue(storageFile.exists());
+
+        Map<String, UniformFuzzyHash> loadedNamesToHashes = UniformFuzzyHashes
+                .loadFromAsciiFile(storageFile);
 
         Assert.assertTrue(namesToHashes.equals(loadedNamesToHashes));
 

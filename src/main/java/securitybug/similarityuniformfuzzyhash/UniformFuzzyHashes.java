@@ -346,7 +346,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param byteArrays Collection of byte arrays of data.
      * @param factor Relation between data length and the hash mean number of blocks for each byte
-     *        array of data. Must be greater than 2 and must not be a power of 2.
+     *        array of data. Must be greater than 2 and must be odd.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromByteArrays(
@@ -363,10 +363,11 @@ public final class UniformFuzzyHashes {
 
             if (byteArray == null) {
                 hashes.add(null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(byteArray, factor);
-                hashes.add(hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(byteArray, factor);
+            hashes.add(hash);
 
         }
 
@@ -380,7 +381,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToByteArrays Map from names to byte arrays of data.
      * @param factor Relation between data length and the hash mean number of blocks for each byte
-     *        array of data. Must be greater than 2 and must not be a power of 2.
+     *        array of data. Must be greater than 2 and must be odd.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedByteArrays(
@@ -400,10 +401,11 @@ public final class UniformFuzzyHashes {
 
             if (byteArray == null) {
                 namesToHashes.put(name, null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(byteArray, factor);
-                namesToHashes.put(name, hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(byteArray, factor);
+            namesToHashes.put(name, hash);
 
         }
 
@@ -417,7 +419,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param strings Collection of strings of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromStrings(
@@ -434,10 +436,11 @@ public final class UniformFuzzyHashes {
 
             if (string == null) {
                 hashes.add(null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(string, factor);
-                hashes.add(hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(string, factor);
+            hashes.add(hash);
 
         }
 
@@ -451,7 +454,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToStrings Map from names to strings of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedStrings(
@@ -471,10 +474,11 @@ public final class UniformFuzzyHashes {
 
             if (string == null) {
                 namesToHashes.put(name, null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(string, factor);
-                namesToHashes.put(name, hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(string, factor);
+            namesToHashes.put(name, hash);
 
         }
 
@@ -488,7 +492,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param inputStreams Collection of input streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data. Must be greater than 2 and must not be a power of 2.
+     *        stream of data. Must be greater than 2 and must be odd.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the input streams of data.
      */
@@ -507,10 +511,11 @@ public final class UniformFuzzyHashes {
 
             if (inputStream == null) {
                 hashes.add(null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(inputStream, factor);
-                hashes.add(hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(inputStream, factor);
+            hashes.add(hash);
 
         }
 
@@ -524,7 +529,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToInputStreams Map from names to input streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data. Must be greater than 2 and must not be a power of 2.
+     *        stream of data. Must be greater than 2 and must be odd.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the input streams of data.
      */
@@ -546,10 +551,11 @@ public final class UniformFuzzyHashes {
 
             if (inputStream == null) {
                 namesToHashes.put(name, null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(inputStream, factor);
-                namesToHashes.put(name, hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(inputStream, factor);
+            namesToHashes.put(name, hash);
 
         }
 
@@ -563,7 +569,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param byteArrayOutputStreams Collection of byte array output streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each string
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @return List of computed Uniform Fuzzy Hashes.
      */
     public static List<UniformFuzzyHash> computeHashesFromByteArrayOutputStreams(
@@ -580,10 +586,11 @@ public final class UniformFuzzyHashes {
 
             if (byteArrayOutputStream == null) {
                 hashes.add(null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(byteArrayOutputStream, factor);
-                hashes.add(hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(byteArrayOutputStream, factor);
+            hashes.add(hash);
 
         }
 
@@ -597,7 +604,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToByteArrayOutputStreams Map from names to byte array output streams of data.
      * @param factor Relation between data length and the hash mean number of blocks for each input
-     *        stream of data. Must be greater than 2 and must not be a power of 2.
+     *        stream of data. Must be greater than 2 and must be odd.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      */
     public static Map<String, UniformFuzzyHash> computeNamedHashesFromNamedByteArrayOutputStreams(
@@ -617,10 +624,11 @@ public final class UniformFuzzyHashes {
 
             if (byteArrayOutputStream == null) {
                 namesToHashes.put(name, null);
-            } else {
-                UniformFuzzyHash hash = new UniformFuzzyHash(byteArrayOutputStream, factor);
-                namesToHashes.put(name, hash);
+                continue;
             }
+
+            UniformFuzzyHash hash = new UniformFuzzyHash(byteArrayOutputStream, factor);
+            namesToHashes.put(name, hash);
 
         }
 
@@ -634,7 +642,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param files Collection of files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -655,13 +663,17 @@ public final class UniformFuzzyHashes {
 
             if (file == null) {
                 hashes.add(null);
-            } else if (file.exists()) {
+                continue;
+            }
+
+            if (file.exists()) {
                 if (file.isFile()) {
                     UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
                     hashes.add(hash);
                 } else if (file.isDirectory() && nested) {
-                    hashes.addAll(computeHashesFromFiles(
-                            Arrays.asList(file.listFiles()), factor, nested));
+                    List<UniformFuzzyHash> nestedHashes = computeHashesFromFiles(
+                            Arrays.asList(file.listFiles()), factor, nested);
+                    hashes.addAll(nestedHashes);
                 }
             }
 
@@ -677,7 +689,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToFiles Map from names to files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
      */
@@ -699,7 +711,10 @@ public final class UniformFuzzyHashes {
 
             if (file == null) {
                 namesToHashes.put(name, null);
-            } else if (file.exists() && file.isFile()) {
+                continue;
+            }
+
+            if (file.exists() && file.isFile()) {
                 UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
                 namesToHashes.put(name, hash);
             }
@@ -716,7 +731,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param files Collection of files of data.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -735,13 +750,19 @@ public final class UniformFuzzyHashes {
 
         for (File file : files) {
 
-            if (file != null && file.exists()) {
+            if (file == null) {
+                namesToHashes.put(null, null);
+                continue;
+            }
+
+            if (file.exists()) {
                 if (file.isFile()) {
                     UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
                     namesToHashes.put(file.getName(), hash);
                 } else if (file.isDirectory() && nested) {
-                    namesToHashes.putAll(computeNamedHashesFromFiles(
-                            Arrays.asList(file.listFiles()), factor, nested));
+                    Map<String, UniformFuzzyHash> nestedHashes = computeNamedHashesFromFiles(
+                            Arrays.asList(file.listFiles()), factor, nested);
+                    namesToHashes.putAll(nestedHashes);
                 }
             }
 
@@ -757,7 +778,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param directory Directory of files.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return List of computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -794,7 +815,7 @@ public final class UniformFuzzyHashes {
      * 
      * @param directory Directory of files.
      * @param factor Relation between data length and the hash mean number of blocks for each file
-     *        of data. Must be greater than 2 and must not be a power of 2.
+     *        of data. Must be greater than 2 and must be odd.
      * @param nested True to read files inside directories recursively. False to ignore directories.
      * @return Map from names to computed Uniform Fuzzy Hashes.
      * @throws IOException If an IOException occurs reading any of the files of data.
@@ -826,12 +847,255 @@ public final class UniformFuzzyHashes {
     }
 
     /**
+     * Builds a list of strings representing a collection of Uniform Fuzzy Hashes.
+     * 
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     * @return List of strings representing the hashes.
+     */
+    public static List<String> hashesToStrings(
+            Collection<UniformFuzzyHash> hashes) {
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        List<String> hashStrings = new ArrayList<>(hashes.size());
+
+        for (UniformFuzzyHash hash : hashes) {
+
+            if (hash == null) {
+                hashStrings.add(null);
+                continue;
+            }
+
+            String hashString = hash.toString();
+            hashStrings.add(hashString);
+
+        }
+
+        return hashStrings;
+
+    }
+
+    /**
+     * Builds a map from names to strings representing a map from names to Uniform Fuzzy Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @return Map from names to strings representing the hashes.
+     */
+    public static Map<String, String> namedHashesToNamedStrings(
+            Map<String, UniformFuzzyHash> namesToHashes) {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        Set<String> names = namesToHashes.keySet();
+        Map<String, String> namesToHashStrings = new LinkedHashMap<>(names.size());
+
+        for (String name : names) {
+
+            UniformFuzzyHash hash = namesToHashes.get(name);
+
+            if (hash == null) {
+                namesToHashStrings.put(name, null);
+                continue;
+            }
+
+            String hashString = hash.toString();
+            namesToHashStrings.put(name, hashString);
+
+        }
+
+        return namesToHashStrings;
+
+    }
+
+    /**
+     * Builds a text line representing a named Uniform Fuzzy Hash.
+     * 
+     * @param name The Uniform Fuzzy Hash name.
+     * @param hash The Uniform Fuzzy Hash.
+     * @return Text line representing the named hash.
+     */
+    public static String namedHashToTextLine(
+            String name,
+            UniformFuzzyHash hash) {
+
+        if (hash == null) {
+            throw new NullPointerException("Hash is null.");
+        }
+
+        name = checkName(name, -1);
+        String hashString = hash.toString();
+
+        return name + NAME_SEPARATOR + hashString;
+
+    }
+
+    /**
+     * Builds a list of text lines representing a map from names to Uniform Fuzzy Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @return List of text lines representing the named hashes.
+     */
+    public static List<String> namedHashesToTextLines(
+            Map<String, UniformFuzzyHash> namesToHashes) {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        Set<String> names = namesToHashes.keySet();
+        List<String> textLines = new ArrayList<>(names.size());
+
+        for (String name : names) {
+
+            UniformFuzzyHash hash = namesToHashes.get(name);
+
+            if (hash == null) {
+                textLines.add(null);
+                continue;
+            }
+
+            String textLine = namedHashToTextLine(name, hash);
+            textLines.add(textLine);
+
+        }
+
+        return textLines;
+
+    }
+
+    /**
+     * Builds a list of ascii strings representing a collection of Uniform Fuzzy Hashes.
+     * 
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     * @return List of ascii strings representing the hashes.
+     */
+    public static List<String> hashesToAsciiStrings(
+            Collection<UniformFuzzyHash> hashes) {
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        List<String> hashAsciiStrings = new ArrayList<>(hashes.size());
+
+        for (UniformFuzzyHash hash : hashes) {
+
+            if (hash == null) {
+                hashAsciiStrings.add(null);
+                continue;
+            }
+
+            String hashAsciiString = hash.toAsciiString();
+            hashAsciiStrings.add(hashAsciiString);
+
+        }
+
+        return hashAsciiStrings;
+
+    }
+
+    /**
+     * Builds a map from names to ascii strings representing a map from names to Uniform Fuzzy
+     * Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @return Map from names to ascii strings representing the hashes.
+     */
+    public static Map<String, String> namedHashesToNamedAsciiStrings(
+            Map<String, UniformFuzzyHash> namesToHashes) {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        Set<String> names = namesToHashes.keySet();
+        Map<String, String> namesToHashAsciiStrings = new LinkedHashMap<>(names.size());
+
+        for (String name : names) {
+
+            UniformFuzzyHash hash = namesToHashes.get(name);
+
+            if (hash == null) {
+                namesToHashAsciiStrings.put(name, null);
+                continue;
+            }
+
+            String hashString = hash.toAsciiString();
+            namesToHashAsciiStrings.put(name, hashString);
+
+        }
+
+        return namesToHashAsciiStrings;
+
+    }
+
+    /**
+     * Builds an ascii line representing a named Uniform Fuzzy Hash.
+     * 
+     * @param name The Uniform Fuzzy Hash name.
+     * @param hash The Uniform Fuzzy Hash.
+     * @return Ascii line representing the named hash.
+     */
+    public static String namedHashToAsciiLine(
+            String name,
+            UniformFuzzyHash hash) {
+
+        if (hash == null) {
+            throw new NullPointerException("Hash is null.");
+        }
+
+        name = checkName(name, -1);
+        String hashAsciiString = hash.toAsciiString();
+
+        return name + NAME_SEPARATOR + hashAsciiString;
+
+    }
+
+    /**
+     * Builds a list of ascii lines representing a map from names to Uniform Fuzzy Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @return List of ascii lines representing the named hashes.
+     */
+    public static List<String> namedHashesToAsciiLines(
+            Map<String, UniformFuzzyHash> namesToHashes) {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        Set<String> names = namesToHashes.keySet();
+        List<String> asciiLines = new ArrayList<>(names.size());
+
+        for (String name : names) {
+
+            UniformFuzzyHash hash = namesToHashes.get(name);
+
+            if (hash == null) {
+                asciiLines.add(null);
+                continue;
+            }
+
+            String asciiLine = namedHashToAsciiLine(name, hash);
+            asciiLines.add(asciiLine);
+
+        }
+
+        return asciiLines;
+
+    }
+
+    /**
      * Rebuilds a list of Uniform Fuzzy Hashes from a collection of strings representing them.
      * 
      * @param hashStrings Collection of strings representing Uniform Fuzzy Hashes.
      * @return List of rebuilt Uniform Fuzzy Hashes.
      */
-    public static List<UniformFuzzyHash> rebuildHashes(
+    public static List<UniformFuzzyHash> rebuildHashesFromStrings(
             Collection<String> hashStrings) {
 
         if (hashStrings == null) {
@@ -844,25 +1108,20 @@ public final class UniformFuzzyHashes {
         for (String hashString : hashStrings) {
 
             if (hashString == null) {
-
                 hashes.add(null);
-
-            } else {
-
-                UniformFuzzyHash hash = null;
-
-                try {
-                    hash = new UniformFuzzyHash(hashString);
-                } catch (IllegalArgumentException illegalArgumentException) {
-                    throw new IllegalArgumentException(String.format(
-                            "Hash %d could not be parsed. %s",
-                            i,
-                            illegalArgumentException.getMessage()));
-                }
-
-                hashes.add(hash);
-
+                continue;
             }
+
+            UniformFuzzyHash hash = null;
+            try {
+                hash = UniformFuzzyHash.rebuildFromString(hashString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Hash %d could not be parsed. %s",
+                        i,
+                        illegalArgumentException.getMessage()));
+            }
+            hashes.add(hash);
 
             i++;
 
@@ -879,7 +1138,7 @@ public final class UniformFuzzyHashes {
      * @param namesToHashStrings Map from names to strings representing Uniform Fuzzy Hashes.
      * @return Map from names to rebuilt Uniform Fuzzy Hashes.
      */
-    public static Map<String, UniformFuzzyHash> rebuildNamedHashes(
+    public static Map<String, UniformFuzzyHash> rebuildNamedHashesFromNamedStrings(
             Map<String, String> namesToHashStrings) {
 
         if (namesToHashStrings == null) {
@@ -894,25 +1153,20 @@ public final class UniformFuzzyHashes {
             String hashString = namesToHashStrings.get(name);
 
             if (hashString == null) {
-
                 namesToHashes.put(name, null);
-
-            } else {
-
-                UniformFuzzyHash hash = null;
-
-                try {
-                    hash = new UniformFuzzyHash(hashString);
-                } catch (IllegalArgumentException illegalArgumentException) {
-                    throw new IllegalArgumentException(String.format(
-                            "Hash %s could not be parsed. %s",
-                            name,
-                            illegalArgumentException.getMessage()));
-                }
-
-                namesToHashes.put(name, hash);
-
+                continue;
             }
+
+            UniformFuzzyHash hash = null;
+            try {
+                hash = UniformFuzzyHash.rebuildFromString(hashString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Hash %s could not be parsed. %s",
+                        name,
+                        illegalArgumentException.getMessage()));
+            }
+            namesToHashes.put(name, hash);
 
         }
 
@@ -921,79 +1175,242 @@ public final class UniformFuzzyHashes {
     }
 
     /**
-     * Builds a list of strings representing a collection of Uniform Fuzzy Hashes.
+     * Rebuilds a map from names to Uniform Fuzzy Hashes from a collection of text lines
+     * representing them.
      * 
-     * @param hashes Collection of Uniform Fuzzy Hashes.
-     * @return List of strings representing the hashes.
+     * @param textLines Collection of text lines representing named Uniform Fuzzy Hashes.
+     * @return Map from names to rebuilt Uniform Fuzzy Hashes.
      */
-    public static List<String> hashesToString(
-            Collection<UniformFuzzyHash> hashes) {
+    public static Map<String, UniformFuzzyHash> rebuildNamedHashesFromTextLines(
+            Collection<String> textLines) {
 
-        if (hashes == null) {
-            throw new NullPointerException("Collection of hashes is null.");
+        // Parameters check.
+        if (textLines == null) {
+            throw new NullPointerException("Collection of text lines is null.");
         }
 
-        List<String> hashStrings = new ArrayList<>(hashes.size());
+        // Rebuild hashes line by line.
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(textLines.size());
 
-        for (UniformFuzzyHash hash : hashes) {
+        int i = 1;
+        for (String textLine : textLines) {
 
-            if (hash == null) {
-                hashStrings.add(null);
-            } else {
-                String hashString = hash.toString();
-                hashStrings.add(hashString);
+            if (textLine == null) {
+                namesToHashes.put(null, null);
+                continue;
             }
 
+            textLine = textLine.trim();
+
+            // Check empty line and ignore mark.
+            if (textLine.isEmpty() || textLine.startsWith(IGNORE_MARK)) {
+                continue;
+            }
+
+            // Split name from hash.
+            String[] nameSplit = textLine.split(NAME_SEPARATOR.trim());
+
+            if (nameSplit.length != 2) {
+                throw new IllegalArgumentException(String.format(
+                        "Line %d does not fit the format name%shash.",
+                        i,
+                        NAME_SEPARATOR));
+            }
+
+            // Name.
+            String name = nameSplit[0].trim();
+            name = checkName(name, -1);
+
+            // Hash.
+            String hashString = nameSplit[1].trim();
+            UniformFuzzyHash hash = null;
+
+            try {
+                hash = UniformFuzzyHash.rebuildFromString(hashString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Line %d hash (%s) could not be parsed. %s",
+                        i,
+                        name,
+                        illegalArgumentException.getMessage()));
+            }
+
+            namesToHashes.put(name, hash);
+
+            i++;
+
         }
 
-        return hashStrings;
+        return namesToHashes;
 
     }
 
     /**
-     * Builds a map from names to strings representing a map from names to Uniform Fuzzy Hashes.
+     * Rebuilds a list of Uniform Fuzzy Hashes from a collection of ascii strings representing them.
      * 
-     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
-     * @return Map from names to strings representing the hashes.
+     * @param hashAsciiStrings Collection of ascii strings representing Uniform Fuzzy Hashes.
+     * @return List of rebuilt Uniform Fuzzy Hashes.
      */
-    public static Map<String, String> namedHashesToString(
-            Map<String, UniformFuzzyHash> namesToHashes) {
+    public static List<UniformFuzzyHash> rebuildHashesFromAsciiStrings(
+            Collection<String> hashAsciiStrings) {
 
-        if (namesToHashes == null) {
-            throw new NullPointerException("Map of hashes is null.");
+        if (hashAsciiStrings == null) {
+            throw new NullPointerException("Collection of hash asciii strings is null.");
         }
 
-        Set<String> names = namesToHashes.keySet();
-        Map<String, String> namesToHashStrings = new LinkedHashMap<>(names.size());
+        List<UniformFuzzyHash> hashes = new ArrayList<>(hashAsciiStrings.size());
+
+        int i = 0;
+        for (String hashAsciiString : hashAsciiStrings) {
+
+            if (hashAsciiString == null) {
+                hashes.add(null);
+                continue;
+            }
+
+            UniformFuzzyHash hash = null;
+            try {
+                hash = UniformFuzzyHash.rebuildFromAsciiString(hashAsciiString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Hash %d could not be parsed. %s",
+                        i,
+                        illegalArgumentException.getMessage()));
+            }
+            hashes.add(hash);
+
+            i++;
+
+        }
+
+        return hashes;
+
+    }
+
+    /**
+     * Rebuilds a map from names to Uniform Fuzzy Hashes from a map from names to ascii strings
+     * representing them.
+     * 
+     * @param namesToHashAsciiStrings Map from names to ascii strings representing Uniform Fuzzy
+     *        Hashes.
+     * @return Map from names to rebuilt Uniform Fuzzy Hashes.
+     */
+    public static Map<String, UniformFuzzyHash> rebuildNamedHashesFromNamedAsciiStrings(
+            Map<String, String> namesToHashAsciiStrings) {
+
+        if (namesToHashAsciiStrings == null) {
+            throw new NullPointerException("Map of hash ascii strings is null.");
+        }
+
+        Set<String> names = namesToHashAsciiStrings.keySet();
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(names.size());
 
         for (String name : names) {
 
-            UniformFuzzyHash hash = namesToHashes.get(name);
+            String hashAsciiString = namesToHashAsciiStrings.get(name);
 
-            if (hash == null) {
-                namesToHashStrings.put(name, null);
-            } else {
-                String hashString = hash.toString();
-                namesToHashStrings.put(name, hashString);
+            if (hashAsciiString == null) {
+                namesToHashes.put(name, null);
+                continue;
             }
+
+            UniformFuzzyHash hash = null;
+            try {
+                hash = UniformFuzzyHash.rebuildFromAsciiString(hashAsciiString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Hash %s could not be parsed. %s",
+                        name,
+                        illegalArgumentException.getMessage()));
+            }
+            namesToHashes.put(name, hash);
 
         }
 
-        return namesToHashStrings;
+        return namesToHashes;
+
+    }
+
+    /**
+     * Rebuilds a map from names to Uniform Fuzzy Hashes from a collection of ascii lines
+     * representing them.
+     * 
+     * @param asciiLines Collection of ascii lines representing named Uniform Fuzzy Hashes.
+     * @return Map from names to rebuilt Uniform Fuzzy Hashes.
+     */
+    public static Map<String, UniformFuzzyHash> rebuildNamedHashesFromAsciiLines(
+            Collection<String> asciiLines) {
+
+        // Parameters check.
+        if (asciiLines == null) {
+            throw new NullPointerException("Collection of ascii lines is null.");
+        }
+
+        // Rebuild hashes line by line.
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(asciiLines.size());
+
+        int i = 1;
+        for (String asciiLine : asciiLines) {
+
+            if (asciiLine == null) {
+                namesToHashes.put(null, null);
+                continue;
+            }
+
+            // Check empty line and ignore mark.
+            if (asciiLine.isEmpty() || asciiLine.startsWith(IGNORE_MARK)) {
+                continue;
+            }
+
+            // Split name from hash.
+            String[] nameSplit = asciiLine.split(NAME_SEPARATOR.trim());
+
+            if (nameSplit.length != 2) {
+                throw new IllegalArgumentException(String.format(
+                        "Line %d does not fit the format name%shash.",
+                        i,
+                        NAME_SEPARATOR));
+            }
+
+            // Name.
+            String name = nameSplit[0].trim();
+            name = checkName(name, -1);
+
+            // Hash.
+            String hashAsciiString = nameSplit[1];
+            UniformFuzzyHash hash = null;
+
+            try {
+                hash = UniformFuzzyHash.rebuildFromAsciiString(hashAsciiString);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Line %d hash (%s) could not be parsed. %s",
+                        i,
+                        name,
+                        illegalArgumentException.getMessage()));
+            }
+
+            namesToHashes.put(name, hash);
+
+            i++;
+
+        }
+
+        return namesToHashes;
 
     }
 
     /**
      * Writes a Uniform Fuzzy Hash into a text file.
      * 
-     * @param hashName The Uniform Fuzzy Hash name.
+     * @param name The Uniform Fuzzy Hash name.
      * @param hash The Uniform Fuzzy Hash.
      * @param file The file to save the hash.
      * @param append True to append the hash at the end of the file. False to overwrite the file.
      * @throws IOException If an IOException occurs writing into the file.
      */
-    public static void saveToFile(
-            String hashName,
+    public static void saveToTextFile(
+            String name,
             UniformFuzzyHash hash,
             File file,
             boolean append)
@@ -1004,9 +1421,9 @@ public final class UniformFuzzyHashes {
         }
 
         Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(1);
-        namesToHashes.put(hashName, hash);
+        namesToHashes.put(name, hash);
 
-        saveToFile(namesToHashes, file, append);
+        saveToTextFile(namesToHashes, file, append);
 
     }
 
@@ -1015,10 +1432,10 @@ public final class UniformFuzzyHashes {
      * 
      * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
      * @param file The file to save the hashes.
-     * @param append True to append the hash at the end of the file. False to overwrite the file.
+     * @param append True to append the hashes at the end of the file. False to overwrite the file.
      * @throws IOException If an IOException occurs writing into the file.
      */
-    public static void saveToFile(
+    public static void saveToTextFile(
             Map<String, UniformFuzzyHash> namesToHashes,
             File file,
             boolean append)
@@ -1038,23 +1455,68 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        Set<String> names = namesToHashes.keySet();
-        List<String> lines = new ArrayList<>(names.size());
+        List<String> textLines = namedHashesToTextLines(namesToHashes);
+        FileUtils.writeLines(file, UFH_FILES_ECONDING.name(), textLines, append);
 
-        for (String name : names) {
+    }
 
-            UniformFuzzyHash hash = namesToHashes.get(name);
-            name = checkName(name, -1);
+    /**
+     * Writes a Uniform Fuzzy Hash into an ascii file.
+     * 
+     * @param name The Uniform Fuzzy Hash name.
+     * @param hash The Uniform Fuzzy Hash.
+     * @param file The file to save the hash.
+     * @param append True to append the hash at the end of the file. False to overwrite the file.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveToAsciiFile(
+            String name,
+            UniformFuzzyHash hash,
+            File file,
+            boolean append)
+            throws IOException {
 
-            if (hash != null) {
-                String hashString = hash.toString();
-                String line = name + NAME_SEPARATOR + hashString;
-                lines.add(line);
-            }
-
+        if (hash == null) {
+            throw new NullPointerException("Hash is null.");
         }
 
-        FileUtils.writeLines(file, UFH_FILES_ECONDING.name(), lines, append);
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(1);
+        namesToHashes.put(name, hash);
+
+        saveToAsciiFile(namesToHashes, file, append);
+
+    }
+
+    /**
+     * Writes a map from names to Uniform Fuzzy Hashes into an ascii file.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param file The file to save the hashes.
+     * @param append True to append the hashes at the end of the file. False to overwrite the file.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveToAsciiFile(
+            Map<String, UniformFuzzyHash> namesToHashes,
+            File file,
+            boolean append)
+            throws IOException {
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (file == null) {
+            throw new NullPointerException("File is null.");
+        }
+
+        if (file.exists() && !file.isFile()) {
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    file.getName()));
+        }
+
+        List<String> asciiLines = namedHashesToAsciiLines(namesToHashes);
+        FileUtils.writeLines(file, UFH_FILES_ECONDING.name(), asciiLines, append);
 
     }
 
@@ -1066,11 +1528,10 @@ public final class UniformFuzzyHashes {
      * @return Map from names to Uniform Fuzzy Hashes.
      * @throws IOException IOException If an IOException occurs reading from the file.
      */
-    public static Map<String, UniformFuzzyHash> loadFromFile(
+    public static Map<String, UniformFuzzyHash> loadFromTextFile(
             File file)
             throws IOException {
 
-        // Parameters check.
         if (file == null) {
             throw new NullPointerException("File is null.");
         }
@@ -1087,52 +1548,43 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        // Read file by lines.
-        List<String> lines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
-        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>(lines.size());
+        List<String> textLines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
+        Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromTextLines(textLines);
 
-        int i = 1;
-        for (String line : lines) {
+        return namesToHashes;
 
-            line = line.trim();
+    }
 
-            // Check empty line and ignore mark.
-            if (line.isEmpty() || line.startsWith(IGNORE_MARK)) {
-                continue;
-            }
+    /**
+     * Loads a map from names to Uniform Fuzzy Hashes from an ascii file.
+     * Lines starting by # are ignored.
+     * 
+     * @param file The file to load the hashes.
+     * @return Map from names to Uniform Fuzzy Hashes.
+     * @throws IOException IOException If an IOException occurs reading from the file.
+     */
+    public static Map<String, UniformFuzzyHash> loadFromAsciiFile(
+            File file)
+            throws IOException {
 
-            // Split name from hash.
-            String[] nameSplit = line.split(NAME_SEPARATOR.trim());
-
-            if (nameSplit.length != 2) {
-                throw new IllegalArgumentException(String.format(
-                        "Line %d does not fit the format hashName %s hash.",
-                        i,
-                        NAME_SEPARATOR.trim()));
-            }
-
-            // Name.
-            String name = nameSplit[0].trim();
-            name = checkName(name, -1);
-
-            // Hash.
-            String hashString = nameSplit[1].trim();
-            UniformFuzzyHash hash = null;
-
-            try {
-                hash = new UniformFuzzyHash(hashString);
-            } catch (IllegalArgumentException illegalArgumentException) {
-                throw new IllegalArgumentException(String.format(
-                        "Line %d hash could not be parsed. %s",
-                        i,
-                        illegalArgumentException.getMessage()));
-            }
-
-            namesToHashes.put(name, hash);
-
-            i++;
-
+        if (file == null) {
+            throw new NullPointerException("File is null.");
         }
+
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format(
+                    "File %s does not exist.",
+                    file.getName()));
+        }
+
+        if (!file.isFile()) {
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    file.getName()));
+        }
+
+        List<String> asciiLines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
+        Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromAsciiLines(asciiLines);
 
         return namesToHashes;
 
@@ -1333,23 +1785,24 @@ public final class UniformFuzzyHashes {
             return;
         }
 
-        Set<String> names = namesToHashes.keySet();
+        List<String> lines = null;
+        if (printNames) {
+            lines = namedHashesToTextLines(namesToHashes);
+        } else {
+            lines = hashesToStrings(namesToHashes.values());
+        }
 
-        for (String name : names) {
+        for (String line : lines) {
 
-            UniformFuzzyHash hash = namesToHashes.get(name);
-            name = checkName(name, -1);
-
-            if (hash != null) {
-                if (doubleLine) {
-                    System.out.println();
-                }
-                if (printNames) {
-                    System.out.println(name + NAME_SEPARATOR + hash.toString());
-                } else {
-                    System.out.println(hash.toString());
-                }
+            if (line == null) {
+                continue;
             }
+
+            if (doubleLine) {
+                System.out.println();
+            }
+
+            System.out.println(line);
 
         }
 
@@ -1425,7 +1878,7 @@ public final class UniformFuzzyHashes {
         printFirstColumn("", firstColumnSize);
         int numCharacteristics = 0;
         for (String hashCharacteristicName : characteristicsNames) {
-            if (hashCharacteristicName.equals(HashCharacteristics.HASH)) {
+            if (hashCharacteristicName.equals(HashCharacteristics.HASH.name)) {
                 if (printHashes) {
                     printColumn(hashCharacteristicName, columnSize);
                     numCharacteristics++;
@@ -1457,96 +1910,6 @@ public final class UniformFuzzyHashes {
                         printColumn(hashCharacteristic.getCharaceristicValue(hash), columnSize);
                     }
                 }
-            }
-            System.out.println();
-
-        }
-
-        System.out.println();
-
-    }
-
-    /**
-     * Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.
-     * 
-     * @param hashes Collection of Uniform Fuzzy Hashes.
-     */
-    public static void printAllHashesSimilaritiesTable(
-            Collection<UniformFuzzyHash> hashes) {
-
-        if (hashes == null) {
-            throw new NullPointerException("Collection of hashes is null.");
-        }
-
-        if (hashes.isEmpty()) {
-            return;
-        }
-
-        Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
-
-        printAllHashesSimilaritiesTable(namesToHashes, -1);
-
-    }
-
-    /**
-     * Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.
-     * 
-     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
-     * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
-     *        maximum length.
-     */
-    public static void printAllHashesSimilaritiesTable(
-            Map<String, UniformFuzzyHash> namesToHashes,
-            int truncateNamesLength) {
-
-        // Parameters check.
-        if (namesToHashes == null) {
-            throw new NullPointerException("Map of hashes is null.");
-        }
-
-        if (namesToHashes.isEmpty()) {
-            return;
-        }
-
-        // Similarities computation and caching.
-        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
-            for (UniformFuzzyHash hash2 : namesToHashes.values()) {
-                hash1.similarity(hash2);
-            }
-        }
-
-        // Similarity type.
-        final SimilarityTypes similarityType = SimilarityTypes.SIMILARITY;
-
-        // Hash names.
-        Set<String> names = namesToHashes.keySet();
-        int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
-
-        // Column size.
-        int firstColumnSize = getColumnSize(namesMaxLength);
-        int columnSize = getColumnSize(ZERO_TO_ONE_DECIMAL_MAX_CHARS, namesMaxLength);
-
-        // Table print.
-        System.out.println();
-
-        printFirstColumn("", firstColumnSize);
-        for (String name : names) {
-            name = checkName(name, truncateNamesLength);
-            printColumn(name, columnSize);
-        }
-        System.out.println();
-
-        printFirstRowSeparator(firstColumnSize, columnSize, names.size());
-
-        for (String name1 : names) {
-
-            UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1, truncateNamesLength);
-
-            printFirstColumn(name1, firstColumnSize);
-            for (String name2 : names) {
-                UniformFuzzyHash hash2 = namesToHashes.get(name2);
-                printColumn(similarityType.getSimilarityFormattedValue(hash1, hash2), columnSize);
             }
             System.out.println();
 
@@ -1629,6 +1992,9 @@ public final class UniformFuzzyHashes {
 
         // Similarities computation and caching.
         for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            if (hash1 == null) {
+                continue;
+            }
             hash.similarity(hash1);
             hash1.similarity(hash);
         }
@@ -1675,6 +2041,102 @@ public final class UniformFuzzyHashes {
             if (row++ == rowsLimit) {
                 break;
             }
+
+        }
+
+        System.out.println();
+
+    }
+
+    /**
+     * Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.
+     * 
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     */
+    public static void printAllHashesSimilaritiesTable(
+            Collection<UniformFuzzyHash> hashes) {
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        if (hashes.isEmpty()) {
+            return;
+        }
+
+        Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
+
+        printAllHashesSimilaritiesTable(namesToHashes, -1);
+
+    }
+
+    /**
+     * Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
+     *        maximum length.
+     */
+    public static void printAllHashesSimilaritiesTable(
+            Map<String, UniformFuzzyHash> namesToHashes,
+            int truncateNamesLength) {
+
+        // Parameters check.
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        // Similarities computation and caching.
+        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            if (hash1 == null) {
+                continue;
+            }
+            for (UniformFuzzyHash hash2 : namesToHashes.values()) {
+                if (hash2 == null) {
+                    continue;
+                }
+                hash1.similarity(hash2);
+            }
+        }
+
+        // Similarity type.
+        final SimilarityTypes similarityType = SimilarityTypes.SIMILARITY;
+
+        // Hash names.
+        Set<String> names = namesToHashes.keySet();
+        int namesMaxLength = getMaxLength(true, truncateNamesLength, names);
+
+        // Column size.
+        int firstColumnSize = getColumnSize(namesMaxLength);
+        int columnSize = getColumnSize(ZERO_TO_ONE_DECIMAL_MAX_CHARS, namesMaxLength);
+
+        // Table print.
+        System.out.println();
+
+        printFirstColumn("", firstColumnSize);
+        for (String name : names) {
+            name = checkName(name, truncateNamesLength);
+            printColumn(name, columnSize);
+        }
+        System.out.println();
+
+        printFirstRowSeparator(firstColumnSize, columnSize, names.size());
+
+        for (String name1 : names) {
+
+            UniformFuzzyHash hash1 = namesToHashes.get(name1);
+            name1 = checkName(name1, truncateNamesLength);
+
+            printFirstColumn(name1, firstColumnSize);
+            for (String name2 : names) {
+                UniformFuzzyHash hash2 = namesToHashes.get(name2);
+                printColumn(similarityType.getSimilarityFormattedValue(hash1, hash2), columnSize);
+            }
+            System.out.println();
 
         }
 

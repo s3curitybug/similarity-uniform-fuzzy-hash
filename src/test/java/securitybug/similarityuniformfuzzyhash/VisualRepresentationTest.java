@@ -23,7 +23,7 @@ public class VisualRepresentationTest {
     public void hashVisualRepresentationTest()
             throws IOException {
 
-        final int factor = 10;
+        final int factor = 11;
         final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
@@ -43,7 +43,7 @@ public class VisualRepresentationTest {
     public void hashesComparisonVisualRepresentationTest()
             throws IOException {
 
-        final int factor = 1000;
+        final int factor = 1001;
         final File file1 = TestResourcesUtils.getTestResourceFile("Images/Image1.bmp");
         final File file2 = TestResourcesUtils.getTestResourceFile("Images/Image2.bmp");
 

@@ -1,8 +1,10 @@
 package securitybug.similarityuniformfuzzyhash;
 
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.ACII_BLOCK_MAX_CHARS;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.BLOCKS_SEPARATOR;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.FACTOR_SEPARATOR;
-import static securitybug.similarityuniformfuzzyhash.ToStringUtils.getHashMaxLength;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.FACTOR_WITH_SEP_MAX_CHARS;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.HEX_BLOCK_WITH_SEP_MAX_CHARS;
 
 import org.apache.commons.io.IOUtils;
 
@@ -27,11 +29,6 @@ import java.util.Set;
  *
  */
 public class UniformFuzzyHash {
-
-    /**
-     * Amount of bits in a byte.
-     */
-    protected static final int BITS_PER_BYTE = 8;
 
     /**
      * Modulo of the block hashes.
@@ -82,7 +79,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Byte array of data.
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      */
     public UniformFuzzyHash(
             byte[] data,
@@ -108,7 +105,7 @@ public class UniformFuzzyHash {
      * 
      * @param data String of data.
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      */
     public UniformFuzzyHash(
             String data,
@@ -135,7 +132,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Input stream of data.
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      * @throws IOException If an IOException occurs reading the input stream of data.
      */
     public UniformFuzzyHash(
@@ -164,7 +161,7 @@ public class UniformFuzzyHash {
      * 
      * @param data Byte array output stream of data.
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      */
     public UniformFuzzyHash(
             ByteArrayOutputStream data,
@@ -191,7 +188,7 @@ public class UniformFuzzyHash {
      * 
      * @param data File of data.
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      * @throws IOException If an IOException occurs reading the file of data.
      */
     public UniformFuzzyHash(
@@ -269,13 +266,13 @@ public class UniformFuzzyHash {
             // Window hash shift, new datum addition and old datum extraction.
             if (i < windowSize) {
 
-                windowHash = ((windowHash << BITS_PER_BYTE) + (datum)) % factor;
+                windowHash = ((windowHash << Byte.SIZE) + (datum)) % factor;
 
             } else {
 
                 int oldDatum = ubyte(data[i - windowSize]);
 
-                windowHash = ((windowHash << BITS_PER_BYTE) + (datum)
+                windowHash = ((windowHash << Byte.SIZE) + (datum)
                         - (oldDatum * windowSizeShifter)) % factor;
 
                 // Due to the subtraction, the modulo result might be negative.
@@ -286,7 +283,7 @@ public class UniformFuzzyHash {
             }
 
             // Block hash shift and new datum addition.
-            blockHash = ((blockHash << BITS_PER_BYTE) + datum) % BLOCK_HASH_MODULO;
+            blockHash = ((blockHash << Byte.SIZE) + datum) % BLOCK_HASH_MODULO;
 
             // Possible window hash match (block production).
             // Match is only checked if the initial window has already been computed.
@@ -325,41 +322,100 @@ public class UniformFuzzyHash {
     }
 
     /**
+     * @return A string representation of this Uniform Fuzzy Hash.
+     *         Factor is represented as a decimal integer.
+     *         Each block is represented as two hexadecimal integers,
+     *         the first one representing its hash and the second one representing its size.
+     */
+    @Override
+    public String toString() {
+
+        // String builder.
+        // Initial capacity enough to build the full hash string.
+        StringBuilder strB = new StringBuilder(
+                FACTOR_WITH_SEP_MAX_CHARS + HEX_BLOCK_WITH_SEP_MAX_CHARS * blocks.size());
+
+        // Factor.
+        strB.append(factor);
+        strB.append(FACTOR_SEPARATOR);
+
+        // Blocks.
+        for (UniformFuzzyHashBlock block : blocks) {
+            strB.append(BLOCKS_SEPARATOR);
+            block.toString(strB);
+        }
+
+        return strB.toString();
+
+    }
+
+    /**
+     * @return An ascii string representation of this Uniform Fuzzy Hash.
+     *         Factor is represented as a decimal integer.
+     *         Each block is represented as two ascii integers,
+     *         the first one representing its hash and the second one representing its size.
+     */
+    public String toAsciiString() {
+
+        // String builder.
+        // Initial capacity enough to build the full hash string.
+        StringBuilder strB = new StringBuilder(
+                FACTOR_WITH_SEP_MAX_CHARS + ACII_BLOCK_MAX_CHARS * blocks.size());
+
+        // Factor.
+        strB.append(factor);
+        strB.append(FACTOR_SEPARATOR);
+
+        // Blocks.
+        for (UniformFuzzyHashBlock block : blocks) {
+            block.toAsciiString(strB);
+        }
+
+        return strB.toString();
+
+    }
+
+    /**
      * Rebuilds a Uniform Fuzzy Hash from a string representing it.
+     * Factor must be represented as a decimal integer.
+     * Each block must be represented as two hexadecimal integers,
+     * the first one representing its hash and the second one representing its size.
      * 
      * @param hashString String representation of a Uniform Fuzzy Hash.
+     * @return The rebuilt Uniform Fuzzy Hash.
      */
-    public UniformFuzzyHash(
+    public static UniformFuzzyHash rebuildFromString(
             String hashString) {
-
-        this();
 
         // Parameters check.
         if (hashString == null) {
             throw new NullPointerException("Hash string is null.");
         }
 
+        // Uniform Fuzzy Hash.
+        UniformFuzzyHash hash = new UniformFuzzyHash();
+
         // Split factor from blocks.
         String[] factorSplit = hashString.split(FACTOR_SEPARATOR.trim());
 
         if (factorSplit.length != 1 && factorSplit.length != 2) {
             throw new IllegalArgumentException(String.format(
-                    "Hash string does not fit the format factor %s blocks.",
-                    FACTOR_SEPARATOR.trim()));
+                    "Hash string does not fit the format factor%sblocks.",
+                    FACTOR_SEPARATOR));
         }
 
         // Factor.
         String factorString = factorSplit[0].trim();
 
         try {
-            factor = Integer.parseInt(factorString);
+            hash.factor = Integer.parseInt(factorString);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(String.format(
                     "Factor (%s) is not parseable as an integer.",
                     factorString));
         }
 
-        checkFactor(factor);
+        checkFactor(hash.factor);
 
         // Blocks.
         if (factorSplit.length == 2) {
@@ -382,7 +438,8 @@ public class UniformFuzzyHash {
                 UniformFuzzyHashBlock block = null;
 
                 try {
-                    block = new UniformFuzzyHashBlock(blockString, blockStartingBytePosition);
+                    block = UniformFuzzyHashBlock.rebuildFromString(
+                            blockString, blockStartingBytePosition);
                 } catch (IllegalArgumentException illegalArgumentException) {
                     throw new IllegalArgumentException(String.format(
                             "Block number %d (%s) could not be parsed. %s",
@@ -391,7 +448,7 @@ public class UniformFuzzyHash {
                             illegalArgumentException.getMessage()));
                 }
 
-                blocks.add(block);
+                hash.blocks.add(block);
 
                 // Next block.
                 blockNumber++;
@@ -400,36 +457,104 @@ public class UniformFuzzyHash {
             }
 
             // Data size.
-            dataSize = blockStartingBytePosition;
+            hash.dataSize = blockStartingBytePosition;
 
         }
 
         // Finish build.
-        finishBuild();
+        hash.finishBuild();
+
+        // Return.
+        return hash;
 
     }
 
     /**
-     * @return A string representation of this Uniform Fuzzy Hash.
+     * Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.
+     * Factor must be represented as a decimal integer.
+     * Each block must be represented as two ascii integers,
+     * the first one representing its hash and the second one representing its size.
+     * 
+     * @param hashAsciiString Ascii string representation of a Uniform Fuzzy Hash.
+     * @return The rebuilt Uniform Fuzzy Hash.
      */
-    @Override
-    public String toString() {
+    public static UniformFuzzyHash rebuildFromAsciiString(
+            String hashAsciiString) {
 
-        // String builder.
-        // Initial capacity enough to build the full hash string.
-        StringBuilder strB = new StringBuilder(getHashMaxLength(this));
-
-        // Factor.
-        strB.append(factor);
-        strB.append(FACTOR_SEPARATOR);
-
-        // Blocks.
-        for (UniformFuzzyHashBlock block : blocks) {
-            strB.append(BLOCKS_SEPARATOR);
-            strB.append(block);
+        // Parameters check.
+        if (hashAsciiString == null) {
+            throw new NullPointerException("Hash string is null.");
         }
 
-        return strB.toString();
+        // Uniform Fuzzy Hash.
+        UniformFuzzyHash hash = new UniformFuzzyHash();
+
+        // Split factor from blocks.
+        String[] factorSplit = hashAsciiString.split(FACTOR_SEPARATOR.trim());
+
+        if (factorSplit.length != 1 && factorSplit.length != 2) {
+            throw new IllegalArgumentException(String.format(
+                    "Hash string does not fit the format factor%sblocks.",
+                    FACTOR_SEPARATOR));
+        }
+
+        // Factor.
+        String factorString = factorSplit[0].trim();
+
+        try {
+            hash.factor = Integer.parseInt(factorString);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException(String.format(
+                    "Factor (%s) is not parseable as an integer.",
+                    factorString));
+        }
+
+        checkFactor(hash.factor);
+
+        // Blocks.
+        if (factorSplit.length == 2) {
+
+            String blocksString = factorSplit[1];
+
+            int blockNumber = 0;
+            int blockStartingBytePosition = 0;
+
+            for (int[] offset = {0}; offset[0] < blocksString.length();) {
+
+                // Block.
+                UniformFuzzyHashBlock block = null;
+                int offsetAux = offset[0];
+
+                try {
+                    block = UniformFuzzyHashBlock.rebuildFromAsciiString(
+                            blocksString, offset, blockStartingBytePosition);
+                } catch (IllegalArgumentException illegalArgumentException) {
+                    throw new IllegalArgumentException(String.format(
+                            "Block number %d (starting at string position %d) "
+                                    + "could not be parsed. %s",
+                            blockNumber,
+                            offsetAux,
+                            illegalArgumentException.getMessage()));
+                }
+
+                hash.blocks.add(block);
+
+                // Next block.
+                blockNumber++;
+                blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
+
+            }
+
+            // Data size.
+            hash.dataSize = blockStartingBytePosition;
+
+        }
+
+        // Finish build.
+        hash.finishBuild();
+
+        // Return.
+        return hash;
 
     }
 
@@ -744,7 +869,7 @@ public class UniformFuzzyHash {
      * IllegalArgumentException with a descriptive message is thrown.
      * 
      * @param factor Relation between data length and the hash mean number of blocks.
-     *        Must be greater than 2 and must not be a power of 2.
+     *        Must be greater than 2 and must be odd.
      */
     public static void checkFactor(
             int factor) {
@@ -753,20 +878,9 @@ public class UniformFuzzyHash {
             throw new IllegalArgumentException("Factor must be greater than 2.");
         }
 
-        if (isPowerOf2(factor)) {
-            throw new IllegalArgumentException("Factor must not be a power of 2.");
+        if (factor % 2 == 0) {
+            throw new IllegalArgumentException("Factor must be odd.");
         }
-
-    }
-
-    /**
-     * @param number An integer.
-     * @return True if the introduced number is a power of 2. False otherwise.
-     */
-    private static boolean isPowerOf2(
-            int number) {
-
-        return (number > 0) && (Integer.bitCount(number) == 1);
 
     }
 
@@ -777,7 +891,7 @@ public class UniformFuzzyHash {
     private static int sizeInBytes(
             int number) {
 
-        return ((Integer.SIZE - Integer.numberOfLeadingZeros(number) - 1) / BITS_PER_BYTE) + 1;
+        return ((Integer.SIZE - Integer.numberOfLeadingZeros(number) - 1) / Byte.SIZE) + 1;
 
     }
 
@@ -793,7 +907,7 @@ public class UniformFuzzyHash {
         long ret = 1;
 
         for (int i = 0; i < bytesShift; i++) {
-            ret = (ret << BITS_PER_BYTE) % modulo;
+            ret = (ret << Byte.SIZE) % modulo;
         }
 
         return (int) ret;

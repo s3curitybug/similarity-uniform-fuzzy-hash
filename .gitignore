@@ -1,3 +1,4 @@
 /target/
 /src/test/resources/*.sufh
+/src/test/resources/*.asufh
 /src/test/resources/Malware/
