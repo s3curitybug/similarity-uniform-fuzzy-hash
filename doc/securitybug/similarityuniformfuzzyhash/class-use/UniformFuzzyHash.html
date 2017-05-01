@@ -79,6 +79,27 @@
 </a>
 <h3>Uses of <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a> in <a href="../../../securitybug/similarityuniformfuzzyhash/package-summary.html">securitybug.similarityuniformfuzzyhash</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Methods in <a href="../../../securitybug/similarityuniformfuzzyhash/package-summary.html">securitybug.similarityuniformfuzzyhash</a> that return <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHash.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromAsciiString-java.lang.String-">rebuildFromAsciiString</a></span>(java.lang.String&nbsp;hashAsciiString)</code>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHash.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromString-java.lang.String-">rebuildFromString</a></span>(java.lang.String&nbsp;hashString)</code>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
 <caption><span>Methods in <a href="../../../securitybug/similarityuniformfuzzyhash/package-summary.html">securitybug.similarityuniformfuzzyhash</a> that return types with arguments of type <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
@@ -193,24 +214,57 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#loadFromFile-java.io.File-">loadFromFile</a></span>(java.io.File&nbsp;file)</code>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#loadFromAsciiFile-java.io.File-">loadFromAsciiFile</a></span>(java.io.File&nbsp;file)</code>
+<div class="block">Loads a map from names to Uniform Fuzzy Hashes from an ascii file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#loadFromTextFile-java.io.File-">loadFromTextFile</a></span>(java.io.File&nbsp;file)</code>
 <div class="block">Loads a map from names to Uniform Fuzzy Hashes from a text file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildHashesFromAsciiStrings-java.util.Collection-">rebuildHashesFromAsciiStrings</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;hashAsciiStrings)</code>
+<div class="block">Rebuilds a list of Uniform Fuzzy Hashes from a collection of ascii strings representing them.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildHashes-java.util.Collection-">rebuildHashes</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;hashStrings)</code>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildHashesFromStrings-java.util.Collection-">rebuildHashesFromStrings</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;hashStrings)</code>
 <div class="block">Rebuilds a list of Uniform Fuzzy Hashes from a collection of strings representing them.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildNamedHashes-java.util.Map-">rebuildNamedHashes</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;namesToHashStrings)</code>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildNamedHashesFromAsciiLines-java.util.Collection-">rebuildNamedHashesFromAsciiLines</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;asciiLines)</code>
+<div class="block">Rebuilds a map from names to Uniform Fuzzy Hashes from a collection of ascii lines
+ representing them.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildNamedHashesFromNamedAsciiStrings-java.util.Map-">rebuildNamedHashesFromNamedAsciiStrings</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;namesToHashAsciiStrings)</code>
+<div class="block">Rebuilds a map from names to Uniform Fuzzy Hashes from a map from names to ascii strings
+ representing them.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildNamedHashesFromNamedStrings-java.util.Map-">rebuildNamedHashesFromNamedStrings</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;namesToHashStrings)</code>
 <div class="block">Rebuilds a map from names to Uniform Fuzzy Hashes from a map from names to strings
  representing them.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#rebuildNamedHashesFromTextLines-java.util.Collection-">rebuildNamedHashesFromTextLines</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;textLines)</code>
+<div class="block">Rebuilds a map from names to Uniform Fuzzy Hashes from a collection of text lines
+ representing them.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static java.util.List&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
@@ -220,7 +274,7 @@
  according to a similarity type, and returns it as a new list of Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
@@ -280,6 +334,20 @@
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHash.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#minSimilarity-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">minSimilarity</a></span>(<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this hash to another one, and the similarity from the other
  hash to this one, and returns the smallest one.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashToAsciiLine-java.lang.String-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">namedHashToAsciiLine</a></span>(java.lang.String&nbsp;name,
+                    <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash)</code>
+<div class="block">Builds an ascii line representing a named Uniform Fuzzy Hash.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashToTextLine-java.lang.String-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">namedHashToTextLine</a></span>(java.lang.String&nbsp;name,
+                   <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash)</code>
+<div class="block">Builds a text line representing a named Uniform Fuzzy Hash.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -385,21 +453,30 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToFile-java.lang.String-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.io.File-boolean-">saveToFile</a></span>(java.lang.String&nbsp;hashName,
-          <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
-          java.io.File&nbsp;file,
-          boolean&nbsp;append)</code>
-<div class="block">Writes a Uniform Fuzzy Hash into a text file.</div>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToAsciiFile-java.lang.String-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.io.File-boolean-">saveToAsciiFile</a></span>(java.lang.String&nbsp;name,
+               <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
+               java.io.File&nbsp;file,
+               boolean&nbsp;append)</code>
+<div class="block">Writes a Uniform Fuzzy Hash into an ascii file.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToTextFile-java.lang.String-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.io.File-boolean-">saveToTextFile</a></span>(java.lang.String&nbsp;name,
+              <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
+              java.io.File&nbsp;file,
+              boolean&nbsp;append)</code>
+<div class="block">Writes a Uniform Fuzzy Hash into a text file.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHash.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#similarity-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">similarity</a></span>(<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this Uniform Fuzzy Hash to another one and returns it as a number
  between 0 and 1.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.util.List&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
@@ -409,7 +486,7 @@
  according to a similarity type, and returns it as a new list of Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
@@ -431,14 +508,39 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#hashesToString-java.util.Collection-">hashesToString</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes)</code>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#hashesToAsciiStrings-java.util.Collection-">hashesToAsciiStrings</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes)</code>
+<div class="block">Builds a list of ascii strings representing a collection of Uniform Fuzzy Hashes.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#hashesToStrings-java.util.Collection-">hashesToStrings</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes)</code>
 <div class="block">Builds a list of strings representing a collection of Uniform Fuzzy Hashes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashesToAsciiLines-java.util.Map-">namedHashesToAsciiLines</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes)</code>
+<div class="block">Builds a list of ascii lines representing a map from names to Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashesToString-java.util.Map-">namedHashesToString</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes)</code>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashesToNamedAsciiStrings-java.util.Map-">namedHashesToNamedAsciiStrings</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes)</code>
+<div class="block">Builds a map from names to ascii strings representing a map from names to Uniform Fuzzy
+ Hashes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashesToNamedStrings-java.util.Map-">namedHashesToNamedStrings</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes)</code>
 <div class="block">Builds a map from names to strings representing a map from names to Uniform Fuzzy Hashes.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#namedHashesToTextLines-java.util.Map-">namedHashesToTextLines</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes)</code>
+<div class="block">Builds a list of text lines representing a map from names to Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -511,13 +613,21 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToFile-java.util.Map-java.io.File-boolean-">saveToFile</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
-          java.io.File&nbsp;file,
-          boolean&nbsp;append)</code>
-<div class="block">Writes a map from names to Uniform Fuzzy Hashes into a text file.</div>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToAsciiFile-java.util.Map-java.io.File-boolean-">saveToAsciiFile</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
+               java.io.File&nbsp;file,
+               boolean&nbsp;append)</code>
+<div class="block">Writes a map from names to Uniform Fuzzy Hashes into an ascii file.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#saveToTextFile-java.util.Map-java.io.File-boolean-">saveToTextFile</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
+              java.io.File&nbsp;file,
+              boolean&nbsp;append)</code>
+<div class="block">Writes a map from names to Uniform Fuzzy Hashes into a text file.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Collection&lt;<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
@@ -527,7 +637,7 @@
  according to a similarity type, and returns it as a new list of Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;</code></td>
 <td class="colLast"><span class="typeNameLabel">UniformFuzzyHashes.</span><code><span class="memberNameLink"><a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#sortBySimilarity-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-">sortBySimilarity</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
                 <a href="../../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,

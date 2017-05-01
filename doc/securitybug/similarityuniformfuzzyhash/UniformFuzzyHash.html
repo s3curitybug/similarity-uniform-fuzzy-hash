@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":9,"i15":9,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,11 +156,6 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#UniformFuzzyHash-java.lang.String-">UniformFuzzyHash</a></span>(java.lang.String&nbsp;hashString)</code>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#UniformFuzzyHash-java.lang.String-int-">UniformFuzzyHash</a></span>(java.lang.String&nbsp;data,
                 int&nbsp;factor)</code>
 <div class="block">Builds a Uniform Fuzzy Hash from a string of data (using the platform's default charset) and
@@ -257,19 +252,35 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i14" class="altColor">
+<td class="colFirst"><code>static <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromAsciiString-java.lang.String-">rebuildFromAsciiString</a></span>(java.lang.String&nbsp;hashAsciiString)</code>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromString-java.lang.String-">rebuildFromString</a></span>(java.lang.String&nbsp;hashString)</code>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#reverseSimilarity-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">reverseSimilarity</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of another Uniform Fuzzy Hash to this one.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#similarity-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">similarity</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this Uniform Fuzzy Hash to another one and returns it as a number
  between 0 and 1.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toAsciiString--">toAsciiString</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -307,7 +318,8 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>data</code> - Byte array of data.</dd>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 </dl>
 </li>
 </ul>
@@ -324,7 +336,8 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>data</code> - String of data.</dd>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 </dl>
 </li>
 </ul>
@@ -341,7 +354,8 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>data</code> - Input stream of data.</dd>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - If an IOException occurs reading the input stream of data.</dd>
 </dl>
@@ -359,14 +373,15 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>data</code> - Byte array output stream of data.</dd>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 </dl>
 </li>
 </ul>
 <a name="UniformFuzzyHash-java.io.File-int-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>UniformFuzzyHash</h4>
 <pre>public&nbsp;UniformFuzzyHash(java.io.File&nbsp;data,
@@ -376,23 +391,10 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>data</code> - File of data.</dd>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - If an IOException occurs reading the file of data.</dd>
-</dl>
-</li>
-</ul>
-<a name="UniformFuzzyHash-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>UniformFuzzyHash</h4>
-<pre>public&nbsp;UniformFuzzyHash(java.lang.String&nbsp;hashString)</pre>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>hashString</code> - String representation of a Uniform Fuzzy Hash.</dd>
 </dl>
 </li>
 </ul>
@@ -415,7 +417,64 @@ extends java.lang.Object</pre>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A string representation of this Uniform Fuzzy Hash.</dd>
+<dd>A string representation of this Uniform Fuzzy Hash.
+         Factor is represented as a decimal integer.
+         Each block is represented as two hexadecimal integers,
+         the first one representing its hash and the second one representing its size.</dd>
+</dl>
+</li>
+</ul>
+<a name="toAsciiString--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toAsciiString</h4>
+<pre>public&nbsp;java.lang.String&nbsp;toAsciiString()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>An ascii string representation of this Uniform Fuzzy Hash.
+         Factor is represented as a decimal integer.
+         Each block is represented as two ascii integers,
+         the first one representing its hash and the second one representing its size.</dd>
+</dl>
+</li>
+</ul>
+<a name="rebuildFromString-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rebuildFromString</h4>
+<pre>public static&nbsp;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;rebuildFromString(java.lang.String&nbsp;hashString)</pre>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.
+ Factor must be represented as a decimal integer.
+ Each block must be represented as two hexadecimal integers,
+ the first one representing its hash and the second one representing its size.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hashString</code> - String representation of a Uniform Fuzzy Hash.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The rebuilt Uniform Fuzzy Hash.</dd>
+</dl>
+</li>
+</ul>
+<a name="rebuildFromAsciiString-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rebuildFromAsciiString</h4>
+<pre>public static&nbsp;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;rebuildFromAsciiString(java.lang.String&nbsp;hashAsciiString)</pre>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.
+ Factor must be represented as a decimal integer.
+ Each block must be represented as two ascii integers,
+ the first one representing its hash and the second one representing its size.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hashAsciiString</code> - Ascii string representation of a Uniform Fuzzy Hash.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The rebuilt Uniform Fuzzy Hash.</dd>
 </dl>
 </li>
 </ul>
@@ -665,7 +724,8 @@ extends java.lang.Object</pre>
  IllegalArgumentException with a descriptive message is thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.</dd>
+<dd><code>factor</code> - Relation between data length and the hash mean number of blocks.
+        Must be greater than 2 and must be odd.</dd>
 </dl>
 </li>
 </ul>
