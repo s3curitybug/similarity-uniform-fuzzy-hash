@@ -6,7 +6,7 @@
 	<!-- Project Attributes -->
 	<groupId>s3curitybug</groupId>
 	<artifactId>similarity-uniform-fuzzy-hash</artifactId>
-	<version>1.4</version>
+	<version>1.5</version>
 	<name>similarity-uniform-fuzzy-hash</name>
 	<packaging>jar</packaging>
 
