@@ -357,14 +357,18 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printAllHashesSimilaritiesTable-java.util.Collection-">printAllHashesSimilaritiesTable</a></span>(java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printAllHashesSimilaritiesTable-java.util.Collection-double-double-">printAllHashesSimilaritiesTable</a></span>(java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
+                               double&nbsp;markAbove,
+                               double&nbsp;markBelow)</code>
 <div class="block">Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printAllHashesSimilaritiesTable-java.util.Map-int-">printAllHashesSimilaritiesTable</a></span>(java.util.Map&lt;java.lang.String,<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
-                               int&nbsp;truncateNamesLength)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printAllHashesSimilaritiesTable-java.util.Map-int-double-double-">printAllHashesSimilaritiesTable</a></span>(java.util.Map&lt;java.lang.String,<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
+                               int&nbsp;truncateNamesLength,
+                               double&nbsp;markAbove,
+                               double&nbsp;markBelow)</code>
 <div class="block">Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.</div>
 </td>
 </tr>
@@ -402,23 +406,27 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-">printHashToHashesSimilaritiesTable</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-double-double-">printHashToHashesSimilaritiesTable</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
                                   java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
                                   <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in securitybug.similarityuniformfuzzyhash">UniformFuzzyHashes.SimilarityTypes</a>&nbsp;similaritySortCriteria,
                                   boolean&nbsp;sortAscending,
-                                  int&nbsp;rowsLimit)</code>
+                                  int&nbsp;rowsLimit,
+                                  double&nbsp;markAbove,
+                                  double&nbsp;markBelow)</code>
 <div class="block">Prints a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
  Fuzzy Hashes.</div>
 </td>
 </tr>
 <tr id="i30" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-int-">printHashToHashesSimilaritiesTable</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html#printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-int-double-double-">printHashToHashesSimilaritiesTable</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash,
                                   java.util.Map&lt;java.lang.String,<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
                                   <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in securitybug.similarityuniformfuzzyhash">UniformFuzzyHashes.SimilarityTypes</a>&nbsp;similaritySortCriteria,
                                   boolean&nbsp;sortAscending,
                                   int&nbsp;rowsLimit,
-                                  int&nbsp;truncateNamesLength)</code>
+                                  int&nbsp;truncateNamesLength,
+                                  double&nbsp;markAbove,
+                                  double&nbsp;markBelow)</code>
 <div class="block">Prints a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
  Fuzzy Hashes.</div>
 </td>
@@ -1347,7 +1355,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-">
+<a name="printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Collection-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1357,7 +1365,9 @@ extends java.lang.Object</pre>
                                                       java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
                                                       <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in securitybug.similarityuniformfuzzyhash">UniformFuzzyHashes.SimilarityTypes</a>&nbsp;similaritySortCriteria,
                                                       boolean&nbsp;sortAscending,
-                                                      int&nbsp;rowsLimit)</pre>
+                                                      int&nbsp;rowsLimit,
+                                                      double&nbsp;markAbove,
+                                                      double&nbsp;markBelow)</pre>
 <div class="block">Prints a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
  Fuzzy Hashes.</div>
 <dl>
@@ -1368,10 +1378,14 @@ extends java.lang.Object</pre>
 <dd><code>sortAscending</code> - In case similaritySortCriteria is not null, true to sort ascending,
         false to sort descending.</dd>
 <dd><code>rowsLimit</code> - Introduce a number larger than 0 to limit the number of printed rows.</dd>
+<dd><code>markAbove</code> - Mark all similarities above or equal to this threshold with a color.
+        Introduce a negative number to not mark any similarity.</dd>
+<dd><code>markBelow</code> - Mark all similarities below this threshold with a color. Introduce a
+        negative number to not mark any similarity.</dd>
 </dl>
 </li>
 </ul>
-<a name="printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-int-">
+<a name="printHashToHashesSimilaritiesTable-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-java.util.Map-securitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes-boolean-int-int-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1382,7 +1396,9 @@ extends java.lang.Object</pre>
                                                       <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in securitybug.similarityuniformfuzzyhash">UniformFuzzyHashes.SimilarityTypes</a>&nbsp;similaritySortCriteria,
                                                       boolean&nbsp;sortAscending,
                                                       int&nbsp;rowsLimit,
-                                                      int&nbsp;truncateNamesLength)</pre>
+                                                      int&nbsp;truncateNamesLength,
+                                                      double&nbsp;markAbove,
+                                                      double&nbsp;markBelow)</pre>
 <div class="block">Prints a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
  Fuzzy Hashes.</div>
 <dl>
@@ -1395,37 +1411,53 @@ extends java.lang.Object</pre>
 <dd><code>rowsLimit</code> - Introduce a number larger than 0 to limit the number of printed rows.</dd>
 <dd><code>truncateNamesLength</code> - Introduce a number larger than 0 to truncate the names to a
         maximum length.</dd>
+<dd><code>markAbove</code> - Mark all similarities above or equal to this threshold with a color.
+        Introduce a negative number to not mark any similarity.</dd>
+<dd><code>markBelow</code> - Mark all similarities below this threshold with a color. Introduce a
+        negative number to not mark any similarity.</dd>
 </dl>
 </li>
 </ul>
-<a name="printAllHashesSimilaritiesTable-java.util.Collection-">
+<a name="printAllHashesSimilaritiesTable-java.util.Collection-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>printAllHashesSimilaritiesTable</h4>
-<pre>public static&nbsp;void&nbsp;printAllHashesSimilaritiesTable(java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes)</pre>
+<pre>public static&nbsp;void&nbsp;printAllHashesSimilaritiesTable(java.util.Collection&lt;<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;hashes,
+                                                   double&nbsp;markAbove,
+                                                   double&nbsp;markBelow)</pre>
 <div class="block">Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hashes</code> - Collection of Uniform Fuzzy Hashes.</dd>
+<dd><code>markAbove</code> - Mark all similarities above or equal to this threshold with a color.
+        Introduce a negative number to not mark any similarity.</dd>
+<dd><code>markBelow</code> - Mark all similarities below this threshold with a color. Introduce a
+        negative number to not mark any similarity.</dd>
 </dl>
 </li>
 </ul>
-<a name="printAllHashesSimilaritiesTable-java.util.Map-int-">
+<a name="printAllHashesSimilaritiesTable-java.util.Map-int-double-double-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>printAllHashesSimilaritiesTable</h4>
 <pre>public static&nbsp;void&nbsp;printAllHashesSimilaritiesTable(java.util.Map&lt;java.lang.String,<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&gt;&nbsp;namesToHashes,
-                                                   int&nbsp;truncateNamesLength)</pre>
+                                                   int&nbsp;truncateNamesLength,
+                                                   double&nbsp;markAbove,
+                                                   double&nbsp;markBelow)</pre>
 <div class="block">Prints a table showing the similarity between all the introduced Uniform Fuzzy Hashes.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>namesToHashes</code> - Map from names to Uniform Fuzzy Hashes.</dd>
 <dd><code>truncateNamesLength</code> - Introduce a number larger than 0 to truncate the names to a
         maximum length.</dd>
+<dd><code>markAbove</code> - Mark all similarities above or equal to this threshold with a color.
+        Introduce a negative number to not mark any similarity.</dd>
+<dd><code>markBelow</code> - Mark all similarities below this threshold with a color. Introduce a
+        negative number to not mark any similarity.</dd>
 </dl>
 </li>
 </ul>

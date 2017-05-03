@@ -195,8 +195,10 @@ extends java.lang.Enum&lt;<a href="../../securitybug/similarityuniformfuzzyhash/
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html#getSimilarityFormattedValue-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">getSimilarityFormattedValue</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash1,
-                           <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash2)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html#getSimilarityFormattedValue-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-double-double-">getSimilarityFormattedValue</a></span>(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash1,
+                           <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash2,
+                           double&nbsp;markAbove,
+                           double&nbsp;markBelow)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>double</code></td>
@@ -402,18 +404,24 @@ not permitted.)</div>
 </dl>
 </li>
 </ul>
-<a name="getSimilarityFormattedValue-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">
+<a name="getSimilarityFormattedValue-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-securitybug.similarityuniformfuzzyhash.UniformFuzzyHash-double-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getSimilarityFormattedValue</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getSimilarityFormattedValue(<a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash1,
-                                                    <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash2)</pre>
+                                                    <a href="../../securitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in securitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;hash2,
+                                                    double&nbsp;markAbove,
+                                                    double&nbsp;markBelow)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hash1</code> - A Uniform Fuzzy Hash.</dd>
 <dd><code>hash2</code> - Another Uniform Fuzzy Hash.</dd>
+<dd><code>markAbove</code> - Mark the similarity with a color if it is above or equal to this
+        threshold. Introduce a negative number to not mark the similarity.</dd>
+<dd><code>markBelow</code> - Mark the similarity with a color if it is below this threshold.
+        Introduce a negative number to not mark the similarity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The result of the invocation of this similarity type method over the hashes,
          parsed to string.</dd>
