@@ -38,7 +38,8 @@ public class UniformFuzzyHashesTest {
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
         UniformFuzzyHashes.printHashesTable(
-                namesToHashes, printStatistics, printHashes, truncateNamesLength);
+                namesToHashes, printStatistics,
+                printHashes, truncateNamesLength);
 
     }
 
@@ -60,6 +61,8 @@ public class UniformFuzzyHashesTest {
         final boolean sortAscending = false;
         final int rowsLimit = -1;
         final int truncateNamesLength = 14;
+        final double markAbove = -1;
+        final double markBelow = -1;
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
 
@@ -67,7 +70,10 @@ public class UniformFuzzyHashesTest {
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
         UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
-                hash, namesToHashes, sortCriteria, sortAscending, rowsLimit, truncateNamesLength);
+                hash, namesToHashes,
+                sortCriteria, sortAscending,
+                rowsLimit, truncateNamesLength,
+                markAbove, markBelow);
 
     }
 
@@ -84,11 +90,16 @@ public class UniformFuzzyHashesTest {
         final int factor = 11;
         final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
         final int truncateNamesLength = 14;
+        final double markAbove = -1;
+        final double markBelow = -1;
 
         Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
                 .computeNamedHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printAllHashesSimilaritiesTable(namesToHashes, truncateNamesLength);
+        UniformFuzzyHashes.printAllHashesSimilaritiesTable(
+                namesToHashes,
+                truncateNamesLength,
+                markAbove, markBelow);
 
     }
 

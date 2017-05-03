@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 /**
  * This class provides utility methods and constants to build string representations of Uniform
@@ -183,6 +184,107 @@ public final class ToStringUtils {
      * Escape character for ascii string representations.
      */
     protected static final char ASCII_ESCAPE_CHAR = '\\';
+
+    /**
+     * Unicode control character.
+     */
+    protected static final char UNICODE_CTRL = '\u001b';
+
+    /**
+     * ANSI code start character.
+     */
+    protected static final char ANSI_CODE_START = '[';
+
+    /**
+     * ANSI code color end character.
+     */
+    protected static final char ANSI_CODE_COLOR_END = 'm';
+
+    /**
+     * ANSI code color pattern.
+     */
+    protected static final Pattern ANSI_CODE_COLOR_PATTERN =
+            Pattern.compile(UNICODE_CTRL + ".+?" + ANSI_CODE_COLOR_END);
+
+    /**
+     * Enum of ANSI code colors.
+     */
+    protected enum AnsiCodeColors {
+
+        /**
+         * Red font color.
+         */
+        RED_FONT(31),
+
+        /**
+         * Green font color.
+         */
+        GREEN_FONT(32),
+
+        /**
+         * Blue font color.
+         */
+        BLUE_FONT(34),
+
+        /**
+         * Reset color.
+         */
+        RESET(0);
+
+        /**
+         * Color number.
+         */
+        private int number;
+
+        /**
+         * Color code.
+         */
+        private String code;
+
+        /**
+         * Constructor.
+         * 
+         * @param number Color number.
+         */
+        AnsiCodeColors(
+                int number) {
+
+            this.number = number;
+            this.code = Character.toString(UNICODE_CTRL)
+                    + Character.toString(ANSI_CODE_START)
+                    + Integer.toString(number)
+                    + Character.toString(ANSI_CODE_COLOR_END);
+
+        }
+
+        /**
+         * @return The color number.
+         */
+        protected int getNumber() {
+            return number;
+        }
+
+        /**
+         * @return The color code.
+         */
+        protected String getCode() {
+            return code;
+        }
+
+        /**
+         * Removes all ANSI code colors from a string.
+         * 
+         * @param string A string.
+         * @return The string without any ANSI code colors.
+         */
+        protected static String remove(
+                String string) {
+
+            return ANSI_CODE_COLOR_PATTERN.matcher(string).replaceAll("");
+
+        }
+
+    }
 
     /**
      * Private constructor.

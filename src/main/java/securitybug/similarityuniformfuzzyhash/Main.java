@@ -267,6 +267,24 @@ public final class Main {
         TRUNCATE_NAMES(
                 "trunc", "truncateNames", "<number>",
                 "Names maximum length for tables.",
+                false, 1, 1),
+
+        /**
+         * Mark above.
+         */
+        MARK_ABOVE(
+                "ma", "markAbove", "<decimal>",
+                "For tables, mark all similarities above or equal to "
+                        + "this threshold (0-1) with a color.",
+                false, 1, 1),
+
+        /**
+         * Mark below.
+         */
+        MARK_BELOW(
+                "mb", "markBelow", "<decimal>",
+                "For tables, mark all similarities below "
+                        + "this threshold (0-1) with a color.",
                 false, 1, 1);
 
         /**
@@ -462,11 +480,16 @@ public final class Main {
             String sortArg = getOptionFirstArg(sortArgs);
             String[] limitArgs = parsedOptions.get(ArgsOptions.ROWS_LIMIT);
             String[] truncArgs = parsedOptions.get(ArgsOptions.TRUNCATE_NAMES);
+            String[] maArgs = parsedOptions.get(ArgsOptions.MARK_ABOVE);
+            String[] mbArgs = parsedOptions.get(ArgsOptions.MARK_BELOW);
 
             int factor = getOptionFirstArgInt(fArgs, 0, ArgsOptions.FACTOR);
             int lineWrap = getOptionFirstArgInt(wrapArgs, DEFAULT_LINE_WRAP, ArgsOptions.LINE_WRAP);
             int rowsLimit = getOptionFirstArgInt(limitArgs, -1, ArgsOptions.ROWS_LIMIT);
             int truncateNames = getOptionFirstArgInt(truncArgs, -1, ArgsOptions.TRUNCATE_NAMES);
+
+            double markAbove = getOptionFirstArgDouble(maArgs, -1, ArgsOptions.MARK_ABOVE);
+            double markBelow = getOptionFirstArgDouble(mbArgs, -1, ArgsOptions.MARK_BELOW);
 
             boolean recursive = rArgs != null;
             boolean overwrite = oArgs != null;
@@ -656,6 +679,30 @@ public final class Main {
                             "The option %s is only valid if "
                                     + "at least one of these options is introduced: %s.",
                             ArgsOptions.TRUNCATE_NAMES.display(),
+                            ArgsOptions.toDisplayCsv(
+                                    ArgsOptions.COMPARE_TO_ALL,
+                                    ArgsOptions.COMPARE_ALL)));
+                }
+            }
+
+            if (maArgs != null) {
+                if (xyaArgs == null && xaArgs == null) {
+                    throw new IllegalStateException(String.format(
+                            "The option %s is only valid if "
+                                    + "at least one of these options is introduced: %s.",
+                            ArgsOptions.MARK_ABOVE.display(),
+                            ArgsOptions.toDisplayCsv(
+                                    ArgsOptions.COMPARE_TO_ALL,
+                                    ArgsOptions.COMPARE_ALL)));
+                }
+            }
+
+            if (mbArgs != null) {
+                if (xyaArgs == null && xaArgs == null) {
+                    throw new IllegalStateException(String.format(
+                            "The option %s is only valid if "
+                                    + "at least one of these options is introduced: %s.",
+                            ArgsOptions.MARK_BELOW.display(),
                             ArgsOptions.toDisplayCsv(
                                     ArgsOptions.COMPARE_TO_ALL,
                                     ArgsOptions.COMPARE_ALL)));
@@ -852,7 +899,9 @@ public final class Main {
                 }
                 UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
                         compareHash1, hashes,
-                        sortCriteria, sortAscending, rowsLimit, truncateNames);
+                        sortCriteria, sortAscending,
+                        rowsLimit, truncateNames,
+                        markAbove, markBelow);
             }
 
             if (xaArgs != null) {
@@ -869,7 +918,8 @@ public final class Main {
                 }
                 UniformFuzzyHashes.printAllHashesSimilaritiesTable(
                         hashes,
-                        truncateNames);
+                        truncateNames,
+                        markAbove, markBelow);
             }
 
         } catch (Exception exception) {
@@ -1030,6 +1080,40 @@ public final class Main {
         } catch (NumberFormatException numberFormatException) {
             throw new ParseException(String.format(
                     "Option %s must be numeric.",
+                    argsOption.display()));
+        }
+
+    }
+
+    /**
+     * Gets the first introduced argument of an option parsed to double.
+     * 
+     * @param optionArgs The option introduced arguments.
+     * @param emptyValue Value which is returned if the option was not introduced, or was introduced
+     *        with no argument.
+     * @param argsOption The option.
+     * @return The option first introduced argument parsed to double.
+     *         If the option was not introduced, or was introduced with no argument, emptyValue is
+     *         returned.
+     * @throws ParseException If an error occurs parsing the argument to double.
+     */
+    private static double getOptionFirstArgDouble(
+            String[] optionArgs,
+            double emptyValue,
+            ArgsOptions argsOption)
+            throws ParseException {
+
+        String optionArg = getOptionFirstArg(optionArgs);
+
+        if (optionArg == null || optionArg.isEmpty()) {
+            return emptyValue;
+        }
+
+        try {
+            return Double.parseDouble(optionArg);
+        } catch (NumberFormatException numberFormatException) {
+            throw new ParseException(String.format(
+                    "Option %s must be a decimal number.",
                     argsOption.display()));
         }
 

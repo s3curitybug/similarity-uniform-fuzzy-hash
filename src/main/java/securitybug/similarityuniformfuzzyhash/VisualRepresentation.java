@@ -1,11 +1,16 @@
 package securitybug.similarityuniformfuzzyhash;
 
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.ANSI_CODE_COLOR_END;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT_SYMBOLS;
+import static securitybug.similarityuniformfuzzyhash.ToStringUtils.UNICODE_CTRL;
 import static securitybug.similarityuniformfuzzyhash.ToStringUtils.spaces;
+
+import securitybug.similarityuniformfuzzyhash.ToStringUtils.AnsiCodeColors;
 
 import org.apache.commons.io.IOUtils;
 import org.fusesource.jansi.AnsiConsole;
 
+import java.io.PrintStream;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -67,40 +72,25 @@ public final class VisualRepresentation {
             new DecimalFormat("0.0", DECIMALS_FORMAT_SYMBOLS);
 
     /**
-     * Unicode control character.
+     * ANSI format which will be used to visually represent the blocks which are only present in the
+     * first hash in a comparison.
      */
-    private static final char U_CTRL = '\u001b';
-
-    /**
-     * ANSI end character.
-     */
-    private static final char ANSI_END = 'm';
+    private static final String BLOCK_IN_FIRST_HASH_ANSI_CODE_FORMAT =
+            AnsiCodeColors.GREEN_FONT.getCode();
 
     /**
      * ANSI format which will be used to visually represent the blocks which are only present in the
-     * first hash in a hashes comparison.
+     * second hash in a comparison.
      */
-    // Green Font Color.
-    private static final String BLOCK_IN_FIRST_HASH_ANSI = U_CTRL + "[32" + ANSI_END;
-
-    /**
-     * ANSI format will be used to visually represent the blocks which are only present in the
-     * second hash in a hashes comparison.
-     */
-    // Blue FontColor.
-    private static final String BLOCK_IN_SECOND_HASH_ANSI = U_CTRL + "[34" + ANSI_END;
+    private static final String BLOCK_IN_SECOND_HASH_ANSI_CODE_FORMAT =
+            AnsiCodeColors.BLUE_FONT.getCode();
 
     /**
      * ANSI format which will be used to visually represent the blocks which are present in both
-     * hashes in a hashes comparison.
+     * hashes in a comparison.
      */
-    // Red Font Color.
-    private static final String BLOCK_IN_BOTH_HASHES_ANSI = U_CTRL + "[31" + ANSI_END;
-
-    /**
-     * ANSI format reset.
-     */
-    private static final String ANSI_RESET = U_CTRL + "[0" + ANSI_END;
+    private static final String BLOCK_IN_BOTH_HASHES_ANSI_CODE_FORMAT =
+            AnsiCodeColors.RED_FONT.getCode();
 
     /**
      * Private constructor.
@@ -180,7 +170,7 @@ public final class VisualRepresentation {
      * @param hash1 The Uniform Fuzzy Hash.
      * @param hash2 The Uniform Fuzzy Hash to which the first one will be compared.
      * @return A string representing the introduced Uniform Fuzzy Hash in a visual way, with ANSI
-     *         color characters.
+     *         code color characters.
      */
     public static String representCompared(
             UniformFuzzyHash hash1,
@@ -199,7 +189,7 @@ public final class VisualRepresentation {
      * @param base The characters base which will be used to represent the blocks.
      * @param factorDivisor Amount of characters per factor size for each block.
      * @return A string representing the introduced Uniform Fuzzy Hash in a visual way, with ANSI
-     *         color characters.
+     *         code color characters.
      */
     public static String representCompared(
             UniformFuzzyHash hash1,
@@ -239,23 +229,23 @@ public final class VisualRepresentation {
 
         StringBuilder strB = new StringBuilder(blocks1.size() * factorDivisor * 2);
 
-        String color = null;
+        String ansiCodeFormat = null;
         for (UniformFuzzyHashBlock block : blocks1) {
 
             char character = base[block.getBlockHash() % base.length];
             int blockSize = block.getBlockSize();
 
             if (blocks2.contains(block)) {
-                if (!BLOCK_IN_BOTH_HASHES_ANSI.equals(color)) {
-                    color = BLOCK_IN_BOTH_HASHES_ANSI;
-                    strB.append(ANSI_RESET);
-                    strB.append(BLOCK_IN_BOTH_HASHES_ANSI);
+                if (!BLOCK_IN_BOTH_HASHES_ANSI_CODE_FORMAT.equals(ansiCodeFormat)) {
+                    ansiCodeFormat = BLOCK_IN_BOTH_HASHES_ANSI_CODE_FORMAT;
+                    strB.append(AnsiCodeColors.RESET.getCode());
+                    strB.append(ansiCodeFormat);
                 }
             } else {
-                if (!BLOCK_IN_FIRST_HASH_ANSI.equals(color)) {
-                    color = BLOCK_IN_FIRST_HASH_ANSI;
-                    strB.append(ANSI_RESET);
-                    strB.append(BLOCK_IN_FIRST_HASH_ANSI);
+                if (!BLOCK_IN_FIRST_HASH_ANSI_CODE_FORMAT.equals(ansiCodeFormat)) {
+                    ansiCodeFormat = BLOCK_IN_FIRST_HASH_ANSI_CODE_FORMAT;
+                    strB.append(AnsiCodeColors.RESET.getCode());
+                    strB.append(ansiCodeFormat);
                 }
             }
 
@@ -266,7 +256,7 @@ public final class VisualRepresentation {
 
         }
 
-        strB.append(ANSI_RESET);
+        strB.append(AnsiCodeColors.RESET.getCode());
 
         return strB.toString();
 
@@ -303,17 +293,29 @@ public final class VisualRepresentation {
             int lineWrap,
             boolean concatenatePercent) {
 
+        // Representation.
         String representation = represent(hash, base, factorDivisor);
         List<String> wrappedRepresentation =
                 wrapString(representation, lineWrap, concatenatePercent);
 
-        System.out.println();
+        // Print.
+        final PrintStream printStream = System.out;
 
-        for (String line : wrappedRepresentation) {
-            System.out.println(line);
+        if (printStream == AnsiConsole.out) {
+            AnsiConsole.systemInstall();
         }
 
-        System.out.println();
+        printStream.println();
+
+        for (String line : wrappedRepresentation) {
+            printStream.println(line);
+        }
+
+        printStream.println();
+
+        if (printStream == AnsiConsole.out) {
+            AnsiConsole.systemUninstall();
+        }
 
     }
 
@@ -335,8 +337,7 @@ public final class VisualRepresentation {
 
     /**
      * Prints a Uniform Fuzzy Hash in a visual way, coloring the blocks which are present in another
-     * Uniform Fuzzy
-     * Hash with a different color to the ones which are not.
+     * Uniform Fuzzy Hash with a different color to the ones which are not.
      * 
      * @param hash1 The Uniform Fuzzy Hash.
      * @param hash2 The Uniform Fuzzy Hash to which the first one will be compared.
@@ -355,14 +356,15 @@ public final class VisualRepresentation {
             int lineWrap,
             boolean concatenatePercent) {
 
+        // Representations.
         String representation1 = representCompared(hash1, hash2, base, factorDivisor);
-        String representation2 = representCompared(hash2, hash1, base, factorDivisor)
-                .replace(BLOCK_IN_FIRST_HASH_ANSI, BLOCK_IN_SECOND_HASH_ANSI);
+        String representation2 = representCompared(hash2, hash1, base, factorDivisor).replace(
+                BLOCK_IN_FIRST_HASH_ANSI_CODE_FORMAT, BLOCK_IN_SECOND_HASH_ANSI_CODE_FORMAT);
 
         List<String> wrappedRepresentation1 =
-                wrapStringRespectingAnsiFormat(representation1, lineWrap, concatenatePercent);
+                wrapStringRespectingAnsiCodeFormat(representation1, lineWrap, concatenatePercent);
         List<String> wrappedRepresentation2 =
-                wrapStringRespectingAnsiFormat(representation2, lineWrap, concatenatePercent);
+                wrapStringRespectingAnsiCodeFormat(representation2, lineWrap, concatenatePercent);
 
         String wrapLengthSpaces = concatenatePercent
                 ? spaces(lineWrap + formatAccumulatedWrapLength("", 0).length())
@@ -374,20 +376,27 @@ public final class VisualRepresentation {
             wrappedRepresentation2.add(wrapLengthSpaces);
         }
 
-        System.out.println();
+        // Print.
+        final PrintStream printStream = AnsiConsole.out;
 
-        AnsiConsole.systemInstall();
+        if (printStream == AnsiConsole.out) {
+            AnsiConsole.systemInstall();
+        }
+
+        printStream.println();
 
         Iterator<String> iterator1 = wrappedRepresentation1.iterator();
         Iterator<String> iterator2 = wrappedRepresentation2.iterator();
         final int separation = 5;
         while (iterator1.hasNext()) {
-            AnsiConsole.out.println(iterator1.next() + spaces(separation) + iterator2.next());
+            printStream.println(iterator1.next() + spaces(separation) + iterator2.next());
         }
 
-        AnsiConsole.systemUninstall();
+        printStream.println();
 
-        System.out.println();
+        if (printStream == AnsiConsole.out) {
+            AnsiConsole.systemUninstall();
+        }
 
     }
 
@@ -482,7 +491,7 @@ public final class VisualRepresentation {
 
     /**
      * Splits a string in fixed length substrings.
-     * ANSI format is respected.
+     * ANSI code format is respected.
      * The last substring is filled with spaces until reaching the fixed length.
      * 
      * @param string The string to split.
@@ -493,7 +502,7 @@ public final class VisualRepresentation {
      * @return A List of strings containing the substrings, or a List of strings containing the
      *         introduced string if wrapLength is lower than 1.
      */
-    private static List<String> wrapStringRespectingAnsiFormat(
+    private static List<String> wrapStringRespectingAnsiCodeFormat(
             String string,
             int wrapLength,
             boolean concatenatePercent) {
@@ -503,8 +512,7 @@ public final class VisualRepresentation {
         }
 
         List<String> wrappedString = new LinkedList<>();
-        double relativeWrapLength =
-                (double) wrapLength / string.replaceAll(U_CTRL + ".+?" + ANSI_END, "").length();
+        double relativeWrapLength = (double) wrapLength / AnsiCodeColors.remove(string).length();
         double accumulatedWrapLength = 0;
 
         if (wrapLength < 1) {
@@ -514,22 +522,22 @@ public final class VisualRepresentation {
         } else {
 
             StringBuilder substring = new StringBuilder(wrapLength * 2);
-            StringBuilder ansiFormat = new StringBuilder();
+            StringBuilder ansiCodeFormat = new StringBuilder();
             int substringChars = 0;
 
             for (int i = 0; i < string.length(); i++) {
 
                 char ch = string.charAt(i);
 
-                if (ch == U_CTRL) {
+                if (ch == UNICODE_CTRL) {
 
-                    ansiFormat = new StringBuilder();
-                    while (string.charAt(i) != ANSI_END) {
-                        ansiFormat.append(string.charAt(i++));
+                    ansiCodeFormat = new StringBuilder();
+                    while (string.charAt(i) != ANSI_CODE_COLOR_END) {
+                        ansiCodeFormat.append(string.charAt(i++));
                     }
-                    ansiFormat.append(string.charAt(i));
+                    ansiCodeFormat.append(string.charAt(i));
 
-                    substring.append(ansiFormat);
+                    substring.append(ansiCodeFormat);
 
                 } else {
 
@@ -538,9 +546,10 @@ public final class VisualRepresentation {
 
                     if (substringChars == wrapLength || i == string.length() - 1) {
 
-                        if (ansiFormat.length() > 0 && !ansiFormat.toString().equals(ANSI_RESET)) {
+                        if (ansiCodeFormat.length() > 0 && !ansiCodeFormat.toString().equals(
+                                AnsiCodeColors.RESET.getCode())) {
 
-                            substring.append(ANSI_RESET);
+                            substring.append(AnsiCodeColors.RESET.getCode());
 
                             if (concatenatePercent) {
                                 wrappedString.add(formatAccumulatedWrapLength(
@@ -551,7 +560,7 @@ public final class VisualRepresentation {
                             }
 
                             substring = new StringBuilder(wrapLength * 2);
-                            substring.append(ansiFormat);
+                            substring.append(ansiCodeFormat);
 
                         } else {
 
@@ -578,8 +587,9 @@ public final class VisualRepresentation {
 
             if (substring.length() > 0) {
 
-                if (ansiFormat.length() > 0 && !ansiFormat.toString().equals(ANSI_RESET)) {
-                    substring.append(ANSI_RESET);
+                if (ansiCodeFormat.length() > 0 && !ansiCodeFormat.toString().equals(
+                        AnsiCodeColors.RESET.getCode())) {
+                    substring.append(AnsiCodeColors.RESET.getCode());
                 }
 
                 substring.append(spaces(wrapLength - substringChars));
