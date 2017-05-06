@@ -212,7 +212,7 @@ public final class Main {
                 "-With no arguments: "
                         + "Compare all computed and loaded hashes."
                         + NEW_LINE + "-With multiple arguments: "
-                        + "Compare all introduced hashes denoted by their name.",
+                        + "Compare all introduced hashes denoted by their names.",
                 false, 0, -1),
 
         /**
