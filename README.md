@@ -27,7 +27,7 @@ The tool provides methods to:
 
 The hash computation algorithm divides the file in blocks. The location of the divisions depends on the file contents. Thus, the blocks size is not constant, but the mean block size is chosen by the user through a parameter called "factor". So the file is divided in blocks of size around factor. Then, each block is converted into two hexadecimal numbers, the first one representing its content and the second one representing its size. Finally, the hash is written as the factor followed by each block.
 
-![](https://cloud.githubusercontent.com/assets/26045270/25785171/691da24a-337a-11e7-901d-bb81951e5674.png)
+![](https://cloud.githubusercontent.com/assets/26045270/25785171/691da24a-337a-11e7-901d-bb81951e5674.png =100x)
 
 This way, two files sharing some content would produce two hashes that share some blocks. The comparison algorithm finds the blocks of the first hash which are present in the second one (independently on their position), and returns a 0 to 1 similarity score based on the sum of their size, divided by the file total size, which is very accurate.
 
