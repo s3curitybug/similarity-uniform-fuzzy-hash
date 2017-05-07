@@ -22,6 +22,15 @@ The tool provides methods to:
 
   * Visually compare two files or hashes, identifying their common parts.
 
+The tool is a Java JAR and can be used in two ways:
+
+  * By means of the command line interface.
+
+  * As a library or dependency that can be imported into a Java project.
+
+The latest release is available here:
+
+https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/releases/latest
 
 # The Algorithm
 
