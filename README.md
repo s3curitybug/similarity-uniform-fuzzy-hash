@@ -62,4 +62,6 @@ java -jar similarity-uniform-fuzzy-hash-{version}.jar
 
 A Java JRE installation is required to run the JAR.
 
-Running the JAR without any argument or with the -h or --help command will display the usage:
+Running the JAR without any argument or with the -h or --help argument will display the usage:
+
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/26045270/25827812/569364ba-344d-11e7-9516-c7cf03258a32.png" width=200/></p>
