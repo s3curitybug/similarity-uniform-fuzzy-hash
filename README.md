@@ -49,3 +49,17 @@ Also note that the factor must be chosen carefully. The factor indicates the mea
 Additionally, the hash length (which depends on the amount of blocks) is proportional to the file size divided by the factor. This means that big files and small factors produce large hashes (high amount of blocks), while small files and big factors produce small hashes (low amount of blocks). Consequently, it is recommended using a big factor when comparing big files, and a small factor when comparing small ones. However, two hashes can only be compared if they were computed with the same factor. This means that, when comparing small files to big ones, a small factor must be used.
 
 Due to the hash computation algorithm nature, factor must always be an odd number and larger than 2.
+
+# The Command Line Interface
+
+In order to use the command line interface, there is no need to download or compile the project, downloading the JAR is enough.
+
+The JAR can be executed using the following command:
+
+```shell
+java -jar similarity-uniform-fuzzy-hash-{version}.jar
+```
+
+A Java JRE installation is required to run the JAR.
+
+Running the JAR without any argument or with the -h or --help command will display the usage:
