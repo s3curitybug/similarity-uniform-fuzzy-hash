@@ -36,7 +36,7 @@ https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/releases/latest
 
 The hash computation algorithm divides the file in blocks. The location of the divisions depends on the file contents. Thus, the blocks size is not constant, but the mean block size is chosen by the user through a parameter called "factor". So the file is divided in blocks of size around factor. Then, each block is converted into two hexadecimal numbers, the first one representing its content and the second one representing its size. Finally, the hash is written as the factor followed by each block.
 
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/26045270/25785171/691da24a-337a-11e7-901d-bb81951e5674.png" width=400/></p>
+<p align="center"><img src="readme-media/hash-algorithm.png" width=400/></p>
 
 This way, two files sharing some content would produce two hashes that share some blocks. The comparison algorithm finds the blocks of the first hash which are present in the second one (independently on their position), and returns a 0 to 1 similarity score based on the sum of their size, divided by the file total size, which is very accurate.
 
@@ -62,6 +62,26 @@ java -jar similarity-uniform-fuzzy-hash-{version}.jar
 
 A Java JRE installation is required to run the JAR.
 
-Running the JAR without any argument or with the -h or --help argument will display the usage:
+Running the JAR without any argument or with the `--help` or `-h` argument will display the usage:
 
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/26045270/25828715/1264da26-3452-11e7-9830-3403c123b399.png" width=800/></p>
+
+Arguments:
+
+  * `--computeFileHash` or `-cfh`
+
+Computes the hash of one or several files (one per argument).
+
+The argument `--factor` or `-f` must be introduced, indicating the factor that will be used for the hash or hashes computation (remember that it must be an odd number and larger than 2).
+
+<p align="center"><img src="../similarity-uniform-fuzzy-hash misc/readme04.png" width=800/></p>
+
+  * `--computeDirectoryHashes` or `-cdh`
+
+Computes the hashes of all the files inside one or several directories (one per argument).
+
+The argument `--factor` or `-f` must be introduced, indicating the factor that will be used for the hash or hashes computation (remember that it must be an odd number and larger than 2).
+
+The argument `--recursive` or `-r` can be introduced to indicate that directories inside directories must be travarsed recursively.
+
+<p align="center"><img src="../similarity-uniform-fuzzy-hash misc/readme04.png" width=800/></p>
