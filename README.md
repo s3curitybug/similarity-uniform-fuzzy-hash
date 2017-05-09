@@ -92,7 +92,7 @@ Saves all computed hashes into one or several text files (one per argument) in t
 
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
-<p align="center"><img src="readme-media/cmd-stf.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-stf.png" width=600/></p>
 
   * `--saveToAsciiFile` or `-saf`
 
@@ -100,7 +100,7 @@ Saves all computed hashes into one or several text files (one per argument) in t
 
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
-<p align="center"><img src="readme-media/cmd-saf.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-saf.png" width=600/></p>
 
   * `--loadFromTextFile` or `-ltf`
 
@@ -120,7 +120,7 @@ Exports all the hashes saved in a text file (first argument) in their ascii repr
 
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
-<p align="center"><img src="readme-media/cmd-etf.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-etf.png" width=600/></p>
 
   * `--exportToAsciiFile` or `-eaf`
 
@@ -128,4 +128,4 @@ Exports all the hashes saved in a text file (first argument) in their hexadecima
 
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
-<p align="center"><img src="readme-media/cmd-eaf.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-eaf.png" width=600/></p>
