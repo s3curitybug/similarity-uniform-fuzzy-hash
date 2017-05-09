@@ -113,3 +113,19 @@ Loads all the hashes saved in one or several text files (one per argument). All 
 Loads all the hashes saved in one or several text files (one per argument). All hashes must be in their ascii representation. Lines starting by # are ignored.
 
 <p align="center"><img src="readme-media/cmd-laf.png" width=800/></p>
+
+  * `--exportToTextFile` or `-etf`
+
+Exports all the hashes saved in a text file (first argument) in their ascii representation to another text file (second argument) saving them in their hexadecimal representation. The hashes are appended to the end of the file.
+
+The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
+
+<p align="center"><img src="readme-media/cmd-etf.png" width=800/></p>
+
+  * `--exportToAsciiFile` or `-eaf`
+
+Exports all the hashes saved in a text file (first argument) in their hexadecimal representation to another text file (second argument) saving them in their ascii representation. The hashes are appended to the end of the file.
+
+The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
+
+<p align="center"><img src="readme-media/cmd-eaf.png" width=800/></p>
