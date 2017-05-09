@@ -129,3 +129,19 @@ Exports all the hashes saved in a text file (first argument) in their hexadecima
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
 <p align="center"><img src="readme-media/cmd-eaf.png" width=600/></p>
+
+  * `--compare` or `-x`
+
+Compares two hashes.
+
+-If no argument is introduced, and two hashes were computed with the argument `--computeFileHash` or `-cfh`, they are compared.
+
+<p align="center"><img src="readme-media/cmd-x-1.png" width=600/></p>
+
+-If one argument is introduced indicating a computed or loaded hash, and another hash was computed with the argument `--computeFileHash` or `-cfh`, the computed hash is compared to the indicated one.
+
+<p align="center"><img src="readme-media/cmd-x-2.png" width=600/></p>
+
+-If two arguments are introduced indicating computed or loaded hashes, they are compared.
+
+<p align="center"><img src="readme-media/cmd-x-3.png" width=600/></p>
