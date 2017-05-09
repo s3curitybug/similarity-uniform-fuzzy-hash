@@ -193,3 +193,19 @@ About the `--compareToAll` or `-xya` argument:
 -If multiple arguments are introduced indicating computed or loaded hashes, all the indicated ones are compared.
 
 <p align="center"><img src="readme-media/cmd-xa-2.png" width=800/></p>
+
+  * `--representVisually` or `-rv`
+
+Shows a visual representation of a hash. Each block is represented as one or several characters, depending on the block size.
+
+The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped.
+
+About the `--representVisually` or `-rv` argument:
+
+-If no argument is introduced, and a hash was computed with the argument `--computeFileHash` or `-cfh`, the computed hash is represented visually.
+
+<p align="center"><img src="readme-media/cmd-rv-1.png" width=500/></p>
+
+-If one argument is introduced indicating a computed or loaded hash, it is visually represented.
+
+<p align="center"><img src="readme-media/cmdrv-2.png" width=500/></p>
