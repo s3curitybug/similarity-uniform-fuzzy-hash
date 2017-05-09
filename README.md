@@ -93,3 +93,15 @@ Saves all computed hashes into one or several text files (one per argument) in t
 The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
 
 <p align="center"><img src="readme-media/cmd-stf.png" width=800/></p>
+
+  * `--saveToAsciiFile` or `-saf`
+
+Saves all computed hashes into one or several text files (one per argument) in their ascii representation, which is less human readable than the hexadecimal representation, but occupies less disk space. The hashes are appended to the end of the file.
+
+The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
+
+<p align="center"><img src="readme-media/cmd-saf.png" width=800/></p>
+
+  * `--loadFromTextFile` or `-ltf`
+
+Loads all the hashes saved in one or several text files (one per argument). All hashes must be in their hexadecimal representation. Lines starting by # are ignored.
