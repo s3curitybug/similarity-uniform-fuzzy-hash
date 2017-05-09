@@ -105,3 +105,11 @@ The argument `--overwrite` or `-o` can be introduced to indicate that the file m
   * `--loadFromTextFile` or `-ltf`
 
 Loads all the hashes saved in one or several text files (one per argument). All hashes must be in their hexadecimal representation. Lines starting by # are ignored.
+
+<p align="center"><img src="readme-media/cmd-ltf.png" width=800/></p>
+
+  * `--loadFromAsciiFile` or `-laf`
+
+Loads all the hashes saved in one or several text files (one per argument). All hashes must be in their ascii representation. Lines starting by # are ignored.
+
+<p align="center"><img src="readme-media/cmd-laf.png" width=800/></p>
