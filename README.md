@@ -85,3 +85,11 @@ The argument `--factor` or `-f` must be introduced, indicating the factor that w
 The argument `--recursive` or `-r` can be introduced to indicate that directories inside directories must be travarsed recursively.
 
 <p align="center"><img src="readme-media/cmd-cdh.png" width=800/></p>
+
+  * `--saveToTextFile` or `-stf`
+
+Saves all computed hashes into one or several text files (one per argument) in their hexadecimal representation. The hashes are appended to the end of the file.
+
+The argument `--overwrite` or `-o` can be introduced to indicate that the file must be overwritten, instead of appending the hashes to its end.
+
+<p align="center"><img src="readme-media/cmd-stf.png" width=800/></p>
