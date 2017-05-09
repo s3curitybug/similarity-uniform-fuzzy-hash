@@ -42,7 +42,7 @@ This way, two files sharing some content would produce two hashes that share som
 
 Note that the similarity score between File 1 and File 2 indicates the proportion of content of File 1 which is present in File 2. This is different to the similarity score between File 2 and File 1, which indicates the proportion of content of File 2 which is present in File 1. For files with similar size, both scores will be close. However, comparing a small file which is part of a big file to that big file would return a high score between the small file and the big one, but a low score between the big file and the small one. This means that the algorithm is able to detect small files inside big ones. For instance, it can detect images inside documents, and malwares inside executables. The tool also provides methods to compute the maximum, minimum, arithmetic mean and geometric mean between the two similarity scores of two files.
 
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/26045270/25827161/1693c4de-344a-11e7-8776-6bdaaa1053e2.png" width=500/></p>
+<p align="center"><img src="readme-media/similarity-algorithm.png" width=500/></p>
 
 Also note that the factor must be chosen carefully. The factor indicates the mean block size, in other words, the mean amount of bytes that must appear consecutively in both files such that some similarity is added to the score. This means that choosing too small factors would divide files in too small blocks, which may lead to similarities higher than expected and false possitives in similarity detections, while choosing too big factors would divide files in too big blocks, which may cause similarities lower than expected and false negatives.
 
@@ -64,7 +64,7 @@ A Java JRE installation is required to run the JAR.
 
 Running the JAR without any argument or with the `--help` or `-h` argument will display the usage:
 
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/26045270/25828715/1264da26-3452-11e7-9830-3403c123b399.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-help.png" width=800/></p>
 
 Arguments:
 
@@ -74,7 +74,7 @@ Computes the hash of one or several files (one per argument).
 
 The argument `--factor` or `-f` must be introduced, indicating the factor that will be used for the hash or hashes computation (remember that it must be an odd number and larger than 2).
 
-<p align="center"><img src="../similarity-uniform-fuzzy-hash misc/readme04.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-cfh.png" width=800/></p>
 
   * `--computeDirectoryHashes` or `-cdh`
 
@@ -84,4 +84,4 @@ The argument `--factor` or `-f` must be introduced, indicating the factor that w
 
 The argument `--recursive` or `-r` can be introduced to indicate that directories inside directories must be travarsed recursively.
 
-<p align="center"><img src="../similarity-uniform-fuzzy-hash misc/readme04.png" width=800/></p>
+<p align="center"><img src="readme-media/cmd-cdh.png" width=800/></p>
