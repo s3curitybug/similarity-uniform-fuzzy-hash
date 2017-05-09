@@ -30,7 +30,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText/RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
@@ -53,7 +53,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText/RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashString = hash.toString();
@@ -78,7 +78,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText/RandomText1/B.txt");
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
         String hashAsciiString = hash.toAsciiString();
@@ -102,7 +102,7 @@ public class UniformFuzzyHashTest {
             throws IOException {
 
         final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("RandomText1/B.txt");
+        final File file = TestResourcesUtils.getTestResourceFile("RandomText/RandomText1/B.txt");
         final String statisticsFormat = "%s: %s";
 
         UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
