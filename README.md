@@ -145,3 +145,31 @@ Compares two hashes.
 -If two arguments are introduced indicating computed or loaded hashes, they are compared.
 
 <p align="center"><img src="readme-media/cmd-x-3.png" width=600/></p>
+
+  * `--compareToAll` or `-xya`
+
+Compares in a table a hash to all computed and loaded hashes, showing in the table the direct similarity (hash to hashes), the reverse similarity (hashes to hash), the maximum and the minimum between both, and their arithmetic and geometric mean.
+
+The argument `--sortingBy` or `-sort` can be introduced to sort the table by similarity. If no argument is introduced, the default sorting criteria will be by descending direct similarity. An argument can be introduced to specify a different criteria. Check the JAR `--help` or `-h` argument to see all the possible criterias.
+
+The argument `--rowsLimit` or `-limit` can be introduced, indicating the maximum number of rows to display in the table.
+
+The argument `--truncateNames` or `-trunc` can be introduced, indicating  the maximum number of characters to display in the hashes names.
+
+The argument `--markAbove` or `-ma` can be introduced, indicating an upper threshold (0 to 1) to mark all similarities above or equal to it with a color.
+
+The argument `--markBelow` or `-mb` can be introduced, indicating an lower threshold (0 to 1) to mark all similarities below it with a color.
+
+About the `--compareToAll` or `-xya` argument:
+
+-If no argument is introduced, and a hash was computed with the argument `--computeFileHash` or `-cfh`, the computed hash is compared to all computed and loaded hashes.
+
+<p align="center"><img src="readme-media/cmd-xya-1.png" width=800/></p>
+
+-If one argument is introduced indicating a computed or loaded hash, it is compared to all computed and loaded hashes.
+
+<p align="center"><img src="readme-media/cmd-xya-2.png" width=800/></p>
+
+-If multiple arguments are introduced indicating computed or loaded hashes, the first one is compared to all the indicated ones.
+
+<p align="center"><img src="readme-media/cmd-xya-3.png" width=800/></p>
