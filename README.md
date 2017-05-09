@@ -173,3 +173,23 @@ About the `--compareToAll` or `-xya` argument:
 -If multiple arguments are introduced indicating computed or loaded hashes, the first one is compared to all the indicated ones.
 
 <p align="center"><img src="readme-media/cmd-xya-3.png" width=800/></p>
+
+  * `--compareAll` or `-xa`
+
+Compares in a table all computed and loaded hashes, showing in the table for each hash its similarity to every other one.
+
+The argument `--truncateNames` or `-trunc` can be introduced, indicating  the maximum number of characters to display in the hashes names.
+
+The argument `--markAbove` or `-ma` can be introduced, indicating an upper threshold (0 to 1) to mark all similarities above or equal to it with a color.
+
+The argument `--markBelow` or `-mb` can be introduced, indicating an lower threshold (0 to 1) to mark all similarities below it with a color.
+
+About the `--compareToAll` or `-xya` argument:
+
+-If no argument is introduced, all computed and loaded hashes are compared.
+
+<p align="center"><img src="readme-media/cmd-xa-1.png" width=800/></p>
+
+-If multiple arguments are introduced indicating computed or loaded hashes, all the indicated ones are compared.
+
+<p align="center"><img src="readme-media/cmd-xa-2.png" width=800/></p>
