@@ -44,7 +44,7 @@ Note that the similarity score between File 1 and File 2 indicates the proportio
 
 <p align="center"><img src="readme-media/similarity-algorithm.png" width=500/></p>
 
-Also note that the factor must be chosen carefully. The factor indicates the mean block size, in other words, the mean amount of bytes that must appear consecutively in both files such that some similarity is added to the score. This means that choosing too small factors would divide files in too small blocks, which may lead to similarities higher than expected and false possitives in similarity detections, while choosing too big factors would divide files in too big blocks, which may cause similarities lower than expected and false negatives.
+Also note that the factor must be chosen carefully. The factor indicates the mean block size, in other words, the mean amount of bytes that must appear consecutively in both files such that some similarity is added to the score. This means that choosing too small factors would divide files in too small blocks, which may lead to similarities higher than expected and false positives in similarity detections, while choosing too big factors would divide files in too big blocks, which may cause similarities lower than expected and false negatives.
 
 Additionally, the hash length (which depends on the amount of blocks) is proportional to the file size divided by the factor. This means that big files and small factors produce large hashes (high amount of blocks), while small files and big factors produce small hashes (low amount of blocks). Consequently, it is recommended using a big factor when comparing big files, and a small factor when comparing small ones. However, two hashes can only be compared if they were computed with the same factor. This means that, when comparing small files to big ones, a small factor must be used.
 
@@ -82,7 +82,7 @@ Computes the hashes of all the files inside one or several directories (one per 
 
 The argument `--factor` or `-f` must be introduced, indicating the factor that will be used for the hash or hashes computation (remember that it must be an odd number and larger than 2).
 
-The argument `--recursive` or `-r` can be introduced to indicate that directories inside directories must be travarsed recursively.
+The argument `--recursive` or `-r` can be introduced to indicate that directories inside directories must be traversed recursively.
 
 <p align="center"><img src="readme-media/cmd-cdh.png" width=800/></p>
 
@@ -150,15 +150,15 @@ Compares two hashes.
 
 Compares in a table a hash to all computed and loaded hashes, showing in the table the direct similarity (hash to hashes), the reverse similarity (hashes to hash), the maximum and the minimum between both, and their arithmetic and geometric mean.
 
-The argument `--sortingBy` or `-sort` can be introduced to sort the table by similarity. If no argument is introduced, the default sorting criteria will be by descending direct similarity. An argument can be introduced to specify a different criteria. Check the JAR `--help` or `-h` argument to see all the possible criterias.
+The argument `--sortingBy` or `-sort` can be introduced to sort the table by similarity. If no argument is introduced, the default sorting criterion will be by descending direct similarity. An argument can be introduced to specify a different criterion. Check the JAR `--help` or `-h` argument to see all the possible criteria.
 
 The argument `--rowsLimit` or `-limit` can be introduced, indicating the maximum number of rows to display in the table.
 
-The argument `--truncateNames` or `-trunc` can be introduced, indicating  the maximum number of characters to display in the hashes names.
+The argument `--truncateNames` or `-trunc` can be introduced, indicating the maximum number of characters to display in the hashes names.
 
 The argument `--markAbove` or `-ma` can be introduced, indicating an upper threshold (0 to 1) to mark all similarities above or equal to it with a color.
 
-The argument `--markBelow` or `-mb` can be introduced, indicating an lower threshold (0 to 1) to mark all similarities below it with a color.
+The argument `--markBelow` or `-mb` can be introduced, indicating a lower threshold (0 to 1) to mark all similarities below it with a color.
 
 About the `--compareToAll` or `-xya` argument:
 
@@ -178,11 +178,11 @@ About the `--compareToAll` or `-xya` argument:
 
 Compares in a table all computed and loaded hashes, showing in the table for each hash its similarity to every other one.
 
-The argument `--truncateNames` or `-trunc` can be introduced, indicating  the maximum number of characters to display in the hashes names.
+The argument `--truncateNames` or `-trunc` can be introduced, indicating the maximum number of characters to display in the hashes names.
 
 The argument `--markAbove` or `-ma` can be introduced, indicating an upper threshold (0 to 1) to mark all similarities above or equal to it with a color.
 
-The argument `--markBelow` or `-mb` can be introduced, indicating an lower threshold (0 to 1) to mark all similarities below it with a color.
+The argument `--markBelow` or `-mb` can be introduced, indicating a lower threshold (0 to 1) to mark all similarities below it with a color.
 
 About the `--compareToAll` or `-xya` argument:
 
@@ -198,7 +198,7 @@ About the `--compareToAll` or `-xya` argument:
 
 Shows a visual representation of a hash. Each block is represented as one or several characters, depending on the block size.
 
-The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped.
+The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the begining of each line, a percentage will be displayed indicating the file size scroll.
 
 About the `--representVisually` or `-rv` argument:
 
@@ -208,4 +208,24 @@ About the `--representVisually` or `-rv` argument:
 
 -If one argument is introduced indicating a computed or loaded hash, it is visually represented.
 
-<p align="center"><img src="readme-media/cmdrv-2.png" width=500/></p>
+<p align="center"><img src="readme-media/cmd-rv-2.png" width=500/></p>
+
+  * `--compareVisually` or `-xv`
+
+Shows a visual comparison of two hashes. Each block is represented as one or several characters, depending on the block size. The blocks which are present on both hashes are marked with a different color to the ones which are only present on one of them.
+
+The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the begining of each line, a percentage will be displayed indicating the file size scroll.
+
+About the `--compareVisually` or `-xv` argument:
+
+-If no argument is introduced, and two hashes were computed with the argument `--computeFileHash` or `-cfh`, they are compared visually.
+
+<p align="center"><img src="readme-media/cmd-xv-1.png" width=800/></p>
+
+-If one argument is introduced indicating a computed or loaded hash, and another hash was computed with the argument `--computeFileHash` or `-cfh`, the computed hash is compared visually to the indicated one.
+
+<p align="center"><img src="readme-media/cmd-xv-2.png" width=800/></p>
+
+-If two arguments are introduced indicating computed or loaded hashes, they are compared visually.
+
+<p align="center"><img src="readme-media/cmd-xv-3.png" width=800/></p>
