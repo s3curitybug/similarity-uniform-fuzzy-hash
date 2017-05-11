@@ -3,9 +3,52 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
-  <name>similarity-uniform-fuzzy-hash</name>
+  <name>${project.artifactId}</name>
   <version>1.5</version>
+  <description>Similarity Uniform Fuzzy Hash is a tool that allows to accurately and efficiently compute 
+		the similarity between two files (or sets of bytes) as a 0 to 1 score.
+		For that purpose, it first computes for each file a Context Triggered Piecewise Hash (CTPH), 
+		also known as fuzzy hash, and then compares the hashes.</description>
+  <url>https://github.com/s3curitybug/similarity-uniform-fuzzy-hash</url>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/issues</url>
+  </issueManagement>
+  <inceptionYear>2017</inceptionYear>
+  <developers>
+    <developer>
+      <id>sherl0ck</id>
+      <name>Juan Jose Torres Garcia</name>
+      <email>s3curitybug@gmail.com</email>
+      <url>https://github.com/s3curitybug/</url>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/s3curitybug/similarity-uniform-fuzzy-hash.git</connection>
+    <developerConnection>scm:git:ssh://github.com:s3curitybug/similarity-uniform-fuzzy-hash.git</developerConnection>
+    <url>https://github.com/s3curitybug/similarity-uniform-fuzzy-hash</url>
+  </scm>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <targetPath>META-INF</targetPath>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>LICENSE.txt</include>
+          <include>NOTICE.txt</include>
+        </includes>
+      </resource>
+    </resources>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
       <plugin>
@@ -26,6 +69,9 @@
               <classpathPrefix>${dependenciesFolder}</classpathPrefix>
               <mainClass>${mainClass}</mainClass>
             </manifest>
+            <manifestEntries>
+              <Built-By>${builtBy}</Built-By>
+            </manifestEntries>
           </archive>
         </configuration>
       </plugin>
@@ -98,6 +144,7 @@
   <properties>
     <mainClass>securitybug.similarityuniformfuzzyhash.Main</mainClass>
     <java.version>1.8</java.version>
+    <builtBy>s3curitybug@gmail.com</builtBy>
     <dependenciesFolder>lib</dependenciesFolder>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

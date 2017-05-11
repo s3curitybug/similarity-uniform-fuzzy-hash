@@ -1,0 +1,18 @@
+==================================================
+
+ s3curitybug - Similarity Uniform Fuzzy Hash
+
+==================================================
+
+
+- This project depends on and contains a modified portion of Apache Commons CLI
+    * Homepage: https://commons.apache.org/proper/commons-cli/
+    * License: https://github.com/apache/commons-cli/blob/trunk/LICENSE.txt (Apache License 2.0)
+    
+- This project depends on Apache Commons IO
+    * Homepage: https://commons.apache.org/proper/commons-io/
+    * License: https://github.com/apache/commons-io/blob/master/LICENSE.txt (Apache License 2.0)
+
+- This project depends on Fusesource Jansi
+    * Homepage: http://fusesource.github.io/jansi/
+    * License: https://github.com/fusesource/jansi/blob/master/license.txt (Apache License 2.0)
