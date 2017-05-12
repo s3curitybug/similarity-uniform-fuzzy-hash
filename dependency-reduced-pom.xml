@@ -33,7 +33,7 @@
   <scm>
     <connection>scm:git:git://github.com/s3curitybug/similarity-uniform-fuzzy-hash.git</connection>
     <developerConnection>scm:git:ssh://github.com:s3curitybug/similarity-uniform-fuzzy-hash.git</developerConnection>
-    <url>https://github.com/s3curitybug/similarity-uniform-fuzzy-hash</url>
+    <url>https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/tree/master</url>
   </scm>
   <build>
     <resources>
