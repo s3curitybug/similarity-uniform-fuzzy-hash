@@ -1,5 +1,5 @@
-.checkstyle
 /target/
+/.checkstyle
 /src/test/resources/*.jar
 /src/test/resources/*.sufh
 /src/test/resources/*.asufh
