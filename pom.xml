@@ -4,7 +4,7 @@
 
 
 	<!-- Project Attributes -->
-	<groupId>s3curitybug</groupId>
+	<groupId>com.github.s3curitybug</groupId>
 	<artifactId>similarity-uniform-fuzzy-hash</artifactId>
 	<version>1.5.1</version>
 
@@ -74,7 +74,7 @@
 		<java.version>1.8</java.version>
 
 		<!-- Main Class -->
-		<mainClass>securitybug.similarityuniformfuzzyhash.Main</mainClass>
+		<mainClass>com.github.s3curitybug.similarityuniformfuzzyhash.Main</mainClass>
 
 		<!-- Dependencies Folder -->
 		<dependenciesFolder>lib</dependenciesFolder>
