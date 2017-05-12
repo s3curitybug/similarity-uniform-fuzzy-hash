@@ -1,3 +1,4 @@
+.checkstyle
 /target/
 /src/test/resources/*.jar
 /src/test/resources/*.sufh
