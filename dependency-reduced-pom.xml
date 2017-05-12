@@ -4,7 +4,7 @@
   <groupId>s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
   <name>${project.artifactId}</name>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <description>Similarity Uniform Fuzzy Hash is a tool that allows to accurately and efficiently compute 
 		the similarity between two files (or sets of bytes) as a 0 to 1 score.
 		For that purpose, it first computes for each file a Context Triggered Piecewise Hash (CTPH), 
@@ -162,6 +162,17 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <profiles>
@@ -208,6 +219,16 @@
       </exclusions>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
     <mainClass>securitybug.similarityuniformfuzzyhash.Main</mainClass>
     <java.version>1.8</java.version>
