@@ -149,6 +149,19 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>${gpgPhase}</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <profiles>
@@ -156,12 +169,28 @@
       <id>libsOutside</id>
       <properties>
         <shadePhase>none</shadePhase>
+        <gpgPhase>none</gpgPhase>
       </properties>
     </profile>
     <profile>
       <id>libsInside</id>
       <properties>
         <shadePhase>package</shadePhase>
+        <gpgPhase>none</gpgPhase>
+      </properties>
+    </profile>
+    <profile>
+      <id>libsOutsideSign</id>
+      <properties>
+        <shadePhase>none</shadePhase>
+        <gpgPhase>verify</gpgPhase>
+      </properties>
+    </profile>
+    <profile>
+      <id>libsInsideSign</id>
+      <properties>
+        <shadePhase>package</shadePhase>
+        <gpgPhase>verify</gpgPhase>
       </properties>
     </profile>
   </profiles>

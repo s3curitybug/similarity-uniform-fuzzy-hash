@@ -83,7 +83,11 @@
 			<id>libsOutside</id>
 			<properties>
 				<shadePhase>none</shadePhase>
+				<gpgPhase>none</gpgPhase>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 
 		<!-- Profile: libsInside -->
@@ -91,6 +95,25 @@
 			<id>libsInside</id>
 			<properties>
 				<shadePhase>package</shadePhase>
+				<gpgPhase>none</gpgPhase>
+			</properties>
+		</profile>
+
+		<!--Profile: libsOutsideSign -->
+		<profile>
+			<id>libsOutsideSign</id>
+			<properties>
+				<shadePhase>none</shadePhase>
+				<gpgPhase>verify</gpgPhase>
+			</properties>
+		</profile>
+
+		<!-- Profile: libsInsideSign -->
+		<profile>
+			<id>libsInsideSign</id>
+			<properties>
+				<shadePhase>package</shadePhase>
+				<gpgPhase>verify</gpgPhase>
 			</properties>
 		</profile>
 
@@ -234,6 +257,22 @@
 								</manifestEntries>
 							</archive>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- GPG Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>${gpgPhase}</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
