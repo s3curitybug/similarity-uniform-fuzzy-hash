@@ -391,4 +391,22 @@ It is a typical JAR Maven Java project:
 
 # Tests
 
+The `src/test/resources` folder contains files to test the algorithm:
+
+  * `LoremIpsum`: Contains 4 text files, each one with some Lorem Ipsum paragraphs:
+
+  <p align="center"><img src="readme-media/lorem-ipsum-1.png" width=800/></p>
+
+  Comparing them all:
+
+  <p align="center"><img src="readme-media/lorem-ipsum-2.png" width=400/></p>
+
+  File A is completely contained inside files ABCD and AE, and its similarity score to them is close to 1, while its similarity score to E is 0.
+
+  Around 1/4 of file ABCD is contained in files A and AE, and its similarity score to them is close to 0.25, while its similarity score to E is 0.
+
+  Around 1/2 of file AE is contained in files A, ABCD and E, and its similarity score to them is close to 0.5.
+
+  File E is completely contained inside file AE, and its similarity score to it is close to 1, while its similarity score to A and ABCD is 0.
+
 [Up](#similarity-uniform-fuzzy-hash)
