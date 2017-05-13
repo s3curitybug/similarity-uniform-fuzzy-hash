@@ -37,6 +37,7 @@ Readme contents:
   * [The Algorithm](#the-algorithm)
   * [The Command Line Interface](#the-command-line-interface)
   * [The Java Library](#the-java-library)
+  * [The Java Project](#the-java-project)
   * [Tests](#tests)
 
 # The Algorithm
