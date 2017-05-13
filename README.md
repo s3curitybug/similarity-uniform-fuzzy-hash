@@ -236,12 +236,40 @@ There are two ways to import the Java library into another Java project:
 
   * As an external JAR: There is no need to download or compile the project, downloading the JAR and adding it to the project as a library is enough.
 
-  * As a Maven dependency:
+  * As a Maven dependency (it is avaiblable from the Maven central repository):
 
   ```xml
 <dependency>
       <groupId>com.github.s3curitybug</groupId>
       <artifactId>similarity-uniform-fuzzy-hash</artifactId>
-      <version>1.5.1</version>
+      <version>LATEST</version>
 </dependency>
   ```
+
+The library provides the following classes and methods:
+
+  * `UniformFuzzyHash`: Represents a Uniform Fuzzy Hash.
+
+    * `[constructor]`: Given a File and a factor (remember that it must be an odd number and larger than 2), builds a UniformFuzzyHash. It is polymorphed to build the hash from a byte[], String, InputStream or ByteArrayOutputStream instead of from a File.
+
+    * `[static] checkFactor`: Checks if a factor is valid. It must be an odd number and larger than 2.
+
+    * `toString`: Returns the hexadecimal representation of this UniformFuzzyHash.
+
+    * `toAsciiString`: Returns the ascii representation of this UniformFuzzyHash, which is less human readable than the hexadecimal representation, but is shorter.
+
+    * `[static] rebuildFromString`: Rebuilds a UniformFuzzyHash from its hexadecimal representation.
+
+    * `[static] rebuildFromAsciiString`: Rebuilds a UniformFuzzyHash from its ascii representation.
+
+    * `similarity`: Computes the similarity of this UniformFuzzyHash to another one, and returns it as a 0 to 1 double.
+
+    * `reverseSimilarity`: Computes the similarty of another UniformFuzzyHash to this one, and returns it as a 0 to 1 double.
+
+    * `maxSimilarity`: Returns the maximum between `similarity` and `reverseSimilarity`.
+
+    * `minSimilarity`: Returns the minimum between `similarity` and `reverseSimilarity`.
+
+    * `arithmeticMeanSimilarity`: Returns the arithmetic mean between `similarity` and `reverseSimilarity`.
+
+    * `geometricMeanSimilarity`: Returns the geometric mean (square root of the product) between `similarity` and `reverseSimilarity`.
