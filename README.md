@@ -32,6 +32,12 @@ The latest release is available here:
 
 https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/releases/latest
 
+Readme contents:
+
+- [The Algorithm](#)
+- [The Command Line Interface](#)
+- [The Java Library](#)
+
 # The Algorithm
 
 The hash computation algorithm divides the file in blocks. The location of the divisions depends on the file contents. Thus, the blocks size is not constant, but the mean block size is chosen by the user through a parameter called "factor". So the file is divided in blocks of size around factor. Then, each block is converted into two hexadecimal numbers, the first one representing its content and the second one representing its size. Finally, the hash is written as the factor followed by each block.
