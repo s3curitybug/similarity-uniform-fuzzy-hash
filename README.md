@@ -250,7 +250,7 @@ The library provides the following classes and methods:
 
   * `UniformFuzzyHash`: Represents a Uniform Fuzzy Hash.
 
-    * `[constructor]`: Given a File and a factor (remember that it must be an odd number and larger than 2), builds a UniformFuzzyHash. It is polymorphed to build the hash from a byte[], String, InputStream or ByteArrayOutputStream instead of from a File.
+    * `[constructor]`: Given a byte[] and a factor (remember that it must be an odd number and larger than 2), builds a UniformFuzzyHash. It is polymorphed to build the hash from a String, InputStream, ByteArrayOutputStream or File instead of from a byte[].
 
     * `[static] checkFactor`: Checks if a factor is valid. It must be an odd number and larger than 2.
 
@@ -273,3 +273,47 @@ The library provides the following classes and methods:
     * `arithmeticMeanSimilarity`: Returns the arithmetic mean between `similarity` and `reverseSimilarity`.
 
     * `geometricMeanSimilarity`: Returns the geometric mean (square root of the product) between `similarity` and `reverseSimilarity`.
+
+  * `UniformFuzzyHashes`: Provides utility static methods related to the Uniform Fuzzy Hash usage.
+
+    * `computeHashesFromByteArrays`: Given a Collection of byte[] and a factor (remember that it must be an odd number and larger than 2), computes and returns a Collection of UniformFuzzyHashes. The following methods are equivalent, but receive a Collection of Strings, InputStreams, ByteArrayOutputStreams or Files instead of a Collecton of byte[]: `computeHashesFromStrings`, `computeHashesFromInputStreams`, `computeHashesFromByteArrayOutputStreams`, `computeHashesFromFiles` (allows recursive traversing of Files that represent a directory).
+
+    * `computeNamedHashesFromNamedByteArrays`: Given a Map relating names to byte[] and a factor (remember that it must be an odd number and larger than 2), computes and returns a Map relating names to UniformFuzzyHashes. The following methods are equivalent, but receive a Map relating names to Strings, InputStreams, ByteArrayOutputStreams or Files instead of a Map relating names to byte[]: `computeNamedHashesFromNamedStrings`, `computeNamedHashesFromNamedInputStreams`, `computeNamedHashesFromNamedByteArrayOutputStreams`, `computeNamedHashesFromNamedFiles`.
+
+    * `computeNamedHashesFromFiles`: Given a Collection of Files and a factor (remember that it must be an odd number and larger than 2), computes and returns a Map relating each File name to the File UniformFuzzyHash. Allows recursive traversing of Files that represent a directory.
+
+    * `computeHashesFromDirectoryFiles`: Given a directory and a factor (remember that it must be an odd number and larger than 2), computes and returns a Collection of the UniformFuzzyHashes of the Files inside the directory. Allows recursive traversing of Files that represent a directory.
+
+    * `computeNamedHashesFromDirectoryFiles`: Given a directory and a factor (remember that it must be an odd number and larger than 2), computes and returns a Map relating each the name of each File inside the directory to the File UniformFuzzyHash. Allows recursive traversing of Files that represent a directory.
+
+    * `hashesToStrings`: Given a Collection of UniformFuzzyHashes, returns a Collection of Strings with their hexadecimal representations. The method `hashesToAsciiStrings` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `namedHashesToNamedStrings`: Given a Map relating names to UniformFuzzyHashes, returns a Map relating names to Strings with their hexadecimal representations. The method `namedHashesToNamedAsciiStrings` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `namedHashesToTextLines`: Given a Map relating names to UniformFuzzyHashes, returns a Collection of Strings with their names and hexadecimal representations. The method `namedHashesToAsciiLines` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `rebuildHashesFromStrings`: Given a Collection of Strings with the hexadecimal representations of UniformFuzzyHashes, returns the Collection of rebuilt UniformFuzzyHashes. The method `rebuildHashesFromAsciiStrings` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `rebuildNamedHashesFromNamedStrings`: Given a Map relating names to Strings with the hexadecimal representations of UniformFuzzyHashes, returns the Map relating the names to the rebuilt UniformFuzzyHashes. The method `rebuildHashesFromAsciiStrings` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `rebuildNamedHashesFromTextLines`: Given a Collection of Strings with the names and hexadecimal representations of UniformFuzzyHashes, returns the Map relating the names to the rebuilt UniformFuzzyHashes. The method `rebuildNamedHashesFromAsciiLines` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `saveToTextFile`: Saves a Map relating names to UniformFuzzyHashes into a File, in their hexadecimal representation (one name and its UniformFuzzyHash hexadecimal representation per line). The method `saveToAsciiFile` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `loadFromTextFile`: Loads a Map relating names to UniformFuzzyHashes from a File storing them in their hexadecimal representation (one name and its UniformFuzzyHash hexadecimal representation per line). The method `loadFromAsciiFile` is equivalent, with the ascii representations instead of the hexadecimal ones.
+
+    * `sortBySimilarity`: Sorts a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed) by their similarity to another UniformFuzzyHash. They can be sorted by ascending or descending `similarity`, `reverseSimilarity`, `maxSimilarity`, `minSimilarity`, `arithmeticMeanSimilarity` or `geometricMeanSimilarity`.
+
+    * `printHashes`: Prints a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed), using their hexadecimal representation.
+
+    * `printHashesTable`: Given a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed), prints a table showing their statistics (factor, data size, number of blocks, block size mean and block size standard deviation) and hexadecimal representations.
+
+    <p align="center"><img src="readme-media/print-hashes-table.png" width=800/></p>
+
+    * `printHashToHashesSimilaritiesTable`: Given a UniformFuzzyHash and a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed), prints a table showing the `similarity`, `reverseSimilarity`, `maxSimilarity`, `minSimilarity`, `arithmeticMeanSimilarity` and `geometricMeanSimilarity` between the hash and the hashes. The table can be sorted by any of the similarities, ascending or descending. The number of rows can be limited, the hashes names can be truncated, and it is possible to mark with a color the similarities that are above or below a threshold.
+
+    <p align="center"><img src="readme-media/print-hash-to-hashes-similarities-table.png" width=800/></p>
+
+    * `printAllHashesSimilaritiesTable`: Given a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed), prints a table showing for each hash its similarity to every other one. The hashes names can be truncated, and it is possible to mark with a color the similarities that are above or below a threshold.
+
+    <p align="center"><img src="readme-media/print-all-hashes-similarities-table.png" width=800/></p>
