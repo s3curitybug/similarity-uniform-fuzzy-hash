@@ -317,3 +317,17 @@ The library provides the following classes and methods:
     * `printAllHashesSimilaritiesTable`: Given a Collection of UniformFuzzyHashes or a Map relating names to UniformFuzzyHashes (polymorphed), prints a table showing for each hash its similarity to every other one. The hashes names can be truncated, and it is possible to mark with a color the similarities that are above or below a threshold.
 
     <p align="center"><img src="readme-media/print-all-hashes-similarities-table.png" width=800/></p>
+
+  * `VisualRepresentation`: Provides utility static methods to represent and compare Uniform Fuzzy Hashes in a visual way.
+
+    * `represent`: Returns a String representing a UniformFuzzyHash in a visual way. Each block is represented as one or several characters, depending on the block size. The characters base and the number of characters per factor size can be chosen.
+
+    * `print`: Prints a String representing a UniformFuzzyHash in a visual way, wrapping it at a choosable length. It is possible to print at the begining of each wrapped line, a percentage indicating the wrap scroll.
+
+    <p align="center"><img src="readme-media/print-visually.png" width=500/></p>
+
+    * `representCompared`: Returns a String representing a UniformFuzzyHash in a visual way like the `represent` method, but coloring the blocks which are present in another Uniform Fuzzy Hash with a different color to the ones which are not.
+
+    * `printCompared`: Prints two Strings representing two UniformFuzzyHashes in a visual way like the `print` method, but coloring the blocks which are in both hashes with a different color to the ones which are only present on one of them.
+
+    <p align="center"><img src="readme-media/print-compared-visually.png" width=800/></p>
