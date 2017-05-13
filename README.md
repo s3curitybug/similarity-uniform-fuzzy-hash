@@ -56,6 +56,8 @@ Additionally, the hash length (which depends on the amount of blocks) is proport
 
 Due to the hash computation algorithm nature, factor must always be an odd number and larger than 2.
 
+[Up](#similarity-uniform-fuzzy-hash)
+
 # The Command Line Interface
 
 In order to use the command line interface, there is no need to download or compile the project, downloading the JAR is enough.
@@ -236,6 +238,8 @@ About the `--compareVisually` or `-xv` argument:
 
 <p align="center"><img src="readme-media/cmd-xv-3.png" width=800/></p>
 
+[Up](#similarity-uniform-fuzzy-hash)
+
 # The Java Library
 
 There are two ways to import the Java library into another Java project:
@@ -337,3 +341,5 @@ The library provides the following classes and methods:
     * `printCompared`: Prints two Strings representing two UniformFuzzyHashes in a visual way like the `print` method, but coloring the blocks which are in both hashes with a different color to the ones which are only present on one of them.
 
     <p align="center"><img src="readme-media/print-compared-visually.png" width=800/></p>
+
+[Up](#similarity-uniform-fuzzy-hash)
