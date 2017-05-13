@@ -409,4 +409,20 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   File E is completely contained inside file AE, and its similarity score to it is close to 1, while its similarity score to A and ABCD is 0.
 
+  * `RandomText/RandomText1`: Contains 7 text files, each one with some random strings of 1000 characters. Comparing them all:
+
+  <p align="center"><img src="readme-media/random-text-1.png" width=600/></p>
+
+  * `RandomText/RandomText2`: Contains 5 text files:
+
+    - File B contains a random string of 1000 characters.
+    - File B' contains the same string with 1 character modified.
+    - File B- contains the same string with 1 character deleted.
+    - File B+ contains the same string with 1 character added.
+    - File B~ contains the same string with 2 characters swapped.
+
+  This test checks that the algorithm works on modifications, deletions, additions and swaps. Comparing all the files:
+
+  <p align="center"><img src="readme-media/random-text-2.png" width=600/></p>
+
 [Up](#similarity-uniform-fuzzy-hash)
