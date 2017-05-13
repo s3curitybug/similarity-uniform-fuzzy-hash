@@ -229,3 +229,19 @@ About the `--compareVisually` or `-xv` argument:
 -If two arguments are introduced indicating computed or loaded hashes, they are compared visually.
 
 <p align="center"><img src="readme-media/cmd-xv-3.png" width=800/></p>
+
+# The Java Library
+
+There are two ways to import the Java library into another Java project:
+
+  * As an external JAR: There is no need to download or compile the project, downloading the JAR and adding it to the project as a library is enough.
+
+  * As a Maven dependency:
+
+  ```xml
+<dependency>
+      <groupId>com.github.s3curitybug</groupId>
+      <artifactId>similarity-uniform-fuzzy-hash</artifactId>
+      <version>1.5.1</version>
+</dependency>
+  ```
