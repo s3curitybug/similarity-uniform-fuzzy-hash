@@ -395,11 +395,11 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   * `LoremIpsum`: Contains 4 text files, each one with some Lorem Ipsum paragraphs:
 
-  <p align="center"><img src="readme-media/lorem-ipsum-1.png" width=800/></p>
+  <p align="center"><img src="readme-media/lorem-ipsum-1.png" width=600/></p>
 
   Comparing them all:
 
-  <p align="center"><img src="readme-media/lorem-ipsum-2.png" width=400/></p>
+  <p align="center"><img src="readme-media/lorem-ipsum-2.png" width=500/></p>
 
   File A is completely contained inside files ABCD and AE, and its similarity score to them is close to 1, while its similarity score to E is 0.
 
