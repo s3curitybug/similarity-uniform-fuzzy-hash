@@ -5,7 +5,6 @@ import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.DE
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash;
 import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.HashCharacteristics;
 
 import java.io.File;

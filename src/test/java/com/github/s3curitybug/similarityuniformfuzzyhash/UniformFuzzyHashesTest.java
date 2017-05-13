@@ -3,8 +3,6 @@ package com.github.s3curitybug.similarityuniformfuzzyhash;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash;
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes;
 import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes;
 
 import java.io.File;

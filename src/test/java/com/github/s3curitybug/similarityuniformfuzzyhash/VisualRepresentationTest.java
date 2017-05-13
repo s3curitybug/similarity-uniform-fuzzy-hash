@@ -2,9 +2,6 @@ package com.github.s3curitybug.similarityuniformfuzzyhash;
 
 import org.junit.Test;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash;
-import com.github.s3curitybug.similarityuniformfuzzyhash.VisualRepresentation;
-
 import java.io.File;
 import java.io.IOException;
 
