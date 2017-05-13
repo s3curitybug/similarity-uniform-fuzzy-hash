@@ -399,7 +399,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   Comparing them all:
 
-  <p align="center"><img src="readme-media/lorem-ipsum-2.png" width=500/></p>
+  <p align="center"><img src="readme-media/lorem-ipsum-2.png" width=600/></p>
 
   File A is completely contained inside files ABCD and AE, and its similarity score to them is close to 1, while its similarity score to E is 0.
 
@@ -424,5 +424,15 @@ The `src/test/resources` folder contains files to test the algorithm:
   This test checks that the algorithm works on modifications, deletions, additions and swaps. Comparing all the files:
 
   <p align="center"><img src="readme-media/random-text-2.png" width=600/></p>
+
+  * `Images`: Contains 3 BMP images:
+
+  <p align="center"><img src="readme-media/images-1.png" width=800/></p>
+
+  Comparing them all:
+
+  <p align="center"><img src="readme-media/images-2.png" width=600/></p>
+
+  Image1 and Image2 have a similarity score of 0.919, while their similarity score to Image3 is 0.
 
 [Up](#similarity-uniform-fuzzy-hash)
