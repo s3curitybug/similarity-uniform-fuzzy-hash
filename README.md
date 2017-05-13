@@ -358,7 +358,7 @@ It is a typical JAR Maven Java project:
     * `com.github.s3curitybug.similarityuniformfuzzyhash`: Contains all the Similarity Uniform Fuzzy Hash classes:
 
       * `UniformFuzzyHash`: Represents a Uniform Fuzzy Hash.
-      * `UniformFuzzyHashBlock`: Represent a Block of a Unform Fuzzy Hash.
+      * `UniformFuzzyHashBlock`: Represent a Block of a Uniform Fuzzy Hash.
       * `UniformFuzzyHashes`: Provides utility static methods related to the Uniform Fuzzy Hash usage.
       * `VisualRepresentation`: Provides utility static methods to represent and compare Uniform Fuzzy Hashes in a visual way.
       * `ToStringUtils`: Provides utility methods and constants to build string representations of Uniform Fuzzy Hashes.
@@ -369,9 +369,9 @@ It is a typical JAR Maven Java project:
 
   * `src/main/resources`: Contains resources used by the source code:
 
-    * `VisualPrint`: Contains the resources used by the the VisualRepresentation class to represent Uniform Fuzzy Hashes in a visual way:
+    * `VisualPrint`: Contains the resources used by the VisualRepresentation class to represent Uniform Fuzzy Hashes in a visual way:
 
-      * `printableAscii.base`: Default base of characters used to represent Uniform Fuzzy Hashes Blocks in a visual way. It is compossed by printable ascii characters.
+      * `printableAscii.base`: Default base of characters used to represent Uniform Fuzzy Hashes Blocks in a visual way. It is composed by printable ascii characters.
 
   * `src/test/java`: Contains the test code. Packages:
 
