@@ -324,7 +324,7 @@ The library provides the following classes and methods:
 
     * `print`: Prints a String representing a UniformFuzzyHash in a visual way, wrapping it at a choosable length. It is possible to print at the begining of each wrapped line, a percentage indicating the wrap scroll.
 
-    <p align="center"><img src="readme-media/print-visually.png" width=500/></p>
+    <p align="center"><img src="readme-media/print-visually.png" width=400/></p>
 
     * `representCompared`: Returns a String representing a UniformFuzzyHash in a visual way like the `represent` method, but coloring the blocks which are present in another Uniform Fuzzy Hash with a different color to the ones which are not.
 
