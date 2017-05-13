@@ -37,6 +37,7 @@ Readme contents:
   * [The Algorithm](#the-algorithm)
   * [The Command Line Interface](#the-command-line-interface)
   * [The Java Library](#the-java-library)
+  * [Tests](#tests)
 
 # The Algorithm
 
@@ -206,7 +207,7 @@ About the `--compareToAll` or `-xya` argument:
 
 Shows a visual representation of a hash. Each block is represented as one or several characters, depending on the block size.
 
-The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the begining of each line, a percentage will be displayed indicating the file size scroll.
+The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the beginning of each line, a percentage will be displayed indicating the file size scroll.
 
 About the `--representVisually` or `-rv` argument:
 
@@ -222,7 +223,7 @@ About the `--representVisually` or `-rv` argument:
 
 Shows a visual comparison of two hashes. Each block is represented as one or several characters, depending on the block size. The blocks which are present on both hashes are marked with a different color to the ones which are only present on one of them.
 
-The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the begining of each line, a percentage will be displayed indicating the file size scroll.
+The argument `--lineWrap` or `-wrap` can be introduced, indicating the length at which lines will be wrapped. At the beginning of each line, a percentage will be displayed indicating the file size scroll.
 
 About the `--compareVisually` or `-xv` argument:
 
@@ -246,15 +247,15 @@ There are two ways to import the Java library into another Java project:
 
   * As an external JAR: There is no need to download or compile the project, downloading the JAR and adding it to the project as a library is enough.
 
-  * As a Maven dependency (it is avaiblable from the Maven central repository):
+  * As a Maven dependency (it is available from the Maven central repository):
 
-  ```xml
+```xml
 <dependency>
       <groupId>com.github.s3curitybug</groupId>
       <artifactId>similarity-uniform-fuzzy-hash</artifactId>
       <version>LATEST</version>
 </dependency>
-  ```
+```
 
 The library provides the following classes and methods:
 
@@ -274,7 +275,7 @@ The library provides the following classes and methods:
 
     * `similarity`: Computes the similarity of this UniformFuzzyHash to another one, and returns it as a 0 to 1 double.
 
-    * `reverseSimilarity`: Computes the similarty of another UniformFuzzyHash to this one, and returns it as a 0 to 1 double.
+    * `reverseSimilarity`: Computes the similarity of another UniformFuzzyHash to this one, and returns it as a 0 to 1 double.
 
     * `maxSimilarity`: Returns the maximum between `similarity` and `reverseSimilarity`.
 
@@ -286,7 +287,7 @@ The library provides the following classes and methods:
 
   * `UniformFuzzyHashes`: Provides utility static methods related to the Uniform Fuzzy Hash usage.
 
-    * `computeHashesFromByteArrays`: Given a Collection of byte[] and a factor (remember that it must be an odd number and larger than 2), computes and returns a Collection of UniformFuzzyHashes. The following methods are equivalent, but receive a Collection of Strings, InputStreams, ByteArrayOutputStreams or Files instead of a Collecton of byte[]: `computeHashesFromStrings`, `computeHashesFromInputStreams`, `computeHashesFromByteArrayOutputStreams`, `computeHashesFromFiles` (allows recursive traversing of Files that represent a directory).
+    * `computeHashesFromByteArrays`: Given a Collection of byte[] and a factor (remember that it must be an odd number and larger than 2), computes and returns a Collection of UniformFuzzyHashes. The following methods are equivalent, but receive a Collection of Strings, InputStreams, ByteArrayOutputStreams or Files instead of a Collection of byte[]: `computeHashesFromStrings`, `computeHashesFromInputStreams`, `computeHashesFromByteArrayOutputStreams`, `computeHashesFromFiles` (allows recursive traversing of Files that represent a directory).
 
     * `computeNamedHashesFromNamedByteArrays`: Given a Map relating names to byte[] and a factor (remember that it must be an odd number and larger than 2), computes and returns a Map relating names to UniformFuzzyHashes. The following methods are equivalent, but receive a Map relating names to Strings, InputStreams, ByteArrayOutputStreams or Files instead of a Map relating names to byte[]: `computeNamedHashesFromNamedStrings`, `computeNamedHashesFromNamedInputStreams`, `computeNamedHashesFromNamedByteArrayOutputStreams`, `computeNamedHashesFromNamedFiles`.
 
@@ -332,7 +333,7 @@ The library provides the following classes and methods:
 
     * `represent`: Returns a String representing a UniformFuzzyHash in a visual way. Each block is represented as one or several characters, depending on the block size. The characters base and the number of characters per factor size can be chosen.
 
-    * `print`: Prints a String representing a UniformFuzzyHash in a visual way, wrapping it at a choosable length. It is possible to print at the begining of each wrapped line, a percentage indicating the wrap scroll.
+    * `print`: Prints a String representing a UniformFuzzyHash in a visual way, wrapping it at a choosable length. It is possible to print at the beginning of each wrapped line, a percentage indicating the wrap scroll.
 
     <p align="center"><img src="readme-media/print-visually.png" width=400/></p>
 
@@ -341,5 +342,52 @@ The library provides the following classes and methods:
     * `printCompared`: Prints two Strings representing two UniformFuzzyHashes in a visual way like the `print` method, but coloring the blocks which are in both hashes with a different color to the ones which are only present on one of them.
 
     <p align="center"><img src="readme-media/print-compared-visually.png" width=800/></p>
+
+[Up](#similarity-uniform-fuzzy-hash)
+
+# The Java Project
+
+The Java project can be downloaded from GitHub:
+
+https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/archive/master.zip
+
+It is a typical JAR Maven Java project:
+
+  * `src/main/java`: Contains the source code. Packages:
+
+    * `com.github.s3curitybug.similarityuniformfuzzyhash`: Contains all the Similarity Uniform Fuzzy Hash classes:
+
+      * `UniformFuzzyHash`: Represents a Uniform Fuzzy Hash.
+      * `UniformFuzzyHashBlock`: Represent a Block of a Unform Fuzzy Hash.
+      * `UniformFuzzyHashes`: Provides utility static methods related to the Uniform Fuzzy Hash usage.
+      * `VisualRepresentation`: Provides utility static methods to represent and compare Uniform Fuzzy Hashes in a visual way.
+      * `ToStringUtils`: Provides utility methods and constants to build string representations of Uniform Fuzzy Hashes.
+
+    * `org.apache.commons.cli`: Contains a modification of the Apache Commons Cli library:
+
+      * `HelpFormatter`: A formatter of help messages for command line options.
+
+  * `src/main/resources`: Contains resources used by the source code:
+
+    * `VisualPrint`: Contains the resources used by the the VisualRepresentation class to represent Uniform Fuzzy Hashes in a visual way:
+
+      * `printableAscii.base`: Default base of characters used to represent Uniform Fuzzy Hashes Blocks in a visual way. It is compossed by printable ascii characters.
+
+  * `src/test/java`: Contains the test code. Packages:
+
+    * `com.github.s3curitybug.similarityuniformfuzzyhash`: Contains all the Similarity Uniform Fuzzy Hash test classes:
+
+      * `UniformFuzzyHashTest`: Contains JUnit methods to test the UniformFuzzyHash class.
+      * `UniformFuzzHashesTest`: Contains JUnit methods to test the UniformFuzzyHashes class.
+      * `VisualRepresentationTest`: Contains JUnit methods to test the VisualRepresentation class.
+      * `TestResoucesUtils`: Provides utility methods and constants to use resources in tests.
+
+  * `src/test/resources`: Contains resources used by the test code. See the [Tests](#tests) section.
+
+  * `doc`: Contains the Javadoc.
+
+[Up](#similarity-uniform-fuzzy-hash)
+
+# Tests
 
 [Up](#similarity-uniform-fuzzy-hash)
