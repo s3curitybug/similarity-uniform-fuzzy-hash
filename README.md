@@ -34,9 +34,9 @@ https://github.com/s3curitybug/similarity-uniform-fuzzy-hash/releases/latest
 
 Readme contents:
 
-  * [The Algorithm](#The Algorithm)
-  * [The Command Line Interface](#The Command Line Interface)
-  * [The Java Library](#The Java Library)
+  * [The Algorithm](#heading-1)
+  * [The Command Line Interface](#heading-2)
+  * [The Java Library](#heading-3)
 
 # The Algorithm
 
