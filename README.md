@@ -457,4 +457,28 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   <p align="center"><img src="readme-media/insidedoc-3.png" width=800/></p>
 
+  * `InsidePdf`: This test is similar to the `InsideDoc` one, but using PDF documents instead of DOCX. The image has been converted to multiple formats: BMP, GIF, JPG, and the original PNG. Comparing all the files:
+
+  <p align="center"><img src="readme-media/insidepdf-1.png" width=800/></p>
+
+  The image is not detected in any format inside any document. However, if the PDF object that stores the image is extracted to a file (Lenna.pdfobj), it is detected inside Doc_Lenna.pdf, Doc_Lenna_Big.pdf and Doc_Lenna_Swap.pdf. So image detection inside PDF is possible.
+
+  * `Html`: Contains 9 HTML files, extracted from the following URLs:
+
+    - As1.txt: http://as.com/
+    - As2.txt: http://futbol.as.com/futbol/
+    - As3.txt: http://baloncesto.as.com/baloncesto/
+    - Marca1.txt: http://www.marca.com/
+    - Marca2.txt: http://www.marca.com/futbol.html
+    - Marca3.txt: http://www.marca.com/baloncesto.html
+    - Sport1.txt: http://www.sport.es/es/
+    - Sport2.txt: http://www.sport.es/es/futbol/
+    - Sport3.txt: http://www.sport.es/es/baloncesto/
+
+  This test checks that the algorithm is able to detect web pages that come from the same site. Comparing all the files:
+
+  <p align="center"><img src="readme-media/html-1.png" width=600/></p>
+
+  Each HTML matches all the HTMLs coming from its site, and none coming from a different one.
+
 [Up](#similarity-uniform-fuzzy-hash)
