@@ -433,7 +433,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   <p align="center"><img src="readme-media/images-2.png" width=600/></p>
 
-  Image1 and Image2 have a similarity score of 0.919, while their similarity score to Image3 is 0.
+  Image1 and Image2 have a similarity score of 0.919, while their similarity score to Image3 is 0. So image matching is possible.
 
   * `InsideDoc`: Contains a PNG image and 4 DOCX documents.
 
@@ -447,7 +447,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   <p align="center"><img src="readme-media/insidedoc-1.png" width=600/></p>
 
-  Lenna.png is detected inside Doc_Lenna.docx, Doc_Lenna_Big.docx and Doc_Lenna_Swap.docx.
+  Lenna.png is detected inside Doc_Lenna.docx, Doc_Lenna_Big.docx and Doc_Lenna_Swap.docx, and not detected inside Doc_No_Lenna.docx. So objects inside bigger files detection is possible.
 
   Comparing visually Lenna.png to Doc_Lenna.docx:
 
@@ -461,7 +461,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   <p align="center"><img src="readme-media/insidepdf-1.png" width=800/></p>
 
-  The image is not detected in any format inside any document. However, if the PDF object that stores the image is extracted to a file (Lenna.pdfobj), it is detected inside Doc_Lenna.pdf, Doc_Lenna_Big.pdf and Doc_Lenna_Swap.pdf. So image detection inside PDF is possible.
+  The image is not detected in any format inside any document. However, if the PDF object that stores the image is extracted to a file (Lenna.pdfobj), it is detected inside Doc_Lenna.pdf, Doc_Lenna_Big.pdf and Doc_Lenna_Swap.pdf, and not detected inside Doc_No_Lenna.pdf. So image detection inside PDF is possible.
 
   * `Html`: Contains 9 HTML files, extracted from the following URLs:
 
@@ -479,6 +479,38 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   <p align="center"><img src="readme-media/html-1.png" width=600/></p>
 
-  Each HTML matches all the HTMLs coming from its site, and none coming from a different one.
+  Each HTML matches all the HTMLs coming from its site, and none coming from a different one. So HTML coming a site detection is possible.
+
+  * `Malware`: Contains 15 executable malwares. This directory is ignored from version control.
+
+  5 of the malwares are classified by Kaspersky as Trojan.Win32.Neurevt.yvd:
+
+  y_3f49584409b1ca9f14fc1e38edcf66c7ae6d2fbc2fa9e2191de021a32057466c
+  y_6d3e33e092011c2989338c0bebd5230ab9aab21971b1e99da350280c24d56b27
+  y_065c42c986840781f67378672c49b4521d49f7c0711db83409ae4554f772f856
+  y_75f979a5f2c72cef009914adb831d00ece96a4e76eb9c95a0723927e5b7305b4
+  y_9721b58b885685e2ed906b4cb52f07218c9c0450fd4b255cef382cee8c19f1fd
+
+  5 of them as Trojan.Win32.Pincav.cjwu:
+
+  c_7c9b4933ea539e62d5d7a5077570d9700f056fff5c4a8ff0af0aa03bcef45d8e
+  c_7f01fcc038c16dd09eef29a1f91631c23e7cbe8d51e962ed59f642dbc64876a2
+  c_81fdd8906766b4c34825118b75a213a1791cae59e32f0ca3a5ccddb5ed75cdac
+  c_663fad07947d03da449ae188393ce00431b0fe006d8d9911f06fa95eab866301
+  c_c0c883e993713f55b509dd318f33aaef156cd6dc1f27f65cec2b204c6d3be0fd
+
+  5 of them as Trojan.Win32.Pincav.dxpz:
+
+  d_0dbd1808fad49f3217f1bbb624fb3bc4775f0e046fb462328072edc7186cb9e7
+  d_4cdba6e0536e2765b1dc562511c98838ab1ae556480859bb56302179ff6d97a4
+  d_8e4770ea7aa073826567fe0f9457b6c144b6357e43074794a62ed7dfd5ab0f36
+  d_3510f640c1f90a003925a5f192f937e85ad27443ae935ddc03852126b58b5eba
+  d_bcc8bcfac7bc9afa064a3865c4d93c0b6bbb3afe3a1f479311fc6c0e788aeac1
+
+  This test checks that the algorithm is able to detect malwares from the same subfamily. Comparing all the files:
+
+  <p align="center"><img src="readme-media/malware-1.png" width=800/></p>
+
+  Each malware matches several (or, in many cases, all) malwares from its subfamily, and none from a different one. So malware subfamily detection is possible.
 
 [Up](#similarity-uniform-fuzzy-hash)
