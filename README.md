@@ -477,7 +477,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   This test checks that the algorithm is able to detect web pages that come from the same site. Comparing all the files:
 
-  <p align="center"><img src="readme-media/html-1.png" width=600/></p>
+  <p align="center"><img src="readme-media/html-1.png" width=800/></p>
 
   Each HTML matches all the HTMLs coming from its site, and none coming from a different one. So HTML coming a site detection is possible.
 
