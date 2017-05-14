@@ -395,7 +395,7 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   * `LoremIpsum`: Contains 4 text files, each one with some Lorem Ipsum paragraphs:
 
-  <p align="center"><img src="readme-media/lorem-ipsum-1.png" width=600/></p>
+  <p align="center"><img src="readme-media/lorem-ipsum-1.png" width=500/></p>
 
   Comparing them all:
 
