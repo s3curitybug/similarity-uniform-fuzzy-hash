@@ -435,4 +435,26 @@ The `src/test/resources` folder contains files to test the algorithm:
 
   Image1 and Image2 have a similarity score of 0.919, while their similarity score to Image3 is 0.
 
+  * `InsideDoc`: Contains a PNG image and 4 DOCX documents.
+
+    - Lenna.png is the image.
+    - Doc_Lenna.docx is a document containing Lenna.png, some text paragraphs and another image.
+    - Doc_Lenna_Big.docx is a document containing Lenna.png, and a lot of text paragraphs and images.
+    - Doc_Lenna_Swap.docx is a document containing first another image and then Lenna.png, and also some text paragraphs.
+    - Doc_No_Lenna.png is a document containing an image which is not Lenna.png, and some text paragraphs.
+
+  This test checks that the algorithm is able to detect objects inside bigger files. Comparing Lenna.png to all the files:
+
+  <p align="center"><img src="readme-media/insidedoc-1.png" width=600/></p>
+
+  Lenna.png is detected inside Doc_Lenna.docx, Doc_Lenna_Big.docx and Doc_Lenna_Swap.docx.
+
+  Comparing visually Lenna.png to Doc_Lenna.docx:
+
+  <p align="center"><img src="readme-media/insidedoc-2.png" width=800/></p>
+
+  Comparing visually Lenna.png to Doc_Lenna_Swap.docx:
+
+  <p align="center"><img src="readme-media/insidedoc-3.png" width=800/></p>
+
 [Up](#similarity-uniform-fuzzy-hash)
