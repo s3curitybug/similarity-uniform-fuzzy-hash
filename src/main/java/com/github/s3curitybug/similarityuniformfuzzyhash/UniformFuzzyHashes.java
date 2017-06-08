@@ -47,7 +47,7 @@ public final class UniformFuzzyHashes {
     /**
      * Charset for reading and writing files of Uniform Fuzzy Hashes.
      */
-    public static final Charset UFH_FILES_ECONDING = StandardCharsets.UTF_8;
+    public static final Charset UFH_FILES_ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Default similarity sort criteria.
@@ -1490,7 +1490,7 @@ public final class UniformFuzzyHashes {
         }
 
         List<String> textLines = namedHashesToTextLines(namesToHashes);
-        FileUtils.writeLines(file, UFH_FILES_ECONDING.name(), textLines, append);
+        FileUtils.writeLines(file, UFH_FILES_ENCODING.name(), textLines, append);
 
     }
 
@@ -1550,7 +1550,7 @@ public final class UniformFuzzyHashes {
         }
 
         List<String> asciiLines = namedHashesToAsciiLines(namesToHashes);
-        FileUtils.writeLines(file, UFH_FILES_ECONDING.name(), asciiLines, append);
+        FileUtils.writeLines(file, UFH_FILES_ENCODING.name(), asciiLines, append);
 
     }
 
@@ -1582,7 +1582,7 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> textLines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
+        List<String> textLines = FileUtils.readLines(file, UFH_FILES_ENCODING.name());
         Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromTextLines(textLines);
 
         return namesToHashes;
@@ -1617,7 +1617,7 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> asciiLines = FileUtils.readLines(file, UFH_FILES_ECONDING.name());
+        List<String> asciiLines = FileUtils.readLines(file, UFH_FILES_ENCODING.name());
         Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromAsciiLines(asciiLines);
 
         return namesToHashes;
