@@ -1,13 +1,16 @@
 package com.github.s3curitybug.similarityuniformfuzzyhash;
 
+import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.CSV_TRIMMED_SEPARATOR;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMAL_MAX_CHARS;
+import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.FILES_ENCODING;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_VALUE;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.TAB;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.ZERO_TO_ONE_DECIMAL_MAX_CHARS;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.checkName;
+import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.escapeCsv;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.getMaxLength;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.hyphens;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.spaces;
@@ -23,8 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Method;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,11 +44,6 @@ import java.util.Set;
  *
  */
 public final class UniformFuzzyHashes {
-
-    /**
-     * Charset for reading and writing files of Uniform Fuzzy Hashes.
-     */
-    public static final Charset UFH_FILES_ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Default similarity sort criteria.
@@ -308,6 +304,20 @@ public final class UniformFuzzyHashes {
             } catch (Exception exception) {
                 throw new RuntimeException(exception);
             }
+
+        }
+
+        /**
+         * @param hash1 A Uniform Fuzzy Hash.
+         * @param hash2 Another Uniform Fuzzy Hash.
+         * @return The result of the invocation of this similarity type method over the hashes,
+         *         parsed to string.
+         */
+        public String getSimilarityFormattedValue(
+                UniformFuzzyHash hash1,
+                UniformFuzzyHash hash2) {
+
+            return getSimilarityFormattedValue(hash1, hash2, -1, -1);
 
         }
 
@@ -1490,7 +1500,7 @@ public final class UniformFuzzyHashes {
         }
 
         List<String> textLines = namedHashesToTextLines(namesToHashes);
-        FileUtils.writeLines(file, UFH_FILES_ENCODING.name(), textLines, append);
+        FileUtils.writeLines(file, FILES_ENCODING.name(), textLines, append);
 
     }
 
@@ -1550,7 +1560,7 @@ public final class UniformFuzzyHashes {
         }
 
         List<String> asciiLines = namedHashesToAsciiLines(namesToHashes);
-        FileUtils.writeLines(file, UFH_FILES_ENCODING.name(), asciiLines, append);
+        FileUtils.writeLines(file, FILES_ENCODING.name(), asciiLines, append);
 
     }
 
@@ -1582,7 +1592,7 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> textLines = FileUtils.readLines(file, UFH_FILES_ENCODING.name());
+        List<String> textLines = FileUtils.readLines(file, FILES_ENCODING.name());
         Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromTextLines(textLines);
 
         return namesToHashes;
@@ -1617,7 +1627,7 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> asciiLines = FileUtils.readLines(file, UFH_FILES_ENCODING.name());
+        List<String> asciiLines = FileUtils.readLines(file, FILES_ENCODING.name());
         Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromAsciiLines(asciiLines);
 
         return namesToHashes;
@@ -1993,7 +2003,7 @@ public final class UniformFuzzyHashes {
      * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
      * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
      *        false to sort descending.
-     * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of rows.
      * @param markAbove Mark all similarities above or equal to this threshold with a color.
      *        Introduce a negative number to not mark any similarity.
      * @param markBelow Mark all similarities below this threshold with a color. Introduce a
@@ -2039,7 +2049,7 @@ public final class UniformFuzzyHashes {
      * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
      * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
      *        false to sort descending.
-     * @param rowsLimit Introduce a number larger than 0 to limit the number of printed rows.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of rows.
      * @param truncateNamesLength Introduce a number larger than 0 to truncate the names to a
      *        maximum length.
      * @param markAbove Mark all similarities above or equal to this threshold with a color.
@@ -2144,6 +2154,156 @@ public final class UniformFuzzyHashes {
         if (printStream == AnsiConsole.out) {
             AnsiConsole.systemUninstall();
         }
+
+    }
+
+    /**
+     * Writes a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
+     * Fuzzy Hashes into a CSV file, overwriting it.
+     * 
+     * @param hash The Uniform Fuzzy Hash.
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     * @param csvFile The file to save the CSV.
+     * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
+     * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
+     *        false to sort descending.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of rows.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveHashToHashesSimilaritiesAsCsv(
+            UniformFuzzyHash hash,
+            Collection<UniformFuzzyHash> hashes,
+            File csvFile,
+            SimilarityTypes similaritySortCriteria,
+            boolean sortAscending,
+            int rowsLimit)
+            throws IOException {
+
+        if (hash == null) {
+            throw new NullPointerException("Hash is null.");
+        }
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        if (hashes.isEmpty()) {
+            return;
+        }
+
+        Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
+
+        saveHashToHashesSimilaritiesAsCsv(
+                hash, namesToHashes,
+                csvFile,
+                similaritySortCriteria, sortAscending,
+                rowsLimit);
+
+    }
+
+    /**
+     * Writes a table showing the similarity between a Uniform Fuzzy Hash and the introduced Uniform
+     * Fuzzy Hashes into a CSV file, overwriting it.
+     * 
+     * @param hash The Uniform Fuzzy Hash.
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param csvFile The file to save the CSV.
+     * @param similaritySortCriteria Similarity type to sort the table. Null not to sort it.
+     * @param sortAscending In case similaritySortCriteria is not null, true to sort ascending,
+     *        false to sort descending.
+     * @param rowsLimit Introduce a number larger than 0 to limit the number of rows.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveHashToHashesSimilaritiesAsCsv(
+            UniformFuzzyHash hash,
+            Map<String, UniformFuzzyHash> namesToHashes,
+            File csvFile,
+            SimilarityTypes similaritySortCriteria,
+            boolean sortAscending,
+            int rowsLimit)
+            throws IOException {
+
+        // Parameters check.
+        if (hash == null) {
+            throw new NullPointerException("Hash is null.");
+        }
+
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        if (csvFile == null) {
+            throw new NullPointerException("CSV file is null.");
+        }
+
+        if (csvFile.exists() && !csvFile.isFile()) {
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    csvFile.getName()));
+        }
+
+        // Similarities computation and caching.
+        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            if (hash1 == null) {
+                continue;
+            }
+            hash.similarity(hash1);
+            hash1.similarity(hash);
+        }
+
+        // Sort.
+        namesToHashes = sortBySimilarity(
+                namesToHashes, hash,
+                similaritySortCriteria, sortAscending);
+
+        // Hash names.
+        Set<String> names = namesToHashes.keySet();
+        int namesMaxLength = getMaxLength(true, -1, names);
+
+        // Similarity types names.
+        List<String> similarityTypesNames = SimilarityTypes.names();
+        int simiarityTypesNamesMaxLength = getMaxLength(false, -1, similarityTypesNames);
+
+        // Generate CSV.
+        StringBuilder csvLine = null;
+        List<String> csvLines = new ArrayList<>(names.size() + 1);
+
+        csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
+                + simiarityTypesNamesMaxLength) * similarityTypesNames.size());
+        for (String similarityTypeName : similarityTypesNames) {
+            csvLine.append(CSV_TRIMMED_SEPARATOR);
+            csvLine.append(escapeCsv(similarityTypeName));
+        }
+        csvLines.add(csvLine.toString());
+
+        int row = 1;
+        for (String name1 : names) {
+
+            csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
+                    + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * similarityTypesNames.size());
+
+            UniformFuzzyHash hash1 = namesToHashes.get(name1);
+            name1 = checkName(name1, -1);
+
+            csvLine.append(escapeCsv(name1));
+            for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+                csvLine.append(CSV_TRIMMED_SEPARATOR);
+                csvLine.append(similarityType.getSimilarityFormattedValue(hash, hash1));
+            }
+            csvLines.add(csvLine.toString());
+
+            if (row++ == rowsLimit) {
+                break;
+            }
+
+        }
+
+        // Save CSV.
+        FileUtils.writeLines(csvFile, FILES_ENCODING.name(), csvLines, false);
 
     }
 
@@ -2273,6 +2433,123 @@ public final class UniformFuzzyHashes {
         if (printStream == AnsiConsole.out) {
             AnsiConsole.systemUninstall();
         }
+
+    }
+
+    /**
+     * Writes a table showing the similarity between all the introduced Uniform Fuzzy Hashes into a
+     * CSV file, overwriting it.
+     * 
+     * @param hashes Collection of Uniform Fuzzy Hashes.
+     * @param csvFile The file to save the CSV.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveAllHashesSimilaritiesAsCsv(
+            Collection<UniformFuzzyHash> hashes,
+            File csvFile)
+            throws IOException {
+
+        if (hashes == null) {
+            throw new NullPointerException("Collection of hashes is null.");
+        }
+
+        if (hashes.isEmpty()) {
+            return;
+        }
+
+        Map<String, UniformFuzzyHash> namesToHashes = nameHashesCollectionByIndex(hashes);
+
+        saveAllHashesSimilaritiesAsCsv(
+                namesToHashes,
+                csvFile);
+
+    }
+
+    /**
+     * Writes a table showing the similarity between all the introduced Uniform Fuzzy Hashes into a
+     * CSV file, overwriting it.
+     * 
+     * @param namesToHashes Map from names to Uniform Fuzzy Hashes.
+     * @param csvFile The file to save the CSV.
+     * @throws IOException If an IOException occurs writing into the file.
+     */
+    public static void saveAllHashesSimilaritiesAsCsv(
+            Map<String, UniformFuzzyHash> namesToHashes,
+            File csvFile)
+            throws IOException {
+
+        // Parameters check.
+        if (namesToHashes == null) {
+            throw new NullPointerException("Map of hashes is null.");
+        }
+
+        if (namesToHashes.isEmpty()) {
+            return;
+        }
+
+        if (csvFile == null) {
+            throw new NullPointerException("CSV file is null.");
+        }
+
+        if (csvFile.exists() && !csvFile.isFile()) {
+            throw new IllegalArgumentException(String.format(
+                    "%s is not a file.",
+                    csvFile.getName()));
+        }
+
+        // Similarities computation and caching.
+        for (UniformFuzzyHash hash1 : namesToHashes.values()) {
+            if (hash1 == null) {
+                continue;
+            }
+            for (UniformFuzzyHash hash2 : namesToHashes.values()) {
+                if (hash2 == null) {
+                    continue;
+                }
+                hash1.similarity(hash2);
+            }
+        }
+
+        // Similarity type.
+        final SimilarityTypes similarityType = SimilarityTypes.SIMILARITY;
+
+        // Hash names.
+        Set<String> names = namesToHashes.keySet();
+        int namesMaxLength = getMaxLength(true, -1, names);
+
+        // Generate CSV.
+        StringBuilder csvLine = null;
+        List<String> csvLines = new ArrayList<>(names.size() + 1);
+
+        csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
+                + namesMaxLength) * names.size());
+        for (String name : names) {
+            name = checkName(name, -1);
+            csvLine.append(CSV_TRIMMED_SEPARATOR);
+            csvLine.append(escapeCsv(name));
+        }
+        csvLines.add(csvLine.toString());
+
+        for (String name1 : names) {
+
+            csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
+                    + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * names.size());
+
+            UniformFuzzyHash hash1 = namesToHashes.get(name1);
+            name1 = checkName(name1, -1);
+
+            csvLine.append(escapeCsv(name1));
+            for (String name2 : names) {
+                UniformFuzzyHash hash2 = namesToHashes.get(name2);
+                csvLine.append(CSV_TRIMMED_SEPARATOR);
+                csvLine.append(similarityType.getSimilarityFormattedValue(hash1, hash2));
+            }
+            csvLines.add(csvLine.toString());
+
+        }
+
+        // Save CSV.
+        FileUtils.writeLines(csvFile, FILES_ENCODING.name(), csvLines, false);
 
     }
 

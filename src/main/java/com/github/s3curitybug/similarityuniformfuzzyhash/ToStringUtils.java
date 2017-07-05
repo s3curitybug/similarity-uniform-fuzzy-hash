@@ -1,5 +1,7 @@
 package com.github.s3curitybug.similarityuniformfuzzyhash;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Arrays;
@@ -16,6 +18,11 @@ import java.util.regex.Pattern;
  *
  */
 public final class ToStringUtils {
+
+    /**
+     * Charset for reading and writing files.
+     */
+    public static final Charset FILES_ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
@@ -67,6 +74,16 @@ public final class ToStringUtils {
      * Separator for comma separated values.
      */
     public static final String CSV_SEPARATOR = ", ";
+
+    /**
+     * Trimmed separator for comma separated values.
+     */
+    public static final String CSV_TRIMMED_SEPARATOR = CSV_SEPARATOR.trim();
+
+    /**
+     * Quotation mark for comma separated values.
+     */
+    public static final String CSV_QUOTATION_MARK = "\"";
 
     /**
      * Symbols for decimal numbers format.
@@ -394,6 +411,29 @@ public final class ToStringUtils {
             int n) {
 
         return repeatString("-", n);
+
+    }
+
+    /**
+     * Escapes a string to include it into a comma separated values list.
+     * 
+     * @param str The string to escape.
+     * @return The escaped string.
+     */
+    protected static String escapeCsv(
+            String str) {
+
+        if (str.contains(CSV_TRIMMED_SEPARATOR) || str.contains(CSV_QUOTATION_MARK)) {
+
+            return CSV_QUOTATION_MARK
+                    + str.replace(CSV_QUOTATION_MARK, CSV_QUOTATION_MARK + CSV_QUOTATION_MARK)
+                    + CSV_QUOTATION_MARK;
+
+        } else {
+
+            return str;
+
+        }
 
     }
 

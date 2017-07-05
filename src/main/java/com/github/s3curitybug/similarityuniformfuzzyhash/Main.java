@@ -241,6 +241,14 @@ public final class Main {
                 false, 1, 1),
 
         /**
+         * To CSV.
+         */
+        TO_CSV(
+                "csv", "toCsv", "<file>",
+                "For tables, save to CSV file, overwriting it, instead of printing the table.",
+                false, 1, 1),
+
+        /**
          * Sorting by.
          */
         SORTING_BY(
@@ -476,6 +484,8 @@ public final class Main {
             String[] rArgs = parsedOptions.get(ArgsOptions.RECURSIVE);
             String[] oArgs = parsedOptions.get(ArgsOptions.OVERWRITE);
             String[] wrapArgs = parsedOptions.get(ArgsOptions.LINE_WRAP);
+            String[] csvArgs = parsedOptions.get(ArgsOptions.TO_CSV);
+            String csvArg = getOptionFirstArg(csvArgs);
             String[] sortArgs = parsedOptions.get(ArgsOptions.SORTING_BY);
             String sortArg = getOptionFirstArg(sortArgs);
             String[] limitArgs = parsedOptions.get(ArgsOptions.ROWS_LIMIT);
@@ -650,6 +660,18 @@ public final class Main {
                             ArgsOptions.toDisplayCsv(
                                     ArgsOptions.REPRESENT_VISUALLY,
                                     ArgsOptions.COMPARE_VISUALLY)));
+                }
+            }
+
+            if (csvArg != null) {
+                if (xyaArgs == null && xaArgs == null) {
+                    throw new IllegalStateException(String.format(
+                            "The option %s is only valid if "
+                                    + "at least one of these options is introduced: %s.",
+                            ArgsOptions.TO_CSV.display(),
+                            ArgsOptions.toDisplayCsv(
+                                    ArgsOptions.COMPARE_TO_ALL,
+                                    ArgsOptions.COMPARE_ALL)));
                 }
             }
 
@@ -897,11 +919,20 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
-                UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
-                        compareHash1, hashes,
-                        sortCriteria, sortAscending,
-                        rowsLimit, truncateNames,
-                        markAbove, markBelow);
+                if (csvArg == null) {
+                    UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
+                            compareHash1, hashes,
+                            sortCriteria, sortAscending,
+                            rowsLimit, truncateNames,
+                            markAbove, markBelow);
+                } else {
+                    file = new File(csvArg);
+                    UniformFuzzyHashes.saveHashToHashesSimilaritiesAsCsv(
+                            compareHash1, hashes,
+                            file,
+                            sortCriteria, sortAscending,
+                            rowsLimit);
+                }
             }
 
             if (xaArgs != null) {
@@ -916,10 +947,17 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
-                UniformFuzzyHashes.printAllHashesSimilaritiesTable(
-                        hashes,
-                        truncateNames,
-                        markAbove, markBelow);
+                if (csvArg == null) {
+                    UniformFuzzyHashes.printAllHashesSimilaritiesTable(
+                            hashes,
+                            truncateNames,
+                            markAbove, markBelow);
+                } else {
+                    file = new File(csvArg);
+                    UniformFuzzyHashes.saveAllHashesSimilaritiesAsCsv(
+                            hashes,
+                            file);
+                }
             }
 
         } catch (Exception exception) {

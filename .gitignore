@@ -3,4 +3,5 @@
 /src/test/resources/*.jar
 /src/test/resources/*.sufh
 /src/test/resources/*.asufh
+/src/test/resources/*.csv
 /src/test/resources/Malware/
