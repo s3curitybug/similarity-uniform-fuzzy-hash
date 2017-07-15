@@ -15,16 +15,20 @@ import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.ge
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.hyphens;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.spaces;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.output.FileWriterWithEncoding;
 import org.fusesource.jansi.AnsiConsole;
 
 import com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.AnsiCodeColors;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1499,8 +1503,26 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> textLines = namedHashesToTextLines(namesToHashes);
-        FileUtils.writeLines(file, FILES_ENCODING.name(), textLines, append);
+        try (PrintWriter writer = new PrintWriter(new FileWriterWithEncoding(
+                file, FILES_ENCODING, append))) {
+
+            Set<String> names = namesToHashes.keySet();
+
+            for (String name : names) {
+
+                UniformFuzzyHash hash = namesToHashes.get(name);
+
+                if (hash == null) {
+                    writer.println();
+                    continue;
+                }
+
+                String textLine = namedHashToTextLine(name, hash);
+                writer.println(textLine);
+
+            }
+
+        }
 
     }
 
@@ -1559,8 +1581,26 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> asciiLines = namedHashesToAsciiLines(namesToHashes);
-        FileUtils.writeLines(file, FILES_ENCODING.name(), asciiLines, append);
+        try (PrintWriter writer = new PrintWriter(new FileWriterWithEncoding(
+                file, FILES_ENCODING, append))) {
+
+            Set<String> names = namesToHashes.keySet();
+
+            for (String name : names) {
+
+                UniformFuzzyHash hash = namesToHashes.get(name);
+
+                if (hash == null) {
+                    writer.println();
+                    continue;
+                }
+
+                String textLine = namedHashToAsciiLine(name, hash);
+                writer.println(textLine);
+
+            }
+
+        }
 
     }
 
@@ -1592,8 +1632,25 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> textLines = FileUtils.readLines(file, FILES_ENCODING.name());
-        Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromTextLines(textLines);
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(
+                file), FILES_ENCODING))) {
+
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+
+                try {
+                    namesToHashes.putAll(rebuildNamedHashesFromTextLines(Arrays.asList(line)));
+                } catch (IllegalArgumentException illegalArgumentException) {
+                    throw new IllegalArgumentException(String.format(
+                            "File %s could not be parsed. %s",
+                            file.getName(),
+                            illegalArgumentException.getMessage()));
+                }
+
+            }
+
+        }
 
         return namesToHashes;
 
@@ -1627,8 +1684,25 @@ public final class UniformFuzzyHashes {
                     file.getName()));
         }
 
-        List<String> asciiLines = FileUtils.readLines(file, FILES_ENCODING.name());
-        Map<String, UniformFuzzyHash> namesToHashes = rebuildNamedHashesFromAsciiLines(asciiLines);
+        Map<String, UniformFuzzyHash> namesToHashes = new LinkedHashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(
+                file), FILES_ENCODING))) {
+
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+
+                try {
+                    namesToHashes.putAll(rebuildNamedHashesFromAsciiLines(Arrays.asList(line)));
+                } catch (IllegalArgumentException illegalArgumentException) {
+                    throw new IllegalArgumentException(String.format(
+                            "File %s could not be parsed. %s",
+                            file.getName(),
+                            illegalArgumentException.getMessage()));
+                }
+
+            }
+
+        }
 
         return namesToHashes;
 
@@ -2269,41 +2343,42 @@ public final class UniformFuzzyHashes {
         int simiarityTypesNamesMaxLength = getMaxLength(false, -1, similarityTypesNames);
 
         // Generate CSV.
-        StringBuilder csvLine = null;
-        List<String> csvLines = new ArrayList<>(names.size() + 1);
+        try (PrintWriter writer = new PrintWriter(new FileWriterWithEncoding(
+                csvFile, FILES_ENCODING, false))) {
 
-        csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
-                + simiarityTypesNamesMaxLength) * similarityTypesNames.size());
-        for (String similarityTypeName : similarityTypesNames) {
-            csvLine.append(CSV_TRIMMED_SEPARATOR);
-            csvLine.append(escapeCsv(similarityTypeName));
-        }
-        csvLines.add(csvLine.toString());
+            StringBuilder csvLine = null;
 
-        int row = 1;
-        for (String name1 : names) {
-
-            csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
-                    + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * similarityTypesNames.size());
-
-            UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1, -1);
-
-            csvLine.append(escapeCsv(name1));
-            for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+            csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
+                    + simiarityTypesNamesMaxLength) * similarityTypesNames.size());
+            for (String similarityTypeName : similarityTypesNames) {
                 csvLine.append(CSV_TRIMMED_SEPARATOR);
-                csvLine.append(similarityType.getSimilarityFormattedValue(hash, hash1));
+                csvLine.append(escapeCsv(similarityTypeName));
             }
-            csvLines.add(csvLine.toString());
+            writer.println(csvLine.toString());
 
-            if (row++ == rowsLimit) {
-                break;
+            int row = 1;
+            for (String name1 : names) {
+
+                csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
+                        + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * similarityTypesNames.size());
+
+                UniformFuzzyHash hash1 = namesToHashes.get(name1);
+                name1 = checkName(name1, -1);
+
+                csvLine.append(escapeCsv(name1));
+                for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+                    csvLine.append(CSV_TRIMMED_SEPARATOR);
+                    csvLine.append(similarityType.getSimilarityFormattedValue(hash, hash1));
+                }
+                writer.println(csvLine.toString());
+
+                if (row++ == rowsLimit) {
+                    break;
+                }
+
             }
 
         }
-
-        // Save CSV.
-        FileUtils.writeLines(csvFile, FILES_ENCODING.name(), csvLines, false);
 
     }
 
@@ -2518,38 +2593,39 @@ public final class UniformFuzzyHashes {
         int namesMaxLength = getMaxLength(true, -1, names);
 
         // Generate CSV.
-        StringBuilder csvLine = null;
-        List<String> csvLines = new ArrayList<>(names.size() + 1);
+        try (PrintWriter writer = new PrintWriter(new FileWriterWithEncoding(
+                csvFile, FILES_ENCODING, false))) {
 
-        csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
-                + namesMaxLength) * names.size());
-        for (String name : names) {
-            name = checkName(name, -1);
-            csvLine.append(CSV_TRIMMED_SEPARATOR);
-            csvLine.append(escapeCsv(name));
-        }
-        csvLines.add(csvLine.toString());
+            StringBuilder csvLine = null;
 
-        for (String name1 : names) {
-
-            csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
-                    + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * names.size());
-
-            UniformFuzzyHash hash1 = namesToHashes.get(name1);
-            name1 = checkName(name1, -1);
-
-            csvLine.append(escapeCsv(name1));
-            for (String name2 : names) {
-                UniformFuzzyHash hash2 = namesToHashes.get(name2);
+            csvLine = new StringBuilder((CSV_TRIMMED_SEPARATOR.length()
+                    + namesMaxLength) * names.size());
+            for (String name : names) {
+                name = checkName(name, -1);
                 csvLine.append(CSV_TRIMMED_SEPARATOR);
-                csvLine.append(similarityType.getSimilarityFormattedValue(hash1, hash2));
+                csvLine.append(escapeCsv(name));
             }
-            csvLines.add(csvLine.toString());
+            writer.println(csvLine.toString());
+
+            for (String name1 : names) {
+
+                csvLine = new StringBuilder(namesMaxLength + (CSV_TRIMMED_SEPARATOR.length()
+                        + ZERO_TO_ONE_DECIMAL_MAX_CHARS) * names.size());
+
+                UniformFuzzyHash hash1 = namesToHashes.get(name1);
+                name1 = checkName(name1, -1);
+
+                csvLine.append(escapeCsv(name1));
+                for (String name2 : names) {
+                    UniformFuzzyHash hash2 = namesToHashes.get(name2);
+                    csvLine.append(CSV_TRIMMED_SEPARATOR);
+                    csvLine.append(similarityType.getSimilarityFormattedValue(hash1, hash2));
+                }
+                writer.println(csvLine.toString());
+
+            }
 
         }
-
-        // Save CSV.
-        FileUtils.writeLines(csvFile, FILES_ENCODING.name(), csvLines, false);
 
     }
 
