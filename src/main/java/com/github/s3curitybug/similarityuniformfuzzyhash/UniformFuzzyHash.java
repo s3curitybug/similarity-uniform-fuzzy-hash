@@ -56,6 +56,11 @@ public class UniformFuzzyHash {
     private Set<UniformFuzzyHashBlock> blocksSet;
 
     /**
+     * Indicates if computed similarities must be cached.
+     */
+    private boolean cacheSimilarities;
+
+    /**
      * Map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.
      * Useful to cache similarities, to avoid multiple calculations of the same similarity.
      */
@@ -68,9 +73,10 @@ public class UniformFuzzyHash {
 
         this.factor = 0;
         this.dataSize = 0;
-        this.blocks = new LinkedList<>();
+        this.blocks = null;
         this.blocksSet = null;
-        this.similaritiesCache = new HashMap<>();
+        this.cacheSimilarities = true;
+        this.similaritiesCache = null;
 
     }
 
@@ -91,11 +97,7 @@ public class UniformFuzzyHash {
             throw new NullPointerException("Data is null.");
         }
 
-        this.factor = factor;
-        this.dataSize = data.length;
-
-        computeUniformFuzzyHash(data);
-        finishBuild();
+        computeUniformFuzzyHash(data, factor);
 
     }
 
@@ -118,12 +120,7 @@ public class UniformFuzzyHash {
         }
 
         byte[] byteArray = data.getBytes();
-
-        this.factor = factor;
-        this.dataSize = byteArray.length;
-
-        computeUniformFuzzyHash(byteArray);
-        finishBuild();
+        computeUniformFuzzyHash(byteArray, factor);
 
     }
 
@@ -147,12 +144,7 @@ public class UniformFuzzyHash {
         }
 
         byte[] byteArray = IOUtils.toByteArray(data);
-
-        this.factor = factor;
-        this.dataSize = byteArray.length;
-
-        computeUniformFuzzyHash(byteArray);
-        finishBuild();
+        computeUniformFuzzyHash(byteArray, factor);
 
     }
 
@@ -174,12 +166,7 @@ public class UniformFuzzyHash {
         }
 
         byte[] byteArray = data.toByteArray();
-
-        this.factor = factor;
-        this.dataSize = byteArray.length;
-
-        computeUniformFuzzyHash(byteArray);
-        finishBuild();
+        computeUniformFuzzyHash(byteArray, factor);
 
     }
 
@@ -215,12 +202,7 @@ public class UniformFuzzyHash {
         }
 
         byte[] byteArray = IOUtils.toByteArray(new FileInputStream(data));
-
-        this.factor = factor;
-        this.dataSize = byteArray.length;
-
-        computeUniformFuzzyHash(byteArray);
-        finishBuild();
+        computeUniformFuzzyHash(byteArray, factor);
 
     }
 
@@ -228,12 +210,20 @@ public class UniformFuzzyHash {
      * Main algorithm computation.
      * 
      * @param data Byte array of data.
+     * @param factor Relation between data length and the hash mean number of blocks.
+     *        Must be greater than 2 and must be odd.
      */
     private void computeUniformFuzzyHash(
-            byte[] data) {
+            byte[] data,
+            int factor) {
 
         // Factor check.
         checkFactor(factor);
+
+        // Attributes assignment.
+        this.factor = factor;
+        this.dataSize = data.length;
+        this.blocks = new LinkedList<>();
 
         // Size in bytes of the rolling window.
         // Size in bytes of factor + 5.
@@ -304,20 +294,6 @@ public class UniformFuzzyHash {
             }
 
         }
-
-    }
-
-    /**
-     * Finishes a Uniform Fuzzy Hash build.
-     */
-    private void finishBuild() {
-
-        // Blocks set computation.
-        blocksSet = new HashSet<>(blocks);
-
-        // Make blocks list and set unmodifiable.
-        blocks = Collections.unmodifiableList(blocks);
-        blocksSet = Collections.unmodifiableSet(blocksSet);
 
     }
 
@@ -418,6 +394,8 @@ public class UniformFuzzyHash {
         checkFactor(hash.factor);
 
         // Blocks.
+        hash.blocks = new LinkedList<>();
+
         if (factorSplit.length == 2) {
 
             String blocksString = factorSplit[1].trim();
@@ -460,9 +438,6 @@ public class UniformFuzzyHash {
             hash.dataSize = blockStartingBytePosition;
 
         }
-
-        // Finish build.
-        hash.finishBuild();
 
         // Return.
         return hash;
@@ -512,6 +487,8 @@ public class UniformFuzzyHash {
         checkFactor(hash.factor);
 
         // Blocks.
+        hash.blocks = new LinkedList<>();
+
         if (factorSplit.length == 2) {
 
             String blocksString = factorSplit[1];
@@ -549,9 +526,6 @@ public class UniformFuzzyHash {
             hash.dataSize = blockStartingBytePosition;
 
         }
-
-        // Finish build.
-        hash.finishBuild();
 
         // Return.
         return hash;
@@ -591,9 +565,11 @@ public class UniformFuzzyHash {
         }
 
         // Cache check.
-        Double cachedSimilarity = similaritiesCache.get(other);
-        if (cachedSimilarity != null) {
-            return cachedSimilarity;
+        if (cacheSimilarities && similaritiesCache != null) {
+            Double cachedSimilarity = similaritiesCache.get(other);
+            if (cachedSimilarity != null) {
+                return cachedSimilarity;
+            }
         }
 
         // Sum of the sizes in bytes of the blocks of this Uniform Fuzzy Hash which are also in the
@@ -602,6 +578,8 @@ public class UniformFuzzyHash {
 
         // Check which blocks of this Uniform Fuzzy Hash are in the set of blocks of the other
         // Uniform Fuzzy Hash.
+        other.accessBlocksSet();
+
         for (UniformFuzzyHashBlock block : this.blocks) {
 
             if (other.blocksSet.contains(block)) {
@@ -614,10 +592,12 @@ public class UniformFuzzyHash {
         }
 
         // Similarity computation.
-        double similarity = (double) sizeSum / dataSize;
+        double similarity = (double) sizeSum / this.dataSize;
 
         // Cache the computed similarity.
-        similaritiesCache.put(other, similarity);
+        if (cacheSimilarities) {
+            accessSimilaritiesCache().put(other, similarity);
+        }
 
         return similarity;
 
@@ -800,20 +780,42 @@ public class UniformFuzzyHash {
     }
 
     /**
-     * @return The blocks of this hash.
+     * @return The list of blocks of this hash.
      */
-    public List<UniformFuzzyHashBlock> getBlocks() {
+    protected List<UniformFuzzyHashBlock> accessBlocks() {
 
         return blocks;
 
     }
 
     /**
-     * @return The blocks set of this hash.
+     * @return The unmodifiable list of blocks of this hash.
+     */
+    public List<UniformFuzzyHashBlock> getBlocks() {
+
+        return Collections.unmodifiableList(blocks);
+
+    }
+
+    /**
+     * @return The set of blocks of this hash, building it if it is null.
+     */
+    protected Set<UniformFuzzyHashBlock> accessBlocksSet() {
+
+        if (blocksSet == null) {
+            blocksSet = new HashSet<>(blocks);
+        }
+
+        return blocksSet;
+
+    }
+
+    /**
+     * @return The unmodifiable set of blocks of this hash.
      */
     public Set<UniformFuzzyHashBlock> getBlocksSet() {
 
-        return blocksSet;
+        return Collections.unmodifiableSet(blocksSet);
 
     }
 
@@ -861,6 +863,60 @@ public class UniformFuzzyHash {
         }
 
         return Math.sqrt(variance);
+
+    }
+
+    /**
+     * @return Boolean indicating if computed similarities are being cached.
+     */
+    public boolean getCacheSimilarities() {
+
+        return cacheSimilarities;
+
+    }
+
+    /**
+     * Sets if computed similarities must be cached.
+     * 
+     * @param cacheSimilarities Boolean indicating if computed similarities must be cached.
+     */
+    public void setCacheSimilarities(
+            boolean cacheSimilarities) {
+
+        this.cacheSimilarities = cacheSimilarities;
+
+    }
+
+    /**
+     * @return The map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash,
+     *         building it if it is null.
+     */
+    protected Map<UniformFuzzyHash, Double> accessSimilaritiesCache() {
+
+        if (similaritiesCache == null) {
+            similaritiesCache = new HashMap<>();
+        }
+
+        return similaritiesCache;
+
+    }
+
+    /**
+     * @return The unmodifiable map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash
+     *         similarity to them.
+     */
+    public Map<UniformFuzzyHash, Double> getSimilaritiesCache() {
+
+        return Collections.unmodifiableMap(accessSimilaritiesCache());
+
+    }
+
+    /**
+     * Clears the map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.
+     */
+    public void clearSimilaritiesCache() {
+
+        this.similaritiesCache = null;
 
     }
 

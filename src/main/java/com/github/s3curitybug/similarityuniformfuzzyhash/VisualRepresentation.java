@@ -142,7 +142,7 @@ public final class VisualRepresentation {
         }
 
         int factor = hash.getFactor();
-        List<UniformFuzzyHashBlock> blocks = hash.getBlocks();
+        List<UniformFuzzyHashBlock> blocks = hash.accessBlocks();
 
         StringBuilder strB = new StringBuilder(blocks.size() * factorDivisor * 2);
 
@@ -224,8 +224,8 @@ public final class VisualRepresentation {
             throw new IllegalArgumentException("The Uniform Fuzzy Hashes factors are different.");
         }
 
-        List<UniformFuzzyHashBlock> blocks1 = hash1.getBlocks();
-        Set<UniformFuzzyHashBlock> blocks2 = hash2.getBlocksSet();
+        List<UniformFuzzyHashBlock> blocks1 = hash1.accessBlocks();
+        Set<UniformFuzzyHashBlock> blocks2 = hash2.accessBlocksSet();
 
         StringBuilder strB = new StringBuilder(blocks1.size() * factorDivisor * 2);
 
