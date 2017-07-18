@@ -4,7 +4,7 @@
   <groupId>com.github.s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
   <name>${project.artifactId}</name>
-  <version>1.6.1</version>
+  <version>1.7</version>
   <description>Similarity Uniform Fuzzy Hash is a tool that allows to accurately and efficiently compute 
 		the similarity between two files (or sets of bytes) as a 0 to 1 score.
 		For that purpose, it first computes for each file a Context Triggered Piecewise Hash (CTPH), 
