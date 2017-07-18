@@ -4,9 +4,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -48,7 +46,7 @@ public final class ToStringUtils {
     /**
      * Separator between block parts for a Uniform Fuzzy Hash Block string representation.
      */
-    public static final String BLOCK_INNER_SEPARATOR = ".";
+    public static final String BLOCK_INNER_SEPARATOR = "/";
 
     /**
      * Tabulation.
@@ -86,6 +84,41 @@ public final class ToStringUtils {
     public static final String CSV_QUOTATION_MARK = "\"";
 
     /**
+     * Maximum number of characters of an integer string representation.
+     */
+    protected static final int INT_MAX_CHARS =
+            Integer.toString(Integer.MAX_VALUE).length();
+
+    /**
+     * Maximum number of characters of a factor string representation with separator.
+     */
+    protected static final int FACTOR_WITH_SEP_MAX_CHARS =
+            INT_MAX_CHARS + FACTOR_SEPARATOR.length();
+
+    /**
+     * Base in which Uniform Fuzzy Hash Blocks integers are represented.
+     */
+    protected static final int BLOCK_BASE = 36;
+
+    /**
+     * Maximum number of characters of an integer block base representation.
+     */
+    protected static final int BLOCK_INT_MAX_CHARS =
+            Integer.toString(Integer.MAX_VALUE, BLOCK_BASE).length();
+
+    /**
+     * Maximum number of characters of a block string representation.
+     */
+    protected static final int BLOCK_MAX_CHARS =
+            2 * BLOCK_INT_MAX_CHARS + BLOCK_INNER_SEPARATOR.length();
+
+    /**
+     * Maximum number of characters of a block string representation with separator.
+     */
+    protected static final int BLOCK_WITH_SEP_MAX_CHARS =
+            BLOCK_MAX_CHARS + BLOCKS_SEPARATOR.length();
+
+    /**
      * Symbols for decimal numbers format.
      */
     public static final DecimalFormatSymbols DECIMALS_FORMAT_SYMBOLS =
@@ -96,23 +129,6 @@ public final class ToStringUtils {
      */
     public static final DecimalFormat DECIMALS_FORMAT =
             new DecimalFormat("0.0##", DECIMALS_FORMAT_SYMBOLS);
-
-    /**
-     * Hexadecimal base.
-     */
-    protected static final int HEX_RADIX = 16;
-
-    /**
-     * Maximum number of characters of an integer string representation.
-     */
-    protected static final int INT_MAX_CHARS =
-            Integer.toString(Integer.MAX_VALUE).length();
-
-    /**
-     * Maximum number of characters of an integer hexadecimal string representation.
-     */
-    protected static final int HEX_INT_MAX_CHARS =
-            Integer.toHexString(Integer.MAX_VALUE).length();
 
     /**
      * Maximum number of characters of a decimal number string representation.
@@ -127,80 +143,6 @@ public final class ToStringUtils {
     protected static final int ZERO_TO_ONE_DECIMAL_MAX_CHARS = 1
             + DECIMALS_FORMAT.getMinimumIntegerDigits()
             + DECIMALS_FORMAT.getMaximumFractionDigits();
-
-    /**
-     * Maximum number of characters of a factor string representation with separator.
-     */
-    protected static final int FACTOR_WITH_SEP_MAX_CHARS =
-            INT_MAX_CHARS + FACTOR_SEPARATOR.length();
-
-    /**
-     * Maximum number of characters of a block hexadecimal string representation.
-     */
-    protected static final int HEX_BLOCK_MAX_CHARS =
-            2 * HEX_INT_MAX_CHARS + BLOCK_INNER_SEPARATOR.length();
-
-    /**
-     * Maximum number of characters of a block hexadecimal string representation with separator.
-     */
-    protected static final int HEX_BLOCK_WITH_SEP_MAX_CHARS =
-            HEX_BLOCK_MAX_CHARS + BLOCKS_SEPARATOR.length();
-
-    /**
-     * Number of bits of an ascii character.
-     */
-    protected static final int ASCII_CHAR_BITS = 7;
-
-    /**
-     * Maximum number of characters of an integer ascii string representation, including escapes and
-     * number of characters.
-     */
-    protected static final int ASCII_INT_MAX_CHARS =
-            2 * ((Integer.SIZE / ASCII_CHAR_BITS) + 2);
-
-    /**
-     * Maximum number of characters of a block ascii string representation.
-     */
-    protected static final int ACII_BLOCK_MAX_CHARS =
-            2 * ASCII_INT_MAX_CHARS;
-
-    /**
-     * Character encoder for ascii string representations.
-     */
-    protected static final int ASCII_CHAR_ENCODER =
-            (1 << ASCII_CHAR_BITS) - 1; // 0b01111111
-
-    /**
-     * Number of bits needed to store the maximum number of characters of an integer ascii string
-     * representation, including escapes and number of characters.
-     */
-    protected static final int ASCII_INT_MAX_CHARS_BITS =
-            Integer.SIZE - Integer.numberOfLeadingZeros(ASCII_INT_MAX_CHARS); // 4
-
-    /**
-     * Number of bits to shift the number of characters of an integer ascii string representation.
-     */
-    protected static final int ASCII_INT_CHARS_SHIFT_BITS =
-            ASCII_CHAR_BITS - ASCII_INT_MAX_CHARS_BITS; // 3
-
-    /**
-     * Number of characters of an integer ascii string representation encoder.
-     */
-    protected static final int ASCII_INT_CHARS_ENCODER =
-            (1 << ASCII_INT_CHARS_SHIFT_BITS) - 1; // 0b00000111
-
-    /**
-     * Escapable characters for ascii string representations.
-     */
-    protected static final List<Character> ASCII_ESCAPABLE_CHARS = Arrays.asList(
-            '\\', '\0', '\r', '\n',
-            NAME_SEPARATOR.trim().charAt(0),
-            FACTOR_SEPARATOR.charAt(0));
-
-    /**
-     * Escape character for ascii string representations.
-     */
-    protected static final char ASCII_ESCAPE_CHAR = '\\';
 
     /**
      * Unicode control character.

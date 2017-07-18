@@ -39,20 +39,6 @@ public final class Main {
             ArgsOptions.COMPUTE_DIRECTORY_HASHES};
 
     /**
-     * Save options.
-     */
-    private static final ArgsOptions[] SAVE_OPTIONS = {
-            ArgsOptions.SAVE_TO_TEXT_FILE,
-            ArgsOptions.SAVE_TO_ASCII_FILE};
-
-    /**
-     * Load options.
-     */
-    private static final ArgsOptions[] LOAD_OPTIONS = {
-            ArgsOptions.LOAD_FROM_ASCII_FILE,
-            ArgsOptions.LOAD_FROM_TEXT_FILE};
-
-    /**
      * Functional options.
      */
     private static final ArgsOptions[] FUNCTIONAL_OPTIONS = {
@@ -111,47 +97,12 @@ public final class Main {
                 false, 1, -1),
 
         /**
-         * Save to ascii file.
-         */
-        SAVE_TO_ASCII_FILE(
-                "saf", "saveToAsciiFile", "<file> [<file>] ...",
-                "Save all computed hashes to ascii file (one file per argument), "
-                        + "appending them to its content.",
-                false, 1, -1),
-
-        /**
          * Load from text file.
          */
         LOAD_FROM_TEXT_FILE(
                 "ltf", "loadFromTextFile", "<file> [<file>] ...",
                 "Load saved hashes from text file (one file per argument).",
                 false, 1, -1),
-
-        /**
-         * Load from ascii file.
-         */
-        LOAD_FROM_ASCII_FILE(
-                "laf", "loadFromAsciiFile", "<file> [<file>] ...",
-                "Load saved hashes from ascii file (one file per argument).",
-                false, 1, -1),
-
-        /**
-         * Export to text file.
-         */
-        EXPORT_TO_TEXT_FILE(
-                "etf", "exportToTextFile", "<file> <file>",
-                "Export saved hashes from ascii file (first argument) "
-                        + "to text file (second argument), appending them to its content.",
-                false, 2, 2),
-
-        /**
-         * Export to ascii file.
-         */
-        EXPORT_TO_ASCII_FILE(
-                "eaf", "exportToAsciiFile", "<file> <file>",
-                "Export saved hashes from text file (first argument) "
-                        + "to ascii file (second argument), appending them to its content.",
-                false, 2, 2),
 
         /**
          * Represent visually.
@@ -228,7 +179,7 @@ public final class Main {
          */
         OVERWRITE(
                 "o", "overwrite", "",
-                "Overwrite file contents when saving or exporting hashes to file "
+                "Overwrite file contents when saving hashes to file "
                         + "instead of appending them to its content.",
                 false, 0, 0),
 
@@ -470,11 +421,7 @@ public final class Main {
             String[] cdhArgs = parsedOptions.get(ArgsOptions.COMPUTE_DIRECTORY_HASHES);
             String[] fArgs = parsedOptions.get(ArgsOptions.FACTOR);
             String[] stfArgs = parsedOptions.get(ArgsOptions.SAVE_TO_TEXT_FILE);
-            String[] safArgs = parsedOptions.get(ArgsOptions.SAVE_TO_ASCII_FILE);
             String[] ltfArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_TEXT_FILE);
-            String[] lafArgs = parsedOptions.get(ArgsOptions.LOAD_FROM_ASCII_FILE);
-            String[] etfArgs = parsedOptions.get(ArgsOptions.EXPORT_TO_TEXT_FILE);
-            String[] eafArgs = parsedOptions.get(ArgsOptions.EXPORT_TO_ASCII_FILE);
             String[] rvArgs = parsedOptions.get(ArgsOptions.REPRESENT_VISUALLY);
             String rvArg = getOptionFirstArg(rvArgs);
             String[] xArgs = parsedOptions.get(ArgsOptions.COMPARE);
@@ -536,8 +483,6 @@ public final class Main {
 
             // Logic checks.
             int nComputeOptions = countOptions(parsedOptions, COMPUTE_OPTIONS);
-            int nSaveOptions = countOptions(parsedOptions, SAVE_OPTIONS);
-            int nLoadOptions = countOptions(parsedOptions, LOAD_OPTIONS);
             int nFunctionalOptions = countOptions(parsedOptions, FUNCTIONAL_OPTIONS);
 
             if (nComputeOptions > 0 && fArgs == null) {
@@ -548,21 +493,21 @@ public final class Main {
                         ArgsOptions.FACTOR.display()));
             }
 
-            if (nSaveOptions > 0 && nComputeOptions == 0) {
+            if (stfArgs != null && nComputeOptions == 0) {
                 throw new IllegalStateException(String.format(
-                        "In order to use any of these options: %s, "
+                        "In order to use the option %s, "
                                 + "at least one of these options must be introduced: %s.",
-                        ArgsOptions.toDisplayCsv(SAVE_OPTIONS),
+                        ArgsOptions.SAVE_TO_TEXT_FILE.display(),
                         ArgsOptions.toDisplayCsv(COMPUTE_OPTIONS)));
             }
 
-            if (nFunctionalOptions > 0 && nComputeOptions == 0 && nLoadOptions == 0) {
+            if (nFunctionalOptions > 0 && nComputeOptions == 0 && ltfArgs == null) {
                 throw new IllegalStateException(String.format(
                         "In order to use any of these options: %s, "
                                 + "at least one of these options must be introduced: %s, %s.",
                         ArgsOptions.toDisplayCsv(FUNCTIONAL_OPTIONS),
                         ArgsOptions.toDisplayCsv(COMPUTE_OPTIONS),
-                        ArgsOptions.toDisplayCsv(LOAD_OPTIONS)));
+                        ArgsOptions.LOAD_FROM_TEXT_FILE.display()));
             }
 
             if (nFunctionalOptions > 1) {
@@ -639,15 +584,12 @@ public final class Main {
             }
 
             if (oArgs != null) {
-                if (stfArgs == null && safArgs == null && etfArgs == null && eafArgs == null) {
+                if (stfArgs == null) {
                     throw new IllegalStateException(String.format(
                             "The option %s is only valid if "
-                                    + "at least one of these options is introduced: %s, %s.",
+                                    + "the option %s is introduced.",
                             ArgsOptions.OVERWRITE.display(),
-                            ArgsOptions.toDisplayCsv(SAVE_OPTIONS),
-                            ArgsOptions.toDisplayCsv(
-                                    ArgsOptions.EXPORT_TO_TEXT_FILE,
-                                    ArgsOptions.EXPORT_TO_ASCII_FILE)));
+                            ArgsOptions.SAVE_TO_TEXT_FILE.display()));
                 }
             }
 
@@ -786,13 +728,6 @@ public final class Main {
                 }
             }
 
-            if (safArgs != null) {
-                for (String safArg : safArgs) {
-                    file = new File(safArg);
-                    UniformFuzzyHashes.saveToAsciiFile(computedHashes, file, !overwrite);
-                }
-            }
-
             if (ltfArgs != null) {
                 for (String ltfArg : ltfArgs) {
                     file = new File(ltfArg);
@@ -802,26 +737,7 @@ public final class Main {
                 }
             }
 
-            if (lafArgs != null) {
-                for (String lafArg : lafArgs) {
-                    file = new File(lafArg);
-                    hashes = UniformFuzzyHashes.loadFromAsciiFile(file);
-                    loadedHashes.putAll(hashes);
-                    computedAndLoadedHashes.putAll(hashes);
-                }
-            }
-
-            if (etfArgs != null) {
-                hashes = UniformFuzzyHashes.loadFromAsciiFile(new File(etfArgs[0]));
-                UniformFuzzyHashes.saveToTextFile(hashes, new File(etfArgs[1]), !overwrite);
-            }
-
-            if (eafArgs != null) {
-                hashes = UniformFuzzyHashes.loadFromTextFile(new File(eafArgs[0]));
-                UniformFuzzyHashes.saveToAsciiFile(hashes, new File(eafArgs[1]), !overwrite);
-            }
-
-            if (nSaveOptions == 0 && nFunctionalOptions == 0) {
+            if (stfArgs == null && nFunctionalOptions == 0) {
                 if (!computedHashes.isEmpty() && !loadedHashes.isEmpty()) {
                     System.out.println();
                     System.out.println(IGNORE_MARK + " Computed Hashes:");

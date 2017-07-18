@@ -194,33 +194,4 @@ public class UniformFuzzyHashesTest {
 
     }
 
-    /**
-     * Save and load hashes as ascii test.
-     * Tests the hashes saving to and loading from a target ascii file.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file or writing a
-     *         target file.
-     */
-    @Test
-    public void saveAndLoadHashesAsAsciiTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final File storageFile = TestResourcesUtils.getTargetFile(directory.getName() + ".asufh");
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.saveToAsciiFile(namesToHashes, storageFile, false);
-
-        Assert.assertTrue(storageFile.exists());
-
-        Map<String, UniformFuzzyHash> loadedNamesToHashes = UniformFuzzyHashes
-                .loadFromAsciiFile(storageFile);
-
-        Assert.assertTrue(namesToHashes.equals(loadedNamesToHashes));
-
-    }
-
 }

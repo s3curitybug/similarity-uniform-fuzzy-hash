@@ -1,10 +1,9 @@
 package com.github.s3curitybug.similarityuniformfuzzyhash;
 
-import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.ACII_BLOCK_MAX_CHARS;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.BLOCKS_SEPARATOR;
+import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.BLOCK_WITH_SEP_MAX_CHARS;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.FACTOR_SEPARATOR;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.FACTOR_WITH_SEP_MAX_CHARS;
-import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.HEX_BLOCK_WITH_SEP_MAX_CHARS;
 
 import org.apache.commons.io.IOUtils;
 
@@ -299,10 +298,7 @@ public class UniformFuzzyHash {
     }
 
     /**
-     * @return A string representation of this Uniform Fuzzy Hash.
-     *         Factor is represented as a decimal integer.
-     *         Each block is represented as two hexadecimal integers,
-     *         the first one representing its hash and the second one representing its size.
+     * @return The string representation of this Uniform Fuzzy Hash.
      */
     @Override
     public String toString() {
@@ -310,7 +306,7 @@ public class UniformFuzzyHash {
         // String builder.
         // Initial capacity enough to build the full hash string.
         StringBuilder strB = new StringBuilder(
-                FACTOR_WITH_SEP_MAX_CHARS + HEX_BLOCK_WITH_SEP_MAX_CHARS * blocks.size());
+                FACTOR_WITH_SEP_MAX_CHARS + BLOCK_WITH_SEP_MAX_CHARS * blocks.size());
 
         // Factor.
         strB.append(factor);
@@ -330,36 +326,7 @@ public class UniformFuzzyHash {
     }
 
     /**
-     * @return An ascii string representation of this Uniform Fuzzy Hash.
-     *         Factor is represented as a decimal integer.
-     *         Each block is represented as two ascii integers,
-     *         the first one representing its hash and the second one representing its size.
-     */
-    public String toAsciiString() {
-
-        // String builder.
-        // Initial capacity enough to build the full hash string.
-        StringBuilder strB = new StringBuilder(
-                FACTOR_WITH_SEP_MAX_CHARS + ACII_BLOCK_MAX_CHARS * blocks.size());
-
-        // Factor.
-        strB.append(factor);
-        strB.append(FACTOR_SEPARATOR);
-
-        // Blocks.
-        for (UniformFuzzyHashBlock block : blocks) {
-            block.toAsciiString(strB);
-        }
-
-        return strB.toString();
-
-    }
-
-    /**
-     * Rebuilds a Uniform Fuzzy Hash from a string representing it.
-     * Factor must be represented as a decimal integer.
-     * Each block must be represented as two hexadecimal integers,
-     * the first one representing its hash and the second one representing its size.
+     * Rebuilds a Uniform Fuzzy Hash from its string representation.
      * 
      * @param hashString String representation of a Uniform Fuzzy Hash.
      * @return The rebuilt Uniform Fuzzy Hash.
@@ -385,13 +352,13 @@ public class UniformFuzzyHash {
         }
 
         // Factor.
-        String factorString = factorSplit[0].trim();
+        String factorString = factorSplit[0];
 
         try {
             hash.factor = Integer.parseInt(factorString);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(String.format(
-                    "Factor (%s) is not parseable as an integer.",
+                    "Factor (%s) is not parseable.",
                     factorString));
         }
 
@@ -425,94 +392,6 @@ public class UniformFuzzyHash {
                             "Block number %d (%s) could not be parsed. %s",
                             blockNumber,
                             blockString,
-                            illegalArgumentException.getMessage()));
-                }
-
-                hash.blocks.add(block);
-
-                // Next block.
-                blockNumber++;
-                blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
-
-            }
-
-            // Data size.
-            hash.dataSize = blockStartingBytePosition;
-
-        }
-
-        // Return.
-        return hash;
-
-    }
-
-    /**
-     * Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.
-     * Factor must be represented as a decimal integer.
-     * Each block must be represented as two ascii integers,
-     * the first one representing its hash and the second one representing its size.
-     * 
-     * @param hashAsciiString Ascii string representation of a Uniform Fuzzy Hash.
-     * @return The rebuilt Uniform Fuzzy Hash.
-     */
-    public static UniformFuzzyHash rebuildFromAsciiString(
-            String hashAsciiString) {
-
-        // Parameters check.
-        if (hashAsciiString == null) {
-            throw new NullPointerException("Hash string is null.");
-        }
-
-        // Uniform Fuzzy Hash.
-        UniformFuzzyHash hash = new UniformFuzzyHash();
-
-        // Split factor from blocks.
-        String[] factorSplit = hashAsciiString.split(Pattern.quote(FACTOR_SEPARATOR));
-
-        if (factorSplit.length != 1 && factorSplit.length != 2) {
-            throw new IllegalArgumentException(String.format(
-                    "Hash string does not fit the format factor%sblocks.",
-                    FACTOR_SEPARATOR));
-        }
-
-        // Factor.
-        String factorString = factorSplit[0].trim();
-
-        try {
-            hash.factor = Integer.parseInt(factorString);
-        } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException(String.format(
-                    "Factor (%s) is not parseable as an integer.",
-                    factorString));
-        }
-
-        checkFactor(hash.factor);
-
-        // Blocks.
-        hash.blocks = new LinkedList<>();
-
-        if (factorSplit.length == 2) {
-
-            String blocksString = factorSplit[1];
-
-            int blockNumber = 0;
-            int blockStartingBytePosition = 0;
-
-            for (int[] offset = {0}; offset[0] < blocksString.length();) {
-
-                // Block.
-                UniformFuzzyHashBlock block = null;
-                int offsetAux = offset[0];
-
-                try {
-                    block = UniformFuzzyHashBlock.rebuildFromAsciiString(
-                            blocksString, offset, blockStartingBytePosition);
-                } catch (IllegalArgumentException illegalArgumentException) {
-                    throw new IllegalArgumentException(String.format(
-                            "Block number %d (starting at string position %d) "
-                                    + "could not be parsed. %s",
-                            blockNumber,
-                            offsetAux,
                             illegalArgumentException.getMessage()));
                 }
 
