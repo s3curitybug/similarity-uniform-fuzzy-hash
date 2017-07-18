@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":9,"i15":9,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":9,"i18":9,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -191,96 +191,116 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#clearSimilaritiesCache--">clearSimilaritiesCache</a></span>()</code>
+<div class="block">Clears the map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#equals-java.lang.Object-">equals</a></span>(java.lang.Object&nbsp;obj)</code>
 <div class="block">Indicates whether this Uniform Fuzzy Hash is equal to another one.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#geometricMeanSimilarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">geometricMeanSimilarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this hash to another one, and the similarity from the other
  hash to this one, and returns the geometric mean, sqrt(similarity1 * similarity2).</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getAmountOfBlocks--">getAmountOfBlocks</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashBlock.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHashBlock</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getBlocks--">getBlocks</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getBlockSizeMean--">getBlockSizeMean</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getBlockSizeStDev--">getBlockSizeStDev</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Set&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashBlock.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHashBlock</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getBlocksSet--">getBlocksSet</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getCacheSimilarities--">getCacheSimilarities</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getDataSize--">getDataSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getFactor--">getFactor</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>java.util.Map&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>,java.lang.Double&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#getSimilaritiesCache--">getSimilaritiesCache</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#hashCode--">hashCode</a></span>()</code>
 <div class="block">A hashCode for this Uniform Fuzzy Hash based on its factor, data size and amount of blocks.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#maxSimilarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">maxSimilarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this hash to another one, and the similarity from the other
  hash to this one, and returns the largest one.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#minSimilarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">minSimilarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this hash to another one, and the similarity from the other
  hash to this one, and returns the smallest one.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromAsciiString-java.lang.String-">rebuildFromAsciiString</a></span>(java.lang.String&nbsp;hashAsciiString)</code>
 <div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromString-java.lang.String-">rebuildFromString</a></span>(java.lang.String&nbsp;hashString)</code>
 <div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#reverseSimilarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">reverseSimilarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of another Uniform Fuzzy Hash to this one.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#setCacheSimilarities-boolean-">setCacheSimilarities</a></span>(boolean&nbsp;cacheSimilarities)</code>
+<div class="block">Sets if computed similarities must be cached.</div>
+</td>
+</tr>
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#similarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">similarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this Uniform Fuzzy Hash to another one and returns it as a number
  between 0 and 1.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toAsciiString--">toAsciiString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -657,7 +677,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashBlock.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHashBlock</a>&gt;&nbsp;getBlocks()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The blocks of this hash.</dd>
+<dd>The unmodifiable list of blocks of this hash.</dd>
 </dl>
 </li>
 </ul>
@@ -670,7 +690,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.util.Set&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashBlock.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHashBlock</a>&gt;&nbsp;getBlocksSet()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The blocks set of this hash.</dd>
+<dd>The unmodifiable set of blocks of this hash.</dd>
 </dl>
 </li>
 </ul>
@@ -711,6 +731,57 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The standard deviation of this hash block size.</dd>
 </dl>
+</li>
+</ul>
+<a name="getCacheSimilarities--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCacheSimilarities</h4>
+<pre>public&nbsp;boolean&nbsp;getCacheSimilarities()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Boolean indicating if computed similarities are being cached.</dd>
+</dl>
+</li>
+</ul>
+<a name="setCacheSimilarities-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCacheSimilarities</h4>
+<pre>public&nbsp;void&nbsp;setCacheSimilarities(boolean&nbsp;cacheSimilarities)</pre>
+<div class="block">Sets if computed similarities must be cached.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cacheSimilarities</code> - Boolean indicating if computed similarities must be cached.</dd>
+</dl>
+</li>
+</ul>
+<a name="getSimilaritiesCache--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSimilaritiesCache</h4>
+<pre>public&nbsp;java.util.Map&lt;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>,java.lang.Double&gt;&nbsp;getSimilaritiesCache()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The unmodifiable map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash
+         similarity to them.</dd>
+</dl>
+</li>
+</ul>
+<a name="clearSimilaritiesCache--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clearSimilaritiesCache</h4>
+<pre>public&nbsp;void&nbsp;clearSimilaritiesCache()</pre>
+<div class="block">Clears the map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.</div>
 </li>
 </ul>
 <a name="checkFactor-int-">
