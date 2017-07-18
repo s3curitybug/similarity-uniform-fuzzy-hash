@@ -13,6 +13,8 @@ import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.HE
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.HEX_RADIX;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash.BLOCK_HASH_MODULO;
 
+import java.util.regex.Pattern;
+
 /**
  * This class represents a Uniform Fuzzy Hash block.
  * 
@@ -191,7 +193,7 @@ public class UniformFuzzyHashBlock {
         UniformFuzzyHashBlock block = new UniformFuzzyHashBlock();
 
         // Split block hash from block size.
-        String[] blockSplit = blockString.split(BLOCK_INNER_SEPARATOR);
+        String[] blockSplit = blockString.split(Pattern.quote(BLOCK_INNER_SEPARATOR));
 
         if (blockSplit.length != 2) {
             throw new IllegalArgumentException(String.format(
@@ -200,7 +202,7 @@ public class UniformFuzzyHashBlock {
         }
 
         // Block hash.
-        String blockHashString = blockSplit[0].trim();
+        String blockHashString = blockSplit[0];
 
         try {
             block.blockHash = Integer.parseInt(blockHashString, HEX_RADIX);
@@ -224,7 +226,7 @@ public class UniformFuzzyHashBlock {
         }
 
         // Block size.
-        String blockSizeString = blockSplit[1].trim();
+        String blockSizeString = blockSplit[1];
         int blockSize;
 
         try {

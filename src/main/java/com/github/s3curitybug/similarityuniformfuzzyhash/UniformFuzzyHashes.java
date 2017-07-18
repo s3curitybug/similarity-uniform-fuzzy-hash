@@ -40,6 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * This class provides utility static methods related to the Uniform Fuzzy Hash usage.
@@ -1248,15 +1249,13 @@ public final class UniformFuzzyHashes {
                 continue;
             }
 
-            textLine = textLine.trim();
-
             // Check empty line and ignore mark.
             if (textLine.isEmpty() || textLine.startsWith(IGNORE_MARK)) {
                 continue;
             }
 
             // Split name from hash.
-            String[] nameSplit = textLine.split(NAME_SEPARATOR.trim());
+            String[] nameSplit = textLine.split(Pattern.quote(NAME_SEPARATOR.trim()));
 
             if (nameSplit.length != 2) {
                 throw new IllegalArgumentException(String.format(
@@ -1270,7 +1269,7 @@ public final class UniformFuzzyHashes {
             name = checkName(name, -1);
 
             // Hash.
-            String hashString = nameSplit[1].trim();
+            String hashString = nameSplit[1];
             UniformFuzzyHash hash = null;
 
             try {
@@ -1411,7 +1410,7 @@ public final class UniformFuzzyHashes {
             }
 
             // Split name from hash.
-            String[] nameSplit = asciiLine.split(NAME_SEPARATOR.trim());
+            String[] nameSplit = asciiLine.split(Pattern.quote(NAME_SEPARATOR.trim()));
 
             if (nameSplit.length != 2) {
                 throw new IllegalArgumentException(String.format(

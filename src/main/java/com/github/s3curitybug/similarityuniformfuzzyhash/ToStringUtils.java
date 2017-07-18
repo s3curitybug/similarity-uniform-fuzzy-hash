@@ -43,12 +43,12 @@ public final class ToStringUtils {
     /**
      * Separator between blocks for a Uniform Fuzzy Hash string representation.
      */
-    public static final String BLOCKS_SEPARATOR = " ";
+    public static final String BLOCKS_SEPARATOR = "-";
 
     /**
      * Separator between block parts for a Uniform Fuzzy Hash Block string representation.
      */
-    public static final String BLOCK_INNER_SEPARATOR = "-";
+    public static final String BLOCK_INNER_SEPARATOR = ".";
 
     /**
      * Tabulation.
@@ -195,7 +195,7 @@ public final class ToStringUtils {
     protected static final List<Character> ASCII_ESCAPABLE_CHARS = Arrays.asList(
             '\\', '\0', '\r', '\n',
             NAME_SEPARATOR.trim().charAt(0),
-            FACTOR_SEPARATOR.trim().charAt(0));
+            FACTOR_SEPARATOR.charAt(0));
 
     /**
      * Escape character for ascii string representations.

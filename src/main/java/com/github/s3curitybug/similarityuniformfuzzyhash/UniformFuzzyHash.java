@@ -21,6 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * This class represents a Uniform Fuzzy Hash.
@@ -316,8 +317,11 @@ public class UniformFuzzyHash {
         strB.append(FACTOR_SEPARATOR);
 
         // Blocks.
+        int i = 0;
         for (UniformFuzzyHashBlock block : blocks) {
-            strB.append(BLOCKS_SEPARATOR);
+            if (i++ != 0) {
+                strB.append(BLOCKS_SEPARATOR);
+            }
             block.toString(strB);
         }
 
@@ -372,7 +376,7 @@ public class UniformFuzzyHash {
         UniformFuzzyHash hash = new UniformFuzzyHash();
 
         // Split factor from blocks.
-        String[] factorSplit = hashString.split(FACTOR_SEPARATOR.trim());
+        String[] factorSplit = hashString.split(Pattern.quote(FACTOR_SEPARATOR));
 
         if (factorSplit.length != 1 && factorSplit.length != 2) {
             throw new IllegalArgumentException(String.format(
@@ -398,8 +402,8 @@ public class UniformFuzzyHash {
 
         if (factorSplit.length == 2) {
 
-            String blocksString = factorSplit[1].trim();
-            String[] blocksSplit = blocksString.split(BLOCKS_SEPARATOR);
+            String blocksString = factorSplit[1];
+            String[] blocksSplit = blocksString.split(Pattern.quote(BLOCKS_SEPARATOR));
 
             int blockNumber = 0;
             int blockStartingBytePosition = 0;
@@ -407,8 +411,6 @@ public class UniformFuzzyHash {
             for (String blockString : blocksSplit) {
 
                 // Block.
-                blockString = blockString.trim();
-
                 if (blockString.isEmpty()) {
                     continue;
                 }
@@ -465,7 +467,7 @@ public class UniformFuzzyHash {
         UniformFuzzyHash hash = new UniformFuzzyHash();
 
         // Split factor from blocks.
-        String[] factorSplit = hashAsciiString.split(FACTOR_SEPARATOR.trim());
+        String[] factorSplit = hashAsciiString.split(Pattern.quote(FACTOR_SEPARATOR));
 
         if (factorSplit.length != 1 && factorSplit.length != 2) {
             throw new IllegalArgumentException(String.format(
