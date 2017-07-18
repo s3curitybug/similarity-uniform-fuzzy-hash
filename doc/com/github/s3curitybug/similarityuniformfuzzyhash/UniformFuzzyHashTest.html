@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,23 +157,17 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#hashAsciiRebuildTest--">hashAsciiRebuildTest</a></span>()</code>
-<div class="block">Hash ascii rebuild test.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#hashCharacteristicsTest--">hashCharacteristicsTest</a></span>()</code>
 <div class="block">Hash characteristics test.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#hashRebuildTest--">hashRebuildTest</a></span>()</code>
 <div class="block">Hash rebuild test.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#similarityTest--">similarityTest</a></span>()</code>
 <div class="block">Similarity test.</div>
@@ -227,8 +221,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;algorithmComputationTest()
                               throws java.io.IOException</pre>
 <div class="block">Algorithm computation test.
- Tests the algorithm computation over a test resource file and the hash toString and
- toAsciiString methods.</div>
+ Tests the algorithm computation over a test resource file and the hash toString method.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
@@ -246,23 +239,6 @@ extends java.lang.Object</pre>
 <div class="block">Hash rebuild test.
  Tests the hash rebuild from a string representation of a hash computed over a test resource
  file, and the hash equals method.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
-</dl>
-</li>
-</ul>
-<a name="hashAsciiRebuildTest--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashAsciiRebuildTest</h4>
-<pre>public&nbsp;void&nbsp;hashAsciiRebuildTest()
-                          throws java.io.IOException</pre>
-<div class="block">Hash ascii rebuild test.
- Tests the hash rebuild from an ascii string representation of a hash computed over a test
- resource file, and the hash equals method.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>

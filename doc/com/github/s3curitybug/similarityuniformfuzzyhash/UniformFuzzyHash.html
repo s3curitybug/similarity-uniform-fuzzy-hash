@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":9,"i18":9,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":9,"i18":10,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -267,40 +267,30 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromAsciiString-java.lang.String-">rebuildFromAsciiString</a></span>(java.lang.String&nbsp;hashAsciiString)</code>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromString-java.lang.String-">rebuildFromString</a></span>(java.lang.String&nbsp;hashString)</code>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from its string representation.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#rebuildFromString-java.lang.String-">rebuildFromString</a></span>(java.lang.String&nbsp;hashString)</code>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#reverseSimilarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">reverseSimilarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of another Uniform Fuzzy Hash to this one.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#setCacheSimilarities-boolean-">setCacheSimilarities</a></span>(boolean&nbsp;cacheSimilarities)</code>
 <div class="block">Sets if computed similarities must be cached.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#similarity-com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash-">similarity</a></span>(<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;other)</code>
 <div class="block">Computes the similarity of this Uniform Fuzzy Hash to another one and returns it as a number
  between 0 and 1.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toAsciiString--">toAsciiString</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i23" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -437,26 +427,7 @@ extends java.lang.Object</pre>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A string representation of this Uniform Fuzzy Hash.
-         Factor is represented as a decimal integer.
-         Each block is represented as two hexadecimal integers,
-         the first one representing its hash and the second one representing its size.</dd>
-</dl>
-</li>
-</ul>
-<a name="toAsciiString--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toAsciiString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toAsciiString()</pre>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>An ascii string representation of this Uniform Fuzzy Hash.
-         Factor is represented as a decimal integer.
-         Each block is represented as two ascii integers,
-         the first one representing its hash and the second one representing its size.</dd>
+<dd>The string representation of this Uniform Fuzzy Hash.</dd>
 </dl>
 </li>
 </ul>
@@ -467,32 +438,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>rebuildFromString</h4>
 <pre>public static&nbsp;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;rebuildFromString(java.lang.String&nbsp;hashString)</pre>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from a string representing it.
- Factor must be represented as a decimal integer.
- Each block must be represented as two hexadecimal integers,
- the first one representing its hash and the second one representing its size.</div>
+<div class="block">Rebuilds a Uniform Fuzzy Hash from its string representation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hashString</code> - String representation of a Uniform Fuzzy Hash.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The rebuilt Uniform Fuzzy Hash.</dd>
-</dl>
-</li>
-</ul>
-<a name="rebuildFromAsciiString-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>rebuildFromAsciiString</h4>
-<pre>public static&nbsp;<a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHash.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash">UniformFuzzyHash</a>&nbsp;rebuildFromAsciiString(java.lang.String&nbsp;hashAsciiString)</pre>
-<div class="block">Rebuilds a Uniform Fuzzy Hash from an ascii string representing it.
- Factor must be represented as a decimal integer.
- Each block must be represented as two ascii integers,
- the first one representing its hash and the second one representing its size.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>hashAsciiString</code> - Ascii string representation of a Uniform Fuzzy Hash.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The rebuilt Uniform Fuzzy Hash.</dd>
 </dl>
