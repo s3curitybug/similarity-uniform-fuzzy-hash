@@ -20,7 +20,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 /**
  * This class represents a Uniform Fuzzy Hash.
@@ -343,70 +342,71 @@ public class UniformFuzzyHash {
         UniformFuzzyHash hash = new UniformFuzzyHash();
 
         // Split factor from blocks.
-        String[] factorSplit = hashString.split(Pattern.quote(FACTOR_SEPARATOR));
+        int splitIndex = hashString.indexOf(FACTOR_SEPARATOR);
 
-        if (factorSplit.length != 1 && factorSplit.length != 2) {
+        if (splitIndex < 0) {
             throw new IllegalArgumentException(String.format(
                     "Hash string does not fit the format factor%sblocks.",
                     FACTOR_SEPARATOR));
         }
 
         // Factor.
-        String factorString = factorSplit[0];
+        String factorString = hashString.substring(0, splitIndex);
+
+        if (factorString.isEmpty()) {
+            throw new IllegalArgumentException(String.format(
+                    "Hash string does not fit the format factor%sblocks.",
+                    FACTOR_SEPARATOR));
+        }
 
         try {
             hash.factor = Integer.parseInt(factorString);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(String.format(
                     "Factor (%s) is not parseable.",
-                    factorString));
+                    factorString.isEmpty()));
         }
 
         checkFactor(hash.factor);
 
         // Blocks.
+        String blocksString = hashString.substring(splitIndex + 1);
+
         hash.blocks = new LinkedList<>();
 
-        if (factorSplit.length == 2) {
+        int blockNumber = 0;
+        int blockStartingBytePosition = 0;
 
-            String blocksString = factorSplit[1];
-            String[] blocksSplit = blocksString.split(Pattern.quote(BLOCKS_SEPARATOR));
+        int lastSplitIndex = 0;
+        while ((splitIndex = blocksString.indexOf(BLOCKS_SEPARATOR, lastSplitIndex)) >= 0) {
 
-            int blockNumber = 0;
-            int blockStartingBytePosition = 0;
+            String blockString = blocksString.substring(lastSplitIndex, splitIndex);
+            lastSplitIndex = splitIndex + BLOCKS_SEPARATOR.length();
 
-            for (String blockString : blocksSplit) {
+            // Block.
+            UniformFuzzyHashBlock block = null;
 
-                // Block.
-                if (blockString.isEmpty()) {
-                    continue;
-                }
-
-                UniformFuzzyHashBlock block = null;
-
-                try {
-                    block = UniformFuzzyHashBlock.rebuildFromString(
-                            blockString, blockStartingBytePosition);
-                } catch (IllegalArgumentException illegalArgumentException) {
-                    throw new IllegalArgumentException(String.format(
-                            "Block number %d (%s) could not be parsed. %s",
-                            blockNumber,
-                            blockString,
-                            illegalArgumentException.getMessage()));
-                }
-
-                hash.blocks.add(block);
-
-                // Next block.
-                blockNumber++;
-                blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
-
+            try {
+                block = UniformFuzzyHashBlock.rebuildFromString(
+                        blockString, blockStartingBytePosition);
+            } catch (IllegalArgumentException illegalArgumentException) {
+                throw new IllegalArgumentException(String.format(
+                        "Block number %d (%s) could not be parsed. %s",
+                        blockNumber,
+                        blockString.isEmpty() ? "<empty>" : blockString,
+                        illegalArgumentException.getMessage()));
             }
 
-            // Data size.
-            hash.dataSize = blockStartingBytePosition;
+            hash.blocks.add(block);
+
+            // Next block.
+            blockNumber++;
+            blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
 
         }
+
+        // Data size.
+        hash.dataSize = blockStartingBytePosition;
 
         // Return.
         return hash;

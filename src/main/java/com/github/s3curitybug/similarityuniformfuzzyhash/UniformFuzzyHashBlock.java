@@ -5,8 +5,6 @@ import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.BL
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.BLOCK_MAX_CHARS;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash.BLOCK_HASH_MODULO;
 
-import java.util.regex.Pattern;
-
 /**
  * This class represents a Uniform Fuzzy Hash block.
  * 
@@ -102,38 +100,57 @@ public class UniformFuzzyHashBlock {
         UniformFuzzyHashBlock block = new UniformFuzzyHashBlock();
 
         // Split block hash from block size.
-        String[] blockSplit = blockString.split(Pattern.quote(BLOCK_INNER_SEPARATOR));
+        int splitIndex = blockString.lastIndexOf(BLOCK_INNER_SEPARATOR);
 
-        if (blockSplit.length != 2) {
+        if (splitIndex < 0) {
             throw new IllegalArgumentException(String.format(
                     "Block string does not fit the format blockHash%sblockSize.",
                     BLOCK_INNER_SEPARATOR));
         }
 
         // Block hash.
-        String blockHashString = blockSplit[0];
+        String blockHashString = blockString.substring(0, splitIndex);
+
+        if (blockHashString.isEmpty()) {
+            throw new IllegalArgumentException(String.format(
+                    "Block string does not fit the format blockHash%sblockSize.",
+                    BLOCK_INNER_SEPARATOR));
+        }
 
         try {
             block.blockHash = Integer.parseInt(blockHashString, BLOCK_BASE);
-            if (block.blockHash < 0 || block.blockHash >= BLOCK_HASH_MODULO) {
-                throw new NumberFormatException();
-            }
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(String.format(
                     "Block hash (%s) is not parseable.",
                     blockHashString));
         }
 
+        if (block.blockHash < 0 || block.blockHash >= BLOCK_HASH_MODULO) {
+            throw new IllegalArgumentException(String.format(
+                    "Block hash (%s) is not parseable.",
+                    blockHashString));
+        }
+
         // Block size.
-        String blockSizeString = blockSplit[1];
+        String blockSizeString = blockString.substring(splitIndex + 1);
+
+        if (blockSizeString.isEmpty()) {
+            throw new IllegalArgumentException(String.format(
+                    "Block string does not fit the format blockHash%sblockSize.",
+                    BLOCK_INNER_SEPARATOR));
+        }
+
         int blockSize;
 
         try {
             blockSize = Integer.parseInt(blockSizeString, BLOCK_BASE);
-            if (blockSize <= 0) {
-                throw new NumberFormatException();
-            }
         } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException(String.format(
+                    "Block size (%s) is not parseable.",
+                    blockSizeString));
+        }
+
+        if (blockSize <= 0) {
             throw new IllegalArgumentException(String.format(
                     "Block size (%s) is not parseable.",
                     blockSizeString));

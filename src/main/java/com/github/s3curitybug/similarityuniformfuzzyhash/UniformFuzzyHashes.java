@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 /**
  * This class provides utility static methods related to the Uniform Fuzzy Hash usage.
@@ -1133,9 +1132,9 @@ public final class UniformFuzzyHashes {
             }
 
             // Split name from hash.
-            String[] nameSplit = textLine.split(Pattern.quote(NAME_SEPARATOR.trim()));
+            int splitIndex = textLine.indexOf(NAME_SEPARATOR.trim());
 
-            if (nameSplit.length != 2) {
+            if (splitIndex < 0) {
                 throw new IllegalArgumentException(String.format(
                         "Line %d does not fit the format name%shash.",
                         i,
@@ -1143,20 +1142,28 @@ public final class UniformFuzzyHashes {
             }
 
             // Name.
-            String name = nameSplit[0].trim();
+            String name = textLine.substring(0, splitIndex).trim();
             name = checkName(name, -1);
 
             // Hash.
-            String hashString = nameSplit[1].trim();
+            String hashString = textLine.substring(splitIndex + 1).trim();
+
+            if (hashString.isEmpty()) {
+                throw new IllegalArgumentException(String.format(
+                        "Line %d does not fit the format name%shash.",
+                        i,
+                        NAME_SEPARATOR));
+            }
+
             UniformFuzzyHash hash = null;
 
             try {
                 hash = UniformFuzzyHash.rebuildFromString(hashString);
             } catch (IllegalArgumentException illegalArgumentException) {
                 throw new IllegalArgumentException(String.format(
-                        "Line %d hash (%s) could not be parsed. %s",
+                        "Line %d hash (name: %s) could not be parsed. %s",
                         i,
-                        name,
+                        name.isEmpty() ? "<empty>" : name,
                         illegalArgumentException.getMessage()));
             }
 
