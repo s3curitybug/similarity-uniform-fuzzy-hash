@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -163,23 +163,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashesTest.html#similaritiesBetweenAllDirectoryFilesCsvTest--">similaritiesBetweenAllDirectoryFilesCsvTest</a></span>()</code>
-<div class="block">Similarities between all directory files CSV test.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashesTest.html#similaritiesBetweenAllDirectoryFilesTest--">similaritiesBetweenAllDirectoryFilesTest</a></span>()</code>
 <div class="block">Similarities between all directory files test.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashesTest.html#similaritiesBetweenFileAndDirectoryFilesCsvTest--">similaritiesBetweenFileAndDirectoryFilesCsvTest</a></span>()</code>
-<div class="block">Similarities between file and directory files CSV test.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashesTest.html#similaritiesBetweenFileAndDirectoryFilesTest--">similaritiesBetweenFileAndDirectoryFilesTest</a></span>()</code>
 <div class="block">Similarities between file and directory files test.</div>
@@ -233,11 +221,28 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;hashesFromDirectoryFilesTest()
                                   throws java.io.IOException</pre>
 <div class="block">Hashes from directory files test.
- Tests the algorithm computation over the files of a test resources directory, and the
- printHashesTable method.</div>
+ Tests the algorithm computation over the files of a test resources directory and the
+ printHashes method.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
+</dl>
+</li>
+</ul>
+<a name="saveAndLoadHashesAsTextTest--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveAndLoadHashesAsTextTest</h4>
+<pre>public&nbsp;void&nbsp;saveAndLoadHashesAsTextTest()
+                                 throws java.io.IOException</pre>
+<div class="block">Save and load hashes as text test.
+ Tests the hashes saving to and loading from a target text file.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file or writing a
+         target file.</dd>
 </dl>
 </li>
 </ul>
@@ -251,79 +256,27 @@ extends java.lang.Object</pre>
                                                   throws java.io.IOException</pre>
 <div class="block">Similarities between file and directory files test.
  Tests the similarities between a file and the files of a test resources directory, sorting
- them by similarity.</div>
+ them by similarity, printing them in a table and saving them as a target CSV file.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
-</dl>
-</li>
-</ul>
-<a name="similaritiesBetweenFileAndDirectoryFilesCsvTest--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>similaritiesBetweenFileAndDirectoryFilesCsvTest</h4>
-<pre>public&nbsp;void&nbsp;similaritiesBetweenFileAndDirectoryFilesCsvTest()
-                                                     throws java.io.IOException</pre>
-<div class="block">Similarities between file and directory files CSV test.
- Tests the similarities between a file and the files of a test resources directory, sorting
- them by similarity, and saving them as a target CSV file.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file or writing a
-         target file.</dd>
 </dl>
 </li>
 </ul>
 <a name="similaritiesBetweenAllDirectoryFilesTest--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>similaritiesBetweenAllDirectoryFilesTest</h4>
 <pre>public&nbsp;void&nbsp;similaritiesBetweenAllDirectoryFilesTest()
                                               throws java.io.IOException</pre>
 <div class="block">Similarities between all directory files test.
- Tests the similarities between all the files of a test resources directory.</div>
+ Tests the similarities between all the files of a test resources directory, printing them in
+ a table and saving them as a target CSV file.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
-</dl>
-</li>
-</ul>
-<a name="similaritiesBetweenAllDirectoryFilesCsvTest--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>similaritiesBetweenAllDirectoryFilesCsvTest</h4>
-<pre>public&nbsp;void&nbsp;similaritiesBetweenAllDirectoryFilesCsvTest()
-                                                 throws java.io.IOException</pre>
-<div class="block">Similarities between all directory files CSV test.
- Tests the similarities between all the files of a test resources directory,
- saving them as a target CSV file.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file or writing a
-         target file.</dd>
-</dl>
-</li>
-</ul>
-<a name="saveAndLoadHashesAsTextTest--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>saveAndLoadHashesAsTextTest</h4>
-<pre>public&nbsp;void&nbsp;saveAndLoadHashesAsTextTest()
-                                 throws java.io.IOException</pre>
-<div class="block">Save and load hashes as text test.
- Tests the hashes saving to and loading from a target text file.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file or writing a
-         target file.</dd>
 </dl>
 </li>
 </ul>
@@ -354,7 +307,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.SimilarityTypes.html" title="enum in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashes.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html" title="class in com.github.s3curitybug.similarityuniformfuzzyhash"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

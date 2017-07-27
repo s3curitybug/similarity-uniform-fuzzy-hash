@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,17 +157,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#hashCharacteristicsTest--">hashCharacteristicsTest</a></span>()</code>
-<div class="block">Hash characteristics test.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#hashRebuildTest--">hashRebuildTest</a></span>()</code>
 <div class="block">Hash rebuild test.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/UniformFuzzyHashTest.html#similarityTest--">similarityTest</a></span>()</code>
 <div class="block">Similarity test.</div>
@@ -245,22 +239,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="hashCharacteristicsTest--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashCharacteristicsTest</h4>
-<pre>public&nbsp;void&nbsp;hashCharacteristicsTest()
-                             throws java.io.IOException</pre>
-<div class="block">Hash characteristics test.
- Tests the statistics of a hash computed over a test resource file.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>
-</dl>
-</li>
-</ul>
 <a name="similarityTest--">
 <!--   -->
 </a>
@@ -270,7 +248,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;similarityTest()
                     throws java.io.IOException</pre>
 <div class="block">Similarity test.
- Tests the similarity between two hashes computed over two test resource files.</div>
+ Tests all the similarity types between two hashes computed over two test resource files.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - In case an exception occurs reading a test resource file.</dd>

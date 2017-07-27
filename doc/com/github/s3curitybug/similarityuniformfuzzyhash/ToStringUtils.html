@@ -17,6 +17,12 @@
     catch(err) {
     }
 //-->
+var methods = {"i0":9,"i1":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -69,13 +75,13 @@
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -183,15 +189,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#IGNORE_MARK">IGNORE_MARK</a></span></code>
-<div class="block">Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
- be ignored.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#IDENTIFIER_SEPARATOR">IDENTIFIER_SEPARATOR</a></span></code>
+<div class="block">Separator between identifier and hash for an identified Uniform Fuzzy Hash string
+ representation.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NAME_SEPARATOR">NAME_SEPARATOR</a></span></code>
-<div class="block">Separator between name and hash for a named Uniform Fuzzy Hash string representation.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#IGNORE_MARK">IGNORE_MARK</a></span></code>
+<div class="block">Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
+ be ignored.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -202,8 +209,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NULL_NAME">NULL_NAME</a></span></code>
-<div class="block">String which will be used when a name is null.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NULL_IDENTIFIER">NULL_IDENTIFIER</a></span></code>
+<div class="block">String which will be used when an identifier is null.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -227,6 +234,28 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#formatDecimal-java.lang.Double-">formatDecimal</a></span>(java.lang.Double&nbsp;decimal)</code>
+<div class="block">Formats a decimal number.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#formatDecimal-java.lang.Double-double-double-">formatDecimal</a></span>(java.lang.Double&nbsp;decimal,
+             double&nbsp;markAbove,
+             double&nbsp;markBelow)</code>
+<div class="block">Formats a decimal number, marking it with a color if it is above or equal to a threshold, and
+ with another color if it is below another threshold.</div>
+</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -273,17 +302,18 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="NAME_SEPARATOR">
+<a name="IDENTIFIER_SEPARATOR">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>NAME_SEPARATOR</h4>
-<pre>public static final&nbsp;java.lang.String NAME_SEPARATOR</pre>
-<div class="block">Separator between name and hash for a named Uniform Fuzzy Hash string representation.</div>
+<h4>IDENTIFIER_SEPARATOR</h4>
+<pre>public static final&nbsp;java.lang.String IDENTIFIER_SEPARATOR</pre>
+<div class="block">Separator between identifier and hash for an identified Uniform Fuzzy Hash string
+ representation.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NAME_SEPARATOR">Constant Field Values</a></dd>
+<dd><a href="../../../../constant-values.html#com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.IDENTIFIER_SEPARATOR">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -353,17 +383,17 @@ extends java.lang.Object</pre>
 <div class="block">New line.</div>
 </li>
 </ul>
-<a name="NULL_NAME">
+<a name="NULL_IDENTIFIER">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>NULL_NAME</h4>
-<pre>public static final&nbsp;java.lang.String NULL_NAME</pre>
-<div class="block">String which will be used when a name is null.</div>
+<h4>NULL_IDENTIFIER</h4>
+<pre>public static final&nbsp;java.lang.String NULL_IDENTIFIER</pre>
+<div class="block">String which will be used when an identifier is null.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_NAME">Constant Field Values</a></dd>
+<dd><a href="../../../../constant-values.html#com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NULL_IDENTIFIER">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -441,6 +471,53 @@ extends java.lang.Object</pre>
 </ul>
 </li>
 </ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="formatDecimal-java.lang.Double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>formatDecimal</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;formatDecimal(java.lang.Double&nbsp;decimal)</pre>
+<div class="block">Formats a decimal number.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>decimal</code> - A decimal number.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The formatted decimal number.</dd>
+</dl>
+</li>
+</ul>
+<a name="formatDecimal-java.lang.Double-double-double-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>formatDecimal</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;formatDecimal(java.lang.Double&nbsp;decimal,
+                                             double&nbsp;markAbove,
+                                             double&nbsp;markBelow)</pre>
+<div class="block">Formats a decimal number, marking it with a color if it is above or equal to a threshold, and
+ with another color if it is below another threshold.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>decimal</code> - A decimal number.</dd>
+<dd><code>markAbove</code> - Mark the decimal with a color if it is above or equal to this threshold.
+        Introduce a negative number to not mark the decimal.</dd>
+<dd><code>markBelow</code> - Mark the decimal with a color if it is below this threshold.
+        Introduce a negative number to not mark the decimal.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The formatted and possibly marked decimal number.</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -494,13 +571,13 @@ extends java.lang.Object</pre>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">
