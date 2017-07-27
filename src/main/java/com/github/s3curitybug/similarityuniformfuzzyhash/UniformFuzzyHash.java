@@ -12,10 +12,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,85 @@ public class UniformFuzzyHash {
      * Modulo of the block hashes.
      */
     protected static final int BLOCK_HASH_MODULO = Integer.MAX_VALUE;
+
+    /**
+     * Enum of types of similarity.
+     */
+    public enum SimilarityTypes {
+
+        /**
+         * Similarity of a hash to other hashes.
+         */
+        SIMILARITY("Similarity"),
+
+        /**
+         * Similarity of other hashes to a hash.
+         */
+        REVERSE_SIMILARITY("Reverse"),
+
+        /**
+         * Maximum similarity between Similarity and Reverse.
+         */
+        MAXIMUM("Maximum"),
+
+        /**
+         * Minimum similarity between Similarity and Reverse.
+         */
+        MINIMUM("Minimum"),
+
+        /**
+         * Arithmetic mean between Similarity and Reverse, (Similarity * Reverse) / 2.
+         */
+        ARITHMETIC_MEAN("ArithMean"),
+
+        /**
+         * Geometric mean between Similarity and Reverse, sqrt(Similarity * Reverse).
+         */
+        GEOMETRIC_MEAN("GeomMean");
+
+        /**
+         * Similarity type name.
+         */
+        private String name;
+
+        /**
+         * Constructor.
+         * 
+         * @param name Similarity type name.
+         */
+        SimilarityTypes(
+                String name) {
+
+            this.name = name;
+
+        }
+
+        /**
+         * @return The similarity type name.
+         */
+        public String getName() {
+
+            return name;
+
+        }
+
+        /**
+         * @return A list with all the similarity types names.
+         */
+        public static List<String> names() {
+
+            SimilarityTypes[] similarityTypes = SimilarityTypes.values();
+            List<String> similarityTypesNames = new ArrayList<>(similarityTypes.length);
+
+            for (SimilarityTypes similarityType : similarityTypes) {
+                similarityTypesNames.add(similarityType.name);
+            }
+
+            return similarityTypesNames;
+
+        }
+
+    }
 
     /**
      * Factor the hash was computed with.
@@ -55,17 +135,6 @@ public class UniformFuzzyHash {
     private Set<UniformFuzzyHashBlock> blocksSet;
 
     /**
-     * Indicates if computed similarities must be cached.
-     */
-    private boolean cacheSimilarities;
-
-    /**
-     * Map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.
-     * Useful to cache similarities, to avoid multiple calculations of the same similarity.
-     */
-    private Map<UniformFuzzyHash, Double> similaritiesCache;
-
-    /**
      * Base constructor.
      */
     private UniformFuzzyHash() {
@@ -74,8 +143,6 @@ public class UniformFuzzyHash {
         this.dataSize = 0;
         this.blocks = null;
         this.blocksSet = null;
-        this.cacheSimilarities = true;
-        this.similaritiesCache = null;
 
     }
 
@@ -377,31 +444,42 @@ public class UniformFuzzyHash {
         int blockNumber = 0;
         int blockStartingBytePosition = 0;
 
-        int lastSplitIndex = 0;
-        while ((splitIndex = blocksString.indexOf(BLOCKS_SEPARATOR, lastSplitIndex)) >= 0) {
+        if (!blocksString.isEmpty()) {
 
-            String blockString = blocksString.substring(lastSplitIndex, splitIndex);
-            lastSplitIndex = splitIndex + BLOCKS_SEPARATOR.length();
+            splitIndex = 0;
+            int lastSplitIndex = 0;
+            while (splitIndex >= 0) {
 
-            // Block.
-            UniformFuzzyHashBlock block = null;
+                splitIndex = blocksString.indexOf(BLOCKS_SEPARATOR, lastSplitIndex);
+                String blockString = null;
+                if (splitIndex >= 0) {
+                    blockString = blocksString.substring(lastSplitIndex, splitIndex);
+                } else {
+                    blockString = blocksString.substring(lastSplitIndex);
+                }
+                lastSplitIndex = splitIndex + BLOCKS_SEPARATOR.length();
 
-            try {
-                block = UniformFuzzyHashBlock.rebuildFromString(
-                        blockString, blockStartingBytePosition);
-            } catch (IllegalArgumentException illegalArgumentException) {
-                throw new IllegalArgumentException(String.format(
-                        "Block number %d (%s) could not be parsed. %s",
-                        blockNumber,
-                        blockString.isEmpty() ? "<empty>" : blockString,
-                        illegalArgumentException.getMessage()));
+                // Block.
+                UniformFuzzyHashBlock block = null;
+
+                try {
+                    block = UniformFuzzyHashBlock.rebuildFromString(
+                            blockString, blockStartingBytePosition);
+                } catch (IllegalArgumentException illegalArgumentException) {
+                    throw new IllegalArgumentException(String.format(
+                            "Block number %d (%s) could not be parsed. %s",
+                            blockNumber,
+                            blockString.isEmpty() ? "<empty>" : blockString,
+                            illegalArgumentException.getMessage()));
+                }
+
+                hash.blocks.add(block);
+
+                // Next block.
+                blockNumber++;
+                blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
+
             }
-
-            hash.blocks.add(block);
-
-            // Next block.
-            blockNumber++;
-            blockStartingBytePosition = block.getBlockEndingBytePosition() + 1;
 
         }
 
@@ -415,11 +493,10 @@ public class UniformFuzzyHash {
 
     /**
      * Computes the similarity of this Uniform Fuzzy Hash to another one and returns it as a number
-     * between 0 and 1. The similarity is computed as the sum of the sizes in bytes of the blocks of
-     * this Uniform Fuzzy Hash which are also in the introduced one, over the total data size in
-     * bytes of this Uniform Fuzzy Hash.
-     * 
-     * Similarities are cached, to avoid multiple calculations of the same similarity.
+     * between 0 and 1.
+     * The similarity is computed as the sum of the sizes in bytes of the blocks of this Uniform
+     * Fuzzy Hash which are also in the introduced one, over the total data size in bytes of this
+     * Uniform Fuzzy Hash.
      * 
      * @param other Another Uniform Fuzzy Hash.
      * @return A number between 0 and 1 representing the similarity of this Uniform Fuzzy Hash to
@@ -441,16 +518,8 @@ public class UniformFuzzyHash {
             throw new IllegalArgumentException("The Uniform Fuzzy Hashes factors are different.");
         }
 
-        if (this.getAmountOfBlocks() == 0 || other.getAmountOfBlocks() == 0) {
+        if (this.blocks.size() == 0 || other.blocks.size() == 0) {
             return 0;
-        }
-
-        // Cache check.
-        if (cacheSimilarities && similaritiesCache != null) {
-            Double cachedSimilarity = similaritiesCache.get(other);
-            if (cachedSimilarity != null) {
-                return cachedSimilarity;
-            }
         }
 
         // Sum of the sizes in bytes of the blocks of this Uniform Fuzzy Hash which are also in the
@@ -475,102 +544,92 @@ public class UniformFuzzyHash {
         // Similarity computation.
         double similarity = (double) sizeSum / this.dataSize;
 
-        // Cache the computed similarity.
-        if (cacheSimilarities) {
-            accessSimilaritiesCache().put(other, similarity);
-        }
-
         return similarity;
 
     }
 
     /**
-     * Computes the similarity of another Uniform Fuzzy Hash to this one.
+     * Computes a type of similarity between this Uniform Fuzzy Hash and another one and returns it
+     * as a number between 0 and 1.
      * 
      * @param other Another Uniform Fuzzy Hash.
-     * @return A number between 0 and 1 representing the similarity of the introduced Uniform Fuzzy
-     *         Hash to this one.
+     * @param similarityType The type of similarity.
+     * @return A number between 0 and 1 representing the type of similarity between this Uniform
+     *         Fuzzy Hash and the introduced one.
      */
-    public double reverseSimilarity(
+    public double similarity(
+            UniformFuzzyHash other,
+            SimilarityTypes similarityType) {
+
+        if (other == null) {
+            throw new NullPointerException("The Uniform Fuzzy Hash is null.");
+        }
+
+        switch (similarityType) {
+
+            case SIMILARITY:
+
+                return this.similarity(other);
+
+            case REVERSE_SIMILARITY:
+
+                return other.similarity(this);
+
+            default:
+
+                double similarity = this.similarity(other);
+                double reverse = other.similarity(this);
+
+                switch (similarityType) {
+
+                    case MAXIMUM:
+                        return similarity >= reverse ? similarity : reverse;
+
+                    case MINIMUM:
+                        return similarity >= reverse ? reverse : similarity;
+
+                    case ARITHMETIC_MEAN:
+                        return (similarity + reverse) / 2;
+
+                    case GEOMETRIC_MEAN:
+                        return Math.sqrt(similarity * reverse);
+
+                    default:
+                        return similarity;
+
+                }
+
+        }
+
+    }
+
+    /**
+     * Computes all the types of similarity between this Uniform Fuzzy Hash and another one.
+     * 
+     * @param other Another Uniform Fuzzy Hash.
+     * @return Map of all the types of similarity between this Uniform Fuzzy Hash and another one.
+     */
+    public Map<SimilarityTypes, Double> similarities(
             UniformFuzzyHash other) {
 
         if (other == null) {
             throw new NullPointerException("The Uniform Fuzzy Hash is null.");
         }
 
-        return other.similarity(this);
+        Map<SimilarityTypes, Double> similarities =
+                new LinkedHashMap<>(SimilarityTypes.values().length);
 
-    }
+        double similarity = this.similarity(other);
+        double reverse = other.similarity(this);
 
-    /**
-     * Computes the similarity of this hash to another one, and the similarity from the other
-     * hash to this one, and returns the largest one.
-     * 
-     * @param other Another Uniform Fuzzy Hash.
-     * @return A number between 0 and 1 representing the largest similarity between this hash
-     *         similarity to the introduced one and the introduced hash similarity to this one.
-     */
-    public double maxSimilarity(
-            UniformFuzzyHash other) {
+        similarities.put(SimilarityTypes.SIMILARITY, similarity);
+        similarities.put(SimilarityTypes.REVERSE_SIMILARITY, reverse);
+        similarities.put(SimilarityTypes.MAXIMUM, similarity >= reverse ? similarity : reverse);
+        similarities.put(SimilarityTypes.MINIMUM, similarity >= reverse ? reverse : similarity);
+        similarities.put(SimilarityTypes.ARITHMETIC_MEAN, (similarity + reverse) / 2);
+        similarities.put(SimilarityTypes.GEOMETRIC_MEAN, Math.sqrt(similarity * reverse));
 
-        double similarity1 = this.similarity(other);
-        double similarity2 = this.reverseSimilarity(other);
-
-        return Math.max(similarity1, similarity2);
-
-    }
-
-    /**
-     * Computes the similarity of this hash to another one, and the similarity from the other
-     * hash to this one, and returns the smallest one.
-     * 
-     * @param other Another Uniform Fuzzy Hash.
-     * @return A number between 0 and 1 representing the smallest similarity between this hash
-     *         similarity to the introduced one and the introduced hash similarity to this one.
-     */
-    public double minSimilarity(
-            UniformFuzzyHash other) {
-
-        double similarity1 = this.similarity(other);
-        double similarity2 = this.reverseSimilarity(other);
-
-        return Math.min(similarity1, similarity2);
-
-    }
-
-    /**
-     * Computes the similarity of this hash to another one, and the similarity from the other
-     * hash to this one, and returns the arithmetic mean.
-     * 
-     * @param other Another Uniform Fuzzy Hash.
-     * @return A number between 0 and 1 representing the arithmetic mean between this hash
-     *         similarity to the introduced one and the introduced hash similarity to this one.
-     */
-    public double arithmeticMeanSimilarity(
-            UniformFuzzyHash other) {
-
-        double similarity1 = this.similarity(other);
-        double similarity2 = this.reverseSimilarity(other);
-
-        return (similarity1 + similarity2) / 2;
-
-    }
-
-    /**
-     * Computes the similarity of this hash to another one, and the similarity from the other
-     * hash to this one, and returns the geometric mean, sqrt(similarity1 * similarity2).
-     * 
-     * @param other Another Uniform Fuzzy Hash.
-     * @return A number between 0 and 1 representing the geometric mean between this hash
-     *         similarity to the introduced one and the introduced hash similarity to this one.
-     */
-    public double geometricMeanSimilarity(
-            UniformFuzzyHash other) {
-
-        double similarity1 = this.similarity(other);
-        double similarity2 = this.reverseSimilarity(other);
-
-        return Math.sqrt(similarity1 * similarity2);
+        return similarities;
 
     }
 
@@ -605,7 +664,7 @@ public class UniformFuzzyHash {
                 return false;
             }
 
-            if (this.getAmountOfBlocks() != other.getAmountOfBlocks()) {
+            if (this.blocks.size() != other.blocks.size()) {
                 return false;
             }
 
@@ -636,7 +695,7 @@ public class UniformFuzzyHash {
 
         result = prime * result + factor;
         result = prime * result + dataSize;
-        result = prime * result + getAmountOfBlocks();
+        result = prime * result + blocks.size();
 
         return result;
 
@@ -696,108 +755,7 @@ public class UniformFuzzyHash {
      */
     public Set<UniformFuzzyHashBlock> getBlocksSet() {
 
-        return Collections.unmodifiableSet(blocksSet);
-
-    }
-
-    /**
-     * @return The amount of blocks of this hash.
-     */
-    public int getAmountOfBlocks() {
-
-        return blocks.size();
-
-    }
-
-    /**
-     * @return The mean of this hash block size.
-     */
-    public double getBlockSizeMean() {
-
-        int amountOfBlocks = getAmountOfBlocks();
-
-        if (amountOfBlocks == 0) {
-            return 0;
-        }
-
-        return (double) dataSize / amountOfBlocks;
-
-    }
-
-    /**
-     * @return The standard deviation of this hash block size.
-     */
-    public double getBlockSizeStDev() {
-
-        int amountOfBlocks = getAmountOfBlocks();
-
-        if (amountOfBlocks <= 1) {
-            return 0;
-        }
-
-        double mean = getBlockSizeMean();
-        double variance = 0;
-
-        for (UniformFuzzyHashBlock block : blocks) {
-            double distanceToMean = block.getBlockSize() - mean;
-            variance += distanceToMean * distanceToMean / amountOfBlocks;
-        }
-
-        return Math.sqrt(variance);
-
-    }
-
-    /**
-     * @return Boolean indicating if computed similarities are being cached.
-     */
-    public boolean getCacheSimilarities() {
-
-        return cacheSimilarities;
-
-    }
-
-    /**
-     * Sets if computed similarities must be cached.
-     * 
-     * @param cacheSimilarities Boolean indicating if computed similarities must be cached.
-     */
-    public void setCacheSimilarities(
-            boolean cacheSimilarities) {
-
-        this.cacheSimilarities = cacheSimilarities;
-
-    }
-
-    /**
-     * @return The map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash,
-     *         building it if it is null.
-     */
-    protected Map<UniformFuzzyHash, Double> accessSimilaritiesCache() {
-
-        if (similaritiesCache == null) {
-            similaritiesCache = new HashMap<>();
-        }
-
-        return similaritiesCache;
-
-    }
-
-    /**
-     * @return The unmodifiable map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash
-     *         similarity to them.
-     */
-    public Map<UniformFuzzyHash, Double> getSimilaritiesCache() {
-
-        return Collections.unmodifiableMap(accessSimilaritiesCache());
-
-    }
-
-    /**
-     * Clears the map from other Uniform Fuzzy Hashes to this Uniform Fuzzy Hash similarity to them.
-     */
-    public void clearSimilaritiesCache() {
-
-        this.similaritiesCache = null;
+        return Collections.unmodifiableSet(accessBlocksSet());
 
     }
 

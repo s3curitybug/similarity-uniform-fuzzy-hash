@@ -1,11 +1,9 @@
 package com.github.s3curitybug.similarityuniformfuzzyhash;
 
-import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.HashCharacteristics;
+import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash.SimilarityTypes;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,35 +62,8 @@ public class UniformFuzzyHashTest {
     }
 
     /**
-     * Hash characteristics test.
-     * Tests the statistics of a hash computed over a test resource file.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file.
-     */
-    @Test
-    public void hashCharacteristicsTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("RandomText/RandomText1/B.txt");
-        final String statisticsFormat = "%s: %s";
-
-        UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
-
-        for (HashCharacteristics statistic : HashCharacteristics.values()) {
-            if (statistic.getGetter() != null) {
-                System.out.println(String.format(
-                        statisticsFormat,
-                        statistic.getName(),
-                        statistic.getCharaceristicValue(hash)));
-            }
-        }
-
-    }
-
-    /**
      * Similarity test.
-     * Tests the similarity between two hashes computed over two test resource files.
+     * Tests all the similarity types between two hashes computed over two test resource files.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
@@ -108,24 +79,18 @@ public class UniformFuzzyHashTest {
         UniformFuzzyHash hash1 = new UniformFuzzyHash(file1, factor);
         UniformFuzzyHash hash2 = new UniformFuzzyHash(file2, factor);
 
-        double similarity1 = hash1.similarity(hash2);
-        double similarity2 = hash1.reverseSimilarity(hash2);
-        double maxSimilarity = hash1.maxSimilarity(hash2);
-        double minSimilarity = hash1.minSimilarity(hash2);
-        double arithmeticMean = hash1.arithmeticMeanSimilarity(hash2);
-        double geometricMean = hash1.geometricMeanSimilarity(hash2);
-
         if (printHashes) {
             System.out.println(hash1);
             System.out.println(hash2);
+            System.out.println();
         }
 
-        System.out.println("File 1 to File 2 similarity: " + DECIMALS_FORMAT.format(similarity1));
-        System.out.println("File 2 to File 1 similarity: " + DECIMALS_FORMAT.format(similarity2));
-        System.out.println("Maximum similarity: " + DECIMALS_FORMAT.format(maxSimilarity));
-        System.out.println("Minimum similarity: " + DECIMALS_FORMAT.format(minSimilarity));
-        System.out.println("Arithmetic mean: " + DECIMALS_FORMAT.format(arithmeticMean));
-        System.out.println("Geometric mean: " + DECIMALS_FORMAT.format(geometricMean));
+        for (SimilarityTypes similarityType : SimilarityTypes.values()) {
+            System.out.println(String.format(
+                    "%s: %s",
+                    similarityType.getName(),
+                    ToStringUtils.formatDecimal(hash1.similarity(hash2, similarityType))));
+        }
 
     }
 

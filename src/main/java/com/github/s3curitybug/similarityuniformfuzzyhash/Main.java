@@ -1,10 +1,9 @@
 package com.github.s3curitybug.similarityuniformfuzzyhash;
 
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.CSV_SEPARATOR;
-import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.DECIMALS_FORMAT;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.IGNORE_MARK;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.NEW_LINE;
-import static com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.DEFAULT_SIMILARITY_SORT_CRITERIA;
+import static com.github.s3curitybug.similarityuniformfuzzyhash.ToStringUtils.formatDecimal;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_BASE;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_FACTOR_DIVISOR;
 import static com.github.s3curitybug.similarityuniformfuzzyhash.VisualRepresentation.DEFAULT_LINE_WRAP;
@@ -16,7 +15,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes;
+import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash.SimilarityTypes;
 
 import java.io.File;
 import java.util.HashMap;
@@ -203,13 +202,13 @@ public final class Main {
          * Sorting by.
          */
         SORTING_BY(
-                "sort", "sortingBy", "[<criteria>]",
+                "sort", "sortingBy", "[<criterion>]",
                 String.format(
-                        "Sorting criteria for hash to all hashes comparisons."
+                        "Sorting criterion for hash to all hashes comparisons."
                                 + NEW_LINE + "-Possible values: %s."
                                 + NEW_LINE + "-Default value if no argument is introduced: %s.",
-                        sortingCriteriasCsv(),
-                        DEFAULT_SIMILARITY_SORT_CRITERIA.getName()),
+                        sortingCriteriaCsv(),
+                        SimilarityTypes.SIMILARITY.getName()),
                 false, 0, 1),
 
         /**
@@ -451,7 +450,7 @@ public final class Main {
             boolean recursive = rArgs != null;
             boolean overwrite = oArgs != null;
 
-            SimilarityTypes sortCriteria = null;
+            SimilarityTypes sortCriterion = null;
             boolean sortAscending = false;
             if (sortArg != null) {
                 sortArg = sortArg.toUpperCase().replace("_", "");
@@ -463,20 +462,20 @@ public final class Main {
                     sortArg = sortArg.replaceAll(SortDirections.ASCENDING.nameUpperCase + "$", "");
                 }
                 if (sortArg.isEmpty()) {
-                    sortCriteria = DEFAULT_SIMILARITY_SORT_CRITERIA;
+                    sortCriterion = SimilarityTypes.SIMILARITY;
                 } else {
                     for (SimilarityTypes similarityType : SimilarityTypes.values()) {
                         if (sortArg.equalsIgnoreCase(similarityType.name().replace("_", ""))
                                 || sortArg.equalsIgnoreCase(similarityType.getName())) {
-                            sortCriteria = similarityType;
+                            sortCriterion = similarityType;
                             break;
                         }
                     }
-                    if (sortCriteria == null) {
+                    if (sortCriterion == null) {
                         throw new IllegalArgumentException(String.format(
-                                "Invalid sorting criteria for option %s. Possible values: %s.",
+                                "Invalid sorting criterion for option %s. Possible values: %s.",
                                 ArgsOptions.SORTING_BY.display(),
-                                sortingCriteriasCsv()));
+                                sortingCriteriaCsv()));
                     }
                 }
             }
@@ -714,7 +713,7 @@ public final class Main {
             if (cdhArgs != null) {
                 for (String cdhArg : cdhArgs) {
                     directory = new File(cdhArg);
-                    hashes = UniformFuzzyHashes.computeNamedHashesFromDirectoryFiles(
+                    hashes = UniformFuzzyHashes.computeHashesFromDirectoryFiles(
                             directory, factor, recursive);
                     computedHashes.putAll(hashes);
                     computedAndLoadedHashes.putAll(hashes);
@@ -724,14 +723,14 @@ public final class Main {
             if (stfArgs != null) {
                 for (String stfArg : stfArgs) {
                     file = new File(stfArg);
-                    UniformFuzzyHashes.saveToTextFile(computedHashes, file, !overwrite);
+                    UniformFuzzyHashes.saveHashesToTextFile(computedHashes, file, !overwrite);
                 }
             }
 
             if (ltfArgs != null) {
                 for (String ltfArg : ltfArgs) {
                     file = new File(ltfArg);
-                    hashes = UniformFuzzyHashes.loadFromTextFile(file);
+                    hashes = UniformFuzzyHashes.loadHashesFromTextFile(file);
                     loadedHashes.putAll(hashes);
                     computedAndLoadedHashes.putAll(hashes);
                 }
@@ -741,13 +740,13 @@ public final class Main {
                 if (!computedHashes.isEmpty() && !loadedHashes.isEmpty()) {
                     System.out.println();
                     System.out.println(IGNORE_MARK + " Computed Hashes:");
-                    UniformFuzzyHashes.printHashes(computedHashes, true, true);
+                    UniformFuzzyHashes.printHashes(computedHashes);
                     System.out.println(IGNORE_MARK + " Loaded Hashes:");
-                    UniformFuzzyHashes.printHashes(loadedHashes, true, true);
+                    UniformFuzzyHashes.printHashes(loadedHashes);
                 } else if (!computedHashes.isEmpty()) {
-                    UniformFuzzyHashes.printHashes(computedHashes, true, true);
+                    UniformFuzzyHashes.printHashes(computedHashes);
                 } else if (!loadedHashes.isEmpty()) {
-                    UniformFuzzyHashes.printHashes(loadedHashes, true, true);
+                    UniformFuzzyHashes.printHashes(loadedHashes);
                 }
             }
 
@@ -784,7 +783,7 @@ public final class Main {
                             computedAndLoadedHashes, xArgs[1]);
                     compareHash2 = computedAndLoadedHashes.get(compareHashName2);
                 }
-                System.out.println(DECIMALS_FORMAT.format(compareHash1.similarity(compareHash2)));
+                System.out.println(formatDecimal(compareHash1.similarity(compareHash2)));
             }
 
             if (xvArgs != null) {
@@ -811,7 +810,7 @@ public final class Main {
                         compareHash1, compareHash2,
                         DEFAULT_BASE, DEFAULT_FACTOR_DIVISOR, lineWrap, true);
                 System.out.println(" Similarity: "
-                        + DECIMALS_FORMAT.format(compareHash1.similarity(compareHash2)));
+                        + formatDecimal(compareHash1.similarity(compareHash2)));
                 System.out.println();
             }
 
@@ -835,19 +834,19 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
+                Map<String, Map<SimilarityTypes, Double>> similarities = UniformFuzzyHashes
+                        .computeHashToHashesSimilarities(compareHash1, hashes);
+                if (sortCriterion != null) {
+                    similarities = UniformFuzzyHashes.sortSimilarities(
+                            similarities, sortCriterion, sortAscending);
+                }
                 if (csvArg == null) {
                     UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
-                            compareHash1, hashes,
-                            sortCriteria, sortAscending,
-                            rowsLimit, truncateNames,
-                            markAbove, markBelow);
+                            similarities, rowsLimit, truncateNames, markAbove, markBelow);
                 } else {
                     file = new File(csvArg);
                     UniformFuzzyHashes.saveHashToHashesSimilaritiesAsCsv(
-                            compareHash1, hashes,
-                            file,
-                            sortCriteria, sortAscending,
-                            rowsLimit);
+                            similarities, file, rowsLimit);
                 }
             }
 
@@ -863,16 +862,15 @@ public final class Main {
                         hashes.put(name, hash);
                     }
                 }
+                Map<String, Map<String, Double>> similarities = UniformFuzzyHashes
+                        .computeAllHashesSimilarities(hashes);
                 if (csvArg == null) {
                     UniformFuzzyHashes.printAllHashesSimilaritiesTable(
-                            hashes,
-                            truncateNames,
-                            markAbove, markBelow);
+                            similarities, truncateNames, markAbove, markBelow);
                 } else {
                     file = new File(csvArg);
                     UniformFuzzyHashes.saveAllHashesSimilaritiesAsCsv(
-                            hashes,
-                            file);
+                            similarities, file);
                 }
             }
 
@@ -1173,9 +1171,9 @@ public final class Main {
     }
 
     /**
-     * @return The comma separated values of possible sorting criterias.
+     * @return The comma separated values of possible sorting criteria.
      */
-    private static String sortingCriteriasCsv() {
+    private static String sortingCriteriaCsv() {
 
         StringBuilder strB = new StringBuilder();
 

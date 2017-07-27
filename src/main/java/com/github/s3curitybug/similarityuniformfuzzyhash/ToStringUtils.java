@@ -4,7 +4,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -29,9 +31,10 @@ public final class ToStringUtils {
     public static final String IGNORE_MARK = "#";
 
     /**
-     * Separator between name and hash for a named Uniform Fuzzy Hash string representation.
+     * Separator between identifier and hash for an identified Uniform Fuzzy Hash string
+     * representation.
      */
-    public static final String NAME_SEPARATOR = " > ";
+    public static final String IDENTIFIER_SEPARATOR = " > ";
 
     /**
      * Separator between factor and blocks for a Uniform Fuzzy Hash string representation.
@@ -59,9 +62,9 @@ public final class ToStringUtils {
     public static final String NEW_LINE = System.getProperty("line.separator");
 
     /**
-     * String which will be used when a name is null.
+     * String which will be used when an identifier is null.
      */
-    public static final String NULL_NAME = "null";
+    public static final String NULL_IDENTIFIER = "null";
 
     /**
      * String which will be used when a value is null.
@@ -246,6 +249,16 @@ public final class ToStringUtils {
     }
 
     /**
+     * ANSI code color which will be used to mark decimals which are above a threshold.
+     */
+    private static final AnsiCodeColors ANSI_CODE_COLOR_DECIMAL_ABOVE = AnsiCodeColors.RED_FONT;
+
+    /**
+     * ANSI code color which will be used to mark decimals which are below a threshold.
+     */
+    private static final AnsiCodeColors ANSI_CODE_COLOR_DECIMAL_BELOW = AnsiCodeColors.BLUE_FONT;
+
+    /**
      * Private constructor.
      */
     private ToStringUtils() {
@@ -253,61 +266,129 @@ public final class ToStringUtils {
     }
 
     /**
-     * Checks a name.
-     * 
-     * @param name The name to check.
-     * @param truncateNameLength Maximum length of the returned name.
-     *        If this parameter is lower than 1, no truncation is performed.
-     * @return NULL_NAME if the name is null, or the original name trimmed and truncated to
-     *         truncateNameLength otherwise.
+     * @param strings Collection of strings.
+     * @return Maximum length between the strings in the collection.
      */
-    protected static String checkName(
-            String name,
-            int truncateNameLength) {
-
-        if (name == null) {
-            name = NULL_NAME;
-        }
-
-        name = name.trim();
-
-        if (truncateNameLength > 0 && name.length() > truncateNameLength) {
-            name = name.substring(0, truncateNameLength);
-        }
-
-        return name;
-
-    }
-
-    /**
-     * @param checkNames True to check the Strings as names before computing their length.
-     * @param truncateNameLength In case Strings are checked as names, introduce a number larger
-     *        than 0 to truncate the Strings to a maximum length.
-     * @param strings Collection of Strings.
-     * @return The length of the longest String within the introduced collection.
-     */
-    protected static int getMaxLength(
-            boolean checkNames,
-            int truncateNameLength,
+    protected static int maxLength(
             Collection<String> strings) {
 
         int maxLength = 0;
 
         for (String string : strings) {
-
-            if (checkNames) {
-                string = checkName(string, truncateNameLength);
-            } else if (string == null) {
-                continue;
-            }
-
-            if (string.length() > maxLength) {
+            if (string != null && string.length() > maxLength) {
                 maxLength = string.length();
             }
-
         }
 
         return maxLength;
+
+    }
+
+    /**
+     * Converts an identifier to string and prepares it to be printed.
+     * 
+     * @param <T> Identifier type.
+     * @param identifier The identifier.
+     * @param truncateLength Maximum length of the returned string.
+     *        If this parameter is lower than 1, no truncation is performed.
+     * @return The identifier prepared to be printed.
+     */
+    protected static <T> String prepareIdentifier(
+            T identifier,
+            int truncateLength) {
+
+        String preparedIdentifier = null;
+
+        if (identifier == null) {
+            preparedIdentifier = NULL_IDENTIFIER;
+        } else {
+            preparedIdentifier = identifier.toString();
+        }
+
+        preparedIdentifier = preparedIdentifier.trim();
+
+        if (truncateLength > 0 && preparedIdentifier.length() > truncateLength) {
+            preparedIdentifier = preparedIdentifier.substring(0, truncateLength);
+        }
+
+        return preparedIdentifier;
+
+    }
+
+    /**
+     * Prepares a collection of identifiers to be printed.
+     * 
+     * @param <T> Identifiers type.
+     * @param identifiers The collection of identifiers.
+     * @param truncateLength Maximum length of the returned string.
+     *        If this parameter is lower than 1, no truncation is performed.
+     * @return The list of identifiers prepared to be printed.
+     */
+    protected static <T> List<String> prepareIdentifiers(
+            Collection<T> identifiers,
+            int truncateLength) {
+
+        List<String> preparedIdentifiers = new ArrayList<>(identifiers.size());
+
+        for (T identifier : identifiers) {
+            String preparedIdentifier = prepareIdentifier(identifier, truncateLength);
+            preparedIdentifiers.add(preparedIdentifier);
+        }
+
+        return preparedIdentifiers;
+
+    }
+
+    /**
+     * Formats a decimal number.
+     * 
+     * @param decimal A decimal number.
+     * @return The formatted decimal number.
+     */
+    public static String formatDecimal(
+            Double decimal) {
+
+        if (decimal == null) {
+            return NULL_VALUE;
+        }
+
+        return DECIMALS_FORMAT.format(decimal);
+
+    }
+
+    /**
+     * Formats a decimal number, marking it with a color if it is above or equal to a threshold, and
+     * with another color if it is below another threshold.
+     * 
+     * @param decimal A decimal number.
+     * @param markAbove Mark the decimal with a color if it is above or equal to this threshold.
+     *        Introduce a negative number to not mark the decimal.
+     * @param markBelow Mark the decimal with a color if it is below this threshold.
+     *        Introduce a negative number to not mark the decimal.
+     * @return The formatted and possibly marked decimal number.
+     */
+    public static String formatDecimal(
+            Double decimal,
+            double markAbove,
+            double markBelow) {
+
+        if (decimal == null) {
+            return NULL_VALUE;
+        }
+
+        String decimalStr = formatDecimal(decimal);
+
+        if (markAbove >= 0 && decimal >= markAbove) {
+            decimalStr = ANSI_CODE_COLOR_DECIMAL_ABOVE.getCode()
+                    + decimalStr
+                    + AnsiCodeColors.RESET.getCode();
+        } else if (markBelow >= 0 && decimal < markBelow) {
+            decimalStr = ANSI_CODE_COLOR_DECIMAL_BELOW.getCode()
+                    + decimalStr
+                    + AnsiCodeColors.RESET.getCode();
+        }
+
+        return decimalStr;
 
     }
 

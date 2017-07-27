@@ -3,7 +3,7 @@ package com.github.s3curitybug.similarityuniformfuzzyhash;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHashes.SimilarityTypes;
+import com.github.s3curitybug.similarityuniformfuzzyhash.UniformFuzzyHash.SimilarityTypes;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +19,8 @@ public class UniformFuzzyHashesTest {
 
     /**
      * Hashes from directory files test.
-     * Tests the algorithm computation over the files of a test resources directory, and the
-     * printHashesTable method.
+     * Tests the algorithm computation over the files of a test resources directory and the
+     * printHashes method.
      * 
      * @throws IOException In case an exception occurs reading a test resource file.
      */
@@ -30,138 +30,11 @@ public class UniformFuzzyHashesTest {
 
         final int factor = 11;
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final boolean printStatistics = true;
-        final boolean printHashes = true;
-        final int truncateNamesLength = 14;
 
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+        Map<String, UniformFuzzyHash> hashes = UniformFuzzyHashes
+                .computeHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.printHashesTable(
-                namesToHashes, printStatistics,
-                printHashes, truncateNamesLength);
-
-    }
-
-    /**
-     * Similarities between file and directory files test.
-     * Tests the similarities between a file and the files of a test resources directory, sorting
-     * them by similarity.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file.
-     */
-    @Test
-    public void similaritiesBetweenFileAndDirectoryFilesTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
-        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final SimilarityTypes sortCriteria = SimilarityTypes.SIMILARITY;
-        final boolean sortAscending = false;
-        final int rowsLimit = -1;
-        final int truncateNamesLength = 14;
-        final double markAbove = -1;
-        final double markBelow = -1;
-
-        UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
-                hash, namesToHashes,
-                sortCriteria, sortAscending,
-                rowsLimit, truncateNamesLength,
-                markAbove, markBelow);
-
-    }
-
-    /**
-     * Similarities between file and directory files CSV test.
-     * Tests the similarities between a file and the files of a test resources directory, sorting
-     * them by similarity, and saving them as a target CSV file.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file or writing a
-     *         target file.
-     */
-    @Test
-    public void similaritiesBetweenFileAndDirectoryFilesCsvTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
-        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
-        final File csvFile = TestResourcesUtils.getTargetFile(directory.getName() + ".csv");
-        final SimilarityTypes sortCriteria = SimilarityTypes.SIMILARITY;
-        final boolean sortAscending = false;
-        final int rowsLimit = -1;
-
-        UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.saveHashToHashesSimilaritiesAsCsv(
-                hash, namesToHashes,
-                csvFile,
-                sortCriteria, sortAscending,
-                rowsLimit);
-
-        Assert.assertTrue(csvFile.exists());
-
-    }
-
-    /**
-     * Similarities between all directory files test.
-     * Tests the similarities between all the files of a test resources directory.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file.
-     */
-    @Test
-    public void similaritiesBetweenAllDirectoryFilesTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
-        final int truncateNamesLength = 14;
-        final double markAbove = -1;
-        final double markBelow = -1;
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.printAllHashesSimilaritiesTable(
-                namesToHashes,
-                truncateNamesLength,
-                markAbove, markBelow);
-
-    }
-
-    /**
-     * Similarities between all directory files CSV test.
-     * Tests the similarities between all the files of a test resources directory,
-     * saving them as a target CSV file.
-     * 
-     * @throws IOException In case an exception occurs reading a test resource file or writing a
-     *         target file.
-     */
-    @Test
-    public void similaritiesBetweenAllDirectoryFilesCsvTest()
-            throws IOException {
-
-        final int factor = 11;
-        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
-        final File csvFile = TestResourcesUtils.getTargetFile(directory.getName() + ".csv");
-
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
-
-        UniformFuzzyHashes.saveAllHashesSimilaritiesAsCsv(
-                namesToHashes,
-                csvFile);
-
-        Assert.assertTrue(csvFile.exists());
+        UniformFuzzyHashes.printHashes(hashes);
 
     }
 
@@ -180,17 +53,94 @@ public class UniformFuzzyHashesTest {
         final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
         final File storageFile = TestResourcesUtils.getTargetFile(directory.getName() + ".sufh");
 
-        Map<String, UniformFuzzyHash> namesToHashes = UniformFuzzyHashes
-                .computeNamedHashesFromDirectoryFiles(directory, factor, true);
+        Map<String, UniformFuzzyHash> hashes = UniformFuzzyHashes
+                .computeHashesFromDirectoryFiles(directory, factor, true);
 
-        UniformFuzzyHashes.saveToTextFile(namesToHashes, storageFile, false);
+        UniformFuzzyHashes.saveHashesToTextFile(hashes, storageFile, false);
 
         Assert.assertTrue(storageFile.exists());
 
-        Map<String, UniformFuzzyHash> loadedNamesToHashes = UniformFuzzyHashes
-                .loadFromTextFile(storageFile);
+        Map<String, UniformFuzzyHash> loadedHashes = UniformFuzzyHashes
+                .loadHashesFromTextFile(storageFile);
 
-        Assert.assertTrue(namesToHashes.equals(loadedNamesToHashes));
+        Assert.assertTrue(hashes.equals(loadedHashes));
+
+    }
+
+    /**
+     * Similarities between file and directory files test.
+     * Tests the similarities between a file and the files of a test resources directory, sorting
+     * them by similarity, printing them in a table and saving them as a target CSV file.
+     * 
+     * @throws IOException In case an exception occurs reading a test resource file.
+     */
+    @Test
+    public void similaritiesBetweenFileAndDirectoryFilesTest()
+            throws IOException {
+
+        final int factor = 11;
+        final File file = TestResourcesUtils.getTestResourceFile("LoremIpsum/ABCD.txt");
+        final File directory = TestResourcesUtils.getTestResourceFile("LoremIpsum");
+        final File csvFile = TestResourcesUtils.getTargetFile(directory.getName() + ".csv");
+        final SimilarityTypes sortCriterion = SimilarityTypes.SIMILARITY;
+        final boolean sortAscending = false;
+        final int rowsLimit = -1;
+        final int truncateIdentifiers = 14;
+        final double markAbove = -1;
+        final double markBelow = -1;
+
+        UniformFuzzyHash hash = new UniformFuzzyHash(file, factor);
+
+        Map<String, UniformFuzzyHash> hashes = UniformFuzzyHashes
+                .computeHashesFromDirectoryFiles(directory, factor, true);
+
+        Map<String, Map<SimilarityTypes, Double>> similarities = UniformFuzzyHashes
+                .computeHashToHashesSimilarities(hash, hashes);
+
+        Map<String, Map<SimilarityTypes, Double>> sortedSimilarities = UniformFuzzyHashes
+                .sortSimilarities(similarities, sortCriterion, sortAscending);
+
+        UniformFuzzyHashes.printHashToHashesSimilaritiesTable(
+                sortedSimilarities, rowsLimit, truncateIdentifiers, markAbove, markBelow);
+
+        UniformFuzzyHashes.saveHashToHashesSimilaritiesAsCsv(
+                sortedSimilarities, csvFile, rowsLimit);
+
+        Assert.assertTrue(csvFile.exists());
+
+    }
+
+    /**
+     * Similarities between all directory files test.
+     * Tests the similarities between all the files of a test resources directory, printing them in
+     * a table and saving them as a target CSV file.
+     * 
+     * @throws IOException In case an exception occurs reading a test resource file.
+     */
+    @Test
+    public void similaritiesBetweenAllDirectoryFilesTest()
+            throws IOException {
+
+        final int factor = 11;
+        final File directory = TestResourcesUtils.getTestResourceFile("InsideDoc");
+        final File csvFile = TestResourcesUtils.getTargetFile(directory.getName() + ".csv");
+        final int truncateIdentifiers = 14;
+        final double markAbove = -1;
+        final double markBelow = -1;
+
+        Map<String, UniformFuzzyHash> hashes = UniformFuzzyHashes
+                .computeHashesFromDirectoryFiles(directory, factor, true);
+
+        Map<String, Map<String, Double>> similarities = UniformFuzzyHashes
+                .computeAllHashesSimilarities(hashes);
+
+        UniformFuzzyHashes.printAllHashesSimilaritiesTable(
+                similarities, truncateIdentifiers, markAbove, markBelow);
+
+        UniformFuzzyHashes.saveAllHashesSimilaritiesAsCsv(
+                similarities, csvFile);
+
+        Assert.assertTrue(csvFile.exists());
 
     }
 
