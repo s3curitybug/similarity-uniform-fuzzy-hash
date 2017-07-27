@@ -6,7 +6,7 @@
 	<!-- Project Attributes -->
 	<groupId>com.github.s3curitybug</groupId>
 	<artifactId>similarity-uniform-fuzzy-hash</artifactId>
-	<version>1.7.1</version>
+	<version>1.8</version>
 
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
