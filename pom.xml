@@ -6,7 +6,7 @@
 	<!-- Project Attributes -->
 	<groupId>com.github.s3curitybug</groupId>
 	<artifactId>similarity-uniform-fuzzy-hash</artifactId>
-	<version>1.8</version>
+	<version>1.8.1</version>
 
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
@@ -95,6 +95,7 @@
 		<profile>
 			<id>libsOutside</id>
 			<properties>
+				<addClasspath>true</addClasspath>
 				<shadePhase>none</shadePhase>
 				<gpgPhase>none</gpgPhase>
 			</properties>
@@ -107,6 +108,7 @@
 		<profile>
 			<id>libsInside</id>
 			<properties>
+				<addClasspath>false</addClasspath>
 				<shadePhase>package</shadePhase>
 				<gpgPhase>none</gpgPhase>
 			</properties>
@@ -116,6 +118,7 @@
 		<profile>
 			<id>libsOutsideSign</id>
 			<properties>
+				<addClasspath>true</addClasspath>
 				<shadePhase>none</shadePhase>
 				<gpgPhase>verify</gpgPhase>
 			</properties>
@@ -125,6 +128,7 @@
 		<profile>
 			<id>libsInsideSign</id>
 			<properties>
+				<addClasspath>false</addClasspath>
 				<shadePhase>package</shadePhase>
 				<gpgPhase>verify</gpgPhase>
 			</properties>
@@ -176,7 +180,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<addClasspath>true</addClasspath>
+							<addClasspath>${addClasspath}</addClasspath>
 							<classpathPrefix>${dependenciesFolder}</classpathPrefix>
 							<mainClass>${mainClass}</mainClass>
 						</manifest>

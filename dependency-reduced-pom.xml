@@ -4,7 +4,7 @@
   <groupId>com.github.s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
   <name>${project.artifactId}</name>
-  <version>1.8</version>
+  <version>1.8.1</version>
   <description>Similarity Uniform Fuzzy Hash is a tool that allows to accurately and efficiently compute 
 		the similarity between two files (or sets of bytes) as a 0 to 1 score.
 		For that purpose, it first computes for each file a Context Triggered Piecewise Hash (CTPH), 
@@ -65,7 +65,7 @@
         <configuration>
           <archive>
             <manifest>
-              <addClasspath>true</addClasspath>
+              <addClasspath>${addClasspath}</addClasspath>
               <classpathPrefix>${dependenciesFolder}</classpathPrefix>
               <mainClass>${mainClass}</mainClass>
             </manifest>
@@ -180,6 +180,7 @@
       <id>libsOutside</id>
       <properties>
         <shadePhase>none</shadePhase>
+        <addClasspath>true</addClasspath>
         <gpgPhase>none</gpgPhase>
       </properties>
     </profile>
@@ -187,6 +188,7 @@
       <id>libsInside</id>
       <properties>
         <shadePhase>package</shadePhase>
+        <addClasspath>false</addClasspath>
         <gpgPhase>none</gpgPhase>
       </properties>
     </profile>
@@ -194,6 +196,7 @@
       <id>libsOutsideSign</id>
       <properties>
         <shadePhase>none</shadePhase>
+        <addClasspath>true</addClasspath>
         <gpgPhase>verify</gpgPhase>
       </properties>
     </profile>
@@ -201,6 +204,7 @@
       <id>libsInsideSign</id>
       <properties>
         <shadePhase>package</shadePhase>
+        <addClasspath>false</addClasspath>
         <gpgPhase>verify</gpgPhase>
       </properties>
     </profile>
