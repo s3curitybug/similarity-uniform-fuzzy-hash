@@ -269,7 +269,7 @@ public final class ToStringUtils {
      * @param strings Collection of strings.
      * @return Maximum length between the strings in the collection.
      */
-    protected static int maxLength(
+    public static int maxLength(
             Collection<String> strings) {
 
         int maxLength = 0;
@@ -293,7 +293,7 @@ public final class ToStringUtils {
      *        If this parameter is lower than 1, no truncation is performed.
      * @return The identifier prepared to be printed.
      */
-    protected static <T> String prepareIdentifier(
+    public static <T> String prepareIdentifier(
             T identifier,
             int truncateLength) {
 
@@ -324,7 +324,7 @@ public final class ToStringUtils {
      *        If this parameter is lower than 1, no truncation is performed.
      * @return The list of identifiers prepared to be printed.
      */
-    protected static <T> List<String> prepareIdentifiers(
+    public static <T> List<String> prepareIdentifiers(
             Collection<T> identifiers,
             int truncateLength) {
 
@@ -397,7 +397,7 @@ public final class ToStringUtils {
      * @param n Amount of repetitions.
      * @return A string formed by the repetition of the introduced string n times.
      */
-    protected static String repeatString(
+    public static String repeatString(
             String string,
             int n) {
 
@@ -419,7 +419,7 @@ public final class ToStringUtils {
      * @param n Amount of spaces.
      * @return A string composed of n spaces.
      */
-    protected static String spaces(
+    public static String spaces(
             int n) {
 
         return repeatString(" ", n);
@@ -430,7 +430,7 @@ public final class ToStringUtils {
      * @param n Amount of hyphens.
      * @return A string composed of n hyphens.
      */
-    protected static String hyphens(
+    public static String hyphens(
             int n) {
 
         return repeatString("-", n);
@@ -443,7 +443,7 @@ public final class ToStringUtils {
      * @param str The string to escape.
      * @return The escaped string.
      */
-    protected static String escapeCsv(
+    public static String escapeCsv(
             String str) {
 
         if (str.contains(CSV_TRIMMED_SEPARATOR) || str.contains(CSV_QUOTATION_MARK)) {
