@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -85,6 +86,12 @@ public final class ToStringUtils {
      * Quotation mark for comma separated values.
      */
     public static final String CSV_QUOTATION_MARK = "\"";
+
+    /**
+     * CSV split pattern.
+     */
+    public static final Pattern CSV_SPLIT_PATTERN =
+            Pattern.compile(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 
     /**
      * Maximum number of characters of an integer string representation.
@@ -457,6 +464,47 @@ public final class ToStringUtils {
             return str;
 
         }
+
+    }
+
+    /**
+     * Unescapes a string that was included into a comma separated values list.
+     * 
+     * @param str The string to unescape.
+     * @return The unescaped string.
+     */
+    public static String unescapeCsv(
+            String str) {
+
+        if (str.startsWith(CSV_QUOTATION_MARK)) {
+            str = str.substring(CSV_QUOTATION_MARK.length());
+        }
+        if (str.endsWith(CSV_QUOTATION_MARK)) {
+            str = str.substring(0, str.length() - CSV_QUOTATION_MARK.length());
+        }
+
+        str = str.replace(CSV_QUOTATION_MARK + CSV_QUOTATION_MARK, CSV_QUOTATION_MARK);
+
+        return str;
+
+    }
+
+    /**
+     * Splits a CSV into a list of strings.
+     * 
+     * @param csv The CSV to split.
+     * @return The splitted CSV.
+     */
+    public static List<String> splitCsv(
+            String csv) {
+
+        List<String> strings = new LinkedList<>();
+
+        for (String str : CSV_SPLIT_PATTERN.split(csv)) {
+            strings.add(unescapeCsv(str.trim()));
+        }
+
+        return strings;
 
     }
 
