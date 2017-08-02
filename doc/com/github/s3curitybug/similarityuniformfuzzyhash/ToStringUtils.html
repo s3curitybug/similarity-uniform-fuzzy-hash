@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,68 +158,74 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static java.util.regex.Pattern</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#CSV_SPLIT_PATTERN">CSV_SPLIT_PATTERN</a></span></code>
+<div class="block">CSV split pattern.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#CSV_TRIMMED_SEPARATOR">CSV_TRIMMED_SEPARATOR</a></span></code>
 <div class="block">Trimmed separator for comma separated values.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.text.DecimalFormat</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#DECIMALS_FORMAT">DECIMALS_FORMAT</a></span></code>
 <div class="block">Format in which decimal numbers are printed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.text.DecimalFormatSymbols</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#DECIMALS_FORMAT_SYMBOLS">DECIMALS_FORMAT_SYMBOLS</a></span></code>
 <div class="block">Symbols for decimal numbers format.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#FACTOR_SEPARATOR">FACTOR_SEPARATOR</a></span></code>
 <div class="block">Separator between factor and blocks for a Uniform Fuzzy Hash string representation.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.nio.charset.Charset</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#FILES_ENCODING">FILES_ENCODING</a></span></code>
 <div class="block">Charset for reading and writing files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#IDENTIFIER_SEPARATOR">IDENTIFIER_SEPARATOR</a></span></code>
 <div class="block">Separator between identifier and hash for an identified Uniform Fuzzy Hash string
  representation.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#IGNORE_MARK">IGNORE_MARK</a></span></code>
 <div class="block">Mark at the beginning of a Uniform Fuzzy Hash file line which indicates that the line should
  be ignored.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NEW_LINE">NEW_LINE</a></span></code>
 <div class="block">New line.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NULL_IDENTIFIER">NULL_IDENTIFIER</a></span></code>
 <div class="block">String which will be used when an identifier is null.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#NULL_VALUE">NULL_VALUE</a></span></code>
 <div class="block">String which will be used when a value is null.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#TAB">TAB</a></span></code>
 <div class="block">Tabulation.</div>
@@ -242,17 +248,66 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#escapeCsv-java.lang.String-">escapeCsv</a></span>(java.lang.String&nbsp;str)</code>
+<div class="block">Escapes a string to include it into a comma separated values list.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#formatDecimal-java.lang.Double-">formatDecimal</a></span>(java.lang.Double&nbsp;decimal)</code>
 <div class="block">Formats a decimal number.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#formatDecimal-java.lang.Double-double-double-">formatDecimal</a></span>(java.lang.Double&nbsp;decimal,
              double&nbsp;markAbove,
              double&nbsp;markBelow)</code>
 <div class="block">Formats a decimal number, marking it with a color if it is above or equal to a threshold, and
  with another color if it is below another threshold.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#hyphens-int-">hyphens</a></span>(int&nbsp;n)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#maxLength-java.util.Collection-">maxLength</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;strings)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#prepareIdentifier-T-int-">prepareIdentifier</a></span>(T&nbsp;identifier,
+                 int&nbsp;truncateLength)</code>
+<div class="block">Converts an identifier to string and prepares it to be printed.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#prepareIdentifiers-java.util.Collection-int-">prepareIdentifiers</a></span>(java.util.Collection&lt;T&gt;&nbsp;identifiers,
+                  int&nbsp;truncateLength)</code>
+<div class="block">Prepares a collection of identifiers to be printed.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#repeatString-java.lang.String-int-">repeatString</a></span>(java.lang.String&nbsp;string,
+            int&nbsp;n)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#spaces-int-">spaces</a></span>(int&nbsp;n)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#splitCsv-java.lang.String-">splitCsv</a></span>(java.lang.String&nbsp;csv)</code>
+<div class="block">Splits a CSV into a list of strings.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/github/s3curitybug/similarityuniformfuzzyhash/ToStringUtils.html#unescapeCsv-java.lang.String-">unescapeCsv</a></span>(java.lang.String&nbsp;str)</code>
+<div class="block">Unescapes a string that was included into a comma separated values list.</div>
 </td>
 </tr>
 </table>
@@ -449,6 +504,16 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="CSV_SPLIT_PATTERN">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CSV_SPLIT_PATTERN</h4>
+<pre>public static final&nbsp;java.util.regex.Pattern CSV_SPLIT_PATTERN</pre>
+<div class="block">CSV split pattern.</div>
+</li>
+</ul>
 <a name="DECIMALS_FORMAT_SYMBOLS">
 <!--   -->
 </a>
@@ -477,6 +542,65 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="maxLength-java.util.Collection-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxLength</h4>
+<pre>public static&nbsp;int&nbsp;maxLength(java.util.Collection&lt;java.lang.String&gt;&nbsp;strings)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>strings</code> - Collection of strings.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Maximum length between the strings in the collection.</dd>
+</dl>
+</li>
+</ul>
+<a name="prepareIdentifier-java.lang.Object-int-">
+<!--   -->
+</a><a name="prepareIdentifier-T-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prepareIdentifier</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;java.lang.String&nbsp;prepareIdentifier(T&nbsp;identifier,
+                                                     int&nbsp;truncateLength)</pre>
+<div class="block">Converts an identifier to string and prepares it to be printed.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - Identifier type.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>identifier</code> - The identifier.</dd>
+<dd><code>truncateLength</code> - Maximum length of the returned string.
+        If this parameter is lower than 1, no truncation is performed.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The identifier prepared to be printed.</dd>
+</dl>
+</li>
+</ul>
+<a name="prepareIdentifiers-java.util.Collection-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prepareIdentifiers</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;prepareIdentifiers(java.util.Collection&lt;T&gt;&nbsp;identifiers,
+                                                                      int&nbsp;truncateLength)</pre>
+<div class="block">Prepares a collection of identifiers to be printed.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - Identifiers type.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>identifiers</code> - The collection of identifiers.</dd>
+<dd><code>truncateLength</code> - Maximum length of the returned string.
+        If this parameter is lower than 1, no truncation is performed.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The list of identifiers prepared to be printed.</dd>
+</dl>
+</li>
+</ul>
 <a name="formatDecimal-java.lang.Double-">
 <!--   -->
 </a>
@@ -496,7 +620,7 @@ extends java.lang.Object</pre>
 <a name="formatDecimal-java.lang.Double-double-double-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>formatDecimal</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;formatDecimal(java.lang.Double&nbsp;decimal,
@@ -513,6 +637,101 @@ extends java.lang.Object</pre>
         Introduce a negative number to not mark the decimal.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The formatted and possibly marked decimal number.</dd>
+</dl>
+</li>
+</ul>
+<a name="repeatString-java.lang.String-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>repeatString</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;repeatString(java.lang.String&nbsp;string,
+                                            int&nbsp;n)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>string</code> - A string to be repeated.</dd>
+<dd><code>n</code> - Amount of repetitions.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A string formed by the repetition of the introduced string n times.</dd>
+</dl>
+</li>
+</ul>
+<a name="spaces-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>spaces</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;spaces(int&nbsp;n)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>n</code> - Amount of spaces.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A string composed of n spaces.</dd>
+</dl>
+</li>
+</ul>
+<a name="hyphens-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hyphens</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;hyphens(int&nbsp;n)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>n</code> - Amount of hyphens.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A string composed of n hyphens.</dd>
+</dl>
+</li>
+</ul>
+<a name="escapeCsv-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>escapeCsv</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;escapeCsv(java.lang.String&nbsp;str)</pre>
+<div class="block">Escapes a string to include it into a comma separated values list.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>str</code> - The string to escape.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The escaped string.</dd>
+</dl>
+</li>
+</ul>
+<a name="unescapeCsv-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unescapeCsv</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;unescapeCsv(java.lang.String&nbsp;str)</pre>
+<div class="block">Unescapes a string that was included into a comma separated values list.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>str</code> - The string to unescape.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The unescaped string.</dd>
+</dl>
+</li>
+</ul>
+<a name="splitCsv-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>splitCsv</h4>
+<pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;splitCsv(java.lang.String&nbsp;csv)</pre>
+<div class="block">Splits a CSV into a list of strings.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>csv</code> - The CSV to split.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The splitted CSV.</dd>
 </dl>
 </li>
 </ul>
