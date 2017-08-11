@@ -267,7 +267,10 @@ public class UniformFuzzyHash {
                     data.getName()));
         }
 
-        byte[] byteArray = IOUtils.toByteArray(new FileInputStream(data));
+        byte[] byteArray = null;
+        try (InputStream inputStream = new FileInputStream(data)) {
+            byteArray = IOUtils.toByteArray(inputStream);
+        }
         computeUniformFuzzyHash(byteArray, factor);
 
     }
