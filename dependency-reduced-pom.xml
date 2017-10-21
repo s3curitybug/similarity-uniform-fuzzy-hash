@@ -4,7 +4,7 @@
   <groupId>com.github.s3curitybug</groupId>
   <artifactId>similarity-uniform-fuzzy-hash</artifactId>
   <name>${project.artifactId}</name>
-  <version>1.8.3</version>
+  <version>1.8.4</version>
   <description>Similarity Uniform Fuzzy Hash is a tool that allows to accurately and efficiently compute 
 		the similarity between two files (or sets of bytes) as a 0 to 1 score.
 		For that purpose, it first computes for each file a Context Triggered Piecewise Hash (CTPH), 
@@ -53,7 +53,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
+        <version>3.7.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
@@ -77,7 +77,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
         <executions>
           <execution>
             <id>copy-dependencies</id>
@@ -94,7 +94,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.0</version>
         <executions>
           <execution>
             <phase>${shadePhase}</phase>
